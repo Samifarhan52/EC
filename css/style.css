@@ -2923,26 +2923,29 @@ button, input, select, textarea {
    STUDYLIFTER CLONED OUR SERVICES SECTION
    ========================================================================== */
 .services-section-studylifter {
-  padding: 5rem 0 5.5rem;
-  background-color: #f8fafc;
-  border-top: 1px solid #e2e8f0;
+  padding: 5.5rem 0 0;
+  background-color: #faf5f0;
+  border-top: 1px solid #ebdcd0;
+  border-bottom: 1px solid #ebdcd0;
   position: relative;
+  overflow: hidden;
 }
 
 .services-layout-grid {
   display: grid;
   grid-template-columns: 0.95fr 2.05fr;
   gap: 3.5rem;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .service-left-box {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .service-left-box .section-eyebrow {
-  color: #2563eb;
+  color: #ea580c;
   font-weight: 800;
   font-size: 0.82rem;
   text-transform: uppercase;
@@ -2962,118 +2965,101 @@ button, input, select, textarea {
   font-size: 1rem;
   line-height: 1.65;
   color: #64748b;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .service-left-img-wrap {
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 20px 40px -12px rgba(15, 23, 42, 0.14), 0 0 0 1px rgba(226, 232, 240, 0.85);
-  background: #ffffff;
-  margin-top: 0.5rem;
-  height: 400px;
-}
-
-.service-left-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 25%;
-  display: block;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.service-left-box:hover .service-left-img-wrap img {
-  transform: scale(1.04);
-}
-
-.service-floating-stat-badge {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  right: 16px;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  border-radius: 16px;
-  padding: 12px 16px;
+  margin-top: auto;
+  margin-bottom: 0;
+  padding-bottom: 0;
   display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.15);
-}
-
-.badge-icon-wrap {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
-  flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+  align-items: flex-end;
+  line-height: 0;
 }
 
-.badge-text-wrap {
-  display: flex;
-  flex-direction: column;
-}
-
-.badge-primary-num {
-  font-size: 0.96rem;
-  font-weight: 800;
-  color: #0f172a;
-  line-height: 1.2;
-}
-
-.badge-sub-label {
-  font-size: 0.74rem;
-  font-weight: 600;
-  color: #64748b;
-  margin-top: 2px;
+.service-left-img-wrap img.service-cutout-img {
+  width: auto;
+  max-width: 100%;
+  max-height: 540px;
+  display: block;
+  margin-bottom: 0;
+  vertical-align: bottom;
+  filter: drop-shadow(0 15px 30px rgba(15, 23, 42, 0.08));
 }
 
 .services-grid-studylifter {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+  padding-bottom: 5.5rem;
 }
 
 .service-item-one {
   background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.85);
   border-radius: 20px;
-  padding: 28px 24px;
+  padding: 30px 26px;
   display: flex;
   flex-direction: column;
-  transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04), 0 2px 4px rgba(15, 23, 42, 0.02);
-  position: relative;
-  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
 }
 
 .service-item-one:hover {
   transform: translateY(-5px);
-  box-shadow: 0 18px 36px -6px rgba(15, 23, 42, 0.1), 0 4px 12px rgba(15, 23, 42, 0.04);
+  border-color: #ea580c;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
 }
 
-/* Base Icon Styling: modern rounded squircle */
+/* Studylifter circular vibrant icons with white symbols matching Screenshot 2 */
 .service-item-one .icon {
-  width: 62px;
-  height: 62px;
-  border-radius: 18px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
+  color: #ffffff;
   margin-bottom: 1.35rem;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   flex-shrink: 0;
+}
+
+.service-item-one:hover .icon {
+  transform: scale(1.08);
+}
+
+/* Individual vibrant solid circle colors matching Screenshot 2 */
+.service-card-counselling .icon {
+  background-color: #f97316; /* Vibrant Orange */
+  box-shadow: 0 6px 16px rgba(249, 115, 22, 0.3);
+}
+
+.service-card-documents .icon {
+  background-color: #2563eb; /* Royal Blue */
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+}
+
+.service-card-application .icon {
+  background-color: #ea580c; /* Coral Red like row 3 in Screenshot 2 */
+  box-shadow: 0 6px 16px rgba(234, 88, 12, 0.3);
+}
+
+.service-card-preparations .icon {
+  background-color: #eab308; /* Bright Yellow/Gold like row 2 in Screenshot 2 */
+  box-shadow: 0 6px 16px rgba(234, 179, 8, 0.3);
+}
+
+.service-card-scholarship .icon {
+  background-color: #d97706; /* Rich Amber */
+  box-shadow: 0 6px 16px rgba(217, 119, 6, 0.3);
+}
+
+.service-card-departure .icon {
+  background-color: #1e1b4b; /* Deep Navy like row 3 in Screenshot 2 */
+  box-shadow: 0 6px 16px rgba(30, 27, 75, 0.3);
 }
 
 .service-item-one .title {
@@ -3086,8 +3072,12 @@ button, input, select, textarea {
   transition: color 0.2s ease;
 }
 
+.service-item-one:hover .title {
+  color: #ea580c;
+}
+
 .service-item-one .info {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   line-height: 1.6;
   color: #64748b;
   margin-bottom: 1.35rem;
@@ -3096,7 +3086,7 @@ button, input, select, textarea {
 
 .service-item-one .link {
   font-size: 0.9rem;
-  font-weight: 750;
+  font-weight: 800;
   color: #0f172a;
   text-decoration: none;
   display: inline-flex;
@@ -3107,143 +3097,8 @@ button, input, select, textarea {
 }
 
 .service-item-one:hover .link {
+  color: #ea580c;
   gap: 12px;
-}
-
-/* =========================================
-   INDIVIDUAL THEMED SERVICE CARD COLOR SCHEMES
-   ========================================= */
-
-/* 1. 1-on-1 Counselling (Royal Indigo / Violet) */
-.service-card-counselling .icon {
-  background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
-  color: #4338ca;
-  border: 1.5px solid #c7d2fe;
-  box-shadow: 0 4px 12px rgba(67, 56, 202, 0.1);
-}
-.service-card-counselling:hover {
-  border-color: #6366f1;
-}
-.service-card-counselling:hover .icon {
-  background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
-  color: #ffffff;
-  border-color: #4338ca;
-  box-shadow: 0 8px 22px rgba(67, 56, 202, 0.35);
-  transform: translateY(-3px) scale(1.06);
-}
-.service-card-counselling:hover .title,
-.service-card-counselling:hover .link {
-  color: #4338ca;
-}
-
-/* 2. Document Processing (Emerald / Mint) */
-.service-card-documents .icon {
-  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-  color: #047857;
-  border: 1.5px solid #a7f3d0;
-  box-shadow: 0 4px 12px rgba(4, 120, 87, 0.1);
-}
-.service-card-documents:hover {
-  border-color: #10b981;
-}
-.service-card-documents:hover .icon {
-  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
-  color: #ffffff;
-  border-color: #047857;
-  box-shadow: 0 8px 22px rgba(4, 120, 87, 0.35);
-  transform: translateY(-3px) scale(1.06);
-}
-.service-card-documents:hover .title,
-.service-card-documents:hover .link {
-  color: #047857;
-}
-
-/* 3. Application Assistance (Electric Blue) */
-.service-card-application .icon {
-  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-  color: #1d4ed8;
-  border: 1.5px solid #bfdbfe;
-  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.1);
-}
-.service-card-application:hover {
-  border-color: #3b82f6;
-}
-.service-card-application:hover .icon {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-  color: #ffffff;
-  border-color: #1d4ed8;
-  box-shadow: 0 8px 22px rgba(29, 78, 216, 0.35);
-  transform: translateY(-3px) scale(1.06);
-}
-.service-card-application:hover .title,
-.service-card-application:hover .link {
-  color: #1d4ed8;
-}
-
-/* 4. Preparations (Amber / Gold) */
-.service-card-preparations .icon {
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-  color: #b45309;
-  border: 1.5px solid #fde68a;
-  box-shadow: 0 4px 12px rgba(180, 83, 9, 0.1);
-}
-.service-card-preparations:hover {
-  border-color: #f59e0b;
-}
-.service-card-preparations:hover .icon {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  color: #ffffff;
-  border-color: #d97706;
-  box-shadow: 0 8px 22px rgba(180, 83, 9, 0.35);
-  transform: translateY(-3px) scale(1.06);
-}
-.service-card-preparations:hover .title,
-.service-card-preparations:hover .link {
-  color: #b45309;
-}
-
-/* 5. Scholarship Guidance (Purple / Violet) */
-.service-card-scholarship .icon {
-  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
-  color: #6d28d9;
-  border: 1.5px solid #ddd6fe;
-  box-shadow: 0 4px 12px rgba(109, 40, 217, 0.1);
-}
-.service-card-scholarship:hover {
-  border-color: #8b5cf6;
-}
-.service-card-scholarship:hover .icon {
-  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
-  color: #ffffff;
-  border-color: #6d28d9;
-  box-shadow: 0 8px 22px rgba(109, 40, 217, 0.35);
-  transform: translateY(-3px) scale(1.06);
-}
-.service-card-scholarship:hover .title,
-.service-card-scholarship:hover .link {
-  color: #6d28d9;
-}
-
-/* 6. Pre-Departure & Onboarding Support (Rose / Crimson) */
-.service-card-departure .icon {
-  background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
-  color: #be123c;
-  border: 1.5px solid #fecdd3;
-  box-shadow: 0 4px 12px rgba(190, 18, 60, 0.1);
-}
-.service-card-departure:hover {
-  border-color: #f43f5e;
-}
-.service-card-departure:hover .icon {
-  background: linear-gradient(135deg, #f43f5e 0%, #be123c 100%);
-  color: #ffffff;
-  border-color: #be123c;
-  box-shadow: 0 8px 22px rgba(190, 18, 60, 0.35);
-  transform: translateY(-3px) scale(1.06);
-}
-.service-card-departure:hover .title,
-.service-card-departure:hover .link {
-  color: #be123c;
 }
 
 /* ==========================================================================
@@ -3599,12 +3454,16 @@ button, input, select, textarea {
     gap: 2.5rem;
   }
   .service-left-img-wrap {
-    height: 340px;
-    max-width: 540px;
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+  .service-left-img-wrap img.service-cutout-img {
+    max-height: 420px;
     margin: 0 auto;
   }
   .services-grid-studylifter {
     grid-template-columns: 1fr;
+    padding-bottom: 3.5rem;
   }
   .howWork-steps-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -3616,22 +3475,8 @@ button, input, select, textarea {
   .howWork-steps-grid {
     grid-template-columns: 1fr;
   }
-  .service-left-img-wrap {
-    height: 270px;
-  }
-  .service-floating-stat-badge {
-    padding: 10px 12px;
-  }
-  .badge-icon-wrap {
-    width: 36px;
-    height: 36px;
-    font-size: 1rem;
-  }
-  .badge-primary-num {
-    font-size: 0.88rem;
-  }
-  .badge-sub-label {
-    font-size: 0.68rem;
+  .service-left-img-wrap img.service-cutout-img {
+    max-height: 340px;
   }
 }
 
