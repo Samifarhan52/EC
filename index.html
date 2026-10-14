@@ -99,6 +99,155 @@
       background: rgba(255, 255, 255, 0.25) !important;
       color: #ffffff !important;
     }
+
+    /* ==========================================================================
+       STUDYLIFTER CLONED HERO BANNER STYLES
+       ========================================================================== */
+    .hero-banner-section {
+      position: relative;
+      padding: 1.5rem 0 3.5rem !important;
+      background: transparent !important;
+    }
+    .hero-banner-content {
+      position: relative;
+      border-radius: 40px !important;
+      overflow: hidden !important;
+      padding: 275px 24px 60px !important;
+      text-align: center !important;
+      background-size: cover !important;
+      background-position: center top !important;
+      background-repeat: no-repeat !important;
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12) !important;
+    }
+    .hero-banner-content::before {
+      content: "" !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: linear-gradient(0deg, rgba(251, 84, 33, 1) 32%, rgba(251, 84, 33, 0.88) 52%, rgba(251, 84, 33, 0.3) 74%, rgba(251, 84, 33, 0) 100%) !important;
+      pointer-events: none !important;
+    }
+    .hero-banner-content::after {
+      content: "" !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      background-image: url('images/hero-banner-shape.svg') !important;
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
+      background-position: center bottom !important;
+      pointer-events: none !important;
+      opacity: 0.95 !important;
+    }
+    .hero-banner-title {
+      position: relative !important;
+      z-index: 2 !important;
+      max-width: 860px !important;
+      margin: 0 auto !important;
+      font-size: 58px !important;
+      font-weight: 800 !important;
+      line-height: 1.15 !important;
+      color: #ffffff !important;
+      padding-bottom: 16px !important;
+      letter-spacing: -0.02em !important;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.18) !important;
+    }
+    .hero-banner-info {
+      position: relative !important;
+      z-index: 2 !important;
+      max-width: 580px !important;
+      margin: 0 auto 30px !important;
+      font-size: 16px !important;
+      font-weight: 500 !important;
+      line-height: 26px !important;
+      color: #ffffff !important;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) !important;
+    }
+    .hero-banner-action {
+      position: relative !important;
+      z-index: 2 !important;
+    }
+    .hero-cta-btn {
+      display: inline-flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      gap: 12px !important;
+      padding: 12px 14px 12px 28px !important;
+      border: 1px solid #f5dc3c !important;
+      border-radius: 50px !important;
+      background-color: #f5dc3c !important;
+      font-size: 16px !important;
+      font-weight: 700 !important;
+      line-height: 24px !important;
+      color: #121d35 !important;
+      text-decoration: none !important;
+      transition: all 0.3s ease !important;
+      box-shadow: 0 8px 24px rgba(245, 220, 60, 0.45) !important;
+    }
+    .hero-cta-btn:hover {
+      background-color: #fcd34d !important;
+      border-color: #fcd34d !important;
+      color: #121d35 !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 12px 28px rgba(245, 220, 60, 0.65) !important;
+    }
+    .hero-cta-btn .icon {
+      position: relative !important;
+      width: 32px !important;
+      height: 32px !important;
+      border-radius: 50% !important;
+      background-color: #121d35 !important;
+      display: inline-flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      overflow: hidden !important;
+      transition: all 0.3s ease !important;
+    }
+    .hero-cta-btn .icon i {
+      color: #ffffff !important;
+      font-size: 11px !important;
+      transition: transform 0.3s ease !important;
+    }
+    .hero-cta-btn:hover .icon i {
+      transform: translateX(2px) !important;
+    }
+    @media screen and (max-width: 991px) {
+      .hero-banner-content {
+        padding-top: 220px !important;
+        padding-bottom: 48px !important;
+      }
+      .hero-banner-title {
+        font-size: 46px !important;
+      }
+    }
+    @media screen and (max-width: 767px) {
+      .hero-banner-content {
+        padding-top: 170px !important;
+        padding-bottom: 36px !important;
+        border-radius: 24px !important;
+      }
+      .hero-banner-title {
+        font-size: 34px !important;
+      }
+      .hero-banner-info {
+        font-size: 14.5px !important;
+        line-height: 22px !important;
+      }
+    }
+    @media screen and (max-width: 575px) {
+      .hero-banner-content {
+        padding-top: 140px !important;
+        padding-bottom: 30px !important;
+        border-radius: 20px !important;
+      }
+      .hero-banner-title {
+        font-size: 28px !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -227,104 +376,22 @@
   </header>
 
   <!-- ==============================================================================
-       3. HERO BANNER SECTION (CURVED BLUE CONTAINER MATCHING theeduconsultant.in)
+       3. HERO BANNER SECTION (CLONED STUDYLIFTER STRUCTURE & DESIGN)
        ============================================================================== -->
   <section class="hero-banner-section" id="heroSection">
     <div class="container">
-      <div class="hero-grid-layout">
-        <!-- Left Column: Compelling Pitch & Trust Elements -->
-        <div class="hero-pitch-column">
-          <div class="hero-trust-badge">
-            <i class="fa-solid fa-star"></i>
-            #1 Admissions & Management Quota Advisory
-          </div>
-          
-          <h1 class="hero-main-title">
-            Explore Top <span class="gradient-text">Admissions 2027</span> Across Premier Universities.
-          </h1>
-          
-          <p class="hero-subtext">
-            The Edu Consultant connects ambitious students with verified direct seats under official Institutional Management Quota and NRI categories. Transparent fee structures, zero hidden costs, and personalized career mentoring by certified education strategists.
-          </p>
-
-          <div class="hero-social-proof">
-            <div class="avatar-stack">
-              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80" alt="Student" loading="lazy">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80" alt="Student" loading="lazy">
-              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&q=80" alt="Student" loading="lazy">
-              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&q=80" alt="Student" loading="lazy">
-            </div>
-            <div class="proof-text">
-              <div class="proof-rating">★★★★★ 4.9/5 Trust Rating</div>
-              <div class="proof-count">1,280+ Placed Scholars Across Bangalore & Worldwide</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Column: ATTRACTIVE & MODERN ADMISSIONS FLIP BOX -->
-        <div class="hero-flip-box-wrap">
-          <div class="hero-interactive-box">
-            <div class="box-corner-badge">
-              <span class="live-pulse-dot"></span>
-              <span>Active Quota 2027</span>
-            </div>
-
-            <div class="flipbox-header">
-              <div class="flipbox-eyebrow">
-                <i class="fa-solid fa-graduation-cap"></i> Admissions Inquiry
-              </div>
-              <h2 class="flipbox-title">Are you looking for Admissions in...</h2>
-            </div>
-
-            <!-- 2-Second Dynamic Text Flip Chamber -->
-            <div class="flip-display-chamber">
-              <div class="flip-college-info">
-                <span class="flip-college-label" id="flipCollegeLabel">Bangalore (Central & BGR)</span>
-                <div class="flip-college-name-wrapper">
-                  <span class="flip-college-name anim-active" id="flipCollegeName">Christ University</span>
-                </div>
-              </div>
-              <div class="flip-tag-badge" id="flipCollegeBadge">
-                <i class="fa-solid fa-award"></i> NAAC A+ • Deemed Univ
-              </div>
-            </div>
-
-            <p class="flipbox-desc" id="flipCollegeDesc">
-              Premier multi-disciplinary campus known for B.Com, BBA, Law, BCA & MBA direct quota seats.
-            </p>
-
-            <!-- Verified Points -->
-            <div class="flipbox-highlights">
-              <div class="highlight-point">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>Verified Seat Matrix</span>
-              </div>
-              <div class="highlight-point">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>Direct Institution Quota</span>
-              </div>
-              <div class="highlight-point">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>Complete Fee Transparency</span>
-              </div>
-              <div class="highlight-point">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>1-on-1 Senior Counselor</span>
-              </div>
-            </div>
-
-            <!-- TWO PRIMARY ACTION BUTTONS -->
-            <div class="flipbox-cta-group">
-              <a href="enquiry.html" class="btn-flipbox-primary" style="text-decoration: none;">
-                <i class="fa-solid fa-id-card-clip"></i>
-                <span>Register Now</span>
-              </a>
-              <a href="fee-structure.html" class="btn-flipbox-secondary" style="text-decoration: none;">
-                <i class="fa-solid fa-file-arrow-down"></i>
-                <span>Download Fee Structure</span>
-              </a>
-            </div>
-          </div>
+      <div class="hero-banner-content" style="background-image: url('images/hero-banner-students.jpg');">
+        <h1 class="hero-banner-title">Get your admission in Top Colleges in Bangalore.</h1>
+        <p class="hero-banner-info">
+          The Edu Consultant connects ambitious students with verified direct seats under official Institutional Management Quota and NRI categories across premier autonomous colleges.
+        </p>
+        <div class="hero-banner-action">
+          <a href="enquiry.html" class="hero-cta-btn" aria-label="Register Now for Admissions 2027">
+            <span>Register Now</span>
+            <span class="icon">
+              <i class="fa-solid fa-chevron-right"></i>
+            </span>
+          </a>
         </div>
       </div>
     </div>

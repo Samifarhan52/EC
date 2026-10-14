@@ -523,12 +523,127 @@ button, input, select, textarea {
    ========================================================================== */
 .hero-banner-section {
   position: relative;
-  padding: 4.5rem 0 5.5rem;
-  background: radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 45%),
-              radial-gradient(circle at 85% 15%, rgba(6, 182, 212, 0.07) 0%, transparent 40%),
-              radial-gradient(circle at 50% 90%, rgba(245, 158, 11, 0.05) 0%, transparent 50%),
-              var(--white);
+  padding: 1.5rem 0 3.5rem;
+  background: transparent;
   overflow: hidden;
+}
+
+.hero-banner-content {
+  position: relative;
+  border-radius: 40px;
+  overflow: hidden;
+  padding: 275px 24px 60px;
+  text-align: center;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
+}
+
+.hero-banner-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(251, 84, 33, 1) 32%, rgba(251, 84, 33, 0.88) 52%, rgba(251, 84, 33, 0.3) 74%, rgba(251, 84, 33, 0) 100%);
+  pointer-events: none;
+}
+
+.hero-banner-content::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/hero-banner-shape.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+.hero-banner-title {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  margin: 0 auto;
+  font-size: 58px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  padding-bottom: 16px;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.18);
+}
+
+.hero-banner-info {
+  position: relative;
+  z-index: 2;
+  max-width: 580px;
+  margin: 0 auto 30px !important;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-banner-action {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-cta-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px 12px 28px;
+  border: 1px solid #f5dc3c;
+  border-radius: 50px;
+  background-color: #f5dc3c;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #121d35 !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(245, 220, 60, 0.45);
+}
+
+.hero-cta-btn:hover {
+  background-color: #fcd34d !important;
+  border-color: #fcd34d !important;
+  color: #121d35 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(245, 220, 60, 0.65);
+}
+
+.hero-cta-btn .icon {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #121d35;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.hero-cta-btn .icon i {
+  color: #ffffff;
+  font-size: 11px;
+  transition: transform 0.3s ease;
+}
+
+.hero-cta-btn:hover .icon i {
+  transform: translateX(2px);
 }
 
 /* Subtle background grid */
