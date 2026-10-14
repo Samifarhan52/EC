@@ -128,6 +128,7 @@
         <a href="#heroSection" class="nav-link active">Home</a>
         <a href="#directorySection" class="nav-link" onclick="if(window.switchDirectoryMode){window.switchDirectoryMode('programs');}">Programs</a>
         <a href="#servicesSection" class="nav-link">Services</a>
+        <a href="enquiry.html" class="nav-link" title="Open Dedicated Enquiry & Promotion Form">Enquiry Form</a>
       </nav>
 
       <div class="header-action-group">
@@ -785,11 +786,34 @@
         <!-- Right Side: Interactive Admission Form -->
         <div class="interactive-form-box">
           <div class="form-box-header">
-            <h4 class="form-box-title">Student Admissions Form</h4>
-            <p class="form-box-subtitle">Fill in your preferred college & course to receive verified seat confirmation.</p>
+            <h4 class="form-box-title">Submit your Enquiry</h4>
+            <p class="form-box-subtitle">Submit your details to secure Management Quota / NRI priority for 2027.</p>
+          </div>
+
+          <!-- Scrolling Enquiry Category Buttons -->
+          <div class="enquiry-buttons-scroller-wrap" aria-label="Select Enquiry Category">
+            <div class="enquiry-buttons-track" role="tablist">
+              <button type="button" class="enquiry-pill-btn active" data-type="admission-enquiry" data-form-id="mainAdmissionsForm">
+                <span class="pill-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                <span class="pill-text">Admission Enquiry</span>
+              </button>
+              <button type="button" class="enquiry-pill-btn" data-type="fee-structure" data-form-id="mainAdmissionsForm">
+                <span class="pill-icon"><i class="fa-solid fa-file-invoice-dollar"></i></span>
+                <span class="pill-text">Fee Structure</span>
+              </button>
+              <button type="button" class="enquiry-pill-btn" data-type="management-quota" data-form-id="mainAdmissionsForm">
+                <span class="pill-icon"><i class="fa-solid fa-bolt-lightning"></i></span>
+                <span class="pill-text">Management Quota</span>
+              </button>
+              <button type="button" class="enquiry-pill-btn" data-type="abroad-admissions" data-form-id="mainAdmissionsForm">
+                <span class="pill-icon"><i class="fa-solid fa-earth-americas"></i></span>
+                <span class="pill-text">Abroad Admissions</span>
+              </button>
+            </div>
           </div>
 
           <form id="mainAdmissionsForm">
+            <input type="hidden" name="enquiryType" id="mainEnquiryType" value="admission-enquiry">
             <div class="admission-form-grid">
               <!-- Full Name -->
               <!-- Full Name -->
@@ -939,11 +963,34 @@
       </button>
 
       <div class="modal-header-block">
-        <h3 class="modal-title" id="registerModalTitle">Register for Direct Admission</h3>
+        <h3 class="modal-title" id="registerModalTitle">Submit your Enquiry</h3>
         <p class="modal-subtitle">Submit your details to secure Management Quota / NRI priority for 2027.</p>
       </div>
 
+      <!-- Scrolling Enquiry Category Buttons -->
+      <div class="enquiry-buttons-scroller-wrap" aria-label="Select Enquiry Category">
+        <div class="enquiry-buttons-track" role="tablist">
+          <button type="button" class="enquiry-pill-btn active" data-type="admission-enquiry" data-form-id="modalRegisterForm">
+            <span class="pill-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+            <span class="pill-text">Admission Enquiry</span>
+          </button>
+          <button type="button" class="enquiry-pill-btn" data-type="fee-structure" data-form-id="modalRegisterForm">
+            <span class="pill-icon"><i class="fa-solid fa-file-invoice-dollar"></i></span>
+            <span class="pill-text">Fee Structure</span>
+          </button>
+          <button type="button" class="enquiry-pill-btn" data-type="management-quota" data-form-id="modalRegisterForm">
+            <span class="pill-icon"><i class="fa-solid fa-bolt-lightning"></i></span>
+            <span class="pill-text">Management Quota</span>
+          </button>
+          <button type="button" class="enquiry-pill-btn" data-type="abroad-admissions" data-form-id="modalRegisterForm">
+            <span class="pill-icon"><i class="fa-solid fa-earth-americas"></i></span>
+            <span class="pill-text">Abroad Admissions</span>
+          </button>
+        </div>
+      </div>
+
       <form id="modalRegisterForm">
+        <input type="hidden" name="enquiryType" id="modalEnquiryType" value="admission-enquiry">
         <div class="admission-form-grid">
           <!-- Full Name -->
           <div class="form-field-group">
@@ -1063,8 +1110,8 @@
 
           <!-- Submit Button -->
           <button type="submit" class="btn-form-submit">
-            <i class="fa-solid fa-check-circle"></i>
-            <span>Register Now</span>
+            <i class="fa-solid fa-paper-plane"></i>
+            <span id="modalRegisterSubmitText">Submit your Enquiry & Lock Priority</span>
           </button>
         </div>
       </form>

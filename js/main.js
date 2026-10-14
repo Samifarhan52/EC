@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFormSubmissions();
   initMobileNavigation();
   initScrollHeader();
+  initEnquiryPillButtons();
 });
 
 /* ==========================================================================
@@ -594,6 +595,10 @@ function initConditionalFormFields() {
   // Fee modal pairs
   setupConditionalPair('feeModalCourseSelect', 'feeConditionalCourseOther');
   setupConditionalPair('feeModalCollegeSelect', 'feeConditionalCollegeOther');
+
+  // Standalone enquiry page pairs
+  setupConditionalPair('enquiryCourseSelect', 'enquiryConditionalCourseOther');
+  setupConditionalPair('enquiryCollegeSelect', 'enquiryConditionalCollegeOther');
 }
 
 function setupConditionalPair(selectId, conditionalWrapId) {
@@ -813,6 +818,25 @@ function initFormSubmissions() {
       downloadFeeForm.reset();
     });
   }
+
+  // Standalone enquiry page form
+  const standaloneEnquiryForm = document.getElementById('standaloneEnquiryForm');
+  if (standaloneEnquiryForm) {
+    standaloneEnquiryForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = standaloneEnquiryForm.querySelector('input[name="fullName"]')?.value || 'Student';
+      const enquiryType = standaloneEnquiryForm.querySelector('input[name="enquiryType"]')?.value || 'admission-enquiry';
+      if (enquiryType === 'fee-structure') {
+        const college = standaloneEnquiryForm.querySelector('select[name="college"]')?.value || 'Premier Institution';
+        const course = standaloneEnquiryForm.querySelector('select[name="course"]')?.value || 'Academic Program';
+        triggerFeeDocumentDownload(name, college, course);
+        window.openSuccessModal(name, 'fee');
+      } else {
+        window.openSuccessModal(name, 'registration');
+      }
+      standaloneEnquiryForm.reset();
+    });
+  }
 }
 
 /**
@@ -913,3 +937,96 @@ function initScrollHeader() {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 }
+
+/* ==========================================================================
+   8. SCROLLING ENQUIRY BUTTONS CONTROLLER
+   (Admission Enquiry, Fee Structure, Management Quota, Abroad Admissions)
+   ========================================================================== */
+function initEnquiryPillButtons() {
+  document.querySelectorAll('.enquiry-buttons-track').forEach(track => {
+    const buttons = track.querySelectorAll('.enquiry-pill-btn');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active from siblings in this track
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const enquiryType = btn.getAttribute('data-type') || 'admission-enquiry';
+        const formId = btn.getAttribute('data-form-id');
+        const form = formId ? document.getElementById(formId) : btn.closest('form');
+
+        if (form) {
+          // Update hidden input
+          const hiddenInput = form.querySelector('input[name="enquiryType"]');
+          if (hiddenInput) {
+            hiddenInput.value = enquiryType;
+          }
+
+          // Dynamic submit button text
+          const submitBtn = form.querySelector('button[type="submit"]');
+          const submitTextSpan = submitBtn ? submitBtn.querySelector('span') : null;
+          if (submitTextSpan) {
+            if (enquiryType === 'fee-structure') {
+              submitTextSpan.textContent = 'Download Verified Fee Structure (2027)';
+            } else if (enquiryType === 'management-quota') {
+              submitTextSpan.textContent = 'Apply for Management Quota Priority';
+            } else if (enquiryType === 'abroad-admissions') {
+              submitTextSpan.textContent = 'Submit Abroad Admission Enquiry';
+            } else {
+              submitTextSpan.textContent = 'Submit your Enquiry & Lock Priority';
+            }
+          }
+
+          // Dynamic context pre-selections
+          const destinationSelect = form.querySelector('select[name="studyDestination"]');
+          if (destinationSelect) {
+            if (enquiryType === 'abroad-admissions') {
+              destinationSelect.value = 'Abroad';
+            } else if (enquiryType === 'management-quota') {
+              destinationSelect.value = 'India';
+            }
+          }
+        }
+      });
+    });
+  });
+
+  // URL search parameter support (?type=fee, ?type=quota, ?type=abroad, ?type=admission, ?college=..., ?course=...)
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const typeParam = urlParams.get('type') || urlParams.get('category');
+    if (typeParam) {
+      let targetType = 'admission-enquiry';
+      if (typeParam.includes('fee')) targetType = 'fee-structure';
+      else if (typeParam.includes('quota') || typeParam.includes('mgmt')) targetType = 'management-quota';
+      else if (typeParam.includes('abroad') || typeParam.includes('global')) targetType = 'abroad-admissions';
+
+      document.querySelectorAll(`.enquiry-pill-btn[data-type="${targetType}"]`).forEach(btn => {
+        btn.click();
+      });
+    }
+
+    const collegeParam = urlParams.get('college');
+    if (collegeParam) {
+      document.querySelectorAll('select[name="college"]').forEach(sel => {
+        const match = Array.from(sel.options).find(o => o.value.toLowerCase().includes(collegeParam.toLowerCase()));
+        if (match) {
+          sel.value = match.value;
+        }
+      });
+    }
+
+    const courseParam = urlParams.get('course') || urlParams.get('stream');
+    if (courseParam) {
+      document.querySelectorAll('select[name="course"]').forEach(sel => {
+        const match = Array.from(sel.options).find(o => o.value.toLowerCase().includes(courseParam.toLowerCase()));
+        if (match) {
+          sel.value = match.value;
+        }
+      });
+    }
+  } catch (err) {
+    console.warn('URL params parser:', err);
+  }
+}
+

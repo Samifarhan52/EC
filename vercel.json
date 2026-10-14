@@ -2,6 +2,12 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/enquiry", "destination": "/enquiry.html" },
+    { "source": "/apply", "destination": "/enquiry.html" },
+    { "source": "/register", "destination": "/enquiry.html" },
+    { "source": "/admission-enquiry", "destination": "/enquiry.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
