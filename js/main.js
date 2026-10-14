@@ -966,3 +966,91 @@ function initEnquiryPillButtons() {
   }
 }
 
+/* ==========================================================================
+   STUDYLIFTER FLOATING SEARCH & TAB CONTROLLER (BANGALORE & INDIA ADMISSIONS)
+   ========================================================================== */
+window.handleSearchTabClick = function(tab) {
+  const tabs = document.querySelectorAll('.search-tab-pill');
+  tabs.forEach(t => t.classList.remove('active'));
+  
+  if (tab === 'colleges') {
+    const tabEl = document.getElementById('searchTabColleges');
+    if (tabEl) tabEl.classList.add('active');
+    if (typeof window.switchDirectoryMode === 'function') {
+      window.switchDirectoryMode('colleges');
+    }
+    const dirEl = document.getElementById('directorySection');
+    if (dirEl) dirEl.scrollIntoView({ behavior: 'smooth' });
+  } else if (tab === 'programs') {
+    const tabEl = document.getElementById('searchTabPrograms');
+    if (tabEl) tabEl.classList.add('active');
+    if (typeof window.switchDirectoryMode === 'function') {
+      window.switchDirectoryMode('programs');
+    }
+    const dirEl = document.getElementById('directorySection');
+    if (dirEl) dirEl.scrollIntoView({ behavior: 'smooth' });
+  } else if (tab === 'fees') {
+    const tabEl = document.getElementById('searchTabFees');
+    if (tabEl) tabEl.classList.add('active');
+    window.location.href = 'fee-structure.html';
+  } else if (tab === 'counselling') {
+    const tabEl = document.getElementById('searchTabCounselling');
+    if (tabEl) tabEl.classList.add('active');
+    window.location.href = 'enquiry.html';
+  }
+};
+
+window.handleHeroQuickSearch = function(e) {
+  if (e) e.preventDefault();
+  const disc = document.getElementById('searchDiscipline')?.value || 'all';
+  const college = document.getElementById('searchCollege')?.value || 'all';
+  
+  // Update directory category filter pill
+  const filterPills = document.querySelectorAll('.filter-tag');
+  filterPills.forEach(p => {
+    if (p.dataset.filter === disc) {
+      p.classList.add('active');
+    } else {
+      p.classList.remove('active');
+    }
+  });
+
+  currentCategoryFilter = disc;
+  currentDirectoryMode = 'colleges';
+  const modeCollegesBtn = document.getElementById('modeCollegesBtn');
+  const modeProgramsBtn = document.getElementById('modeProgramsBtn');
+  if (modeCollegesBtn) modeCollegesBtn.classList.add('active');
+  if (modeProgramsBtn) modeProgramsBtn.classList.remove('active');
+  
+  if (typeof renderDirectoryGrid === 'function') {
+    renderDirectoryGrid();
+  }
+
+  const dirEl = document.getElementById('directorySection');
+  if (dirEl) {
+    dirEl.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // If a specific college was chosen, highlight its card
+  if (college !== 'all') {
+    setTimeout(() => {
+      const cards = document.querySelectorAll('.directory-card');
+      const searchTerms = college.toLowerCase().split(' ');
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        const matches = searchTerms.some(term => term.length > 2 && text.includes(term));
+        if (matches) {
+          card.style.outline = '3px solid #f59e0b';
+          card.style.boxShadow = '0 0 25px rgba(245, 158, 11, 0.45)';
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setTimeout(() => {
+            card.style.transition = 'all 1s ease';
+            card.style.outline = 'none';
+          }, 3500);
+        }
+      });
+    }, 400);
+  }
+};
+
+

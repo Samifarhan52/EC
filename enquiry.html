@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Core Stylesheet with cache-busting -->
-  <link rel="stylesheet" href="css/style.css?v=202702">
+  <link rel="stylesheet" href="css/style.css?v=202703">
 
   <!-- Critical Standalone Landing Page CSS (Instant zero-delay rendering) -->
   <style>
@@ -56,6 +56,68 @@
       letter-spacing: 0.05em;
       text-transform: uppercase;
       margin-bottom: 1.25rem;
+    }
+    .free-counselling-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      background: rgba(34, 197, 94, 0.12) !important;
+      color: #15803d !important;
+      border: 1px solid rgba(34, 197, 94, 0.35) !important;
+      padding: 6px 16px !important;
+      border-radius: 9999px !important;
+      font-size: 0.8rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.05em !important;
+      text-transform: uppercase !important;
+      margin-bottom: 1.25rem !important;
+    }
+    .management-quota-highlight-card {
+      background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%) !important;
+      border: 1.5px solid #e2e8f0 !important;
+      border-left: 4px solid #f59e0b !important;
+      border-radius: 14px !important;
+      padding: 1.25rem 1.4rem !important;
+      margin-bottom: 2rem !important;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03) !important;
+    }
+    .quota-highlight-header {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      margin-bottom: 0.5rem !important;
+      flex-wrap: wrap !important;
+      gap: 8px !important;
+    }
+    .quota-pulse-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      font-size: 0.85rem !important;
+      font-weight: 800 !important;
+      color: #b45309 !important;
+    }
+    .quota-pulse-badge .pulse-dot {
+      width: 7px !important;
+      height: 7px !important;
+      border-radius: 50% !important;
+      background: #f59e0b !important;
+      animation: pulseDot 1.5s infinite !important;
+    }
+    .quota-legal-tag {
+      font-size: 0.76rem !important;
+      font-weight: 800 !important;
+      color: #059669 !important;
+      background: #ecfdf5 !important;
+      border: 1px solid #a7f3d0 !important;
+      border-radius: 9999px !important;
+      padding: 3px 10px !important;
+    }
+    .quota-highlight-text {
+      font-size: 0.86rem !important;
+      line-height: 1.5 !important;
+      color: #475569 !important;
+      margin: 0 !important;
     }
     .enquiry-main-title {
       font-size: 2.65rem;
@@ -516,44 +578,83 @@
         
         <!-- Left Column: Authority, Value Propositions & Trust -->
         <div class="enquiry-authority-box">
-          <div class="enquiry-authority-badge">
-            <i class="fa-solid fa-shield-halved"></i>
-            <span>Authorized Admission Advisory 2027</span>
+          <div class="free-counselling-badge">
+            <i class="fa-solid fa-gift"></i>
+            <span>100% Free Admission Counselling • Admissions 2027</span>
           </div>
 
           <h1 class="enquiry-main-title">
-            Secure Priority <span class="gradient-text">Management Quota</span> &amp; Direct Admissions 2027.
+            Book Your <span class="gradient-text">Free 1-on-1 Admission Counselling</span> Session.
           </h1>
 
           <p class="enquiry-lead-desc">
-            Skip the last-minute admission rush and excessive capitation fees. Connect directly with Bengaluru's foremost academic consultants for verified institutional seats across top autonomous colleges and prestigious global universities.
+            Skip the confusion and stressful admission rush. Connect with Bengaluru's leading educational advisors for completely free, personalized career guidance, authentic seat availability matrices, and transparent institutional quota counseling across premier colleges.
           </p>
 
-          <!-- 4 Core Value Pillars -->
+          <div style="margin-bottom: 1.15rem;">
+            <h4 style="font-size: 1.05rem; font-weight: 800; color: #0f172a; display: flex; align-items: center; gap: 8px; margin-bottom: 0.25rem;">
+              <i class="fa-solid fa-list-check" style="color: #2563eb;"></i> What Our Senior Counselors Cover in Free Counselling:
+            </h4>
+            <p style="font-size: 0.82rem; color: #64748b; margin: 0;">Comprehensive guidance tailored to your academic background, goals, and budget:</p>
+          </div>
+
+          <!-- 6 Comprehensive Counselor Value Pillars -->
           <div class="enquiry-pillars-grid">
+            <!-- 1. Process of Admission -->
             <div class="enquiry-pillar-card">
-              <div class="pillar-icon"><i class="fa-solid fa-certificate"></i></div>
-              <h5>100% Genuine Direct Seats</h5>
-              <p>Official allotment letters issued directly from the college registrar office.</p>
+              <div class="pillar-icon"><i class="fa-solid fa-route"></i></div>
+              <h5>Process of the Admission</h5>
+              <p>Step-by-step roadmap from eligibility checks to official university registrar documentation and seat allotment.</p>
             </div>
 
+            <!-- 2. Preparation -->
+            <div class="enquiry-pillar-card">
+              <div class="pillar-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+              <h5>Preparation &amp; Cutoff Review</h5>
+              <p>Diagnostic score analysis (KCET, COMEDK, JEE, NEET, MAT), academic profile evaluation, and personalized college shortlisting.</p>
+            </div>
+
+            <!-- 3. Programs -->
+            <div class="enquiry-pillar-card">
+              <div class="pillar-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+              <h5>Programs &amp; Branch Selection</h5>
+              <p>In-depth comparison of CSE, AI &amp; Data Science, ECE, MBA, BBA, Law &amp; Medical specializations with career ROI metrics.</p>
+            </div>
+
+            <!-- 4. Fee Structure -->
             <div class="enquiry-pillar-card">
               <div class="pillar-icon"><i class="fa-solid fa-receipt"></i></div>
-              <h5>Guaranteed Fee Transparency</h5>
-              <p>Complete breakdown of tuition, lab fees, and university eligibility charges with no hidden dues.</p>
+              <h5>Fee Structure &amp; Scholarships</h5>
+              <p>Complete transparent breakdown of tuition, lab dues, hostel living expenses, and score-based merit fee concessions.</p>
             </div>
 
+            <!-- 5. Available Seats & Quota Guidance -->
             <div class="enquiry-pillar-card">
-              <div class="pillar-icon"><i class="fa-solid fa-user-tie"></i></div>
-              <h5>1-on-1 Senior Counselor</h5>
-              <p>Personalized evaluation based on 10th/12th scores, KCET, COMEDK, JEE, or NEET performance.</p>
+              <div class="pillar-icon"><i class="fa-solid fa-building-columns"></i></div>
+              <h5>Available Seats &amp; Quota Guidance</h5>
+              <p>Real-time vacancy tracking for direct autonomous seats, NRI categories, and legitimate institutional quota allocations.</p>
             </div>
 
+            <!-- 6. Campus Placement Insights -->
             <div class="enquiry-pillar-card">
-              <div class="pillar-icon"><i class="fa-solid fa-globe"></i></div>
-              <h5>Global Study Abroad</h5>
-              <p>Seamless international counseling for USA, UK, Canada, Australia, and Germany programs.</p>
+              <div class="pillar-icon"><i class="fa-solid fa-chart-line"></i></div>
+              <h5>Campus Placements &amp; Culture</h5>
+              <p>Verified placement records, highest &amp; average CTCs, corporate recruiters, and campus facilities across Bengaluru.</p>
             </div>
+          </div>
+
+          <!-- Subtle & Professional Management Quota Highlight -->
+          <div class="management-quota-highlight-card">
+            <div class="quota-highlight-header">
+              <span class="quota-pulse-badge">
+                <span class="pulse-dot"></span>
+                Official Institutional Quota Advisory
+              </span>
+              <span class="quota-legal-tag"><i class="fa-solid fa-shield-check"></i> 100% Registrar Verified</span>
+            </div>
+            <p class="quota-highlight-text">
+              Looking for direct category admissions? We assist eligible candidates with verified Institutional Management Quota and NRI seats across premier autonomous colleges, with official allotment letters issued directly by the college registrar.
+            </p>
           </div>
 
           <!-- Social Proof Rating Strip -->
