@@ -17,5 +17,8 @@
   ],
   "author": "The Edu Consultant",
   "license": "UNLICENSED",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "nodemailer": "^10.1.1"
+  }
 }
