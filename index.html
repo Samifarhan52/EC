@@ -16,8 +16,90 @@
   <!-- FontAwesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Official Theme Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- Official Theme Stylesheet with cache-busting -->
+  <link rel="stylesheet" href="css/style.css?v=202702">
+
+  <!-- Critical styles for Enquiry Pill Buttons (Guaranteed render regardless of browser cache) -->
+  <style>
+    .enquiry-buttons-scroller-wrap {
+      width: 100%;
+      margin-bottom: 1.35rem;
+      position: relative;
+    }
+    .enquiry-buttons-track {
+      display: flex !important;
+      align-items: center !important;
+      flex-wrap: nowrap !important;
+      gap: 10px !important;
+      overflow-x: auto !important;
+      scroll-behavior: smooth !important;
+      -webkit-overflow-scrolling: touch !important;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+      padding: 4px 2px 8px !important;
+      scroll-snap-type: x mandatory !important;
+    }
+    .enquiry-buttons-track::-webkit-scrollbar {
+      display: none !important;
+    }
+    .enquiry-pill-btn {
+      appearance: none !important;
+      -webkit-appearance: none !important;
+      outline: none !important;
+      flex: 0 0 auto !important;
+      flex-shrink: 0 !important;
+      scroll-snap-align: start !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      padding: 8px 16px !important;
+      border-radius: 9999px !important;
+      background: #ffffff !important;
+      border: 1.5px solid #e2e8f0 !important;
+      color: #334155 !important;
+      font-family: inherit !important;
+      font-size: 0.86rem !important;
+      font-weight: 700 !important;
+      cursor: pointer !important;
+      white-space: nowrap !important;
+      user-select: none !important;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05) !important;
+    }
+    .enquiry-pill-btn .pill-icon {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 22px !important;
+      height: 22px !important;
+      border-radius: 50% !important;
+      background: #f1f5f9 !important;
+      color: #d97706 !important;
+      font-size: 0.76rem !important;
+      transition: all 0.25s ease !important;
+      pointer-events: none !important;
+    }
+    .enquiry-pill-btn .pill-text {
+      pointer-events: none !important;
+    }
+    .enquiry-pill-btn:hover {
+      border-color: #f59e0b !important;
+      color: #b45309 !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.18) !important;
+    }
+    .enquiry-pill-btn.active {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+      border-color: #d97706 !important;
+      color: #ffffff !important;
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35) !important;
+      transform: translateY(-1px) !important;
+    }
+    .enquiry-pill-btn.active .pill-icon {
+      background: rgba(255, 255, 255, 0.25) !important;
+      color: #ffffff !important;
+    }
+  </style>
 </head>
 <body>
 
@@ -1374,6 +1456,6 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=202702"></script>
 </body>
 </html>

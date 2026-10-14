@@ -18,8 +18,419 @@
   <!-- Font Awesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Core Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- Core Stylesheet with cache-busting -->
+  <link rel="stylesheet" href="css/style.css?v=202702">
+
+  <!-- Critical Standalone Landing Page CSS (Instant zero-delay rendering) -->
+  <style>
+    .enquiry-page-wrapper {
+      min-height: 100vh;
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 40%, #f1f5f9 100%);
+      display: flex;
+      flex-direction: column;
+    }
+    .enquiry-hero-section {
+      padding: 2.75rem 0 4.5rem;
+      flex: 1;
+    }
+    .enquiry-grid-layout {
+      display: grid !important;
+      grid-template-columns: 1.05fr 1fr !important;
+      gap: 3.5rem !important;
+      align-items: flex-start !important;
+    }
+    .enquiry-authority-box {
+      padding-right: 1.5rem;
+    }
+    .enquiry-authority-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 158, 11, 0.12);
+      color: #b45309;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .enquiry-main-title {
+      font-size: 2.65rem;
+      font-weight: 900;
+      line-height: 1.15;
+      color: #0f172a;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .enquiry-main-title .gradient-text {
+      background: linear-gradient(135deg, #d97706 0%, #2563eb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .enquiry-lead-desc {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: #475569;
+      margin-bottom: 2rem;
+    }
+    .enquiry-pillars-grid {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 1.25rem !important;
+      margin-bottom: 2.25rem !important;
+    }
+    .enquiry-pillar-card {
+      background: #ffffff !important;
+      border: 1px solid #e2e8f0 !important;
+      border-radius: 14px !important;
+      padding: 1.15rem !important;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03) !important;
+      transition: transform 0.25s ease, border-color 0.25s ease !important;
+    }
+    .enquiry-pillar-card:hover {
+      transform: translateY(-2px) !important;
+      border-color: #f59e0b !important;
+    }
+    .enquiry-pillar-card .pillar-icon {
+      width: 38px !important;
+      height: 38px !important;
+      border-radius: 10px !important;
+      background: rgba(245, 158, 11, 0.12) !important;
+      color: #d97706 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 1.1rem !important;
+      margin-bottom: 0.75rem !important;
+    }
+    .enquiry-pillar-card h5 {
+      font-size: 0.96rem !important;
+      font-weight: 800 !important;
+      color: #0f172a !important;
+      margin-bottom: 0.35rem !important;
+    }
+    .enquiry-pillar-card p {
+      font-size: 0.8rem !important;
+      line-height: 1.45 !important;
+      color: #64748b !important;
+      margin: 0 !important;
+    }
+    .enquiry-hotline-card {
+      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%) !important;
+      border-radius: 16px !important;
+      padding: 1.5rem !important;
+      color: #ffffff !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 1.5rem !important;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.25) !important;
+      margin-top: 1.5rem !important;
+    }
+    .hotline-info h6 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #93c5fd;
+      margin-bottom: 0.25rem;
+    }
+    .hotline-info .hotline-number {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: #fef08a;
+      letter-spacing: 0.02em;
+    }
+    .hotline-btn-whatsapp {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      background: #22c55e !important;
+      color: #ffffff !important;
+      text-decoration: none !important;
+      font-weight: 800 !important;
+      font-size: 0.88rem !important;
+      padding: 10px 18px !important;
+      border-radius: 9999px !important;
+      box-shadow: 0 4px 14px rgba(34, 197, 94, 0.4) !important;
+      transition: all 0.25s ease !important;
+      flex-shrink: 0 !important;
+    }
+    .hotline-btn-whatsapp:hover {
+      background: #16a34a !important;
+      transform: translateY(-2px) !important;
+      color: #ffffff !important;
+    }
+    .enquiry-form-card-wrap {
+      background: #ffffff !important;
+      border-radius: 24px !important;
+      border: 1px solid rgba(226, 232, 240, 0.95) !important;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08) !important;
+      padding: 2.25rem !important;
+      position: relative !important;
+    }
+    .enquiry-form-card-wrap .card-intake-badge {
+      position: absolute;
+      top: -14px;
+      right: 28px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      padding: 5px 14px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card-intake-badge .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #ffffff;
+      animation: pulseDot 1.5s infinite;
+    }
+    .enquiry-buttons-scroller-wrap {
+      width: 100%;
+      margin-bottom: 1.35rem;
+      position: relative;
+    }
+    .enquiry-buttons-track {
+      display: flex !important;
+      align-items: center !important;
+      flex-wrap: nowrap !important;
+      gap: 10px !important;
+      overflow-x: auto !important;
+      scroll-behavior: smooth !important;
+      -webkit-overflow-scrolling: touch !important;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+      padding: 4px 2px 8px !important;
+      scroll-snap-type: x mandatory !important;
+    }
+    .enquiry-buttons-track::-webkit-scrollbar {
+      display: none !important;
+    }
+    .enquiry-pill-btn {
+      appearance: none !important;
+      -webkit-appearance: none !important;
+      outline: none !important;
+      flex: 0 0 auto !important;
+      flex-shrink: 0 !important;
+      scroll-snap-align: start !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      padding: 8px 16px !important;
+      border-radius: 9999px !important;
+      background: #ffffff !important;
+      border: 1.5px solid #e2e8f0 !important;
+      color: #334155 !important;
+      font-family: inherit !important;
+      font-size: 0.86rem !important;
+      font-weight: 700 !important;
+      cursor: pointer !important;
+      white-space: nowrap !important;
+      user-select: none !important;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05) !important;
+    }
+    .enquiry-pill-btn .pill-icon {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 22px !important;
+      height: 22px !important;
+      border-radius: 50% !important;
+      background: #f1f5f9 !important;
+      color: #d97706 !important;
+      font-size: 0.76rem !important;
+      transition: all 0.25s ease !important;
+      pointer-events: none !important;
+    }
+    .enquiry-pill-btn .pill-text {
+      pointer-events: none !important;
+    }
+    .enquiry-pill-btn:hover {
+      border-color: #f59e0b !important;
+      color: #b45309 !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.18) !important;
+    }
+    .enquiry-pill-btn.active {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+      border-color: #d97706 !important;
+      color: #ffffff !important;
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35) !important;
+      transform: translateY(-1px) !important;
+    }
+    .enquiry-pill-btn.active .pill-icon {
+      background: rgba(255, 255, 255, 0.25) !important;
+      color: #ffffff !important;
+    }
+    .avatar-stack {
+      display: flex !important;
+      align-items: center !important;
+    }
+    .avatar-stack img {
+      width: 38px !important;
+      height: 38px !important;
+      border-radius: 50% !important;
+      border: 2px solid #ffffff !important;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15) !important;
+      margin-right: -10px !important;
+      object-fit: cover !important;
+      display: inline-block !important;
+    }
+    .avatar-stack img:last-child {
+      margin-right: 0 !important;
+    }
+    .admission-form-grid {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 1.25rem !important;
+    }
+    .form-col-full {
+      grid-column: span 2 !important;
+    }
+    .form-field-group {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0.45rem !important;
+    }
+    .field-label {
+      font-size: 0.85rem !important;
+      font-weight: 700 !important;
+      color: #1e293b !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+    }
+    .field-label .required-star {
+      color: #f43f5e !important;
+    }
+    .input-with-icon {
+      position: relative !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+    .input-icon {
+      position: absolute !important;
+      left: 14px !important;
+      color: #4f46e5 !important;
+      font-size: 0.95rem !important;
+      pointer-events: none !important;
+    }
+    .form-input-control {
+      width: 100% !important;
+      padding: 12px 14px 12px 42px !important;
+      border: 1.5px solid #e2e8f0 !important;
+      border-radius: 10px !important;
+      font-size: 0.925rem !important;
+      color: #0f172a !important;
+      background-color: #f8fafc !important;
+      transition: all 0.2s ease !important;
+      outline: none !important;
+      box-sizing: border-box !important;
+    }
+    .form-input-control:focus {
+      background-color: #ffffff !important;
+      border-color: #6366f1 !important;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15) !important;
+    }
+    .form-select-control {
+      width: 100% !important;
+      padding: 12px 38px 12px 42px !important;
+      border: 1.5px solid #e2e8f0 !important;
+      border-radius: 10px !important;
+      font-size: 0.925rem !important;
+      color: #0f172a !important;
+      background: #f8fafc url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%234F46E5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E") no-repeat right 14px center/16px !important;
+      transition: all 0.2s ease !important;
+      outline: none !important;
+      cursor: pointer !important;
+      appearance: none !important;
+      -webkit-appearance: none !important;
+      box-sizing: border-box !important;
+    }
+    .form-select-control:focus {
+      background-color: #ffffff !important;
+      border-color: #6366f1 !important;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15) !important;
+    }
+    .conditional-other-field {
+      display: none;
+      margin-top: 0.5rem !important;
+    }
+    .conditional-other-field.is-visible {
+      display: block !important;
+    }
+    .btn-form-submit {
+      grid-column: span 2 !important;
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+      color: #020617 !important;
+      font-size: 1.05rem !important;
+      font-weight: 800 !important;
+      padding: 14px 24px !important;
+      border-radius: 12px !important;
+      border: none !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 10px !important;
+      cursor: pointer !important;
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35) !important;
+      transition: all 0.25s ease !important;
+      margin-top: 0.5rem !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .btn-form-submit:hover {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 12px 28px rgba(245, 158, 11, 0.45) !important;
+    }
+    .form-guarantee-note {
+      grid-column: span 2 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      font-size: 0.78rem !important;
+      color: #64748b !important;
+      margin-top: 0.5rem !important;
+      text-align: center !important;
+    }
+    @media (max-width: 992px) {
+      .enquiry-grid-layout {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+      }
+      .enquiry-authority-box {
+        padding-right: 0 !important;
+      }
+      .enquiry-main-title {
+        font-size: 2.15rem !important;
+      }
+      .enquiry-pillars-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .enquiry-form-card-wrap {
+        padding: 1.75rem 1.25rem !important;
+      }
+      .admission-form-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .form-col-full, .btn-form-submit, .form-guarantee-note {
+        grid-column: span 1 !important;
+      }
+    }
+  </style>
 </head>
 <body class="enquiry-page-wrapper">
 
@@ -147,7 +558,7 @@
 
           <!-- Social Proof Rating Strip -->
           <div class="hero-social-proof" style="margin-bottom: 1.5rem;">
-            <div class="avatars-cluster">
+            <div class="avatar-stack">
               <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80" alt="Student" loading="lazy">
               <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80" alt="Student" loading="lazy">
               <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&q=80" alt="Student" loading="lazy">
@@ -411,6 +822,6 @@
   </footer>
 
   <!-- Core Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=202702"></script>
 </body>
 </html>

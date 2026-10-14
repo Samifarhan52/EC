@@ -2122,6 +2122,7 @@ button, input, select, textarea {
 .enquiry-buttons-track {
   display: flex;
   align-items: center;
+  flex-wrap: nowrap;
   gap: 10px;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -2137,23 +2138,28 @@ button, input, select, textarea {
 }
 
 .enquiry-pill-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
   flex: 0 0 auto;
+  flex-shrink: 0;
   scroll-snap-align: start;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
   border-radius: 9999px;
-  background: var(--white);
-  border: 1.5px solid var(--slate-200);
-  color: var(--slate-700);
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  color: #334155;
   font-family: inherit;
   font-size: 0.86rem;
   font-weight: 700;
   cursor: pointer;
   white-space: nowrap;
+  user-select: none;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 2px 5px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
 }
 
 .enquiry-pill-btn .pill-icon {
@@ -2163,17 +2169,22 @@ button, input, select, textarea {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: var(--slate-100);
-  color: var(--amber-600);
+  background: #f1f5f9;
+  color: #d97706;
   font-size: 0.76rem;
   transition: all 0.25s ease;
+  pointer-events: none;
+}
+
+.enquiry-pill-btn .pill-text {
+  pointer-events: none;
 }
 
 .enquiry-pill-btn:hover {
-  border-color: var(--amber-500);
-  color: var(--amber-700);
+  border-color: #f59e0b;
+  color: #b45309;
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.15);
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.18);
 }
 
 .enquiry-pill-btn.active {
