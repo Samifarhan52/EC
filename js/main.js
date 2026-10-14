@@ -521,12 +521,12 @@ function renderDirectoryGrid() {
             <span class="meta-pill"><i class="fa-solid fa-money-bill-wave text-success"></i> Max Pkg: ${col.highestPkg}</span>
           </div>
           <div class="card-actions-row">
-            <button class="btn-card-apply" onclick="openRegisterModal('${col.name.replace(/'/g, "\\'")}')">
-              <i class="fa-solid fa-file-pen"></i> Direct Apply
-            </button>
-            <button class="btn-card-fee" onclick="openFeeModal('${col.name.replace(/'/g, "\\'")}', '')">
-              <i class="fa-solid fa-download"></i> Fee Matrix
-            </button>
+            <a href="enquiry.html?college=${encodeURIComponent(col.name)}" class="btn-card-apply" title="Free Counselling for ${col.name}">
+              <i class="fa-solid fa-comments"></i> Free Counselling
+            </a>
+            <a href="fee-structure.html?college=${encodeURIComponent(col.name)}" class="btn-card-fee" title="Download Fee Structure for ${col.name}">
+              <i class="fa-solid fa-file-arrow-down"></i> Download Fee Structure
+            </a>
           </div>
         </div>
       `;
@@ -567,12 +567,12 @@ function renderDirectoryGrid() {
             </div>
           </div>
           <div class="card-actions-row">
-            <button class="btn-card-apply" onclick="openRegisterModal('', '${prog.name.replace(/'/g, "\\'")}')">
-              <i class="fa-solid fa-file-signature"></i> Apply Quota
-            </button>
-            <button class="btn-card-fee" onclick="openFeeModal('', '${prog.name.replace(/'/g, "\\'")}')">
-              <i class="fa-solid fa-download"></i> Fee Matrix
-            </button>
+            <a href="enquiry.html?course=${encodeURIComponent(prog.name)}" class="btn-card-apply" title="Free Counselling for ${prog.name}">
+              <i class="fa-solid fa-comments"></i> Free Counselling
+            </a>
+            <a href="fee-structure.html?course=${encodeURIComponent(prog.name)}" class="btn-card-fee" title="Download Fee Structure for ${prog.name}">
+              <i class="fa-solid fa-file-arrow-down"></i> Download Fee Structure
+            </a>
           </div>
         </div>
       `;
