@@ -671,85 +671,21 @@ function closeAllModals() {
 }
 
 window.openRegisterModal = function(prefillCollege = '', prefillCourse = '') {
-  closeAllModals();
-  const modal = document.getElementById('registerModal');
-  if (!modal) return;
-
-  const collegeSelect = document.getElementById('modalCollegeSelect');
-  const courseSelect = document.getElementById('modalCourseSelect');
-
-  if (collegeSelect && prefillCollege) {
-    const found = Array.from(collegeSelect.options).some(o => o.value === prefillCollege);
-    if (found) {
-      collegeSelect.value = prefillCollege;
-    } else {
-      collegeSelect.value = 'Others';
-      const wrap = document.getElementById('modalConditionalCollegeOther');
-      if (wrap) {
-        wrap.classList.add('is-visible');
-        const input = wrap.querySelector('input');
-        if (input) input.value = prefillCollege;
-      }
-    }
-  }
-
-  if (courseSelect && prefillCourse) {
-    const found = Array.from(courseSelect.options).some(o => o.value === prefillCourse);
-    if (found) {
-      courseSelect.value = prefillCourse;
-    } else {
-      courseSelect.value = 'Others';
-      const wrap = document.getElementById('modalConditionalCourseOther');
-      if (wrap) {
-        wrap.classList.add('is-visible');
-        const input = wrap.querySelector('input');
-        if (input) input.value = prefillCourse;
-      }
-    }
-  }
-
-  modal.classList.add('is-active');
+  let target = 'enquiry.html';
+  const params = [];
+  if (prefillCollege) params.push('college=' + encodeURIComponent(prefillCollege));
+  if (prefillCourse) params.push('course=' + encodeURIComponent(prefillCourse));
+  if (params.length) target += '?' + params.join('&');
+  window.location.href = target;
 };
 
 window.openFeeModal = function(prefillCollege = '', prefillCourse = '') {
-  closeAllModals();
-  const modal = document.getElementById('feeModal');
-  if (!modal) return;
-
-  const collegeSelect = document.getElementById('feeModalCollegeSelect');
-  const courseSelect = document.getElementById('feeModalCourseSelect');
-
-  if (collegeSelect && prefillCollege) {
-    const found = Array.from(collegeSelect.options).some(o => o.value === prefillCollege);
-    if (found) {
-      collegeSelect.value = prefillCollege;
-    } else {
-      collegeSelect.value = 'Others';
-      const wrap = document.getElementById('feeConditionalCollegeOther');
-      if (wrap) {
-        wrap.classList.add('is-visible');
-        const input = wrap.querySelector('input');
-        if (input) input.value = prefillCollege;
-      }
-    }
-  }
-
-  if (courseSelect && prefillCourse) {
-    const found = Array.from(courseSelect.options).some(o => o.value === prefillCourse);
-    if (found) {
-      courseSelect.value = prefillCourse;
-    } else {
-      courseSelect.value = 'Others';
-      const wrap = document.getElementById('feeConditionalCourseOther');
-      if (wrap) {
-        wrap.classList.add('is-visible');
-        const input = wrap.querySelector('input');
-        if (input) input.value = prefillCourse;
-      }
-    }
-  }
-
-  modal.classList.add('is-active');
+  let target = 'fee-structure.html';
+  const params = [];
+  if (prefillCollege) params.push('college=' + encodeURIComponent(prefillCollege));
+  if (prefillCourse) params.push('course=' + encodeURIComponent(prefillCourse));
+  if (params.length) target += '?' + params.join('&');
+  window.location.href = target;
 };
 
 window.openSuccessModal = function(applicantName = 'Student', actionType = 'registration') {

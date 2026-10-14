@@ -6,7 +6,11 @@
     { "source": "/enquiry", "destination": "/enquiry.html" },
     { "source": "/apply", "destination": "/enquiry.html" },
     { "source": "/register", "destination": "/enquiry.html" },
-    { "source": "/admission-enquiry", "destination": "/enquiry.html" }
+    { "source": "/admission-enquiry", "destination": "/enquiry.html" },
+    { "source": "/fee-structure", "destination": "/fee-structure.html" },
+    { "source": "/fees", "destination": "/fee-structure.html" },
+    { "source": "/download-fees", "destination": "/fee-structure.html" },
+    { "source": "/fee-breakdown", "destination": "/fee-structure.html" }
   ],
   "headers": [
     {
