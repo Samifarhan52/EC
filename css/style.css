@@ -2668,6 +2668,10 @@ button, input, select, textarea {
     padding: 0 0.85rem;
   }
 
+  .container {
+    padding: 0 1rem !important;
+  }
+
   .header-logo {
     height: 38px;
     max-width: 185px;
@@ -2937,6 +2941,10 @@ button, input, select, textarea {
   .hero-banner-title {
     font-size: 24px !important;
     line-height: 1.25 !important;
+  }
+
+  .container {
+    padding: 0 10px !important;
   }
 
   .hero-flip-wrap {
@@ -3233,13 +3241,18 @@ button, input, select, textarea {
   color: #ffffff;
 }
 
-.enquiry-form-card-wrap {
+.enquiry-form-card-wrap,
+.fee-form-card-wrap {
   background: var(--white);
   border-radius: 24px;
   border: 1px solid rgba(226, 232, 240, 0.95);
   box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
   padding: 2.25rem;
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .enquiry-form-card-wrap .card-intake-badge {
@@ -3286,8 +3299,14 @@ button, input, select, textarea {
     grid-template-columns: 1fr;
   }
 
-  .enquiry-form-card-wrap {
-    padding: 1.75rem 1.25rem;
+  .enquiry-form-card-wrap,
+  .fee-form-card-wrap {
+    padding: 1.5rem 1.15rem 0 1.15rem;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 }
 
