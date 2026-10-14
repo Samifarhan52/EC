@@ -78,7 +78,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: clip;
+  overflow-x: visible;
 }
 
 a {
@@ -331,10 +331,10 @@ button, input, select, textarea {
    2. OFFICIAL HEADER & NAVBAR (PERFECTLY BALANCED: HOME, PROGRAMS, SERVICES, REGISTER NOW)
    ========================================================================== */
 .site-header {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10000 !important;
   background-color: rgba(255, 255, 255, 0.98);
   border-bottom: 1px solid var(--slate-200);
   backdrop-filter: blur(16px);
@@ -2726,8 +2726,9 @@ button, input, select, textarea {
     display: inline-flex !important;
   }
 
-  .header-action-group .sf-btn-icon-secondary {
-    display: none;
+  .header-action-group .sf-btn-icon-secondary,
+  .header-action-group .header-desktop-cta {
+    display: none !important;
   }
 
   .header-action-group .sf-btn-icon-primary {
@@ -2739,6 +2740,29 @@ button, input, select, textarea {
   .header-action-group .sf-btn-icon-primary .icon {
     width: 18px;
     height: 18px;
+  }
+
+  .hotline-btn-whatsapp {
+    padding: 7px 12px !important;
+    font-size: 0.78rem !important;
+    gap: 6px !important;
+    white-space: nowrap !important;
+    border-radius: 9999px !important;
+  }
+
+  .hotline-btn-whatsapp i {
+    font-size: 0.95rem !important;
+  }
+
+  .free-counselling-badge {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    font-size: 0.74rem !important;
+    padding: 6px 14px !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
   }
 
   .mobile-nav-toggle {
@@ -2927,6 +2951,12 @@ button, input, select, textarea {
   .header-action-group .sf-btn-icon-primary {
     padding: 6px 10px !important;
     font-size: 0.74rem !important;
+  }
+
+  .hotline-btn-whatsapp {
+    padding: 6px 9px !important;
+    font-size: 0.72rem !important;
+    gap: 4px !important;
   }
 
   .header-action-group .sf-btn-icon-primary .icon {

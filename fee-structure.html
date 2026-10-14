@@ -19,20 +19,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Core Stylesheet with cache-busting -->
-  <link rel="stylesheet" href="css/style.css?v=202715">
+  <link rel="stylesheet" href="css/style.css?v=202730">
 
   <!-- Critical Standalone Landing Page CSS (Instant zero-delay rendering) -->
   <style>
     .fee-page-wrapper {
       min-height: 100vh;
       background: #f8fafc;
-      display: flex;
-      flex-direction: column;
+      display: block !important;
+      overflow-x: visible !important;
     }
     .fee-hero-section {
       position: relative;
       padding: 3rem 0 5rem;
-      flex: 1;
       background: 
         radial-gradient(1000px circle at 85% 12%, rgba(37, 99, 235, 0.08), transparent 60%),
         radial-gradient(800px circle at 10% 35%, rgba(245, 158, 11, 0.06), transparent 50%),
@@ -62,6 +61,11 @@
       text-transform: uppercase !important;
       margin-bottom: 1.25rem !important;
       box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08) !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      white-space: normal !important;
+      word-break: break-word !important;
+      line-height: 1.35 !important;
     }
     .fee-main-title {
       font-size: 2.75rem;
@@ -150,7 +154,8 @@
       padding: 1.4rem !important;
       margin-bottom: 1.5rem !important;
       box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04) !important;
-      overflow: hidden !important;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch !important;
     }
     .fee-table-header {
       display: flex !important;
@@ -636,26 +641,52 @@
     }
 
     @media (max-width: 991px) {
+      .fee-hero-section {
+        padding: 2rem 0 3.5rem !important;
+      }
       .fee-grid-layout {
-        grid-template-columns: 1fr !important;
-        gap: 2.5rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.75rem !important;
       }
       .fee-authority-box {
-        padding-right: 0 !important;
+        display: contents !important;
+      }
+      .fee-header-group {
+        order: 1 !important;
+      }
+      .fee-form-card-wrap {
+        order: 2 !important;
+        margin-top: 0.25rem !important;
+        padding: 1.5rem 1.15rem 0 1.15rem !important;
+        border-radius: 18px !important;
+      }
+      .fee-details-group {
+        order: 3 !important;
+        margin-top: 1rem !important;
       }
       .fee-main-title {
-        font-size: 2.25rem !important;
+        font-size: 1.95rem !important;
+        line-height: 1.25 !important;
+      }
+      .fee-lead-desc {
+        font-size: 0.92rem !important;
+        line-height: 1.55 !important;
+        margin-bottom: 1rem !important;
+      }
+      .card-intake-badge {
+        top: 14px !important;
+        right: 14px !important;
+        font-size: 0.68rem !important;
+        padding: 4px 10px !important;
       }
       .fee-pillars-grid {
         grid-template-columns: 1fr 1fr !important;
-      }
-      .fee-form-card-wrap {
-        padding: 1.75rem 1.25rem 0 1.25rem !important;
-        border-radius: 18px !important;
+        gap: 12px !important;
       }
       .form-card-footer {
-        margin: 1.25rem -1.25rem 0 -1.25rem !important;
-        padding: 1rem 1.25rem !important;
+        margin: 1.25rem -1.15rem 0 -1.15rem !important;
+        padding: 1rem 1.15rem !important;
         border-radius: 0 0 18px 18px !important;
       }
       .counselor-chips-grid {
@@ -672,6 +703,11 @@
         align-items: flex-start !important;
         gap: 4px !important;
       }
+      .form-input-control,
+      .form-select-control {
+        font-size: 16px !important;
+        height: 48px !important;
+      }
     }
     @media (max-width: 640px) {
       .fee-pillars-grid {
@@ -679,12 +715,26 @@
       }
       .admission-form-grid {
         grid-template-columns: 1fr !important;
+        gap: 0.85rem !important;
       }
       .form-col-full, .btn-form-submit-download, .form-guarantee-note {
         grid-column: span 1 !important;
       }
       .fee-main-title {
-        font-size: 1.85rem !important;
+        font-size: 1.65rem !important;
+      }
+      .avatar-stack img {
+        width: 30px !important;
+        height: 30px !important;
+      }
+      .concierge-bottom-row {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+      }
+      .concierge-hotline-btn {
+        justify-content: center !important;
+        width: 100% !important;
       }
     }
   </style>
@@ -740,21 +790,31 @@
       </a>
 
       <!-- Clean standard nav bar without fee structure link -->
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" id="desktopNav">
         <a href="index.html" class="nav-link"><i class="fa-solid fa-house me-1"></i> Home</a>
         <a href="index.html#directorySection" class="nav-link">Colleges &amp; Programs</a>
         <a href="index.html#servicesSection" class="nav-link">Services</a>
+        <a href="enquiry.html" class="nav-link">Submit Enquiry</a>
+        <div class="mobile-nav-ctas">
+          <a href="enquiry.html" class="sf-btn-icon-primary" style="text-decoration: none; justify-content: center; width: 100%;">
+            Apply for Direct Seat
+            <span class="icon"><i class="fa-solid fa-arrow-right" style="font-size: 10px;"></i></span>
+          </a>
+        </div>
       </nav>
 
       <div class="header-action-group">
-        <a href="https://wa.me/919845371459?text=Hello%20The%20Edu%20Consultant,%20please%20share%20the%20official%20fee%20structure%20schedule%20for%202027" target="_blank" rel="noopener noreferrer" class="hotline-btn-whatsapp" style="padding: 8px 16px; font-size: 0.82rem;">
-          <i class="fa-brands fa-whatsapp" style="font-size: 1.05rem;"></i>
+        <a href="https://wa.me/919845371459?text=Hello%20The%20Edu%20Consultant,%20please%20share%20the%20official%20fee%20structure%20schedule%20for%202027" target="_blank" rel="noopener noreferrer" class="hotline-btn-whatsapp" aria-label="WhatsApp Fee Desk">
+          <i class="fa-brands fa-whatsapp"></i>
           <span>WhatsApp Fee Desk</span>
         </a>
-        <a href="enquiry.html" class="sf-btn-icon-primary" style="text-decoration: none;">
+        <a href="enquiry.html" class="sf-btn-icon-primary header-desktop-cta" style="text-decoration: none;">
           Apply for Direct Seat
           <span class="icon"><i class="fa-solid fa-arrow-right" style="font-size: 10px;"></i></span>
         </a>
+        <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
       </div>
     </div>
   </header>
@@ -768,20 +828,23 @@
         
         <!-- Left Column: Authority, Transparency & Table Preview -->
         <div class="fee-authority-box">
-          <div class="free-counselling-badge">
-            <i class="fa-solid fa-gift"></i>
-            <span>100% Free Admission Counselling &amp; Verified Fee Matrix 2027</span>
+          <div class="fee-header-group">
+            <div class="free-counselling-badge">
+              <i class="fa-solid fa-gift"></i>
+              <span>100% Free Admission Counselling • Fee Matrix 2027</span>
+            </div>
+
+            <h1 class="fee-main-title">
+              Download Verified <span class="gradient-text">Fee Structures</span> &amp; Get Free Counselling.
+            </h1>
+
+            <p class="fee-lead-desc">
+              Access 100% transparent tuition fee breakdowns, lab costs, semester exam dues, and official hostel fees with zero hidden charges. Schedule your free 1-on-1 counseling session with our senior advisors for end-to-end guidance on admission processes, programs, scholarship waivers, and available quota matrices.
+            </p>
           </div>
 
-          <h1 class="fee-main-title">
-            Download Verified <span class="gradient-text">Fee Structures</span> &amp; Get Free Counselling.
-          </h1>
-
-          <p class="fee-lead-desc">
-            Access 100% transparent tuition fee breakdowns, lab costs, semester exam dues, and official hostel fees with zero hidden charges. Schedule your free 1-on-1 counseling session with our senior advisors for end-to-end guidance on admission processes, programs, scholarship waivers, and available quota matrices.
-          </p>
-
-          <div style="margin-bottom: 1.15rem;">
+          <div class="fee-details-group">
+            <div style="margin-bottom: 1.15rem;">
             <h4 style="font-size: 1.05rem; font-weight: 800; color: #0f172a; display: flex; align-items: center; gap: 8px; margin-bottom: 0.25rem;">
               <i class="fa-solid fa-list-check" style="color: #2563eb;"></i> What Our Senior Counselors Cover in Free Counselling:
             </h4>
@@ -914,6 +977,7 @@
             </div>
           </div>
         </div>
+      </div>
 
         <!-- Right Column: THE CENTERPIECE DOWNLOAD FEE STRUCTURE FORM -->
         <div class="fee-form-card-wrap">
@@ -1286,7 +1350,7 @@
   </footer>
 
   <!-- Core Scripts -->
-  <script src="js/main.js?v=202715"></script>
+  <script src="js/main.js?v=202730"></script>
   <script>
     // Self-contained page controller
     document.addEventListener('DOMContentLoaded', () => {
