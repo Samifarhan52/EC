@@ -520,8 +520,10 @@
 
       <nav class="desktop-nav" id="desktopNav">
         <a href="#heroSection" class="nav-link active">Home</a>
-        <a href="#directorySection" class="nav-link" onclick="if(window.switchDirectoryMode){window.switchDirectoryMode('programs');}">Programs</a>
         <a href="#servicesSection" class="nav-link">Services</a>
+        <a href="#howWeWork" class="nav-link">How We Work</a>
+        <a href="#directorySection" class="nav-link" onclick="if(window.switchDirectoryMode){window.switchDirectoryMode('programs');}">Programs</a>
+        <a href="#faqSection" class="nav-link">FAQ</a>
       </nav>
 
       <div class="header-action-group">
@@ -981,13 +983,196 @@
   </section>
 
   <!-- ==============================================================================
-       5. INTERACTIVE COLLEGES & PROGRAMS DIRECTORY
+       3. OUR SERVICES SECTION (STUDYLIFTER CLONED LAYOUT & USER SERVICE ORDER)
+       ============================================================================== -->
+  <section class="services-section-studylifter" id="servicesSection">
+    <div class="container">
+      <div class="services-layout-grid">
+        <!-- Left Side: Title & Illustration -->
+        <div class="service-left-box">
+          <span class="section-eyebrow">Expert Guidance</span>
+          <h2 class="section-title">Our Services</h2>
+          <p class="section-info">
+            Comprehensive higher education consulting tailored for Bangalore and premier national colleges. Empowering students with diagnostic career counseling, verified institutional admissions, and complete academic onboarding.
+          </p>
+          <div class="service-left-img-wrap">
+            <img src="images/service-left-illustration.png" alt="Education Advisory &amp; Services" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Right Side: 6 Service Cards in exact user order -->
+        <div class="services-grid-studylifter">
+          <!-- 1st: 1-on-1 Counselling -->
+          <div class="service-item-one">
+            <div class="icon">
+              <i class="fa-solid fa-comments"></i>
+            </div>
+            <a href="enquiry.html" class="title">1-on-1 Counselling</a>
+            <p class="info">
+              Personalized career guidance assessing academic strengths, entrance test ranks, and institutional preferences to pinpoint best-fit colleges with zero bias.
+            </p>
+            <a href="enquiry.html" class="link">
+              <span>Book Session</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- 2nd: Document Processing -->
+          <div class="service-item-one">
+            <div class="icon">
+              <i class="fa-solid fa-file-circle-check"></i>
+            </div>
+            <a href="enquiry.html" class="title">Document Processing</a>
+            <p class="info">
+              Flawless verification, SOP polishing, migration credential audits, and official university eligibility paperwork handled end-to-end.
+            </p>
+            <a href="enquiry.html" class="link">
+              <span>Verify Documents</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- 3rd: Application Assistance -->
+          <div class="service-item-one">
+            <div class="icon">
+              <i class="fa-solid fa-file-signature"></i>
+            </div>
+            <a href="enquiry.html" class="title">Application Assistance</a>
+            <p class="info">
+              Direct institutional quota applications, priority counseling form submissions, and verified registrar allotment letters without the last-minute rush.
+            </p>
+            <a href="enquiry.html" class="link">
+              <span>Apply Directly</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- 4th: Preparations -->
+          <div class="service-item-one">
+            <div class="icon" style="background: #ecfdf5; color: #059669; border-color: #a7f3d0;">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="title">Preparations</a>
+            <p class="info">
+              Score diagnostics, syllabus breakdowns, and free mock test preparation for KCET, COMEDK, JEE, NEET, and MAT on StudentEntrance.com.
+            </p>
+            <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="link" style="color: #059669;">
+              <span>Prepare on StudentEntrance</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+
+          <!-- 5th: Scholarship Guidance -->
+          <div class="service-item-one">
+            <div class="icon">
+              <i class="fa-solid fa-hand-holding-dollar"></i>
+            </div>
+            <a href="fee-structure.html" class="title">Scholarship Guidance</a>
+            <p class="info">
+              Transparent institutional fee structure breakdowns, quota seat matrices, and merit bourses unlocking tuition fee waivers of up to 30%.
+            </p>
+            <a href="fee-structure.html" class="link">
+              <span>Explore Fee Structure</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- 6th: Pre-Departure Support -->
+          <div class="service-item-one">
+            <div class="icon">
+              <i class="fa-solid fa-plane-departure"></i>
+            </div>
+            <a href="enquiry.html?type=abroad" class="title">Pre-Departure Support</a>
+            <p class="info">
+              Campus onboarding, vetted hostel accommodations, student visa filing for abroad universities, and post-arrival assistance for outstation students.
+            </p>
+            <a href="enquiry.html?type=abroad" class="link">
+              <span>Onboarding Support</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================================================
+       4. HOW WE WORK (STUDYLIFTER CLONED 5-STEP JOURNEY FLOW & POSTER)
+       ============================================================================== -->
+  <section class="howWork-section" id="howWeWork">
+    <div class="container">
+      <div class="text-center" style="max-width: 720px; margin: 0 auto;">
+        <span class="section-eyebrow" style="color: #2563eb; font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; display: inline-block; margin-bottom: 0.5rem;">Admissions Architecture</span>
+        <h2 style="font-size: 2.35rem; font-weight: 900; color: #0f172a; margin-bottom: 0.85rem; letter-spacing: -0.02em;">How We Work</h2>
+        <p style="font-size: 1rem; color: #64748b; line-height: 1.6;">
+          A proven 5-stage advisory journey navigating academic profiling, institutional quota selection, and verified seat allotment across top Bangalore institutions.
+        </p>
+      </div>
+
+      <!-- 5-Step Horizontal Journey Flow -->
+      <div class="howWork-stepWrap">
+        <div class="howWork-steps-grid">
+          <div class="howWork-item">
+            <div class="noWrap">
+              <div class="no">01</div>
+            </div>
+            <h4 class="title">Diagnostic Counselling</h4>
+            <p class="info">1-on-1 profile review assessing marks, budget, and stream aspirations.</p>
+          </div>
+
+          <div class="howWork-item">
+            <div class="noWrap">
+              <div class="no">02</div>
+            </div>
+            <h4 class="title">Compare Top Colleges</h4>
+            <p class="info">Shortlist verified autonomous colleges matching your target career goals.</p>
+          </div>
+
+          <div class="howWork-item">
+            <div class="noWrap">
+              <div class="no">03</div>
+            </div>
+            <h4 class="title">Quota &amp; Fee Clarity</h4>
+            <p class="info">Complete transparency into institutional fees, scholarships &amp; quota seats.</p>
+          </div>
+
+          <div class="howWork-item">
+            <div class="noWrap">
+              <div class="no">04</div>
+            </div>
+            <h4 class="title">Documentation</h4>
+            <p class="info">Error-free verification and official priority counseling dossier filing.</p>
+          </div>
+
+          <div class="howWork-item">
+            <div class="noWrap">
+              <div class="no">05</div>
+            </div>
+            <h4 class="title">Seat Allotment</h4>
+            <p class="info">Official allotment letter issued directly by the university registrar office.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Poster with Badge Overlay -->
+      <div class="howWork-videoWrap">
+        <img src="images/how-we-work-poster.png" alt="How We Work - Academic Roadmap 2027" loading="lazy">
+        <div class="poster-badge-overlay">
+          <i class="fa-solid fa-award" style="color: #f59e0b; font-size: 1.15rem;"></i>
+          <span>Official 2027 Admission Journey Roadmap • Verified Institutional Allotments</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================================================
+       5. INTERACTIVE COLLEGES & PROGRAMS DIRECTORY (ACADEMIC CATALOG)
        ============================================================================== -->
   <section class="directory-section" id="directorySection">
     <div class="container">
       <div class="directory-header-wrap">
-        <span class="section-eyebrow">Academic Catalog & Quota Seats 2027</span>
-        <h3 class="section-heading-primary">Explore Top Colleges & High-Demand Programs</h3>
+        <span class="section-eyebrow">Academic Catalog &amp; Quota Seats 2027</span>
+        <h3 class="section-heading-primary">Discover your Preferred Program in Top Colleges in Bangalore</h3>
         <p class="section-description">
           Toggle between premier institutions and professional programs to discover seat availability, entrance eligibility, and official management quota matrices.
         </p>
@@ -1010,10 +1195,10 @@
       <!-- Filter Tag Pills -->
       <div class="filter-pills-bar">
         <button type="button" class="filter-tag active" data-filter="all">All Disciplines</button>
-        <button type="button" class="filter-tag" data-filter="engineering">Engineering & Tech</button>
-        <button type="button" class="filter-tag" data-filter="commerce">Commerce & Finance</button>
-        <button type="button" class="filter-tag" data-filter="medical">Medical & Healthcare</button>
-        <button type="button" class="filter-tag" data-filter="management">Management & MBA</button>
+        <button type="button" class="filter-tag" data-filter="engineering">Engineering &amp; Tech</button>
+        <button type="button" class="filter-tag" data-filter="commerce">Commerce &amp; Finance</button>
+        <button type="button" class="filter-tag" data-filter="medical">Medical &amp; Healthcare</button>
+        <button type="button" class="filter-tag" data-filter="management">Management &amp; MBA</button>
       </div>
 
       <!-- Cards Grid Rendered by JS -->
@@ -1024,345 +1209,274 @@
   </section>
 
   <!-- ==============================================================================
-       5.5. COMPREHENSIVE ADMISSION SERVICES SECTION (MATCHING theeduconsultant.in)
+       6. ON-PAGE INTERACTIVE CONSULTATION & BOOKING SECTION (STUDYLIFTER CLONED DESIGN)
        ============================================================================== -->
-  <section class="services-section" id="servicesSection">
+  <section class="ld-booking-section" id="admissionsFormSection" style="background-image: url('images/consultation-booking-bg.jpg');">
     <div class="container">
-      <div class="services-header-wrap">
-        <span class="section-eyebrow">Professional Advisory</span>
-        <h3 class="section-heading-primary">Our Comprehensive Services</h3>
-        <p class="section-description">
-          From diagnostic candidate profiling and genuine management quota seat allocation to student documentation and international visa processing.
-        </p>
-      </div>
-
-      <div class="services-grid">
-        <!-- Service 1: Management Quota -->
-        <div class="service-card">
-          <div class="service-icon-box">
-            <i class="fa-solid fa-building-columns"></i>
+      <div class="landingBook-form-left">
+        <div class="text-center" style="margin-bottom: 2rem;">
+          <div class="free-counselling-badge" style="display: inline-flex; margin-bottom: 0.75rem;">
+            <i class="fa-solid fa-gift"></i>
+            <span>100% Free 1-on-1 Counselling</span>
           </div>
-          <h4 class="service-title">Management Quota Admissions</h4>
-          <p class="service-desc">
-            Authorized direct quota assistance for Christ, VIT, RVCE, BMSCE, Dayananda Sagar, Ramaiah & leading autonomous colleges with official registrar allocation letters.
+          <h2 class="section-title">Book Your Free Consultation.</h2>
+          <p class="section-subtitle">
+            Submit your details to secure Management Quota / NRI priority for 2027.
           </p>
-          <a href="enquiry.html" class="service-link">
-            <span>Inquire Quota Seats</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </a>
         </div>
 
-        <!-- Service 2: Profile Evaluation -->
-        <div class="service-card">
-          <div class="service-icon-box">
-            <i class="fa-solid fa-user-graduate"></i>
+        <!-- Scrolling Enquiry Category Buttons -->
+        <div class="enquiry-buttons-scroller-wrap" aria-label="Select Enquiry Category">
+          <div class="enquiry-buttons-track" role="tablist">
+            <button type="button" class="enquiry-pill-btn active" data-type="admission-enquiry" data-form-id="mainAdmissionsForm">
+              <span class="pill-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+              <span class="pill-text">Admission Enquiry</span>
+            </button>
+            <button type="button" class="enquiry-pill-btn" data-type="fee-structure" data-form-id="mainAdmissionsForm">
+              <span class="pill-icon"><i class="fa-solid fa-file-invoice-dollar"></i></span>
+              <span class="pill-text">Fee Structure</span>
+            </button>
+            <button type="button" class="enquiry-pill-btn" data-type="management-quota" data-form-id="mainAdmissionsForm">
+              <span class="pill-icon"><i class="fa-solid fa-bolt-lightning"></i></span>
+              <span class="pill-text">Management Quota</span>
+            </button>
+            <button type="button" class="enquiry-pill-btn" data-type="abroad-admissions" data-form-id="mainAdmissionsForm">
+              <span class="pill-icon"><i class="fa-solid fa-earth-americas"></i></span>
+              <span class="pill-text">Abroad Admissions</span>
+            </button>
           </div>
-          <h4 class="service-title">Academic Profile Evaluation</h4>
-          <p class="service-desc">
-            Diagnostic mapping of your 10th/12th marks, KCET, COMEDK, JEE, or NEET performance to shortlist top colleges within your target budget and stream preferences.
-          </p>
-          <a href="enquiry.html" class="service-link">
-            <span>Get Free Assessment</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </a>
         </div>
 
-        <!-- Service 3: Documentation -->
-        <div class="service-card">
-          <div class="service-icon-box">
-            <i class="fa-solid fa-file-signature"></i>
-          </div>
-          <h4 class="service-title">Document &amp; Portfolio Polishing</h4>
-          <p class="service-desc">
-            Professional SOP review, LOR preparation, academic credential verification, and error-free university application portfolio preparation.
-          </p>
-          <a href="enquiry.html" class="service-link">
-            <span>Review Portfolio</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
+        <form id="mainAdmissionsForm">
+          <input type="hidden" name="enquiryType" id="mainEnquiryType" value="admission-enquiry">
+          <div class="admission-form-grid">
+            <!-- Full Name -->
+            <div class="form-field-group">
+              <label class="field-label">
+                <span>Full Name</span>
+                <span class="required-star">*</span>
+              </label>
+              <div class="input-with-icon">
+                <i class="fa-solid fa-user input-icon"></i>
+                <input type="text" name="fullName" class="form-input-control" placeholder="Enter Student's Full Name" required>
+              </div>
+            </div>
 
-        <!-- Service 4: Fee Matrix & Scholarships -->
-        <div class="service-card">
-          <div class="service-icon-box">
-            <i class="fa-solid fa-file-invoice-dollar"></i>
-          </div>
-          <h4 class="service-title">Fee Structure &amp; Scholarship Guidance</h4>
-          <p class="service-desc">
-            Complete institutional tuition fee breakdowns, transparent quota schedules, and merit bursary applications securing concessions up to 30%.
-          </p>
-          <a href="fee-structure.html" class="service-link">
-            <span>Download Fee Matrix</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
+            <!-- Phone / WhatsApp Number -->
+            <div class="form-field-group">
+              <label class="field-label">
+                <span>Mobile / WhatsApp Number</span>
+                <span class="required-star">*</span>
+              </label>
+              <div class="input-with-icon">
+                <i class="fa-solid fa-phone input-icon"></i>
+                <input type="tel" name="phone" class="form-input-control" placeholder="e.g. 9845371459" required>
+              </div>
+            </div>
 
-        <!-- Service 5: Study Abroad -->
-        <div class="service-card">
-          <div class="service-icon-box">
-            <i class="fa-solid fa-earth-americas"></i>
-          </div>
-          <h4 class="service-title">Global Study Abroad Advisory</h4>
-          <p class="service-desc">
-            End-to-end overseas university admissions, scholarship guidance, post-study work visa rights, and consular mock interview preparation for USA, UK, Canada &amp; Europe.
-          </p>
-          <a href="enquiry.html?type=abroad" class="service-link">
-            <span>Explore Global Seats</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
+            <!-- Email Address -->
+            <div class="form-field-group form-col-full">
+              <label class="field-label">
+                <span>Email Address</span>
+                <span class="required-star">*</span>
+              </label>
+              <div class="input-with-icon">
+                <i class="fa-solid fa-envelope input-icon"></i>
+                <input type="email" name="email" class="form-input-control" placeholder="name@domain.com" required>
+              </div>
+            </div>
 
-        <!-- Service 6: Entrance Prep -->
-        <div class="service-card">
-          <div class="service-icon-box" style="background: #ecfdf5; color: #059669; border-color: #a7f3d0;">
-            <i class="fa-solid fa-bullseye"></i>
+            <!-- Course Dropdown -->
+            <div class="form-field-group form-col-full">
+              <label class="field-label">
+                <span>Course / Academic Stream</span>
+                <span class="required-star">*</span>
+              </label>
+              <div class="input-with-icon">
+                <i class="fa-solid fa-graduation-cap input-icon"></i>
+                <select name="course" id="formCourseSelect" class="form-select-control" required>
+                  <option value="" disabled selected>Select Course / Academic Program</option>
+                  <option value="Engineering & Technology (B.Tech / B.E)">Engineering &amp; Technology (B.Tech / B.E - CSE, AI, ECE, Mech)</option>
+                  <option value="Commerce & Accounting (B.Com / M.Com / ACCA)">Commerce &amp; Accounting (B.Com / M.Com / ACCA / CMA)</option>
+                  <option value="Management & Business (BBA / MBA / PGDM)">Management &amp; Business (BBA / MBA / PGDM)</option>
+                  <option value="Medical & Healthcare (MBBS / BDS)">Medical &amp; Healthcare (MBBS / BDS / BAMS)</option>
+                  <option value="Computer Applications & IT (BCA / MCA)">Computer Applications &amp; IT (BCA / MCA)</option>
+                  <option value="Law & Legal Studies (BA LLB / BBA LLB)">Law &amp; Legal Studies (BA LLB / BBA LLB / LLM)</option>
+                  <option value="Pharmacy & Nursing (B.Pharm / Pharm.D)">Pharmacy &amp; Nursing (B.Pharm / Pharm.D / B.Sc Nursing)</option>
+                  <option value="Architecture & Planning (B.Arch / B.Des)">Architecture &amp; Planning (B.Arch / B.Des)</option>
+                  <option value="Others">Others (Specify Your Preferred Course)</option>
+                </select>
+              </div>
+
+              <!-- Dynamic Conditional Field for Course "Others" -->
+              <div class="conditional-other-field" id="conditionalCourseOther">
+                <div class="input-with-icon" style="margin-top: 6px;">
+                  <i class="fa-solid fa-pen-fancy input-icon"></i>
+                  <input type="text" name="otherCourseName" class="form-input-control" placeholder="Specify Your Preferred Course (e.g. B.Sc Psychology, Biotechnology, Aviation)">
+                </div>
+              </div>
+            </div>
+
+            <!-- College Dropdown -->
+            <div class="form-field-group form-col-full">
+              <label class="field-label">
+                <span>Target College Name</span>
+                <span class="required-star">*</span>
+              </label>
+              <div class="input-with-icon">
+                <i class="fa-solid fa-building-columns input-icon"></i>
+                <select name="college" id="formCollegeSelect" class="form-select-control" required>
+                  <option value="" disabled selected>Select Preferred College / University</option>
+                  <option value="Christ University">Christ University (Bangalore Central / Yeshwanthpur)</option>
+                  <option value="St. Joseph's University">St. Joseph's University (Langford Road, Bengaluru)</option>
+                  <option value="Vellore Institute of Technology (VIT)">Vellore Institute of Technology (VIT Vellore / Chennai)</option>
+                  <option value="RV College of Engineering (RVCE)">RV College of Engineering (RVCE, Mysore Road)</option>
+                  <option value="RV Institute of Technology (RVITM)">RV Institute of Technology &amp; Management (RVITM)</option>
+                  <option value="BMS College of Engineering (BMSCE)">BMS College of Engineering (BMSCE, Basavanagudi)</option>
+                  <option value="BMS Institute of Technology (BMSIT)">BMS Institute of Technology (BMSIT, Yelahanka)</option>
+                  <option value="Dayananda Sagar College (DSCE)">Dayananda Sagar College of Engineering (DSCE)</option>
+                  <option value="Ramaiah Institute of Technology (MSRIT)">Ramaiah Institute of Technology (MSRIT)</option>
+                  <option value="PES University">PES University (Ring Road / Electronic City)</option>
+                  <option value="Presidency University">Presidency University (Yelahanka)</option>
+                  <option value="Sir M. Visvesvaraya Institute (SMVIT)">Sir M. Visvesvaraya Institute of Technology (SMVIT)</option>
+                  <option value="Bangalore Medical College (BMCRI)">Bangalore Medical College &amp; Research Institute</option>
+                  <option value="Vydehi Institute of Medical Sciences">Vydehi Institute of Medical Sciences (Whitefield)</option>
+                  <option value="Others">Others (Specify Your Preferred College)</option>
+                </select>
+              </div>
+
+              <!-- Dynamic Conditional Field for College "Others" -->
+              <div class="conditional-other-field" id="conditionalCollegeOther">
+                <div class="input-with-icon" style="margin-top: 6px;">
+                  <i class="fa-solid fa-map-pin input-icon"></i>
+                  <input type="text" name="otherCollegeName" class="form-input-control" placeholder="Specify Your Preferred College Name (e.g. Alliance University, Jain, Reva)">
+                </div>
+              </div>
+            </div>
+
+            <!-- Study Destination: Abroad, India, Both -->
+            <div class="form-field-group form-col-full">
+              <label class="field-label">
+                <span>Interested Study Destination</span>
+                <span class="required-star">*</span>
+              </label>
+              <div class="input-with-icon">
+                <i class="fa-solid fa-earth-americas input-icon"></i>
+                <select name="studyDestination" class="form-select-control" required>
+                  <option value="India">India (Bangalore &amp; Pan-India Quota Seats)</option>
+                  <option value="Abroad">Abroad (USA, UK, Canada, Australia, Germany, Ireland)</option>
+                  <option value="Both">Both (Evaluating Indian Quotas &amp; Overseas Options)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-form-submit">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Register Application &amp; Lock Quota Seat</span>
+            </button>
+
+            <div class="form-guarantee-note">
+              <i class="fa-solid fa-lock" style="color: var(--green);"></i>
+              <span>SSL Encrypted • Direct University Quota Verification Guarantee</span>
+            </div>
           </div>
-          <h4 class="service-title">Entrance Test Prep Support</h4>
-          <p class="service-desc">
-            Prepare for your upcoming entrance tests (KCET, COMEDK, JEE, NEET, MAT, CLAT) with practice mocks, score analytics, and rank predictors on StudentEntrance.com.
-          </p>
-          <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="service-link" style="color: #059669;">
-            <span>Prepare on StudentEntrance.com</span>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </a>
-        </div>
+        </form>
       </div>
     </div>
   </section>
 
   <!-- ==============================================================================
-       6. ON-PAGE INTERACTIVE CONSULTATION & REGISTRATION FORM SECTION
+       7. FREQUENTLY ASKED QUESTIONS (STUDYLIFTER ACCORDION STYLE)
        ============================================================================== -->
-  <section class="form-section-wrapper" id="admissionsFormSection">
+  <section class="faq-section-studylifter" id="faqSection">
     <div class="container">
-      <div class="form-grid-layout">
-        <!-- Left Side Information & Perks -->
-        <div class="form-left-info">
-          <div class="free-counselling-badge" style="margin-bottom: 0.75rem;">
-            <i class="fa-solid fa-gift"></i>
-            <span>100% Free 1-on-1 Counselling</span>
-          </div>
-          <h3 class="section-heading-primary" style="margin-bottom: 0.75rem;">Schedule Your Free Admission Counselling Session.</h3>
-          <p style="margin-bottom: 1.5rem;">
-            Connect with Bengaluru's foremost academic consultants for transparent, unbiased career planning. Our senior counselors cover all critical dimensions of your admission journey with zero consultation fees:
-          </p>
+      <div class="text-center" style="max-width: 760px; margin: 0 auto;">
+        <span class="section-eyebrow" style="color: #2563eb; font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; display: inline-block; margin-bottom: 0.5rem;">Frequently Asked Questions</span>
+        <h2 style="font-size: 2.35rem; font-weight: 900; color: #0f172a; margin-bottom: 0.85rem; letter-spacing: -0.02em;">Got Questions? We Have Verified Answers.</h2>
+        <p style="font-size: 1rem; color: #64748b; line-height: 1.6;">
+          Everything you need to know about direct management quota admissions, eligibility criteria, fee transparency, and free diagnostic counseling.
+        </p>
+      </div>
 
-          <div class="counseling-perks-list">
-            <div class="perk-item">
-              <div class="perk-icon-circle"><i class="fa-solid fa-route"></i></div>
-              <div class="perk-text">
-                <h5>Process of the Admission</h5>
-                <p>Complete roadmap from eligibility criteria and application deadlines to registrar documentation.</p>
-              </div>
-            </div>
-
-            <div class="perk-item">
-              <div class="perk-icon-circle"><i class="fa-solid fa-clipboard-check"></i></div>
-              <div class="perk-text">
-                <h5>Preparation &amp; Cutoff Review</h5>
-                <p>Diagnostic score analysis (KCET, COMEDK, JEE, NEET, MAT) and personalized college shortlisting.</p>
-              </div>
-            </div>
-
-            <div class="perk-item">
-              <div class="perk-icon-circle"><i class="fa-solid fa-graduation-cap"></i></div>
-              <div class="perk-text">
-                <h5>Programs &amp; Branch Comparison</h5>
-                <p>In-depth branch evaluation across CSE, AI/ML, ECE, MBA, BBA, Law &amp; Medical streams.</p>
-              </div>
-            </div>
-
-            <div class="perk-item">
-              <div class="perk-icon-circle"><i class="fa-solid fa-receipt"></i></div>
-              <div class="perk-text">
-                <h5>Fee Structure &amp; Scholarships</h5>
-                <p>100% transparent year-wise tuition fees, living costs, and merit scholarship guidance.</p>
-              </div>
-            </div>
-
-            <div class="perk-item">
-              <div class="perk-icon-circle"><i class="fa-solid fa-building-columns"></i></div>
-              <div class="perk-text">
-                <h5>Available Seats &amp; Institutional Quota</h5>
-                <p>Verified vacancy tracking for direct autonomous seats, NRI categories, and legitimate quota advisory.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="official-partner-callout" style="margin-top: 1.25rem;">
-            <i class="fa-solid fa-shield-check"></i>
-            <div>
-              <strong>Confidential Student Data Protection</strong>
-              Your contact credentials are used solely for admission processing and official counseling.
-            </div>
+      <!-- Studylifter Style Accordion -->
+      <div class="zAccordion-two">
+        <!-- FAQ 1 (Open by default) -->
+        <div class="accordion-item open">
+          <h3 class="accordion-header">
+            <button type="button" class="accordion-button" onclick="toggleFaqItem(this)">
+              <span>What is Management Quota admission in Bangalore colleges?</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+          </h3>
+          <div class="accordion-body">
+            Management Quota is an officially sanctioned institutional intake (typically 15% to 25% of seats) approved by the State Government and university trusts for direct merit-cum-institutional admissions. It empowers eligible students who did not secure top cut-off ranks in competitive exams like KCET or COMEDK to secure verified seats in premier institutions like RVCE, BMSCE, Ramaiah, and Christ University based on their 12th/qualifying marks.
           </div>
         </div>
 
-        <!-- Right Side: Interactive Admission Form -->
-        <div class="interactive-form-box">
-          <div class="form-box-header">
-            <h4 class="form-box-title">Submit your Enquiry</h4>
-            <p class="form-box-subtitle">Submit your details to secure Management Quota / NRI priority for 2027.</p>
+        <!-- FAQ 2 -->
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button type="button" class="accordion-button" onclick="toggleFaqItem(this)">
+              <span>Is 1-on-1 career counselling truly 100% free with no hidden charges?</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+          </h3>
+          <div class="accordion-body">
+            Yes, absolutely. Our diagnostic 1-on-1 counseling is 100% free of charge. Our senior educational consultants analyze your 10th and 12th scores, target streams, and budget preferences to provide clear, unbiased college recommendations without any upfront consultation or registration fee.
           </div>
+        </div>
 
-          <!-- Scrolling Enquiry Category Buttons -->
-          <div class="enquiry-buttons-scroller-wrap" aria-label="Select Enquiry Category">
-            <div class="enquiry-buttons-track" role="tablist">
-              <button type="button" class="enquiry-pill-btn active" data-type="admission-enquiry" data-form-id="mainAdmissionsForm">
-                <span class="pill-icon"><i class="fa-solid fa-graduation-cap"></i></span>
-                <span class="pill-text">Admission Enquiry</span>
-              </button>
-              <button type="button" class="enquiry-pill-btn" data-type="fee-structure" data-form-id="mainAdmissionsForm">
-                <span class="pill-icon"><i class="fa-solid fa-file-invoice-dollar"></i></span>
-                <span class="pill-text">Fee Structure</span>
-              </button>
-              <button type="button" class="enquiry-pill-btn" data-type="management-quota" data-form-id="mainAdmissionsForm">
-                <span class="pill-icon"><i class="fa-solid fa-bolt-lightning"></i></span>
-                <span class="pill-text">Management Quota</span>
-              </button>
-              <button type="button" class="enquiry-pill-btn" data-type="abroad-admissions" data-form-id="mainAdmissionsForm">
-                <span class="pill-icon"><i class="fa-solid fa-earth-americas"></i></span>
-                <span class="pill-text">Abroad Admissions</span>
-              </button>
-            </div>
+        <!-- FAQ 3 -->
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button type="button" class="accordion-button" onclick="toggleFaqItem(this)">
+              <span>Can I get admission in top colleges if my KCET / COMEDK rank is low?</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+          </h3>
+          <div class="accordion-body">
+            Yes. Institutional management and NRI quota seats are allotted primarily based on qualifying 12th Board examination marks (typically requiring a minimum aggregate of 50-60% in Physics, Chemistry, and Mathematics/Biology depending on the college and stream), rather than high entrance examination ranks.
           </div>
+        </div>
 
-          <form id="mainAdmissionsForm">
-            <input type="hidden" name="enquiryType" id="mainEnquiryType" value="admission-enquiry">
-            <div class="admission-form-grid">
-              <!-- Full Name -->
-              <!-- Full Name -->
-              <div class="form-field-group">
-                <label class="field-label">
-                  <span>Full Name</span>
-                  <span class="required-star">*</span>
-                </label>
-                <div class="input-with-icon">
-                  <i class="fa-solid fa-user input-icon"></i>
-                  <input type="text" name="fullName" class="form-input-control" placeholder="Enter Student's Full Name" required>
-                </div>
-              </div>
+        <!-- FAQ 4 -->
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button type="button" class="accordion-button" onclick="toggleFaqItem(this)">
+              <span>How are admission allotment letters issued? Are they official?</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+          </h3>
+          <div class="accordion-body">
+            All seat allotments are 100% genuine and processed directly through the respective institution's registrar and admissions office. Students and parents receive formal allotment letters, fee receipts bearing official college seals, and registered university enrollment numbers.
+          </div>
+        </div>
 
-              <!-- Phone / WhatsApp Number -->
-              <div class="form-field-group">
-                <label class="field-label">
-                  <span>Mobile / WhatsApp Number</span>
-                  <span class="required-star">*</span>
-                </label>
-                <div class="input-with-icon">
-                  <i class="fa-solid fa-phone input-icon"></i>
-                  <input type="tel" name="phone" class="form-input-control" placeholder="e.g. 9845371459" required>
-                </div>
-              </div>
+        <!-- FAQ 5 -->
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button type="button" class="accordion-button" onclick="toggleFaqItem(this)">
+              <span>What documents are mandatory for verification and seat booking?</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+          </h3>
+          <div class="accordion-body">
+            Key documents include: 10th and 12th Standard Marks Cards, Transfer Certificate (TC), Migration Certificate (for non-Karnataka/ICSE/CBSE students), Valid Government Photo ID (Aadhaar / Passport), Recent Passport-size Photographs, and Entrance Admit/Score Card (if appeared).
+          </div>
+        </div>
 
-              <!-- Email Address -->
-              <div class="form-field-group form-col-full">
-                <label class="field-label">
-                  <span>Email Address</span>
-                  <span class="required-star">*</span>
-                </label>
-                <div class="input-with-icon">
-                  <i class="fa-solid fa-envelope input-icon"></i>
-                  <input type="email" name="email" class="form-input-control" placeholder="name@domain.com" required>
-                </div>
-              </div>
-
-              <!-- Course Dropdown -->
-              <div class="form-field-group form-col-full">
-                <label class="field-label">
-                  <span>Course / Academic Stream</span>
-                  <span class="required-star">*</span>
-                </label>
-                <div class="input-with-icon">
-                  <i class="fa-solid fa-graduation-cap input-icon"></i>
-                  <select name="course" id="formCourseSelect" class="form-select-control" required>
-                    <option value="" disabled selected>Select Course / Academic Program</option>
-                    <option value="Engineering & Technology (B.Tech / B.E)">Engineering & Technology (B.Tech / B.E - CSE, AI, ECE, Mech)</option>
-                    <option value="Commerce & Accounting (B.Com / M.Com / ACCA)">Commerce & Accounting (B.Com / M.Com / ACCA / CMA)</option>
-                    <option value="Management & Business (BBA / MBA / PGDM)">Management & Business (BBA / MBA / PGDM)</option>
-                    <option value="Medical & Healthcare (MBBS / BDS)">Medical & Healthcare (MBBS / BDS / BAMS)</option>
-                    <option value="Computer Applications & IT (BCA / MCA)">Computer Applications & IT (BCA / MCA)</option>
-                    <option value="Law & Legal Studies (BA LLB / BBA LLB)">Law & Legal Studies (BA LLB / BBA LLB / LLM)</option>
-                    <option value="Pharmacy & Nursing (B.Pharm / Pharm.D)">Pharmacy & Nursing (B.Pharm / Pharm.D / B.Sc Nursing)</option>
-                    <option value="Architecture & Planning (B.Arch / B.Des)">Architecture & Planning (B.Arch / B.Des)</option>
-                    <option value="Others">Others (Specify Your Preferred Course)</option>
-                  </select>
-                </div>
-
-                <!-- Dynamic Conditional Field for Course "Others" -->
-                <div class="conditional-other-field" id="conditionalCourseOther">
-                  <div class="input-with-icon" style="margin-top: 6px;">
-                    <i class="fa-solid fa-pen-fancy input-icon"></i>
-                    <input type="text" name="otherCourseName" class="form-input-control" placeholder="Specify Your Preferred Course (e.g. B.Sc Psychology, Biotechnology, Aviation)">
-                  </div>
-                </div>
-              </div>
-
-              <!-- College Dropdown -->
-              <div class="form-field-group form-col-full">
-                <label class="field-label">
-                  <span>Target College Name</span>
-                  <span class="required-star">*</span>
-                </label>
-                <div class="input-with-icon">
-                  <i class="fa-solid fa-building-columns input-icon"></i>
-                  <select name="college" id="formCollegeSelect" class="form-select-control" required>
-                    <option value="" disabled selected>Select Preferred College / University</option>
-                    <option value="Christ University">Christ University (Bangalore Central / Yeshwanthpur)</option>
-                    <option value="St. Joseph's University">St. Joseph's University (Langford Road, Bengaluru)</option>
-                    <option value="Vellore Institute of Technology (VIT)">Vellore Institute of Technology (VIT Vellore / Chennai)</option>
-                    <option value="RV College of Engineering (RVCE)">RV College of Engineering (RVCE, Mysore Road)</option>
-                    <option value="RV Institute of Technology (RVITM)">RV Institute of Technology & Management (RVITM)</option>
-                    <option value="BMS College of Engineering (BMSCE)">BMS College of Engineering (BMSCE, Basavanagudi)</option>
-                    <option value="BMS Institute of Technology (BMSIT)">BMS Institute of Technology (BMSIT, Yelahanka)</option>
-                    <option value="Dayananda Sagar College (DSCE)">Dayananda Sagar College of Engineering (DSCE)</option>
-                    <option value="Ramaiah Institute of Technology (MSRIT)">Ramaiah Institute of Technology (MSRIT)</option>
-                    <option value="PES University">PES University (Ring Road / Electronic City)</option>
-                    <option value="Presidency University">Presidency University (Yelahanka)</option>
-                    <option value="Sir M. Visvesvaraya Institute (SMVIT)">Sir M. Visvesvaraya Institute of Technology (SMVIT)</option>
-                    <option value="Bangalore Medical College (BMCRI)">Bangalore Medical College & Research Institute</option>
-                    <option value="Vydehi Institute of Medical Sciences">Vydehi Institute of Medical Sciences (Whitefield)</option>
-                    <option value="Others">Others (Specify Your Preferred College)</option>
-                  </select>
-                </div>
-
-                <!-- Dynamic Conditional Field for College "Others" -->
-                <div class="conditional-other-field" id="conditionalCollegeOther">
-                  <div class="input-with-icon" style="margin-top: 6px;">
-                    <i class="fa-solid fa-map-pin input-icon"></i>
-                    <input type="text" name="otherCollegeName" class="form-input-control" placeholder="Specify Your Preferred College Name (e.g. Alliance University, Jain, Reva)">
-                  </div>
-                </div>
-              </div>
-
-              <!-- Study Destination: Abroad, India, Both -->
-              <div class="form-field-group form-col-full">
-                <label class="field-label">
-                  <span>Interested Study Destination</span>
-                  <span class="required-star">*</span>
-                </label>
-                <div class="input-with-icon">
-                  <i class="fa-solid fa-earth-americas input-icon"></i>
-                  <select name="studyDestination" class="form-select-control" required>
-                    <option value="India">India (Bangalore & Pan-India Quota Seats)</option>
-                    <option value="Abroad">Abroad (USA, UK, Canada, Australia, Germany, Ireland)</option>
-                    <option value="Both">Both (Evaluating Indian Quotas & Overseas Options)</option>
-                  </select>
-                </div>
-              </div>
-
-              <!-- Submit Button -->
-              <button type="submit" class="btn-form-submit">
-                <i class="fa-solid fa-paper-plane"></i>
-                <span>Register Application & Lock Quota Seat</span>
-              </button>
-
-              <div class="form-guarantee-note">
-                <i class="fa-solid fa-lock" style="color: var(--green);"></i>
-                <span>SSL Encrypted • Direct University Quota Verification Guarantee</span>
-              </div>
-            </div>
-          </form>
+        <!-- FAQ 6 -->
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button type="button" class="accordion-button" onclick="toggleFaqItem(this)">
+              <span>Can I also prepare for upcoming entrance exams on your platform?</span>
+              <span class="accordion-icon"><i class="fa-solid fa-plus"></i></span>
+            </button>
+          </h3>
+          <div class="accordion-body">
+            Yes! Through our official partner portal <strong>StudentEntrance.com</strong>, students have complimentary access to comprehensive mock test series, chapter-wise question banks, and rank predictors for KCET, COMEDK, JEE Main, NEET, and MAT examinations.
+          </div>
         </div>
       </div>
     </div>
@@ -1702,7 +1816,7 @@
   <!-- ==============================================================================
        10. OFFICIAL FOOTER
        ============================================================================== -->
-  <footer class="site-footer">
+  <footer class="site-footer" id="siteFooter">
     <div class="container">
       <div class="footer-top-grid">
         <!-- Brand Info -->
@@ -1756,6 +1870,18 @@
             <li>
               <i class="fa-solid fa-location-dot me-2" style="color: var(--button);"></i>
               <span>Shanthala Nagar, Ashok Nagar, Bengaluru, Karnataka 560025</span>
+              <div class="footer-map-container" style="margin-top: 8px;">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15552.128711867185!2d77.5975!3d12.9716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae167858c89a07%3A0x6b449830504e0e64!2sAshok%20Nagar%2C%20Bengaluru%2C%20Karnataka%20560025!5e0!3m2!1sen!2sin!4v1718000000000!5m2!1sen!2sin" 
+                  width="100%" 
+                  height="130" 
+                  style="border:0; display:block; border-radius: 8px;" 
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="The Edu Consultant Office Location Ashok Nagar Bengaluru">
+                </iframe>
+              </div>
             </li>
             <li>
               <i class="fa-solid fa-phone me-2" style="color: var(--button);"></i>

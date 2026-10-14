@@ -1053,4 +1053,20 @@ window.handleHeroQuickSearch = function(e) {
   }
 };
 
+/* ==========================================================================
+   STUDYLIFTER FAQ ACCORDION CONTROLLER
+   ========================================================================== */
+window.toggleFaqItem = function(headerBtn) {
+  const item = headerBtn.closest('.accordion-item');
+  if (!item) return;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.zAccordion-two .accordion-item').forEach(el => {
+    el.classList.remove('open');
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+  }
+};
+
+
 
