@@ -870,13 +870,14 @@ window.handleAdmissionFormSubmit = function(formElement, formType = 'registratio
   }
 
   // 2. Dispatch to Google Apps Script Web App (Logs to Google Sheet & dispatches email from enquiry@theeduconsultant.com)
-  const googleScriptUrl = window.GOOGLE_SCRIPT_WEBAPP_URL || localStorage.getItem('the_edu_consultant_google_script_url') || '';
+  const DEFAULT_GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyXnFbX5MJTcTOv9bEhUy4xU1nnfCBHjBXMflmZJCC7m0aNzH3vV7WIkbt8kgRB57c/exec';
+  const googleScriptUrl = window.GOOGLE_SCRIPT_WEBAPP_URL || localStorage.getItem('the_edu_consultant_google_script_url') || DEFAULT_GOOGLE_SCRIPT_URL;
   if (googleScriptUrl) {
     try {
       fetch(googleScriptUrl, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(leadRecord)
       }).catch(e => console.warn('Google Apps Script dispatch:', e));
     } catch (e) {}

@@ -178,7 +178,8 @@ module.exports = async (req, res) => {
     }
 
     // 3. Method C: Google Apps Script Web App Relay (Google Sheet sync & enquiry@theeduconsultant.com email)
-    const googleScriptUrl = process.env.GOOGLE_SCRIPT_URL || req.body.googleScriptUrl;
+    const DEFAULT_GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyXnFbX5MJTcTOv9bEhUy4xU1nnfCBHjBXMflmZJCC7m0aNzH3vV7WIkbt8kgRB57c/exec';
+    const googleScriptUrl = process.env.GOOGLE_SCRIPT_URL || req.body.googleScriptUrl || DEFAULT_GOOGLE_SCRIPT_URL;
     let googleSheetSynced = false;
 
     if (googleScriptUrl) {
@@ -186,7 +187,7 @@ module.exports = async (req, res) => {
         emailProvider = 'google-apps-script';
         const gScriptRes = await fetch(googleScriptUrl, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify({
             fullName,
             phone,

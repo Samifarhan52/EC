@@ -7,6 +7,12 @@ This guide explains how to connect your **Google Sheets (Excel)** to the live we
 3. Counselors receive an instant lead alert email with one-click WhatsApp chat link.
 4. You can export leads to Microsoft Excel (`.xlsx`) or CSV anytime with 1 click.
 
+## 🚀 Active Production Webhook URL
+The live Google Apps Script webhook is configured and active across all forms:
+```
+https://script.google.com/macros/s/AKfycbyXnFbX5MJTcTOv9bEhUy4xU1nnfCBHjBXMflmZJCC7m0aNzH3vV7WIkbt8kgRB57c/exec
+```
+
 ---
 
 ## ⚡ 60-Second Setup Instructions

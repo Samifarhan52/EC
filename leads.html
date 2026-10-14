@@ -1245,7 +1245,7 @@ function testCounselorEmail() {
       fetch(url, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(testData)
       }).then(() => {
         if (statusMsg) {
@@ -1282,20 +1282,23 @@ function testCounselorEmail() {
       }).catch(err => alert('Failed to copy code: ' + err));
     }
 
+    const DEFAULT_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyXnFbX5MJTcTOv9bEhUy4xU1nnfCBHjBXMflmZJCC7m0aNzH3vV7WIkbt8kgRB57c/exec';
+
     // Auto-initialize on load
     document.addEventListener('DOMContentLoaded', () => {
       renderDashboard();
 
-      // Load saved Google Script URL
-      const savedUrl = localStorage.getItem(G_SCRIPT_KEY);
+      // Load saved or default Google Script URL
+      const savedUrl = localStorage.getItem(G_SCRIPT_KEY) || DEFAULT_WEBHOOK_URL;
       const urlInput = document.getElementById('googleScriptUrlInput');
       const statusMsg = document.getElementById('googleScriptStatusMsg');
-      if (savedUrl && urlInput) {
+      if (urlInput) {
         urlInput.value = savedUrl;
+        localStorage.setItem(G_SCRIPT_KEY, savedUrl);
         if (statusMsg) {
           statusMsg.style.display = 'block';
           statusMsg.style.color = '#15803d';
-          statusMsg.innerHTML = '<i class="fa-solid fa-circle-check"></i> Connected to Google Sheet Web App.';
+          statusMsg.innerHTML = '<i class="fa-solid fa-circle-check"></i> Connected to Live Google Sheet Webhook (Automatic Real-time Sync &amp; Emails Active).';
         }
       }
     });
