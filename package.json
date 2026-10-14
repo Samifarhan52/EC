@@ -1,0 +1,21 @@
+{
+  "name": "the-edu-consultant",
+  "version": "1.0.0",
+  "description": "The Edu Consultant - Premium Academic Advisory & Management Quota Admissions 2027",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": [
+    "education",
+    "consultant",
+    "admissions-2027",
+    "management-quota",
+    "bangalore-colleges",
+    "study-abroad"
+  ],
+  "author": "The Edu Consultant",
+  "license": "UNLICENSED",
+  "private": true
+}
