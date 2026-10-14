@@ -869,40 +869,27 @@ window.handleAdmissionFormSubmit = function(formElement, formType = 'registratio
     console.warn('Lead storage error:', err);
   }
 
-  // 2. Dispatch background API call for counselor alert & student confirmation email
+  // 2. Dispatch to Google Apps Script Web App (Logs to Google Sheet & dispatches email from enquiry@theeduconsultant.com)
+  const googleScriptUrl = window.GOOGLE_SCRIPT_WEBAPP_URL || localStorage.getItem('the_edu_consultant_google_script_url') || '';
+  if (googleScriptUrl) {
+    try {
+      fetch(googleScriptUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(leadRecord)
+      }).catch(e => console.warn('Google Apps Script dispatch:', e));
+    } catch (e) {}
+  }
+
+  // 2B. Also forward to /api/submit-enquiry
   try {
     fetch('/api/submit-enquiry', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(leadRecord)
+      body: JSON.stringify({ ...leadRecord, googleScriptUrl })
     }).catch(e => console.warn('API background submit:', e));
   } catch (e) {}
-
-  // 2B. Secondary FormSubmit dispatch with Autoresponse directly to student's email
-  if (email) {
-    try {
-      fetch('https://formsubmit.co/ajax/samifarhan52@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: fullName,
-          email: email,
-          phone: phone,
-          programLevel: programLevel,
-          course: course || 'Academic Program',
-          college: college || 'Premier Institution',
-          studyDestination: destination,
-          refId: refId,
-          _subject: `New Admission Enquiry: ${fullName} (${course || 'Admissions 2027'})`,
-          _replyto: email,
-          _autoresponse: `Dear ${fullName},\n\nThank you for submitting your admission enquiry (Ref: ${refId}) to The Edu Consultant for ${course || 'Academic Program'} at ${college || 'Bangalore Premier Colleges'}.\n\nYour enquiry has been prioritized in our admissions queue. One of our Senior Academic Counselors will call you back shortly on +91 ${phone} to assist you with cutoff analysis, seat allocation, and transparent fee structures.\n\nOfficial Consultation Desk:\nHelpline: +91 98453 71459 | +91 88840 58214 | +91 80508 54448\nWebsite: https://ec-puce-two.vercel.app\nAshok Nagar, Bengaluru, Karnataka 560025`
-        })
-      }).catch(e => console.warn('FormSubmit background dispatch:', e));
-    } catch (e) {}
-  }
 
   // 3. Formulate structured WhatsApp text for both Counselors
   const waText = 

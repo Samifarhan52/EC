@@ -36,7 +36,7 @@ module.exports = async (req, res) => {
 
     console.log(`[Lead Ingestion] New admission inquiry: ${refId} - ${fullName} (${phone}) for ${course} at ${college}`);
 
-    const counselorEmail = process.env.COUNSELOR_EMAIL || 'samifarhan52@gmail.com';
+    const counselorEmail = process.env.COUNSELOR_EMAIL || 'enquiry@theeduconsultant.com';
     let studentEmailSent = false;
     let counselorEmailSent = false;
     let emailProvider = 'none';
@@ -177,14 +177,47 @@ module.exports = async (req, res) => {
       }
     }
 
+    // 3. Method C: Google Apps Script Web App Relay (Google Sheet sync & enquiry@theeduconsultant.com email)
+    const googleScriptUrl = process.env.GOOGLE_SCRIPT_URL || req.body.googleScriptUrl;
+    let googleSheetSynced = false;
+
+    if (googleScriptUrl) {
+      try {
+        emailProvider = 'google-apps-script';
+        const gScriptRes = await fetch(googleScriptUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            fullName,
+            phone,
+            email,
+            programLevel,
+            course,
+            college,
+            studyDestination,
+            source,
+            refId,
+            timestamp
+          })
+        });
+        if (gScriptRes.ok) {
+          googleSheetSynced = true;
+          studentEmailSent = true;
+        }
+      } catch (gErr) {
+        console.error('Google Apps Script relay error:', gErr);
+      }
+    }
+
     return res.status(200).json({
       success: true,
       message: studentEmailSent 
-        ? 'Enquiry registered and confirmation email sent to student' 
-        : 'Enquiry registered in system. Configure GMAIL_USER/GMAIL_APP_PASSWORD or RESEND_API_KEY on Vercel to activate live automated email dispatch.',
+        ? 'Enquiry registered, synced to Google Sheet, and confirmation email sent to student' 
+        : 'Enquiry registered in system.',
       refId,
       studentEmailSent,
       counselorEmailSent,
+      googleSheetSynced,
       emailProvider,
       lead: {
         fullName,
