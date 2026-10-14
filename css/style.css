@@ -1030,51 +1030,106 @@ button, input, select, textarea {
    5. DUAL SCROLLING PARTNER LOGO MARQUEE (MODERN FLOATING CARDS)
    ========================================================================== */
 .partner-dual-marquee-section {
-  background-color: var(--slate-50);
-  padding: 4.5rem 0 5rem;
-  border-top: 1px solid var(--slate-200);
-  border-bottom: 1px solid var(--slate-200);
+  background: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.05) 0%, rgba(241, 245, 249, 0.6) 45%, #f8fafc 100%);
+  padding: 5rem 0 5.5rem;
+  border-top: 1px solid rgba(226, 232, 240, 0.85);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
   position: relative;
   overflow: hidden;
 }
 
-.marquee-section-header {
-  text-align: center;
-  max-width: 750px;
-  margin: 0 auto 2.5rem;
-  padding: 0 1.25rem;
+.partner-dual-marquee-section::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 260px;
+  background: radial-gradient(ellipse at center, rgba(245, 158, 11, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-.marquee-tag {
-  color: var(--indigo-600);
-  font-size: 0.8rem;
-  text-transform: uppercase;
+.marquee-section-header {
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.marquee-eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 0.76rem;
   font-weight: 800;
-  letter-spacing: 1.2px;
-  margin-bottom: 0.35rem;
-  display: block;
+  letter-spacing: 1.1px;
+  color: #4338ca;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.live-dot-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: marqueePulseEmerald 2s infinite;
+  flex-shrink: 0;
+}
+
+@keyframes marqueePulseEmerald {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
 }
 
 .marquee-section-title {
-  color: var(--slate-900);
-  font-size: 2.1rem;
-  font-weight: 800;
-  letter-spacing: -0.5px;
+  color: #0f172a;
+  font-size: 2.35rem;
+  font-weight: 850;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  margin: 0 auto;
+  max-width: 920px;
+  text-wrap: balance;
 }
 
 .marquee-section-subtitle {
-  color: var(--slate-500);
-  font-size: 1rem;
-  margin-top: 0.4rem;
+  color: #64748b;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin-top: 0.85rem;
+  max-width: 840px;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: balance;
+  font-weight: 450;
 }
 
 .dual-marquee-chamber {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.35rem;
   position: relative;
-  mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  z-index: 1;
 }
 
 .marquee-row {
@@ -1082,6 +1137,7 @@ button, input, select, textarea {
   white-space: nowrap;
   display: flex;
   user-select: none;
+  padding: 6px 0;
 }
 
 .marquee-row:hover .marquee-stream {
@@ -1090,17 +1146,17 @@ button, input, select, textarea {
 
 .marquee-stream {
   display: flex;
-  gap: 1.25rem;
+  gap: 1.35rem;
   flex-shrink: 0;
   white-space: nowrap;
 }
 
 .stream-ltr {
-  animation: scrollLTR 40s linear infinite;
+  animation: scrollLTR 42s linear infinite;
 }
 
 .stream-rtl {
-  animation: scrollRTL 40s linear infinite;
+  animation: scrollRTL 42s linear infinite;
 }
 
 @keyframes scrollLTR {
@@ -1114,46 +1170,47 @@ button, input, select, textarea {
 }
 
 .college-logo-card {
-  background: var(--white);
-  border: 1.5px solid var(--slate-200);
-  border-radius: var(--radius-md);
-  padding: 0.85rem 1.5rem;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 16px;
+  padding: 0.85rem 1.35rem;
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  transition: all var(--transition-fast);
+  gap: 14px;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   flex-shrink: 0;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 3px 12px -2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
+  position: relative;
 }
 
 .college-logo-card:hover {
-  background: var(--white);
-  border-color: var(--indigo-500);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.12);
+  background: #ffffff;
+  border-color: #f59e0b;
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 14px 28px -4px rgba(245, 158, 11, 0.16), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
 }
 
 .college-crest-icon {
-  width: 50px;
-  height: 48px;
-  border-radius: 10px;
-  background: var(--white);
+  width: 52px;
+  height: 52px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   border: 1px solid rgba(226, 232, 240, 0.95);
-  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   overflow: hidden;
-  padding: 4px 6px;
-  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  padding: 6px;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .college-logo-card:hover .college-crest-icon {
-  transform: scale(1.06);
-  border-color: var(--indigo-400);
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.18);
+  transform: scale(1.08);
+  border-color: #f59e0b;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
 }
 
 .college-logo-img {
@@ -1165,32 +1222,100 @@ button, input, select, textarea {
   display: block;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.04));
 }
 
 .college-details {
   display: flex;
   flex-direction: column;
+  gap: 3px;
+  text-align: left;
 }
 
 .college-brand-title {
-  color: var(--slate-900);
-  font-size: 0.95rem;
+  color: #0f172a;
+  font-size: 0.98rem;
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  transition: color 0.2s ease;
+}
+
+.college-logo-card:hover .college-brand-title {
+  color: #b45309;
 }
 
 .college-meta {
-  color: var(--slate-500);
-  font-size: 0.74rem;
+  color: #64748b;
+  font-size: 0.75rem;
   display: flex;
   align-items: center;
   gap: 6px;
-  font-weight: 600;
+  font-weight: 550;
 }
 
 .college-meta span.badge-pill {
-  color: var(--rose-500);
-  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 0.69rem;
+  font-weight: 750;
+  letter-spacing: 0.3px;
+  background: rgba(245, 158, 11, 0.1);
+  color: #b45309;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  white-space: nowrap;
+}
+
+.college-logo-card::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid #cbd5e1;
+  border-right: 2px solid #cbd5e1;
+  transform: rotate(45deg);
+  margin-left: 8px;
+  margin-right: 2px;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.college-logo-card:hover::after {
+  border-color: #d97706;
+  transform: translateX(3px) rotate(45deg);
+}
+
+@media (max-width: 768px) {
+  .partner-dual-marquee-section {
+    padding: 3.5rem 0 4rem;
+  }
+  .marquee-section-header {
+    margin-bottom: 2rem;
+  }
+  .marquee-section-title {
+    font-size: 1.65rem;
+    line-height: 1.3;
+  }
+  .marquee-section-subtitle {
+    font-size: 0.92rem;
+  }
+  .college-logo-card {
+    padding: 0.75rem 1.1rem;
+    gap: 10px;
+    border-radius: 14px;
+  }
+  .college-crest-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+  }
+  .college-brand-title {
+    font-size: 0.9rem;
+  }
+  .college-meta {
+    font-size: 0.7rem;
+  }
 }
 
 /* ==========================================================================
