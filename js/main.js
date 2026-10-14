@@ -749,6 +749,19 @@ window.openFeeModal = function(prefillCollege = '', prefillCourse = '') {
 };
 
 window.openSuccessModal = function(applicantName = 'Student', actionType = 'registration') {
+  // Backwards compatibility proxy
+  window.openEnhancedSuccessModal({
+    fullName: applicantName,
+    refId: 'TEC-' + Math.floor(100000 + Math.random() * 900000),
+    course: 'Academic Program',
+    college: 'Premier Institution',
+    formType: actionType,
+    waUrl1: 'https://wa.me/919845371459',
+    waUrl2: 'https://wa.me/918884058214'
+  });
+};
+
+window.openEnhancedSuccessModal = function(data) {
   closeAllModals();
   const modal = document.getElementById('successModal');
   if (!modal) return;
@@ -757,80 +770,209 @@ window.openSuccessModal = function(applicantName = 'Student', actionType = 'regi
   const msgEl = document.getElementById('successApplicantMsg');
 
   if (titleEl) {
-    titleEl.textContent = `Thank You, ${applicantName}! Application Received.`;
+    titleEl.textContent = `Thank You, ${data.fullName}! Enquiry Received.`;
   }
 
   if (msgEl) {
-    if (actionType === 'fee') {
-      msgEl.innerHTML = `Your Official Fee Structure & Prospectus breakdown is downloading.<br><strong>Our Senior Academic Counselor will contact you shortly</strong> to guide you through seat quota allocation and merit grants.`;
-    } else {
-      msgEl.innerHTML = `Your details have been successfully submitted.<br><strong>Our Senior Academic Counselor will contact you shortly</strong> to guide you through direct admission formalities.`;
-    }
+    msgEl.innerHTML = `
+      <div style="text-align: left; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.25rem; margin: 1.25rem 0;">
+        <div style="display: flex; align-items: center; gap: 8px; color: #15803d; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.5rem;">
+          <i class="fa-solid fa-circle-check" style="font-size: 1.1rem;"></i>
+          <span>Enquiry Successfully Registered (Ref: ${data.refId})</span>
+        </div>
+        <p style="font-size: 0.88rem; color: #475569; margin-bottom: 0.75rem; line-height: 1.5;">
+          Your admission enquiry for <strong>${data.course || 'Admissions 2027'}</strong> at <strong>${data.college || 'Bangalore Premier Colleges'}</strong> has been locked in our priority counseling desk.
+        </p>
+
+        <!-- Email & Call Status -->
+        <div style="background: #ffffff; border-left: 3px solid #2563eb; padding: 10px 12px; border-radius: 6px; font-size: 0.82rem; color: #334155; margin-bottom: 1rem;">
+          <i class="fa-solid fa-envelope" style="color: #2563eb; margin-right: 5px;"></i>
+          <strong>Email Confirmation &amp; Alert:</strong> Notification dispatched to student and senior counselors. You will receive a callback shortly.
+        </div>
+
+        <!-- Dual WhatsApp Routing Box -->
+        <div style="border-top: 1px dashed #cbd5e1; padding-top: 0.85rem;">
+          <div style="font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; margin-bottom: 0.5rem;">
+            Official Counselor WhatsApp Desks:
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <a href="${data.waUrl1}" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: space-between; background: #22c55e; color: #ffffff; padding: 9px 14px; border-radius: 8px; font-weight: 700; font-size: 0.84rem; text-decoration: none; box-shadow: 0 2px 6px rgba(34, 197, 94, 0.25);">
+              <span style="display: inline-flex; align-items: center; gap: 8px;">
+                <i class="fa-brands fa-whatsapp" style="font-size: 1.15rem;"></i>
+                <span>Counselor 1 (Desk A): +91 98453 71459</span>
+              </span>
+              <span style="font-size: 0.72rem; background: rgba(0,0,0,0.15); padding: 3px 8px; border-radius: 4px;">Sent / Open</span>
+            </a>
+
+            <a href="${data.waUrl2}" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: space-between; background: #15803d; color: #ffffff; padding: 9px 14px; border-radius: 8px; font-weight: 700; font-size: 0.84rem; text-decoration: none; box-shadow: 0 2px 6px rgba(21, 128, 61, 0.25);">
+              <span style="display: inline-flex; align-items: center; gap: 8px;">
+                <i class="fa-brands fa-whatsapp" style="font-size: 1.15rem;"></i>
+                <span>Counselor 2 (Desk B): +91 88840 58214</span>
+              </span>
+              <span style="font-size: 0.72rem; background: #fbbf24; color: #0f172a; font-weight: 800; padding: 3px 8px; border-radius: 4px;">Send Also &rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    `;
   }
 
   modal.classList.add('is-active');
+};
+
+/**
+ * Universal Form Lead Processor
+ * 1. Saves lead to localStorage for Excel Export
+ * 2. Calls /api/submit-enquiry for counselor alert & student confirmation email
+ * 3. Formats message and triggers dual WhatsApp (919845371459 & 918884058214)
+ */
+window.handleAdmissionFormSubmit = function(formElement, formType = 'registration') {
+  const fullName = formElement.querySelector('input[name="fullName"]')?.value?.trim() || 'Student';
+  const phone = formElement.querySelector('input[name="phone"]')?.value?.trim() || '';
+  const email = formElement.querySelector('input[name="email"]')?.value?.trim() || '';
+
+  let college = formElement.querySelector('select[name="college"]')?.value || '';
+  if (college === 'Others') {
+    college = formElement.querySelector('input[name="otherCollegeName"]')?.value?.trim() || 'Other College';
+  }
+  let course = formElement.querySelector('select[name="course"]')?.value || '';
+  if (course === 'Others') {
+    course = formElement.querySelector('input[name="otherCourseName"]')?.value?.trim() || 'Other Course';
+  }
+  const destination = formElement.querySelector('select[name="studyDestination"]')?.value || 'India';
+  const programLevel = (course && (course.includes('M.') || course.includes('MBA') || course.includes('MCA') || course.includes('MS'))) ? 'PG' : 'UG';
+
+  const refId = 'TEC-' + Math.floor(100000 + Math.random() * 900000);
+  const now = new Date();
+  const timestampStr = now.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) + ' ' + now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+
+  // 1. Persist lead in localStorage for Excel Lead Tracker
+  const leadRecord = {
+    refId,
+    fullName,
+    phone,
+    email,
+    programLevel,
+    course: course || 'Academic Program',
+    college: college || 'Premier Institution',
+    studyDestination: destination,
+    source: formType,
+    status: 'New',
+    timestamp: now.toISOString()
+  };
+
+  try {
+    const existing = JSON.parse(localStorage.getItem('the_edu_consultant_leads') || '[]');
+    existing.unshift(leadRecord);
+    localStorage.setItem('the_edu_consultant_leads', JSON.stringify(existing));
+  } catch (err) {
+    console.warn('Lead storage error:', err);
+  }
+
+  // 2. Dispatch background API call for counselor alert & student confirmation email
+  try {
+    fetch('/api/submit-enquiry', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(leadRecord)
+    }).catch(e => console.warn('API background submit:', e));
+  } catch (e) {}
+
+  // 3. Formulate structured WhatsApp text for both Counselors
+  const waText = 
+`*🎓 NEW ADMISSION ENQUIRY - THE EDU CONSULTANT*
+━━━━━━━━━━━━━━━━━━━━━
+👤 *Student Name:* ${fullName}
+📱 *Phone / WhatsApp:* ${phone}
+📧 *Email:* ${email || 'Not provided'}
+🎓 *Program Level:* ${programLevel}
+📚 *Course / Stream:* ${course || 'General Guidance'}
+🏛️ *Target College:* ${college || 'Bangalore Premier'}
+📍 *Destination:* ${destination}
+🕒 *Submitted At:* ${timestampStr}
+🆔 *Ref ID:* ${refId}
+━━━━━━━━━━━━━━━━━━━━━
+_Please verify quota seats and call back the student promptly._`;
+
+  const waEncoded = encodeURIComponent(waText);
+  const waUrl1 = `https://wa.me/919845371459?text=${waEncoded}`;
+  const waUrl2 = `https://wa.me/918884058214?text=${waEncoded}`;
+
+  // Automatically open WhatsApp 1
+  try {
+    window.open(waUrl1, '_blank');
+  } catch (e) {
+    console.warn('Popup blocked for WhatsApp 1:', e);
+  }
+
+  // If Fee download requested, trigger the document
+  if (formType === 'fee') {
+    triggerFeeDocumentDownload(fullName, college, course);
+  }
+
+  // Open the enhanced success modal with dual-WhatsApp dispatch buttons & email confirmation note
+  window.openEnhancedSuccessModal({
+    fullName,
+    phone,
+    email,
+    college,
+    course,
+    refId,
+    formType,
+    waUrl1,
+    waUrl2
+  });
+
+  formElement.reset();
 };
 
 /* ==========================================================================
    5. FORM SUBMISSION HANDLERS & PDF DOWNLOAD GENERATOR
    ========================================================================== */
 function initFormSubmissions() {
-  // On-page form
+  // 1. On-page form
   const onPageForm = document.getElementById('mainAdmissionsForm');
   if (onPageForm) {
     onPageForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = onPageForm.querySelector('input[name="fullName"]')?.value || 'Student';
-      window.openSuccessModal(name, 'registration');
-      onPageForm.reset();
+      window.handleAdmissionFormSubmit(onPageForm, 'Direct Consultation Form');
     });
   }
 
-  // Modal register form
+  // 2. Modal register form
   const modalRegisterForm = document.getElementById('modalRegisterForm');
   if (modalRegisterForm) {
     modalRegisterForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = modalRegisterForm.querySelector('input[name="fullName"]')?.value || 'Student';
-      window.openSuccessModal(name, 'registration');
-      modalRegisterForm.reset();
+      window.handleAdmissionFormSubmit(modalRegisterForm, 'Quick Register Modal');
     });
   }
 
-  // Download Fee Structure Form
+  // 3. Download Fee Structure Form
   const downloadFeeForm = document.getElementById('downloadFeeForm');
   if (downloadFeeForm) {
     downloadFeeForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = downloadFeeForm.querySelector('input[name="fullName"]')?.value || 'Applicant';
-      const college = downloadFeeForm.querySelector('select[name="college"]')?.value || 'Premier Institution';
-      const course = downloadFeeForm.querySelector('select[name="course"]')?.value || 'Academic Program';
-
-      // Trigger automatic generated fee breakdown file download
-      triggerFeeDocumentDownload(name, college, course);
-
-      // Open Success popup with StudentEntrance.com recommendation
-      window.openSuccessModal(name, 'fee');
-      downloadFeeForm.reset();
+      window.handleAdmissionFormSubmit(downloadFeeForm, 'fee');
     });
   }
 
-  // Standalone enquiry page form
+  // 4. Standalone enquiry page form
   const standaloneEnquiryForm = document.getElementById('standaloneEnquiryForm');
   if (standaloneEnquiryForm) {
     standaloneEnquiryForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = standaloneEnquiryForm.querySelector('input[name="fullName"]')?.value || 'Student';
       const enquiryType = standaloneEnquiryForm.querySelector('input[name="enquiryType"]')?.value || 'admission-enquiry';
-      if (enquiryType === 'fee-structure') {
-        const college = standaloneEnquiryForm.querySelector('select[name="college"]')?.value || 'Premier Institution';
-        const course = standaloneEnquiryForm.querySelector('select[name="course"]')?.value || 'Academic Program';
-        triggerFeeDocumentDownload(name, college, course);
-        window.openSuccessModal(name, 'fee');
-      } else {
-        window.openSuccessModal(name, 'registration');
-      }
-      standaloneEnquiryForm.reset();
+      window.handleAdmissionFormSubmit(standaloneEnquiryForm, enquiryType === 'fee-structure' ? 'fee' : 'Enquiry Page Form');
+    });
+  }
+
+  // 5. Standalone fee page form
+  const standaloneFeeForm = document.getElementById('standaloneFeeForm');
+  if (standaloneFeeForm) {
+    standaloneFeeForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      window.handleAdmissionFormSubmit(standaloneFeeForm, 'fee');
     });
   }
 }

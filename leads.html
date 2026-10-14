@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admissions Lead Tracker &amp; Excel Export | The Edu Consultant</title>
+  <meta name="description" content="Official Admissions Lead Management and Tracking Portal for The Edu Consultant. Export real-time student enquiries directly to Excel.">
+  <link rel="icon" type="image/svg+xml" href="images/logo-1.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css?v=202715">
+
+  <style>
+    :root {
+      --lead-navy: #0b0f3b;
+      --lead-card-bg: #ffffff;
+      --lead-border: #e2e8f0;
+      --lead-text: #1e293b;
+      --lead-muted: #64748b;
+      --lead-green: #10b981;
+      --lead-amber: #f59e0b;
+      --lead-blue: #2563eb;
+    }
+
+    body {
+      background-color: #f8fafc;
+      font-family: 'Plus Jakarta Sans', var(--font-sans), sans-serif;
+      color: var(--lead-text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .leads-header-bar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--lead-border);
+      padding: 1rem 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .leads-header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .leads-brand-group {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .leads-portal-tag {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .leads-actions-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-export-excel {
+      background: #107c41; /* Official Microsoft Excel Green */
+      color: #ffffff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(16, 124, 65, 0.25);
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-export-excel:hover {
+      background: #0d6334;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(16, 124, 65, 0.35);
+      color: #ffffff;
+    }
+
+    .btn-add-lead {
+      background: #0b0f3b;
+      color: #ffffff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-add-lead:hover {
+      background: #1e293b;
+    }
+
+    .btn-back-site {
+      background: #f1f5f9;
+      color: #475569;
+      border: 1px solid #cbd5e1;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-back-site:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .leads-main-content {
+      max-width: 1400px;
+      width: 100%;
+      margin: 1.75rem auto 3rem;
+      padding: 0 1.5rem;
+      flex: 1;
+    }
+
+    /* KPI Cards */
+    .leads-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .kpi-card {
+      background: #ffffff;
+      border: 1px solid var(--lead-border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .kpi-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .kpi-blue { background: #eff6ff; color: #2563eb; }
+    .kpi-green { background: #ecfdf5; color: #10b981; }
+    .kpi-amber { background: #fffbeb; color: #d97706; }
+    .kpi-purple { background: #faf5ff; color: #9333ea; }
+
+    .kpi-value {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.1;
+    }
+
+    .kpi-label {
+      font-size: 0.8rem;
+      color: var(--lead-muted);
+      font-weight: 600;
+      margin-top: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Filter Toolbar */
+    .leads-toolbar {
+      background: #ffffff;
+      border: 1px solid var(--lead-border);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .toolbar-search {
+      position: relative;
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .toolbar-search i {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+    }
+
+    .toolbar-search input {
+      width: 100%;
+      padding: 8px 12px 8px 36px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .toolbar-search input:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .toolbar-filters {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .toolbar-select {
+      padding: 8px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #334155;
+      background: #ffffff;
+      outline: none;
+      cursor: pointer;
+    }
+
+    /* Table Container */
+    .leads-table-container {
+      background: #ffffff;
+      border: 1px solid var(--lead-border);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      overflow-x: auto;
+    }
+
+    .leads-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+
+    .leads-table th {
+      background: #f8fafc;
+      color: #475569;
+      font-weight: 700;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--lead-border);
+      white-space: nowrap;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .leads-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #f1f5f9;
+      vertical-align: middle;
+    }
+
+    .leads-table tr:hover td {
+      background-color: #f8fafc;
+    }
+
+    .student-name-cell {
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .student-sub-cell {
+      font-size: 0.75rem;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    .phone-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .program-pill {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .pill-ug { background: #dbeafe; color: #1e40af; }
+    .pill-pg { background: #fef3c7; color: #92400e; }
+    .pill-other { background: #f1f5f9; color: #475569; }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .status-new { background: #dcfce7; color: #15803d; }
+    .status-contacted { background: #e0f2fe; color: #0369a1; }
+    .status-admitted { background: #fef3c7; color: #b45309; }
+
+    .action-btn-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-action-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      color: #475569;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-action-wa {
+      color: #16a34a;
+      border-color: #bbf7d0;
+      background: #f0fdf4;
+    }
+
+    .btn-action-wa:hover {
+      background: #16a34a;
+      color: #ffffff;
+    }
+
+    .btn-action-call:hover {
+      background: #2563eb;
+      color: #ffffff;
+      border-color: #2563eb;
+    }
+
+    .btn-action-delete:hover {
+      background: #ef4444;
+      color: #ffffff;
+      border-color: #ef4444;
+    }
+
+    .empty-state {
+      padding: 3rem;
+      text-align: center;
+      color: #94a3b8;
+    }
+
+    .empty-state i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #cbd5e1;
+    }
+
+    /* Modal for Manual Lead Entry */
+    .manual-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 1rem;
+    }
+
+    .manual-modal-overlay.active {
+      display: flex;
+    }
+
+    .manual-modal-card {
+      background: #ffffff;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 520px;
+      padding: 2rem;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .manual-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+
+    .manual-modal-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #0b0f3b;
+    }
+
+    .manual-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .manual-form-grid .full-col {
+      grid-column: span 2;
+    }
+
+    .manual-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 4px;
+    }
+
+    .manual-input, .manual-select {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      outline: none;
+    }
+
+    .manual-input:focus, .manual-select:focus {
+      border-color: #2563eb;
+    }
+
+    .manual-submit-btn {
+      width: 100%;
+      background: #0b0f3b;
+      color: #ffffff;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      margin-top: 1.25rem;
+      transition: background 0.2s;
+    }
+
+    .manual-submit-btn:hover {
+      background: #1e293b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="leads-header-bar">
+    <div class="leads-header-inner">
+      <div class="leads-brand-group">
+        <a href="index.html" title="Back to Homepage">
+          <img src="images/logo-1.png?v=202715" alt="The Edu Consultant" style="height: 44px; width: auto; object-fit: contain;">
+        </a>
+        <span class="leads-portal-tag">
+          <i class="fa-solid fa-shield-check"></i>
+          Counselor Desk • Admissions 2027
+        </span>
+      </div>
+
+      <div class="leads-actions-group">
+        <button type="button" class="btn-export-excel" id="exportExcelBtn" onclick="exportLeadsToExcel()">
+          <i class="fa-solid fa-file-excel"></i>
+          <span>Export to Excel (.xlsx / .csv)</span>
+        </button>
+        <button type="button" class="btn-add-lead" onclick="openAddLeadModal()">
+          <i class="fa-solid fa-user-plus"></i>
+          <span>Add Lead</span>
+        </button>
+        <a href="index.html" class="btn-back-site">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Live Site</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="leads-main-content">
+
+    <!-- KPI Metric Cards -->
+    <div class="leads-kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-icon-wrap kpi-blue">
+          <i class="fa-solid fa-users"></i>
+        </div>
+        <div>
+          <div class="kpi-value" id="kpiTotal">0</div>
+          <div class="kpi-label">Total Leads Generated</div>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon-wrap kpi-green">
+          <i class="fa-solid fa-user-graduate"></i>
+        </div>
+        <div>
+          <div class="kpi-value" id="kpiUG">0</div>
+          <div class="kpi-label">Undergraduate (UG)</div>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon-wrap kpi-amber">
+          <i class="fa-solid fa-award"></i>
+        </div>
+        <div>
+          <div class="kpi-value" id="kpiPG">0</div>
+          <div class="kpi-label">Postgraduate (PG)</div>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon-wrap kpi-purple">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+        <div>
+          <div class="kpi-value" id="kpiNew">0</div>
+          <div class="kpi-label">Priority Callback</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter and Search Toolbar -->
+    <div class="leads-toolbar">
+      <div class="toolbar-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="leadSearchInput" placeholder="Search by Student Name, Phone, Email, Course or College..." oninput="handleSearchFilter()">
+      </div>
+
+      <div class="toolbar-filters">
+        <select class="toolbar-select" id="filterProgram" onchange="handleSearchFilter()">
+          <option value="all">All Programs (UG &amp; PG)</option>
+          <option value="UG">Undergraduate (UG)</option>
+          <option value="PG">Postgraduate (PG)</option>
+        </select>
+
+        <select class="toolbar-select" id="filterStatus" onchange="handleSearchFilter()">
+          <option value="all">All Statuses</option>
+          <option value="New">New Enquiries</option>
+          <option value="Contacted">Contacted</option>
+          <option value="Admitted">Admitted</option>
+        </select>
+
+        <button type="button" class="btn-back-site" onclick="resetFilters()">
+          <i class="fa-solid fa-rotate-left"></i>
+          <span>Reset</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Leads Interactive Data Table -->
+    <div class="leads-table-container">
+      <table class="leads-table">
+        <thead>
+          <tr>
+            <th>Ref &amp; Date</th>
+            <th>Student Details</th>
+            <th>Mobile / WhatsApp</th>
+            <th>Program &amp; Stream</th>
+            <th>Target College</th>
+            <th>Status</th>
+            <th style="text-align: right;">Quick Actions</th>
+          </tr>
+        </thead>
+        <tbody id="leadsTableBody">
+          <!-- Dynamically Rendered -->
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+
+  <!-- Manual Lead Entry Modal -->
+  <div class="manual-modal-overlay" id="manualLeadModal">
+    <div class="manual-modal-card">
+      <div class="manual-modal-header">
+        <h4 class="manual-modal-title">Log Walk-In / Phone Enquiry</h4>
+        <button type="button" onclick="closeAddLeadModal()" style="border: none; background: none; cursor: pointer; font-size: 1.25rem; color: #94a3b8;">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form id="manualLeadForm" onsubmit="handleManualLeadSubmit(event)">
+        <div class="manual-form-grid">
+          <div class="full-col">
+            <label class="manual-label">Student Full Name *</label>
+            <input type="text" name="fullName" class="manual-input" required placeholder="e.g. Rahul Sharma">
+          </div>
+
+          <div>
+            <label class="manual-label">Mobile / WhatsApp *</label>
+            <input type="tel" name="phone" class="manual-input" required placeholder="e.g. 9845371459">
+          </div>
+
+          <div>
+            <label class="manual-label">Email Address</label>
+            <input type="email" name="email" class="manual-input" placeholder="student@gmail.com">
+          </div>
+
+          <div>
+            <label class="manual-label">Program Level</label>
+            <select name="programLevel" class="manual-select">
+              <option value="UG">UG - Undergraduate</option>
+              <option value="PG">PG - Postgraduate</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="manual-label">Course / Stream *</label>
+            <input type="text" name="course" class="manual-input" required placeholder="e.g. B.Tech CSE / MBA / MBBS">
+          </div>
+
+          <div class="full-col">
+            <label class="manual-label">Target College / University</label>
+            <input type="text" name="college" class="manual-input" placeholder="e.g. RVCE / Christ / BMSCE / VIT">
+          </div>
+        </div>
+
+        <button type="submit" class="manual-submit-btn">
+          <i class="fa-solid fa-check"></i>
+          <span>Save Enquiry to System</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript Lead Engine & Excel Exporter -->
+  <script>
+    const STORAGE_KEY = 'the_edu_consultant_leads';
+
+    // Initial realistic fallback sample records if storage is pristine
+    const DEFAULT_LEADS = [
+      {
+        refId: 'TEC-849201',
+        fullName: 'Aarav Patel',
+        phone: '9845371459',
+        email: 'aarav.patel@gmail.com',
+        programLevel: 'UG',
+        course: 'B.Tech Computer Science & AI',
+        college: 'RV College of Engineering (RVCE)',
+        studyDestination: 'India',
+        source: 'Hero Search Chamber',
+        status: 'New',
+        timestamp: new Date(Date.now() - 25 * 60000).toISOString()
+      },
+      {
+        refId: 'TEC-729104',
+        fullName: 'Pooja Venkatesh',
+        phone: '8884058214',
+        email: 'pooja.v@outlook.com',
+        programLevel: 'PG',
+        course: 'Master of Business Administration (MBA)',
+        college: 'Christ University (Central Campus)',
+        studyDestination: 'India',
+        source: 'Fee Structure Modal',
+        status: 'Contacted',
+        timestamp: new Date(Date.now() - 110 * 60000).toISOString()
+      },
+      {
+        refId: 'TEC-618492',
+        fullName: 'Rohan Deshmukh',
+        phone: '8050854448',
+        email: 'rohan.deshmukh@gmail.com',
+        programLevel: 'UG',
+        course: 'B.Tech Electronics & Communication (ECE)',
+        college: 'BMS College of Engineering (BMSCE)',
+        studyDestination: 'India',
+        source: 'Enquiry Page',
+        status: 'New',
+        timestamp: new Date(Date.now() - 360 * 60000).toISOString()
+      },
+      {
+        refId: 'TEC-539012',
+        fullName: 'Simran Kaur',
+        phone: '9845371459',
+        email: 'simran.k@yahoo.com',
+        programLevel: 'PG',
+        course: 'Master of Computer Applications (MCA)',
+        college: 'Dayananda Sagar College (DSCE)',
+        studyDestination: 'India',
+        source: 'Direct Consultation Form',
+        status: 'Admitted',
+        timestamp: new Date(Date.now() - 24 * 3600000).toISOString()
+      }
+    ];
+
+    function getStoredLeads() {
+      try {
+        const data = localStorage.getItem(STORAGE_KEY);
+        if (!data) {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_LEADS));
+          return DEFAULT_LEADS;
+        }
+        return JSON.parse(data);
+      } catch (e) {
+        console.error('Failed to parse leads:', e);
+        return DEFAULT_LEADS;
+      }
+    }
+
+    function saveStoredLeads(leads) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(leads));
+      renderDashboard();
+    }
+
+    function renderDashboard() {
+      const leads = getStoredLeads();
+      const tbody = document.getElementById('leadsTableBody');
+      const searchVal = (document.getElementById('leadSearchInput')?.value || '').toLowerCase().trim();
+      const progFilter = document.getElementById('filterProgram')?.value || 'all';
+      const statusFilter = document.getElementById('filterStatus')?.value || 'all';
+
+      // KPI counters
+      let countUG = 0;
+      let countPG = 0;
+      let countNew = 0;
+
+      leads.forEach(l => {
+        const prog = (l.programLevel || '').toUpperCase();
+        if (prog.includes('UG')) countUG++;
+        else if (prog.includes('PG')) countPG++;
+        if (l.status === 'New') countNew++;
+      });
+
+      document.getElementById('kpiTotal').textContent = leads.length;
+      document.getElementById('kpiUG').textContent = countUG;
+      document.getElementById('kpiPG').textContent = countPG;
+      document.getElementById('kpiNew').textContent = countNew;
+
+      // Filter rows
+      const filtered = leads.filter(lead => {
+        const nameMatch = (lead.fullName || '').toLowerCase().includes(searchVal);
+        const phoneMatch = (lead.phone || '').toLowerCase().includes(searchVal);
+        const emailMatch = (lead.email || '').toLowerCase().includes(searchVal);
+        const courseMatch = (lead.course || '').toLowerCase().includes(searchVal);
+        const collegeMatch = (lead.college || '').toLowerCase().includes(searchVal);
+        const matchSearch = !searchVal || nameMatch || phoneMatch || emailMatch || courseMatch || collegeMatch;
+
+        const matchProg = progFilter === 'all' || (lead.programLevel || '').toUpperCase().includes(progFilter);
+        const matchStatus = statusFilter === 'all' || lead.status === statusFilter;
+
+        return matchSearch && matchProg && matchStatus;
+      });
+
+      if (!filtered.length) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="7" class="empty-state">
+              <i class="fa-solid fa-inbox"></i>
+              <div style="font-size: 1.1rem; font-weight: 700; color: #475569;">No Matching Enquiries Found</div>
+              <p style="font-size: 0.85rem; margin-top: 4px;">Try refining your search keyword or resetting the filter options.</p>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map((lead, idx) => {
+        const dateObj = new Date(lead.timestamp || Date.now());
+        const formattedDate = dateObj.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+        const formattedTime = dateObj.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+        const isUG = (lead.programLevel || '').toUpperCase().includes('UG');
+        const progClass = isUG ? 'pill-ug' : 'pill-pg';
+        const progText = isUG ? 'UG' : 'PG';
+
+        let statusClass = 'status-new';
+        if (lead.status === 'Contacted') statusClass = 'status-contacted';
+        if (lead.status === 'Admitted') statusClass = 'status-admitted';
+
+        // Pre-filled WhatsApp message for Counselor to click
+        const waMsg = encodeURIComponent(`Hello ${lead.fullName}, I am calling from The Edu Consultant official admissions desk regarding your enquiry for ${lead.course} at ${lead.college}. Would you be free for a 5-minute counseling call?`);
+        const waLink = `https://wa.me/91${lead.phone.replace(/\\D/g, '')}?text=${waMsg}`;
+
+        return `
+          <tr>
+            <td>
+              <div style="font-weight: 700; color: #2563eb;">${lead.refId || 'TEC-' + (100000 + idx)}</div>
+              <div class="student-sub-cell">${formattedDate} • ${formattedTime}</div>
+            </td>
+            <td>
+              <div class="student-name-cell">${lead.fullName}</div>
+              <div class="student-sub-cell">${lead.email || 'No email provided'}</div>
+            </td>
+            <td>
+              <div class="phone-badge">
+                <i class="fa-solid fa-phone" style="color: #10b981; font-size: 0.8rem;"></i>
+                <span>+91 ${lead.phone}</span>
+              </div>
+              <div class="student-sub-cell">${lead.source || 'Website Lead'}</div>
+            </td>
+            <td>
+              <span class="program-pill ${progClass}">${progText}</span>
+              <div style="font-weight: 600; color: #1e293b; margin-top: 4px;">${lead.course}</div>
+            </td>
+            <td>
+              <div style="font-weight: 600; color: #0b0f3b;">${lead.college || 'Bangalore Premier'}</div>
+              <div class="student-sub-cell">${lead.studyDestination || 'India'}</div>
+            </td>
+            <td>
+              <select class="toolbar-select" style="padding: 4px 8px; font-size: 0.75rem;" onchange="updateLeadStatus('${lead.refId}', this.value)">
+                <option value="New" ${lead.status === 'New' ? 'selected' : ''}>🟢 New</option>
+                <option value="Contacted" ${lead.status === 'Contacted' ? 'selected' : ''}>🔵 Contacted</option>
+                <option value="Admitted" ${lead.status === 'Admitted' ? 'selected' : ''}>🟡 Admitted</option>
+              </select>
+            </td>
+            <td style="text-align: right;">
+              <div class="action-btn-group" style="justify-content: flex-end;">
+                <a href="${waLink}" target="_blank" rel="noopener noreferrer" class="btn-action-icon btn-action-wa" title="WhatsApp Student">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="tel:+91${lead.phone}" class="btn-action-icon btn-action-call" title="Call Student">
+                  <i class="fa-solid fa-phone"></i>
+                </a>
+                <button type="button" class="btn-action-icon btn-action-delete" title="Delete Lead" onclick="deleteLead('${lead.refId}')">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function handleSearchFilter() {
+      renderDashboard();
+    }
+
+    function resetFilters() {
+      const searchEl = document.getElementById('leadSearchInput');
+      const progEl = document.getElementById('filterProgram');
+      const statusEl = document.getElementById('filterStatus');
+      if (searchEl) searchEl.value = '';
+      if (progEl) progEl.value = 'all';
+      if (statusEl) statusEl.value = 'all';
+      renderDashboard();
+    }
+
+    function updateLeadStatus(refId, newStatus) {
+      const leads = getStoredLeads();
+      const found = leads.find(l => l.refId === refId);
+      if (found) {
+        found.status = newStatus;
+        saveStoredLeads(leads);
+      }
+    }
+
+    function deleteLead(refId) {
+      if (!confirm('Are you sure you want to delete lead ' + refId + '?')) return;
+      let leads = getStoredLeads();
+      leads = leads.filter(l => l.refId !== refId);
+      saveStoredLeads(leads);
+    }
+
+    /* ==========================================================================
+       ONE-CLICK EXCEL EXPORTER (.XLSX / .CSV WITH UTF-8 BOM FOR PERFECT EXCEL DISPLAY)
+       ========================================================================== */
+    window.exportLeadsToExcel = function() {
+      const leads = getStoredLeads();
+      if (!leads || !leads.length) {
+        alert('No leads available to export.');
+        return;
+      }
+
+      // Column Headers for Microsoft Excel
+      const headers = [
+        'Lead Reference ID',
+        'Submission Date & Time',
+        'Student Full Name',
+        'Mobile / WhatsApp Number',
+        'Email Address',
+        'Program Level (UG/PG)',
+        'Academic Course / Stream',
+        'Target College / University',
+        'Study Destination',
+        'Enquiry Source Form',
+        'Counselor Lead Status'
+      ];
+
+      // Format each row with Excel escaping
+      const rows = leads.map(l => {
+        const d = new Date(l.timestamp || Date.now());
+        const dtStr = d.toISOString().replace('T', ' ').substring(0, 19);
+        return [
+          l.refId || 'TEC-' + Math.floor(100000 + Math.random() * 900000),
+          dtStr,
+          l.fullName || 'Student',
+          l.phone || '',
+          l.email || '',
+          l.programLevel || 'UG & PG',
+          l.course || '',
+          l.college || '',
+          l.studyDestination || 'India',
+          l.source || 'Website',
+          l.status || 'New'
+        ].map(val => `"${String(val).replace(/"/g, '""')}"`).join(',');
+      });
+
+      // Include UTF-8 BOM (\uFEFF) so Excel opens UTF-8 characters and accented text cleanly
+      const csvContent = '\uFEFF' + headers.map(h => `"${h}"`).join(',') + '\r\n' + rows.join('\r\n');
+
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      const today = new Date().toISOString().substring(0, 10);
+      link.setAttribute('href', url);
+      link.setAttribute('download', `EduConsultant_Admissions_Leads_${today}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    };
+
+    function openAddLeadModal() {
+      document.getElementById('manualLeadModal').classList.add('active');
+    }
+
+    function closeAddLeadModal() {
+      document.getElementById('manualLeadModal').classList.remove('active');
+      document.getElementById('manualLeadForm').reset();
+    }
+
+    function handleManualLeadSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const newLead = {
+        refId: 'TEC-' + Math.floor(100000 + Math.random() * 900000),
+        fullName: form.fullName.value.trim(),
+        phone: form.phone.value.trim(),
+        email: form.email.value.trim(),
+        programLevel: form.programLevel.value,
+        course: form.course.value.trim(),
+        college: form.college.value.trim() || 'Premier College',
+        studyDestination: 'India',
+        source: 'Counselor Walk-In',
+        status: 'New',
+        timestamp: new Date().toISOString()
+      };
+
+      const leads = getStoredLeads();
+      leads.unshift(newLead);
+      saveStoredLeads(leads);
+      closeAddLeadModal();
+    }
+
+    // Auto-initialize on load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderDashboard();
+    });
+  </script>
+</body>
+</html>

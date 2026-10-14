@@ -10,7 +10,8 @@
     { "source": "/fee-structure", "destination": "/fee-structure.html" },
     { "source": "/fees", "destination": "/fee-structure.html" },
     { "source": "/download-fees", "destination": "/fee-structure.html" },
-    { "source": "/fee-breakdown", "destination": "/fee-structure.html" }
+    { "source": "/fee-breakdown", "destination": "/fee-structure.html" },
+    { "source": "/leads", "destination": "/leads.html" }
   ],
   "headers": [
     {
@@ -39,7 +40,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
+          "value": "public, max-age=0, must-revalidate"
         }
       ]
     },
