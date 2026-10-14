@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Official Theme Stylesheet with cache-busting -->
-  <link rel="stylesheet" href="css/style.css?v=202706">
+  <link rel="stylesheet" href="css/style.css?v=202707">
 
   <!-- Critical styles for Enquiry Pill Buttons (Guaranteed render regardless of browser cache) -->
   <style>
@@ -51,14 +51,14 @@
       scroll-snap-align: start !important;
       display: inline-flex !important;
       align-items: center !important;
-      gap: 8px !important;
-      padding: 8px 16px !important;
+      gap: 6px !important;
+      padding: 6px 13px !important;
       border-radius: 9999px !important;
       background: #ffffff !important;
       border: 1.5px solid #e2e8f0 !important;
       color: #334155 !important;
       font-family: inherit !important;
-      font-size: 0.86rem !important;
+      font-size: 0.8rem !important;
       font-weight: 700 !important;
       cursor: pointer !important;
       white-space: nowrap !important;
@@ -70,12 +70,12 @@
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
-      width: 22px !important;
-      height: 22px !important;
+      width: 20px !important;
+      height: 20px !important;
       border-radius: 50% !important;
       background: #f1f5f9 !important;
       color: #d97706 !important;
-      font-size: 0.76rem !important;
+      font-size: 0.72rem !important;
       transition: all 0.25s ease !important;
       pointer-events: none !important;
     }
@@ -1298,7 +1298,7 @@
             </div>
 
             <!-- Email Address -->
-            <div class="form-field-group form-col-full">
+            <div class="form-field-group">
               <label class="field-label">
                 <span>Email Address</span>
                 <span class="required-star">*</span>
@@ -1306,6 +1306,22 @@
               <div class="input-with-icon">
                 <i class="fa-solid fa-envelope input-icon"></i>
                 <input type="email" name="email" class="form-input-control" placeholder="name@domain.com" required>
+              </div>
+            </div>
+
+            <!-- Study Destination: Abroad, India, Both -->
+            <div class="form-field-group">
+              <label class="field-label">
+                <span>Study Destination</span>
+                <span class="required-star">*</span>
+              </label>
+              <div class="input-with-icon">
+                <i class="fa-solid fa-earth-americas input-icon"></i>
+                <select name="studyDestination" class="form-select-control" required>
+                  <option value="India">India (Bangalore Quota)</option>
+                  <option value="Abroad">Abroad (Global Seats)</option>
+                  <option value="Both">Both (India &amp; Abroad)</option>
+                </select>
               </div>
             </div>
 
@@ -1374,22 +1390,6 @@
                   <i class="fa-solid fa-map-pin input-icon"></i>
                   <input type="text" name="otherCollegeName" class="form-input-control" placeholder="Specify Your Preferred College Name (e.g. Alliance University, Jain, Reva)">
                 </div>
-              </div>
-            </div>
-
-            <!-- Study Destination: Abroad, India, Both -->
-            <div class="form-field-group form-col-full">
-              <label class="field-label">
-                <span>Interested Study Destination</span>
-                <span class="required-star">*</span>
-              </label>
-              <div class="input-with-icon">
-                <i class="fa-solid fa-earth-americas input-icon"></i>
-                <select name="studyDestination" class="form-select-control" required>
-                  <option value="India">India (Bangalore &amp; Pan-India Quota Seats)</option>
-                  <option value="Abroad">Abroad (USA, UK, Canada, Australia, Germany, Ireland)</option>
-                  <option value="Both">Both (Evaluating Indian Quotas &amp; Overseas Options)</option>
-                </select>
               </div>
             </div>
 
