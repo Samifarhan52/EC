@@ -119,23 +119,23 @@ button, input, select, textarea {
    1. TICKER / ANNOUNCEMENT OFFER BANNER (INTERACTIVE & HIGH-CONVERSION)
    ========================================================================== */
 .admissions-ticker-wrap {
-  background: #0b0f3b;
+  background: linear-gradient(90deg, #9a3412 0%, #c2410c 25%, #ea580c 50%, #c2410c 75%, #9a3412 100%);
   color: #ffffff;
   padding: 8px 0;
   font-size: 0.86rem;
   font-weight: 600;
-  border-bottom: 2px solid #f59e0b;
+  border-bottom: 2px solid #fbbf24;
   position: relative;
   z-index: 1020;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 2px 10px rgba(11, 15, 59, 0.25);
+  box-shadow: 0 3px 14px rgba(154, 52, 18, 0.35);
   transition: all var(--transition-fast);
   user-select: none;
 }
 
 .admissions-ticker-wrap:hover {
-  background: #11174d;
+  background: linear-gradient(90deg, #7c2d12 0%, #9a3412 25%, #c2410c 50%, #9a3412 75%, #7c2d12 100%);
 }
 
 .admissions-ticker-wrap:focus-visible {
@@ -154,19 +154,19 @@ button, input, select, textarea {
 
 .ticker-badge-fixed {
   flex-shrink: 0;
-  background: #f59e0b;
-  color: #0b0f3b;
+  background: #ffffff;
+  color: #9a3412;
   font-weight: 800;
   font-size: 0.72rem;
   text-transform: uppercase;
-  padding: 4px 13px;
+  padding: 5px 14px;
   border-radius: var(--radius-pill);
   margin-left: 1.25rem;
   margin-right: 0.75rem;
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.35);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   z-index: 2;
   letter-spacing: 0.5px;
   cursor: pointer;
@@ -247,9 +247,9 @@ button, input, select, textarea {
 }
 
 .ticker-action-chip {
-  background: rgba(245, 158, 11, 0.18);
-  border: 1px solid rgba(245, 158, 11, 0.5);
-  color: #fef08a;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  color: #ffffff;
   font-weight: 700;
   font-size: 0.73rem;
   padding: 3px 12px;
@@ -262,19 +262,19 @@ button, input, select, textarea {
 }
 
 .ticker-action-chip i {
-  color: var(--amber-400);
+  color: #fef08a;
   font-size: 0.7rem;
 }
 
 .admissions-ticker-wrap:hover .ticker-action-chip {
-  background: var(--amber-500);
-  color: var(--slate-950);
-  border-color: var(--amber-300);
-  box-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
+  background: #ffffff;
+  color: #9a3412;
+  border-color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .admissions-ticker-wrap:hover .ticker-action-chip i {
-  color: var(--slate-950);
+  color: #9a3412;
 }
 
 .ticker-cta-fixed {
@@ -287,8 +287,8 @@ button, input, select, textarea {
 }
 
 .btn-ticker-quick {
-  background: #f59e0b;
-  color: #0b0f3b;
+  background: #ffffff;
+  color: #9a3412;
   border: none;
   font-size: 0.75rem;
   font-weight: 800;
@@ -299,12 +299,13 @@ button, input, select, textarea {
   gap: 6px;
   cursor: pointer;
   transition: all var(--transition-fast);
-  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.35);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   white-space: nowrap;
 }
 
 .btn-ticker-quick:hover {
-  background: #fbbf24;
+  background: #fef08a;
+  color: #7c2d12;
   transform: translateY(-1px);
 }
 
@@ -482,8 +483,8 @@ button, input, select, textarea {
 
 /* Secondary Header Pill Button (Download Brochure) */
 .sf-btn-icon-secondary {
-  background: #0b0f3b !important;
-  color: #ffffff !important;
+  background: #ffffff !important;
+  color: #1e293b !important;
   font-weight: 700;
   font-size: 0.9rem;
   padding: 10px 20px;
@@ -493,8 +494,8 @@ button, input, select, textarea {
   justify-content: center;
   gap: 8px;
   transition: all var(--transition-fast);
-  border: 1.5px solid rgba(11, 15, 59, 0.2);
-  box-shadow: 0 4px 14px rgba(11, 15, 59, 0.18);
+  border: 1.5px solid #cbd5e1 !important;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
   cursor: pointer;
   white-space: nowrap !important;
   flex-shrink: 0;
@@ -505,19 +506,20 @@ button, input, select, textarea {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.18);
+  background: #fef3c7;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: #f59e0b;
+  color: #d97706;
 }
 
 .sf-btn-icon-secondary:hover {
-  background: #172554 !important;
-  color: #ffffff !important;
+  background: #f8fafc !important;
+  border-color: #f59e0b !important;
+  color: #b45309 !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(11, 15, 59, 0.3);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.25);
 }
 
 .header-action-group {
@@ -584,15 +586,164 @@ button, input, select, textarea {
 .hero-banner-title {
   position: relative;
   z-index: 2;
-  max-width: 860px;
+  max-width: 900px;
   margin: 0 auto;
   font-size: 58px;
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.18;
   color: #ffffff;
   padding-bottom: 16px;
   letter-spacing: -0.02em;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.18);
+}
+
+/* 3D Flipping City Word Rotator */
+.hero-flip-wrap {
+  display: inline-flex;
+  position: relative;
+  vertical-align: bottom;
+  perspective: 700px;
+  height: 1.18em;
+  min-width: 280px;
+  overflow: hidden;
+  text-align: left;
+  margin-left: 6px;
+}
+
+.hero-flip-word {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  white-space: nowrap;
+  color: #fef08a;
+  text-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%) rotateX(-70deg);
+  transform-origin: 50% 100%;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  border-bottom: 4px solid #fef08a;
+  padding-bottom: 2px;
+}
+
+.hero-flip-word.active {
+  opacity: 1;
+  position: relative;
+  transform: translateY(0%) rotateX(0deg);
+  pointer-events: auto;
+}
+
+.hero-flip-word.leave {
+  opacity: 0;
+  position: absolute;
+  transform: translateY(-100%) rotateX(70deg);
+  transform-origin: 50% 0%;
+}
+
+@media (max-width: 991px) {
+  .hero-banner-title {
+    font-size: 42px;
+  }
+  .hero-flip-wrap {
+    min-width: 210px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-banner-title {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+  .hero-flip-wrap {
+    min-width: 165px;
+    height: 1.25em;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-banner-title {
+    font-size: 26px;
+  }
+  .hero-flip-wrap {
+    min-width: 130px;
+  }
+}
+
+/* ==========================================================================
+   GLOSSY BUTTON SYSTEM (PREMIUM GLASS SHEEN & DEPTH ACROSS ALL BUTTONS)
+   ========================================================================== */
+.btn-glossy,
+.sf-btn-icon-primary,
+.sf-btn-icon-secondary,
+.hero-cta-btn,
+.hero-cta-btn-secondary,
+.hero-fee-btn,
+.btn-form-submit,
+.concierge-hotline-btn,
+.counselor-chip-btn,
+.btn-portal-search,
+.footer-click-here-btn,
+.footer-fee-link-btn,
+.btn-ticker-quick {
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), inset 0 -1px 0 rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.14) !important;
+  transform: translateZ(0);
+}
+
+/* Curved glass highlight overlay on upper half */
+.sf-btn-icon-primary::before,
+.hero-cta-btn::before,
+.hero-cta-btn-secondary::before,
+.hero-fee-btn::before,
+.btn-form-submit::before,
+.concierge-hotline-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border-radius: 9999px 9999px 0 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Dynamic light sheen sweep on hover */
+.sf-btn-icon-primary::after,
+.sf-btn-icon-secondary::after,
+.hero-cta-btn::after,
+.hero-cta-btn-secondary::after,
+.hero-fee-btn::after,
+.btn-form-submit::after,
+.concierge-hotline-btn::after,
+.footer-click-here-btn::after,
+.footer-fee-link-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-25deg);
+  transition: left 0.75s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.sf-btn-icon-primary:hover::after,
+.sf-btn-icon-secondary:hover::after,
+.hero-cta-btn:hover::after,
+.hero-cta-btn-secondary:hover::after,
+.hero-fee-btn:hover::after,
+.btn-form-submit:hover::after,
+.concierge-hotline-btn:hover::after,
+.footer-click-here-btn:hover::after,
+.footer-fee-link-btn:hover::after {
+  left: 140%;
 }
 
 .hero-banner-info {

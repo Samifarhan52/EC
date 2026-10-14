@@ -1,0 +1,121 @@
+# ==============================================================================
+# THE EDU CONSULTANT - HOSTINGER PRODUCTION APACHE / LITESPEED CONFIGURATION
+# High-Performance Web Standards, Security Headers & SEO Clean Routing
+# ==============================================================================
+
+# 1. CHARACTER ENCODING & DIRECTORY SECURITY
+AddDefaultCharset UTF-8
+Options -Indexes
+ServerSignature Off
+
+# 2. REWRITE ENGINE & CLEAN URL ROUTING
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 2.1 Enforce HTTPS Secure Protocol
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # 2.2 Canonical Domain Normalization (Remove 'www.' if present, or keep consistent)
+  # RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+  # RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+  # 2.3 Serve .html without extension (Clean URLs: /enquiry -> /enquiry.html)
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}\.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+
+  # 2.4 Internal leads route alias
+  RewriteRule ^leads/?$ leads.html [L]
+</IfModule>
+
+# 3. CUSTOM ERROR DOCUMENTS
+ErrorDocument 404 /404.html
+
+# 4. GZIP / BROTLI COMPRESSION FOR HIGH-SPEED DELIVERY
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE font/ttf
+  AddOutputFilterByType DEFLATE font/otf
+  AddOutputFilterByType DEFLATE font/woff
+  AddOutputFilterByType DEFLATE font/woff2
+</IfModule>
+
+# 5. BROWSER CACHING (EXPIRES HEADERS)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+
+  # HTML pages (Ensure users receive latest content while allowing brief cache)
+  ExpiresByType text/html "access plus 0 seconds"
+
+  # CSS & JavaScript
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+
+  # Images & Media
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+
+  # Web Fonts
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/ttf "access plus 1 year"
+</IfModule>
+
+# 6. SECURITY & PRIVACY HEADERS
+<IfModule mod_headers.c>
+  # Protect against MIME-type sniffing
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Protect against clickjacking
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # Enable XSS protection filter
+  Header always set X-XSS-Protection "1; mode=block"
+
+  # Privacy-preserving Referrer Policy
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # HTTP Strict Transport Security (HSTS)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+  # Cache-Control optimization for static assets
+  <FilesMatch "\.(ico|pdf|jpg|jpeg|png|webp|svg|woff2|woff|ttf)$">
+    Header set Cache-Control "max-age=31536000, public, immutable"
+  </FilesMatch>
+
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "max-age=2592000, public"
+  </FilesMatch>
+
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# 7. BLOCK ACCESS TO SENSITIVE HIDDEN FILES & METADATA
+<FilesMatch "^\.">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+<FilesMatch "(package\.json|package-lock\.json|composer\.json|\.git|\.env)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>

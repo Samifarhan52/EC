@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNavigation();
   initScrollHeader();
   initEnquiryPillButtons();
+  initHeroWordFlip();
 });
 
 /* ==========================================================================
@@ -1390,6 +1391,34 @@ window.toggleFaqItem = function(headerBtn) {
     item.classList.add('open');
   }
 };
+
+/* ==========================================================================
+   HERO CITY WORD ROTATOR (Bangalore -> Mumbai -> Pune -> Abroad every 2s)
+   ========================================================================== */
+function initHeroWordFlip() {
+  const wrap = document.getElementById('heroFlipWrap') || document.querySelector('.hero-flip-wrap');
+  if (!wrap) return;
+
+  const words = wrap.querySelectorAll('.hero-flip-word');
+  if (words.length <= 1) return;
+
+  let currentIndex = 0;
+
+  setInterval(() => {
+    const currentWord = words[currentIndex];
+    currentWord.classList.remove('active');
+    currentWord.classList.add('leave');
+
+    currentIndex = (currentIndex + 1) % words.length;
+    const nextWord = words[currentIndex];
+    nextWord.classList.remove('leave');
+    nextWord.classList.add('active');
+
+    setTimeout(() => {
+      currentWord.classList.remove('leave');
+    }, 500);
+  }, 2000);
+}
 
 
 
