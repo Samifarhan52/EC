@@ -30,21 +30,17 @@
       flex-direction: column;
     }
     .enquiry-hero-section {
-      padding: 2.75rem 0 4.5rem;
+      padding: 2.5rem 0 4.5rem;
       flex: 1;
     }
     .enquiry-grid-layout {
       display: grid !important;
       grid-template-columns: 1.05fr 1fr !important;
-      gap: 3rem !important;
-      align-items: flex-start !important;
-    }
-    .enquiry-form-card-wrap {
-      position: sticky !important;
-      top: 96px !important;
+      gap: 2.75rem !important;
+      align-items: start !important;
     }
     .enquiry-authority-box {
-      padding-right: 1rem;
+      padding-right: 0.5rem;
     }
     .enquiry-authority-badge {
       display: inline-flex;
@@ -76,13 +72,82 @@
       text-transform: uppercase !important;
       margin-bottom: 1.25rem !important;
     }
+    .enquiry-main-title {
+      font-size: 2.55rem;
+      font-weight: 900;
+      line-height: 1.18;
+      color: #0f172a;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .enquiry-main-title .gradient-text {
+      background: linear-gradient(135deg, #d97706 0%, #2563eb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .enquiry-lead-desc {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: #475569;
+      margin-bottom: 1.75rem;
+    }
+    .enquiry-pillars-grid {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 1.15rem !important;
+      margin-bottom: 1.75rem !important;
+    }
+    .enquiry-pillar-card {
+      background: #ffffff !important;
+      border: 1px solid #e2e8f0 !important;
+      border-radius: 14px !important;
+      padding: 1.2rem !important;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      height: 100% !important;
+      box-sizing: border-box !important;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+    }
+    .enquiry-pillar-card:hover {
+      transform: translateY(-2px) !important;
+      border-color: #f59e0b !important;
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.12) !important;
+    }
+    .enquiry-pillar-card .pillar-icon {
+      width: 38px !important;
+      height: 38px !important;
+      border-radius: 10px !important;
+      background: rgba(245, 158, 11, 0.12) !important;
+      color: #d97706 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 1.05rem !important;
+      margin-bottom: 0.65rem !important;
+      flex-shrink: 0 !important;
+    }
+    .enquiry-pillar-card h5 {
+      font-size: 0.94rem !important;
+      font-weight: 800 !important;
+      color: #0f172a !important;
+      margin-bottom: 0.35rem !important;
+      line-height: 1.35 !important;
+    }
+    .enquiry-pillar-card p {
+      font-size: 0.81rem !important;
+      line-height: 1.5 !important;
+      color: #64748b !important;
+      margin: 0 !important;
+      flex-grow: 1 !important;
+    }
     .management-quota-highlight-card {
       background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%) !important;
       border: 1.5px solid #e2e8f0 !important;
       border-left: 4px solid #f59e0b !important;
       border-radius: 14px !important;
-      padding: 1.25rem 1.4rem !important;
-      margin-bottom: 2rem !important;
+      padding: 1.15rem 1.35rem !important;
+      margin-bottom: 1.5rem !important;
       box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03) !important;
     }
     .quota-highlight-header {
@@ -97,7 +162,7 @@
       display: inline-flex !important;
       align-items: center !important;
       gap: 6px !important;
-      font-size: 0.85rem !important;
+      font-size: 0.84rem !important;
       font-weight: 800 !important;
       color: #b45309 !important;
     }
@@ -109,7 +174,7 @@
       animation: pulseDot 1.5s infinite !important;
     }
     .quota-legal-tag {
-      font-size: 0.76rem !important;
+      font-size: 0.74rem !important;
       font-weight: 800 !important;
       color: #059669 !important;
       background: #ecfdf5 !important;
@@ -118,93 +183,33 @@
       padding: 3px 10px !important;
     }
     .quota-highlight-text {
-      font-size: 0.86rem !important;
+      font-size: 0.84rem !important;
       line-height: 1.5 !important;
       color: #475569 !important;
-      margin: 0 !important;
-    }
-    .enquiry-main-title {
-      font-size: 2.65rem;
-      font-weight: 900;
-      line-height: 1.15;
-      color: #0f172a;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
-    }
-    .enquiry-main-title .gradient-text {
-      background: linear-gradient(135deg, #d97706 0%, #2563eb 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .enquiry-lead-desc {
-      font-size: 1.05rem;
-      line-height: 1.65;
-      color: #475569;
-      margin-bottom: 2rem;
-    }
-    .enquiry-pillars-grid {
-      display: grid !important;
-      grid-template-columns: 1fr 1fr !important;
-      gap: 1.25rem !important;
-      margin-bottom: 2.25rem !important;
-    }
-    .enquiry-pillar-card {
-      background: #ffffff !important;
-      border: 1px solid #e2e8f0 !important;
-      border-radius: 14px !important;
-      padding: 1.15rem !important;
-      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03) !important;
-      transition: transform 0.25s ease, border-color 0.25s ease !important;
-    }
-    .enquiry-pillar-card:hover {
-      transform: translateY(-2px) !important;
-      border-color: #f59e0b !important;
-    }
-    .enquiry-pillar-card .pillar-icon {
-      width: 38px !important;
-      height: 38px !important;
-      border-radius: 10px !important;
-      background: rgba(245, 158, 11, 0.12) !important;
-      color: #d97706 !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      font-size: 1.1rem !important;
-      margin-bottom: 0.75rem !important;
-    }
-    .enquiry-pillar-card h5 {
-      font-size: 0.96rem !important;
-      font-weight: 800 !important;
-      color: #0f172a !important;
-      margin-bottom: 0.35rem !important;
-    }
-    .enquiry-pillar-card p {
-      font-size: 0.8rem !important;
-      line-height: 1.45 !important;
-      color: #64748b !important;
       margin: 0 !important;
     }
     .enquiry-hotline-card {
       background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%) !important;
       border-radius: 16px !important;
-      padding: 1.5rem !important;
+      padding: 1.35rem 1.5rem !important;
       color: #ffffff !important;
       display: flex !important;
       align-items: center !important;
       justify-content: space-between !important;
-      gap: 1.5rem !important;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.25) !important;
-      margin-top: 1.5rem !important;
+      gap: 1.25rem !important;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.2) !important;
+      margin-top: 1.25rem !important;
     }
     .hotline-info h6 {
-      font-size: 0.8rem;
+      font-size: 0.76rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: #93c5fd;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.2rem;
+      font-weight: 800;
     }
     .hotline-info .hotline-number {
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 900;
       color: #fef08a;
       letter-spacing: 0.02em;
@@ -217,8 +222,8 @@
       color: #ffffff !important;
       text-decoration: none !important;
       font-weight: 800 !important;
-      font-size: 0.88rem !important;
-      padding: 10px 18px !important;
+      font-size: 0.86rem !important;
+      padding: 9px 18px !important;
       border-radius: 9999px !important;
       box-shadow: 0 4px 14px rgba(34, 197, 94, 0.4) !important;
       transition: all 0.25s ease !important;
@@ -231,21 +236,23 @@
     }
     .enquiry-form-card-wrap {
       background: #ffffff !important;
-      border-radius: 24px !important;
-      border: 1px solid rgba(226, 232, 240, 0.95) !important;
-      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08) !important;
-      padding: 2.25rem !important;
+      border-radius: 20px !important;
+      border: 1.5px solid #e2e8f0 !important;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08) !important;
+      padding: 2rem 2.25rem 0 2.25rem !important;
       position: relative !important;
+      overflow: hidden !important;
+      box-sizing: border-box !important;
     }
     .enquiry-form-card-wrap .card-intake-badge {
       position: absolute;
-      top: -14px;
-      right: 28px;
+      top: 14px;
+      right: 22px;
       background: linear-gradient(135deg, #10b981 0%, #059669 100%);
       color: #ffffff;
-      padding: 5px 14px;
+      padding: 4px 12px;
       border-radius: 9999px;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 800;
       letter-spacing: 0.04em;
       text-transform: uppercase;
@@ -255,28 +262,28 @@
       gap: 6px;
     }
     .card-intake-badge .live-dot {
-      width: 7px;
-      height: 7px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: #ffffff;
       animation: pulseDot 1.5s infinite;
     }
     .enquiry-buttons-scroller-wrap {
       width: 100%;
-      margin-bottom: 1.35rem;
+      margin-bottom: 1.25rem;
       position: relative;
     }
     .enquiry-buttons-track {
       display: flex !important;
       align-items: center !important;
       flex-wrap: nowrap !important;
-      gap: 10px !important;
+      gap: 8px !important;
       overflow-x: auto !important;
       scroll-behavior: smooth !important;
       -webkit-overflow-scrolling: touch !important;
       scrollbar-width: none !important;
       -ms-overflow-style: none !important;
-      padding: 4px 2px 8px !important;
+      padding: 2px 2px 6px !important;
       scroll-snap-type: x mandatory !important;
     }
     .enquiry-buttons-track::-webkit-scrollbar {
@@ -291,31 +298,31 @@
       scroll-snap-align: start !important;
       display: inline-flex !important;
       align-items: center !important;
-      gap: 8px !important;
-      padding: 8px 16px !important;
+      gap: 7px !important;
+      padding: 7px 14px !important;
       border-radius: 9999px !important;
       background: #ffffff !important;
       border: 1.5px solid #e2e8f0 !important;
       color: #334155 !important;
       font-family: inherit !important;
-      font-size: 0.86rem !important;
+      font-size: 0.84rem !important;
       font-weight: 700 !important;
       cursor: pointer !important;
       white-space: nowrap !important;
       user-select: none !important;
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05) !important;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04) !important;
     }
     .enquiry-pill-btn .pill-icon {
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
-      width: 22px !important;
-      height: 22px !important;
+      width: 20px !important;
+      height: 20px !important;
       border-radius: 50% !important;
       background: #f1f5f9 !important;
       color: #d97706 !important;
-      font-size: 0.76rem !important;
+      font-size: 0.72rem !important;
       transition: all 0.25s ease !important;
       pointer-events: none !important;
     }
@@ -325,41 +332,23 @@
     .enquiry-pill-btn:hover {
       border-color: #f59e0b !important;
       color: #b45309 !important;
-      transform: translateY(-2px) !important;
-      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.18) !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.16) !important;
     }
     .enquiry-pill-btn.active {
       background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
       border-color: #d97706 !important;
       color: #ffffff !important;
-      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35) !important;
-      transform: translateY(-1px) !important;
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3) !important;
     }
     .enquiry-pill-btn.active .pill-icon {
       background: rgba(255, 255, 255, 0.25) !important;
       color: #ffffff !important;
     }
-    .avatar-stack {
-      display: flex !important;
-      align-items: center !important;
-    }
-    .avatar-stack img {
-      width: 38px !important;
-      height: 38px !important;
-      border-radius: 50% !important;
-      border: 2px solid #ffffff !important;
-      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15) !important;
-      margin-right: -10px !important;
-      object-fit: cover !important;
-      display: inline-block !important;
-    }
-    .avatar-stack img:last-child {
-      margin-right: 0 !important;
-    }
     .admission-form-grid {
       display: grid !important;
       grid-template-columns: 1fr 1fr !important;
-      gap: 1.25rem !important;
+      gap: 1.1rem !important;
     }
     .form-col-full {
       grid-column: span 2 !important;
@@ -367,15 +356,17 @@
     .form-field-group {
       display: flex !important;
       flex-direction: column !important;
-      gap: 0.45rem !important;
+      gap: 0.35rem !important;
     }
     .field-label {
-      font-size: 0.85rem !important;
+      font-size: 0.83rem !important;
       font-weight: 700 !important;
       color: #1e293b !important;
       display: flex !important;
       align-items: center !important;
       justify-content: space-between !important;
+      min-height: 18px !important;
+      line-height: 1.2 !important;
     }
     .field-label .required-star {
       color: #f43f5e !important;
@@ -384,39 +375,48 @@
       position: relative !important;
       display: flex !important;
       align-items: center !important;
+      width: 100% !important;
     }
     .input-icon {
       position: absolute !important;
       left: 14px !important;
-      color: #4f46e5 !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      color: #2563eb !important;
       font-size: 0.95rem !important;
       pointer-events: none !important;
+      z-index: 2 !important;
     }
     .form-input-control {
       width: 100% !important;
-      padding: 12px 14px 12px 42px !important;
-      border: 1.5px solid #e2e8f0 !important;
+      height: 48px !important;
+      min-height: 48px !important;
+      padding: 0 14px 0 42px !important;
+      border: 1.5px solid #cbd5e1 !important;
       border-radius: 10px !important;
-      font-size: 0.925rem !important;
+      font-size: 0.9rem !important;
       color: #0f172a !important;
       background-color: #f8fafc !important;
       transition: all 0.2s ease !important;
       outline: none !important;
       box-sizing: border-box !important;
+      line-height: 48px !important;
     }
     .form-input-control:focus {
       background-color: #ffffff !important;
-      border-color: #6366f1 !important;
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15) !important;
+      border-color: #2563eb !important;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
     }
     .form-select-control {
       width: 100% !important;
-      padding: 12px 38px 12px 42px !important;
-      border: 1.5px solid #e2e8f0 !important;
+      height: 48px !important;
+      min-height: 48px !important;
+      padding: 0 36px 0 42px !important;
+      border: 1.5px solid #cbd5e1 !important;
       border-radius: 10px !important;
-      font-size: 0.925rem !important;
+      font-size: 0.9rem !important;
       color: #0f172a !important;
-      background: #f8fafc url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%234F46E5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E") no-repeat right 14px center/16px !important;
+      background: #f8fafc url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%232563EB'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E") no-repeat right 14px center/16px !important;
       transition: all 0.2s ease !important;
       outline: none !important;
       cursor: pointer !important;
@@ -426,12 +426,12 @@
     }
     .form-select-control:focus {
       background-color: #ffffff !important;
-      border-color: #6366f1 !important;
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15) !important;
+      border-color: #2563eb !important;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
     }
     .conditional-other-field {
       display: none;
-      margin-top: 0.5rem !important;
+      margin-top: 0.4rem !important;
     }
     .conditional-other-field.is-visible {
       display: block !important;
@@ -439,10 +439,10 @@
     .btn-form-submit {
       grid-column: span 2 !important;
       background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
-      color: #020617 !important;
-      font-size: 1.05rem !important;
+      color: #ffffff !important;
+      font-size: 1.02rem !important;
       font-weight: 800 !important;
-      padding: 14px 24px !important;
+      height: 52px !important;
       border-radius: 12px !important;
       border: none !important;
       display: flex !important;
@@ -450,16 +450,16 @@
       justify-content: center !important;
       gap: 10px !important;
       cursor: pointer !important;
-      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35) !important;
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35) !important;
       transition: all 0.25s ease !important;
-      margin-top: 0.5rem !important;
+      margin-top: 0.25rem !important;
       width: 100% !important;
       box-sizing: border-box !important;
     }
     .btn-form-submit:hover {
       background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%) !important;
       transform: translateY(-2px) !important;
-      box-shadow: 0 12px 28px rgba(245, 158, 11, 0.45) !important;
+      box-shadow: 0 10px 25px rgba(245, 158, 11, 0.45) !important;
     }
     .form-guarantee-note {
       grid-column: span 2 !important;
@@ -467,15 +467,115 @@
       align-items: center !important;
       justify-content: center !important;
       gap: 8px !important;
-      font-size: 0.78rem !important;
+      font-size: 0.76rem !important;
+      font-weight: 600 !important;
       color: #64748b !important;
-      margin-top: 0.5rem !important;
+      margin-top: 0.35rem !important;
       text-align: center !important;
     }
-    @media (max-width: 992px) {
+    .form-card-footer {
+      margin: 1.5rem -2.25rem 0 -2.25rem !important;
+      padding: 1.15rem 2.25rem 1.35rem !important;
+      background: #f8fafc !important;
+      border-top: 1px solid #e2e8f0 !important;
+      box-sizing: border-box !important;
+    }
+    .form-card-footer .footer-header {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      margin-bottom: 0.65rem !important;
+      flex-wrap: wrap !important;
+      gap: 6px !important;
+    }
+    .form-card-footer .helpline-tag {
+      font-size: 0.74rem !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.5px !important;
+      color: #1e40af !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+    }
+    .form-card-footer .availability-tag {
+      font-size: 0.73rem !important;
+      font-weight: 700 !important;
+      color: #15803d !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+    }
+    .form-card-footer .availability-tag .pulse-dot {
+      width: 6px !important;
+      height: 6px !important;
+      border-radius: 50% !important;
+      background: #16a34a !important;
+      animation: pulseDot 1.5s infinite !important;
+    }
+    .counselor-chips-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 8px !important;
+      margin-bottom: 0.75rem !important;
+    }
+    .counselor-chip-btn {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: #ffffff !important;
+      border: 1px solid #e2e8f0 !important;
+      border-radius: 8px !important;
+      padding: 7px 6px !important;
+      text-decoration: none !important;
+      transition: all 0.2s ease !important;
+      text-align: center !important;
+    }
+    .counselor-chip-btn:hover {
+      border-color: #2563eb !important;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.12) !important;
+      transform: translateY(-1px) !important;
+    }
+    .counselor-chip-btn .chip-role {
+      font-size: 0.67rem !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      color: #64748b !important;
+      letter-spacing: 0.4px !important;
+    }
+    .counselor-chip-btn .chip-number {
+      font-size: 0.79rem !important;
+      font-weight: 800 !important;
+      color: #0b0f3b !important;
+      margin-top: 2px !important;
+      white-space: nowrap !important;
+    }
+    .trust-checklist-row {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      border-top: 1px solid #e2e8f0 !important;
+      padding-top: 0.65rem !important;
+      gap: 8px !important;
+      font-size: 0.74rem !important;
+      color: #475569 !important;
+      font-weight: 600 !important;
+      flex-wrap: wrap !important;
+    }
+    .trust-checklist-item {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+    }
+    .trust-checklist-item i {
+      color: #16a34a !important;
+      font-size: 0.8rem !important;
+    }
+    @media (max-width: 991px) {
       .enquiry-grid-layout {
         grid-template-columns: 1fr !important;
-        gap: 2.5rem !important;
+        gap: 2.25rem !important;
       }
       .enquiry-authority-box {
         padding-right: 0 !important;
@@ -484,16 +584,44 @@
         font-size: 2.15rem !important;
       }
       .enquiry-pillars-grid {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: 1fr 1fr !important;
       }
       .enquiry-form-card-wrap {
-        padding: 1.75rem 1.25rem !important;
+        padding: 1.75rem 1.25rem 0 1.25rem !important;
+        border-radius: 16px !important;
+      }
+      .form-card-footer {
+        margin: 1.25rem -1.25rem 0 -1.25rem !important;
+        padding: 1rem 1.25rem !important;
+        border-radius: 0 0 16px 16px !important;
+      }
+      .counselor-chips-grid {
+        grid-template-columns: 1fr !important;
+        gap: 6px !important;
+      }
+      .counselor-chip-btn {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        padding: 8px 12px !important;
+      }
+      .trust-checklist-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 4px !important;
+      }
+    }
+    @media (max-width: 640px) {
+      .enquiry-pillars-grid {
+        grid-template-columns: 1fr !important;
       }
       .admission-form-grid {
         grid-template-columns: 1fr !important;
       }
       .form-col-full, .btn-form-submit, .form-guarantee-note {
         grid-column: span 1 !important;
+      }
+      .enquiry-main-title {
+        font-size: 1.85rem !important;
       }
     }
   </style>
@@ -732,7 +860,7 @@
               <!-- Full Name -->
               <div class="form-field-group">
                 <label class="field-label">
-                  <span>Full Name</span>
+                  <span>Student Full Name</span>
                   <span class="required-star">*</span>
                 </label>
                 <div class="input-with-icon">
@@ -744,24 +872,40 @@
               <!-- Mobile / WhatsApp Number -->
               <div class="form-field-group">
                 <label class="field-label">
-                  <span>Mobile / WhatsApp Number</span>
+                  <span>WhatsApp / Phone</span>
                   <span class="required-star">*</span>
                 </label>
                 <div class="input-with-icon">
                   <i class="fa-solid fa-phone input-icon"></i>
-                  <input type="tel" name="phone" class="form-input-control" placeholder="e.g. 9845371459" required>
+                  <input type="tel" name="phone" class="form-input-control" placeholder="10-digit mobile number" required>
                 </div>
               </div>
 
               <!-- Email Address -->
-              <div class="form-field-group form-col-full">
+              <div class="form-field-group">
                 <label class="field-label">
                   <span>Email Address</span>
                   <span class="required-star">*</span>
                 </label>
                 <div class="input-with-icon">
                   <i class="fa-solid fa-envelope input-icon"></i>
-                  <input type="email" name="email" class="form-input-control" placeholder="name@domain.com" required>
+                  <input type="email" name="email" class="form-input-control" placeholder="student@domain.com" required>
+                </div>
+              </div>
+
+              <!-- Study Destination -->
+              <div class="form-field-group">
+                <label class="field-label">
+                  <span>Study Destination</span>
+                  <span class="required-star">*</span>
+                </label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-earth-americas input-icon"></i>
+                  <select name="studyDestination" class="form-select-control" required>
+                    <option value="India" selected>India (Bangalore Premier)</option>
+                    <option value="Abroad">Abroad (USA, UK, Europe)</option>
+                    <option value="Both">Both (India &amp; Abroad)</option>
+                  </select>
                 </div>
               </div>
 
@@ -791,7 +935,7 @@
                 <div class="conditional-other-field" id="enquiryConditionalCourseOther">
                   <div class="input-with-icon" style="margin-top: 6px;">
                     <i class="fa-solid fa-pen-nib input-icon"></i>
-                    <input type="text" name="otherCourseName" class="form-input-control" placeholder="Specify Your Preferred Course (e.g. B.Sc Psychology, Data Science, Aviation)">
+                    <input type="text" name="otherCourseName" class="form-input-control" placeholder="Specify Preferred Course (e.g. B.Sc Psychology, Aviation)">
                   </div>
                 </div>
               </div>
@@ -799,7 +943,7 @@
               <!-- Target College Name -->
               <div class="form-field-group form-col-full">
                 <label class="field-label">
-                  <span>Target College Name</span>
+                  <span>Target College / University</span>
                   <span class="required-star">*</span>
                 </label>
                 <div class="input-with-icon">
@@ -828,24 +972,8 @@
                 <div class="conditional-other-field" id="enquiryConditionalCollegeOther">
                   <div class="input-with-icon" style="margin-top: 6px;">
                     <i class="fa-solid fa-map-pin input-icon"></i>
-                    <input type="text" name="otherCollegeName" class="form-input-control" placeholder="Specify Preferred College Name (e.g. Alliance, Jain, Reva, New Horizon)">
+                    <input type="text" name="otherCollegeName" class="form-input-control" placeholder="Specify Preferred College Name (e.g. Alliance, Jain, Reva)">
                   </div>
-                </div>
-              </div>
-
-              <!-- Study Destination -->
-              <div class="form-field-group form-col-full">
-                <label class="field-label">
-                  <span>Interested Study Destination</span>
-                  <span class="required-star">*</span>
-                </label>
-                <div class="input-with-icon">
-                  <i class="fa-solid fa-earth-americas input-icon"></i>
-                  <select name="studyDestination" class="form-select-control" required>
-                    <option value="India" selected>India (Bangalore &amp; Pan-India Quota Seats)</option>
-                    <option value="Abroad">Abroad (USA, UK, Canada, Australia, Germany, Ireland)</option>
-                    <option value="Both">Both (Evaluating Indian Quotas &amp; Overseas Options)</option>
-                  </select>
                 </div>
               </div>
 
@@ -856,41 +984,48 @@
               </button>
 
               <div class="form-guarantee-note">
-                <i class="fa-solid fa-lock" style="color: var(--green);"></i>
+                <i class="fa-solid fa-shield-halved" style="color: #10b981;"></i>
                 <span>SSL Encrypted • Direct University Quota Verification Guarantee</span>
               </div>
             </div>
           </form>
-          <!-- Counselor Fast-Track Contact Card & Trust Guarantees -->
-          <div class="counselor-fasttrack-card" style="margin-top: 1.5rem; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.25rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
-              <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: #1e40af; background: #eff6ff; padding: 3px 10px; border-radius: 9999px;">
-                <i class="fa-solid fa-headset me-1"></i> Dedicated Admissions Helpline
+
+          <!-- Integrated Institutional Verification & Helpline Footer -->
+          <div class="form-card-footer">
+            <div class="footer-header">
+              <span class="helpline-tag">
+                <i class="fa-solid fa-headset" style="color: #2563eb;"></i> Admissions Helpline
               </span>
-              <span style="font-size: 0.75rem; font-weight: 700; color: #15803d;">
-                <i class="fa-solid fa-circle-check me-1"></i> Available Now
+              <span class="availability-tag">
+                <span class="pulse-dot"></span> Senior Counselors Available
               </span>
             </div>
 
-            <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 1rem;">
-              <a href="tel:+919845371459" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: #f8fafc; border-radius: 8px; text-decoration: none; color: #0f172a; font-weight: 700; font-size: 0.88rem; transition: background 0.2s;">
-                <span><i class="fa-solid fa-phone me-2" style="color: #2563eb;"></i> Counselor 1: +91 98453 71459</span>
-                <span style="font-size: 0.72rem; color: #64748b;">Primary</span>
+            <div class="counselor-chips-grid">
+              <a href="tel:+919845371459" class="counselor-chip-btn" title="Call Counselor Desk 1">
+                <span class="chip-role">Counselor 1</span>
+                <span class="chip-number"><i class="fa-solid fa-phone me-1" style="font-size: 10px; color: #2563eb;"></i> +91 98453 71459</span>
               </a>
-              <a href="tel:+918884058214" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: #f8fafc; border-radius: 8px; text-decoration: none; color: #0f172a; font-weight: 700; font-size: 0.88rem; transition: background 0.2s;">
-                <span><i class="fa-solid fa-phone me-2" style="color: #2563eb;"></i> Counselor 2: +91 88840 58214</span>
-                <span style="font-size: 0.72rem; color: #64748b;">Direct</span>
+              <a href="tel:+918884058214" class="counselor-chip-btn" title="Call Counselor Desk 2">
+                <span class="chip-role">Counselor 2</span>
+                <span class="chip-number"><i class="fa-solid fa-phone me-1" style="font-size: 10px; color: #2563eb;"></i> +91 88840 58214</span>
               </a>
-              <a href="tel:+918050854448" style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: #f8fafc; border-radius: 8px; text-decoration: none; color: #0f172a; font-weight: 700; font-size: 0.88rem; transition: background 0.2s;">
-                <span><i class="fa-solid fa-phone me-2" style="color: #2563eb;"></i> Counselor 3: +91 80508 54448</span>
-                <span style="font-size: 0.72rem; color: #64748b;">Support</span>
+              <a href="tel:+918050854448" class="counselor-chip-btn" title="Call Counselor Support Desk">
+                <span class="chip-role">Support Desk</span>
+                <span class="chip-number"><i class="fa-solid fa-phone me-1" style="font-size: 10px; color: #2563eb;"></i> +91 80508 54448</span>
               </a>
             </div>
 
-            <div style="border-top: 1px solid #f1f5f9; padding-top: 0.75rem; font-size: 0.8rem; color: #64748b; line-height: 1.5;">
-              <div style="margin-bottom: 4px;"><i class="fa-solid fa-shield-halved me-1" style="color: #10b981;"></i> 100% Genuine Allotment Letters from College Registrar</div>
-              <div style="margin-bottom: 4px;"><i class="fa-solid fa-file-invoice-dollar me-1" style="color: #10b981;"></i> Zero Hidden Charges &amp; Official Fee Receipts</div>
-              <div><i class="fa-solid fa-clock-rotate-left me-1" style="color: #10b981;"></i> Guaranteed Callback within 15 Minutes</div>
+            <div class="trust-checklist-row">
+              <span class="trust-checklist-item">
+                <i class="fa-solid fa-shield-check"></i> Registrar Allotment Letters
+              </span>
+              <span class="trust-checklist-item">
+                <i class="fa-solid fa-file-invoice-dollar"></i> Official Fee Receipts
+              </span>
+              <span class="trust-checklist-item">
+                <i class="fa-solid fa-clock-rotate-left"></i> 15-Minute Priority Callback
+              </span>
             </div>
           </div>
         </div>

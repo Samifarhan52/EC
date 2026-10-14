@@ -1685,7 +1685,7 @@
           <!-- Phone -->
           <div class="form-field-group">
             <label class="field-label">
-              <span>Mobile Number</span>
+              <span>Mobile / WhatsApp</span>
               <span class="required-star">*</span>
             </label>
             <div class="input-with-icon">
@@ -1695,7 +1695,7 @@
           </div>
 
           <!-- Email Address -->
-          <div class="form-field-group form-col-full">
+          <div class="form-field-group">
             <label class="field-label">
               <span>Email Address</span>
               <span class="required-star">*</span>
@@ -1703,6 +1703,22 @@
             <div class="input-with-icon">
               <i class="fa-solid fa-envelope input-icon"></i>
               <input type="email" name="email" class="form-input-control" placeholder="name@domain.com" required>
+            </div>
+          </div>
+
+          <!-- Study Destination: Abroad / India -->
+          <div class="form-field-group">
+            <label class="field-label">
+              <span>Study Destination</span>
+              <span class="required-star">*</span>
+            </label>
+            <div class="input-with-icon">
+              <i class="fa-solid fa-globe input-icon"></i>
+              <select name="studyDestination" class="form-select-control" required>
+                <option value="India" selected>India (Bangalore Seats)</option>
+                <option value="Abroad">Abroad (USA, UK, etc.)</option>
+                <option value="Both">Both (India & Abroad)</option>
+              </select>
             </div>
           </div>
 
@@ -1770,22 +1786,6 @@
             </div>
           </div>
 
-          <!-- Study Destination: Abroad / India -->
-          <div class="form-field-group form-col-full">
-            <label class="field-label">
-              <span>Study Destination</span>
-              <span class="required-star">*</span>
-            </label>
-            <div class="input-with-icon">
-              <i class="fa-solid fa-globe input-icon"></i>
-              <select name="studyDestination" class="form-select-control" required>
-                <option value="India">India</option>
-                <option value="Abroad">Abroad (USA, UK, Canada, Australia, Germany)</option>
-                <option value="Both">Both (India & Abroad)</option>
-              </select>
-            </div>
-          </div>
-
           <!-- Submit Button -->
           <button type="submit" class="btn-form-submit">
             <i class="fa-solid fa-paper-plane"></i>
@@ -1837,7 +1837,7 @@
           </div>
 
           <!-- Email Address -->
-          <div class="form-field-group form-col-full">
+          <div class="form-field-group">
             <label class="field-label">
               <span>Email Address</span>
               <span class="required-star">*</span>
@@ -1845,6 +1845,23 @@
             <div class="input-with-icon">
               <i class="fa-solid fa-envelope input-icon"></i>
               <input type="email" name="email" class="form-input-control" placeholder="For PDF delivery" required>
+            </div>
+          </div>
+
+          <!-- Fee Schedule Category -->
+          <div class="form-field-group">
+            <label class="field-label">
+              <span>Fee Schedule Category</span>
+              <span class="required-star">*</span>
+            </label>
+            <div class="input-with-icon">
+              <i class="fa-solid fa-tags input-icon"></i>
+              <select name="feeCategory" class="form-select-control" required>
+                <option value="Management Quota" selected>Management Quota Fees</option>
+                <option value="Merit Seat Matrix">Merit Seat Matrix</option>
+                <option value="NRI Quota">NRI Quota Category</option>
+                <option value="Abroad Tuition">Abroad Tuition Fees</option>
+              </select>
             </div>
           </div>
 
