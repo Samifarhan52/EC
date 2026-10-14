@@ -119,26 +119,23 @@ button, input, select, textarea {
    1. TICKER / ANNOUNCEMENT OFFER BANNER (INTERACTIVE & HIGH-CONVERSION)
    ========================================================================== */
 .admissions-ticker-wrap {
-  background: linear-gradient(90deg, #070b14 0%, #17153a 20%, #312e81 45%, #1e1b4b 75%, #070b14 100%);
-  color: var(--white);
+  background: #0b0f3b;
+  color: #ffffff;
   padding: 8px 0;
   font-size: 0.86rem;
   font-weight: 600;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  border-bottom: 2px solid rgba(245, 158, 11, 0.7);
+  border-bottom: 2px solid #f59e0b;
   position: relative;
   z-index: 1020;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), 0 0 15px rgba(245, 158, 11, 0.18);
+  box-shadow: 0 2px 10px rgba(11, 15, 59, 0.25);
   transition: all var(--transition-fast);
   user-select: none;
 }
 
 .admissions-ticker-wrap:hover {
-  background: linear-gradient(90deg, #0b1120 0%, #2e1065 25%, #4338ca 50%, #2e1065 75%, #0b1120 100%);
-  border-bottom-color: #f59e0b;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45), 0 0 22px rgba(245, 158, 11, 0.35);
+  background: #11174d;
 }
 
 .admissions-ticker-wrap:focus-visible {
@@ -157,27 +154,27 @@ button, input, select, textarea {
 
 .ticker-badge-fixed {
   flex-shrink: 0;
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
-  color: #0f172a;
+  background: #f59e0b;
+  color: #0b0f3b;
   font-weight: 800;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  padding: 5px 14px;
+  padding: 4px 13px;
   border-radius: var(--radius-pill);
   margin-left: 1.25rem;
   margin-right: 0.75rem;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  box-shadow: 0 0 16px rgba(245, 158, 11, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  gap: 7px;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.35);
   z-index: 2;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.5px;
   cursor: pointer;
   transition: transform var(--transition-fast);
 }
 
 .ticker-badge-fixed:hover {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 .ticker-live-dot {
@@ -290,9 +287,9 @@ button, input, select, textarea {
 }
 
 .btn-ticker-quick {
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 60%, #d97706 100%);
-  color: #0f172a;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: #f59e0b;
+  color: #0b0f3b;
+  border: none;
   font-size: 0.75rem;
   font-weight: 800;
   padding: 5px 14px;
@@ -302,14 +299,13 @@ button, input, select, textarea {
   gap: 6px;
   cursor: pointer;
   transition: all var(--transition-fast);
-  box-shadow: 0 2px 10px rgba(245, 158, 11, 0.45);
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.35);
   white-space: nowrap;
 }
 
 .btn-ticker-quick:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.7);
-  background: linear-gradient(135deg, #fef08a 0%, #fbbf24 60%, #f59e0b 100%);
+  background: #fbbf24;
+  transform: translateY(-1px);
 }
 
 .btn-ticker-quick i {
@@ -382,47 +378,16 @@ button, input, select, textarea {
 
 .header-logo {
   display: block;
+  height: 48px;
   width: auto;
+  max-width: 250px;
   object-fit: contain;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* 1st Logo (Top of page / Initial): Prominent & Big - Crystal Clear & Highly Readable */
-.logo-default {
-  display: block;
-  height: 72px;
-  width: auto;
-  max-width: 360px;
-  filter: drop-shadow(0 2px 10px rgba(180, 83, 9, 0.15));
-}
-
-/* 2nd Logo (Scrolled down state): Dynamic sticky navbar logo - Big & Sharp */
-.logo-scrolled {
-  display: none;
-  height: 62px;
-  width: auto;
-  max-width: 120px;
-  filter: drop-shadow(0 2px 8px rgba(180, 83, 9, 0.18));
-}
-
-.site-header.header-scrolled .logo-default {
-  display: none;
-}
-
-.site-header.header-scrolled .logo-scrolled {
-  display: block;
-  animation: logoFadeIn 0.3s ease-in-out;
-}
-
-@keyframes logoFadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.94);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+.site-header.header-scrolled .header-logo {
+  height: 42px;
+  max-width: 220px;
 }
 
 /* Center Desktop Nav: Home, Programs, Services */
@@ -2475,13 +2440,9 @@ button, input, select, textarea {
     padding: 0 1.25rem;
     gap: 1rem;
   }
-  .logo-default {
-    height: 48px;
-    max-width: 220px;
-  }
-  .logo-scrolled {
+  .header-logo {
     height: 44px;
-    max-width: 80px;
+    max-width: 220px;
   }
   .desktop-nav {
     gap: 1.5rem;
@@ -2508,14 +2469,9 @@ button, input, select, textarea {
     padding: 0 0.85rem;
   }
 
-  .logo-default {
-    height: 40px;
-    max-width: 185px;
-  }
-
-  .logo-scrolled {
+  .header-logo {
     height: 38px;
-    max-width: 70px;
+    max-width: 185px;
   }
 
   .hero-main-title {
@@ -2647,8 +2603,8 @@ button, input, select, textarea {
 }
 
 @media (max-width: 480px) {
-  .logo-default {
-    height: 36px;
+  .header-logo {
+    height: 34px;
     max-width: 160px;
   }
   .header-action-group .sf-btn-icon-primary {
