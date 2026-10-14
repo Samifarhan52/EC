@@ -25,71 +25,62 @@
   <style>
     .fee-page-wrapper {
       min-height: 100vh;
-      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 40%, #f1f5f9 100%);
+      background: #f8fafc;
       display: flex;
       flex-direction: column;
     }
     .fee-hero-section {
-      padding: 2.5rem 0 4.5rem;
+      position: relative;
+      padding: 3rem 0 5rem;
       flex: 1;
+      background: 
+        radial-gradient(1000px circle at 85% 12%, rgba(37, 99, 235, 0.08), transparent 60%),
+        radial-gradient(800px circle at 10% 35%, rgba(245, 158, 11, 0.06), transparent 50%),
+        linear-gradient(180deg, #f8fafc 0%, #ffffff 40%, #f1f5f9 100%);
     }
     .fee-grid-layout {
       display: grid !important;
       grid-template-columns: 1.05fr 1fr !important;
-      gap: 2.75rem !important;
+      gap: 3.25rem !important;
       align-items: start !important;
     }
     .fee-authority-box {
       padding-right: 0.5rem;
     }
-    .fee-authority-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(37, 99, 235, 0.1);
-      color: #1d4ed8;
-      border: 1px solid rgba(37, 99, 235, 0.3);
-      padding: 6px 16px;
-      border-radius: 9999px;
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 1.25rem;
-    }
     .free-counselling-badge {
       display: inline-flex !important;
       align-items: center !important;
       gap: 8px !important;
-      background: rgba(34, 197, 94, 0.12) !important;
-      color: #15803d !important;
-      border: 1px solid rgba(34, 197, 94, 0.35) !important;
-      padding: 6px 16px !important;
+      background: rgba(37, 99, 235, 0.08) !important;
+      color: #1d4ed8 !important;
+      border: 1px solid rgba(37, 99, 235, 0.22) !important;
+      padding: 7px 18px !important;
       border-radius: 9999px !important;
       font-size: 0.8rem !important;
       font-weight: 800 !important;
       letter-spacing: 0.05em !important;
       text-transform: uppercase !important;
       margin-bottom: 1.25rem !important;
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08) !important;
     }
     .fee-main-title {
-      font-size: 2.55rem;
+      font-size: 2.75rem;
       font-weight: 900;
-      line-height: 1.18;
-      color: #0f172a;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: #0b0f3b;
+      margin-bottom: 1.1rem;
+      letter-spacing: -0.03em;
     }
     .fee-main-title .gradient-text {
-      background: linear-gradient(135deg, #2563eb 0%, #d97706 100%);
+      background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #f59e0b 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .fee-lead-desc {
-      font-size: 1rem;
-      line-height: 1.65;
+      font-size: 1.04rem;
+      line-height: 1.7;
       color: #475569;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.85rem;
     }
     .fee-pillars-grid {
       display: grid !important;
@@ -99,36 +90,45 @@
     }
     .fee-pillar-card {
       background: #ffffff !important;
-      border: 1px solid #e2e8f0 !important;
-      border-radius: 14px !important;
-      padding: 1.2rem !important;
+      border: 1px solid rgba(226, 232, 240, 0.9) !important;
+      border-radius: 16px !important;
+      padding: 1.25rem !important;
       box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03) !important;
       display: flex !important;
       flex-direction: column !important;
       height: 100% !important;
       box-sizing: border-box !important;
-      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
     .fee-pillar-card:hover {
-      transform: translateY(-2px) !important;
-      border-color: #2563eb !important;
-      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+      transform: translateY(-4px) !important;
+      border-color: #93c5fd !important;
+      box-shadow: 0 12px 28px -6px rgba(37, 99, 235, 0.12) !important;
     }
     .fee-pillar-card .pillar-icon {
-      width: 38px !important;
-      height: 38px !important;
-      border-radius: 10px !important;
-      background: rgba(37, 99, 235, 0.1) !important;
-      color: #2563eb !important;
+      width: 44px !important;
+      height: 44px !important;
+      border-radius: 12px !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
-      font-size: 1.05rem !important;
-      margin-bottom: 0.65rem !important;
+      font-size: 1.15rem !important;
+      margin-bottom: 0.75rem !important;
       flex-shrink: 0 !important;
+      transition: transform 0.25s ease !important;
     }
+    .fee-pillar-card:hover .pillar-icon {
+      transform: scale(1.08) !important;
+    }
+    .pillar-icon.c-blue { background: #eff6ff !important; color: #2563eb !important; }
+    .pillar-icon.c-emerald { background: #ecfdf5 !important; color: #059669 !important; }
+    .pillar-icon.c-amber { background: #fffbeb !important; color: #d97706 !important; }
+    .pillar-icon.c-purple { background: #f5f3ff !important; color: #7c3aed !important; }
+    .pillar-icon.c-sky { background: #f0f9ff !important; color: #0284c7 !important; }
+    .pillar-icon.c-rose { background: #fff1f2 !important; color: #e11d48 !important; }
+
     .fee-pillar-card h5 {
-      font-size: 0.94rem !important;
+      font-size: 0.95rem !important;
       font-weight: 800 !important;
       color: #0f172a !important;
       margin-bottom: 0.35rem !important;
@@ -136,144 +136,191 @@
     }
     .fee-pillar-card p {
       font-size: 0.81rem !important;
-      line-height: 1.5 !important;
+      line-height: 1.55 !important;
       color: #64748b !important;
       margin: 0 !important;
       flex-grow: 1 !important;
     }
-    .management-quota-highlight-card {
-      background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%) !important;
-      border: 1.5px solid #e2e8f0 !important;
-      border-left: 4px solid #f59e0b !important;
-      border-radius: 14px !important;
-      padding: 1.15rem 1.35rem !important;
+
+    /* Modern Sample Fee Schedule Matrix Card */
+    .fee-table-preview-card {
+      background: #ffffff !important;
+      border: 1px solid rgba(226, 232, 240, 0.9) !important;
+      border-radius: 18px !important;
+      padding: 1.4rem !important;
       margin-bottom: 1.5rem !important;
-      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03) !important;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04) !important;
+      overflow: hidden !important;
     }
-    .quota-highlight-header {
+    .fee-table-header {
       display: flex !important;
       align-items: center !important;
       justify-content: space-between !important;
-      margin-bottom: 0.5rem !important;
+      margin-bottom: 1rem !important;
       flex-wrap: wrap !important;
       gap: 8px !important;
     }
-    .quota-pulse-badge {
-      display: inline-flex !important;
-      align-items: center !important;
-      gap: 6px !important;
-      font-size: 0.84rem !important;
+    .fee-table-header h6 {
+      font-size: 0.92rem !important;
       font-weight: 800 !important;
-      color: #b45309 !important;
+      color: #0f172a !important;
+      margin: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
     }
-    .quota-pulse-badge .pulse-dot {
-      width: 7px !important;
-      height: 7px !important;
-      border-radius: 50% !important;
-      background: #f59e0b !important;
-      animation: pulseDot 1.5s infinite !important;
-    }
-    .quota-legal-tag {
-      font-size: 0.74rem !important;
+    .fee-badge-verified {
+      font-size: 0.72rem !important;
       font-weight: 800 !important;
       color: #059669 !important;
       background: #ecfdf5 !important;
       border: 1px solid #a7f3d0 !important;
-      border-radius: 9999px !important;
       padding: 3px 10px !important;
-    }
-    .quota-highlight-text {
-      font-size: 0.84rem !important;
-      line-height: 1.5 !important;
-      color: #475569 !important;
-      margin: 0 !important;
-    }
-    .fee-table-preview-card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 1.25rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
-    }
-    .fee-table-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 0.85rem;
-      padding-bottom: 0.65rem;
-      border-bottom: 1px solid #f1f5f9;
-    }
-    .fee-table-header h6 {
-      font-size: 0.88rem;
-      font-weight: 800;
-      color: #0f172a;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .fee-badge-verified {
-      background: #ecfdf5;
-      color: #059669;
-      font-size: 0.72rem;
-      font-weight: 800;
-      padding: 3px 10px;
-      border-radius: 9999px;
-      border: 1px solid #a7f3d0;
+      border-radius: 9999px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 5px !important;
     }
     .fee-mini-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.82rem;
+      width: 100% !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      font-size: 0.84rem !important;
     }
     .fee-mini-table th {
-      text-align: left;
-      padding: 8px 10px;
-      color: #64748b;
-      font-weight: 700;
-      background: #f8fafc;
-      border-radius: 6px;
+      background: #f8fafc !important;
+      color: #475569 !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.04em !important;
+      font-size: 0.72rem !important;
+      padding: 10px 12px !important;
+      border-bottom: 1.5px solid #e2e8f0 !important;
+      text-align: left !important;
     }
     .fee-mini-table td {
-      padding: 8px 10px;
-      color: #334155;
-      border-bottom: 1px solid #f8fafc;
+      padding: 10px 12px !important;
+      border-bottom: 1px solid #f1f5f9 !important;
+      color: #334155 !important;
     }
     .fee-mini-table tr:last-child td {
-      border-bottom: none;
+      border-bottom: none !important;
     }
     .fee-range-highlight {
-      font-weight: 800;
-      color: #d97706;
+      font-weight: 800 !important;
+      color: #2563eb !important;
+      white-space: nowrap !important;
     }
-    .fee-hotline-card {
-      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%) !important;
-      border-radius: 16px !important;
-      padding: 1.35rem 1.5rem !important;
+
+    /* Executive Unified Quota & Support Concierge Banner */
+    .authority-concierge-card {
+      background: linear-gradient(135deg, #0b132b 0%, #172554 100%) !important;
+      border-radius: 18px !important;
+      padding: 1.45rem 1.6rem !important;
       color: #ffffff !important;
+      box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.3) !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      margin-top: 1.5rem !important;
+      position: relative !important;
+      overflow: hidden !important;
+    }
+    .authority-concierge-card::before {
+      content: "" !important;
+      position: absolute !important;
+      top: -40px !important;
+      right: -40px !important;
+      width: 120px !important;
+      height: 120px !important;
+      border-radius: 50% !important;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.35) 0%, transparent 70%) !important;
+      pointer-events: none !important;
+    }
+    .concierge-top-row {
       display: flex !important;
       align-items: center !important;
       justify-content: space-between !important;
-      gap: 1.25rem !important;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.2) !important;
-      margin-top: 1.25rem !important;
+      margin-bottom: 0.65rem !important;
+      flex-wrap: wrap !important;
+      gap: 8px !important;
     }
-    .hotline-info h6 {
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #93c5fd;
-      margin-bottom: 0.2rem;
-      font-weight: 800;
+    .concierge-pill-glow {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 7px !important;
+      font-size: 0.78rem !important;
+      font-weight: 800 !important;
+      color: #93c5fd !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.05em !important;
     }
-    .hotline-info .hotline-number {
-      font-size: 1.3rem;
-      font-weight: 900;
-      color: #fef08a;
-      letter-spacing: 0.02em;
+    .concierge-pill-glow .pulse-dot {
+      width: 7px !important;
+      height: 7px !important;
+      border-radius: 50% !important;
+      background: #22c55e !important;
+      animation: pulseDot 1.5s infinite !important;
     }
-    .hotline-btn-whatsapp {
+    .concierge-rating-tag {
+      font-size: 0.78rem !important;
+      font-weight: 800 !important;
+      color: #fef08a !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+    }
+    .concierge-rating-tag .stars {
+      color: #fbbf24 !important;
+      font-size: 0.82rem !important;
+    }
+    .concierge-desc {
+      font-size: 0.85rem !important;
+      line-height: 1.55 !important;
+      color: #cbd5e1 !important;
+      margin: 0 0 1rem 0 !important;
+    }
+    .concierge-bottom-row {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+      padding-top: 0.9rem !important;
+      gap: 12px !important;
+      flex-wrap: wrap !important;
+    }
+    .concierge-avatar-group {
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+    }
+    .concierge-avatar-group .avatar-stack {
+      display: flex !important;
+    }
+    .concierge-avatar-group .avatar-stack img {
+      width: 32px !important;
+      height: 32px !important;
+      border-radius: 50% !important;
+      border: 2px solid #0b132b !important;
+      margin-left: -8px !important;
+      object-fit: cover !important;
+    }
+    .concierge-avatar-group .avatar-stack img:first-child {
+      margin-left: 0 !important;
+    }
+    .avatar-meta {
+      display: flex !important;
+      flex-direction: column !important;
+      line-height: 1.2 !important;
+    }
+    .avatar-meta strong {
+      font-size: 0.82rem !important;
+      color: #ffffff !important;
+      font-weight: 800 !important;
+    }
+    .avatar-meta span {
+      font-size: 0.72rem !important;
+      color: #94a3b8 !important;
+    }
+    .concierge-hotline-btn {
       display: inline-flex !important;
       align-items: center !important;
       gap: 8px !important;
@@ -281,133 +328,69 @@
       color: #ffffff !important;
       text-decoration: none !important;
       font-weight: 800 !important;
-      font-size: 0.86rem !important;
+      font-size: 0.84rem !important;
       padding: 9px 18px !important;
       border-radius: 9999px !important;
       box-shadow: 0 4px 14px rgba(34, 197, 94, 0.4) !important;
       transition: all 0.25s ease !important;
-      flex-shrink: 0 !important;
     }
-    .hotline-btn-whatsapp:hover {
+    .concierge-hotline-btn:hover {
       background: #16a34a !important;
       transform: translateY(-2px) !important;
       color: #ffffff !important;
+      box-shadow: 0 6px 18px rgba(34, 197, 94, 0.5) !important;
     }
+
+    /* Modernized Centerpiece Form Card */
     .fee-form-card-wrap {
       background: #ffffff !important;
-      border-radius: 20px !important;
-      border: 1.5px solid #e2e8f0 !important;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08) !important;
-      padding: 2rem 2.25rem 0 2.25rem !important;
+      border-radius: 24px !important;
+      border: 1px solid rgba(226, 232, 240, 0.9) !important;
+      box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(226, 232, 240, 0.8) !important;
+      padding: 2.25rem 2.25rem 0 2.25rem !important;
       position: relative !important;
       overflow: hidden !important;
       box-sizing: border-box !important;
     }
+    .fee-form-card-wrap::before {
+      content: "" !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      height: 4px !important;
+      background: linear-gradient(90deg, #2563eb 0%, #3b82f6 35%, #f59e0b 70%, #d97706 100%) !important;
+    }
     .fee-form-card-wrap .card-intake-badge {
-      position: absolute;
-      top: 14px;
-      right: 22px;
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-      color: #ffffff;
-      padding: 4px 12px;
-      border-radius: 9999px;
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .card-intake-badge .live-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #ffffff;
-      animation: pulseDot 1.5s infinite;
-    }
-    .enquiry-buttons-scroller-wrap {
-      width: 100%;
-      margin-bottom: 1.25rem;
-      position: relative;
-    }
-    .enquiry-buttons-track {
+      position: absolute !important;
+      top: 18px !important;
+      right: 22px !important;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+      color: #ffffff !important;
+      padding: 5px 14px !important;
+      border-radius: 9999px !important;
+      font-size: 0.72rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.05em !important;
+      text-transform: uppercase !important;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3) !important;
       display: flex !important;
       align-items: center !important;
-      flex-wrap: nowrap !important;
-      gap: 8px !important;
-      overflow-x: auto !important;
-      scroll-behavior: smooth !important;
-      -webkit-overflow-scrolling: touch !important;
-      scrollbar-width: none !important;
-      -ms-overflow-style: none !important;
-      padding: 2px 2px 6px !important;
-      scroll-snap-type: x mandatory !important;
+      gap: 6px !important;
     }
-    .enquiry-buttons-track::-webkit-scrollbar {
-      display: none !important;
-    }
-    .enquiry-pill-btn {
-      appearance: none !important;
-      -webkit-appearance: none !important;
-      outline: none !important;
-      flex: 0 0 auto !important;
-      flex-shrink: 0 !important;
-      scroll-snap-align: start !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      gap: 7px !important;
-      padding: 7px 14px !important;
-      border-radius: 9999px !important;
-      background: #ffffff !important;
-      border: 1.5px solid #e2e8f0 !important;
-      color: #334155 !important;
-      font-family: inherit !important;
-      font-size: 0.84rem !important;
-      font-weight: 700 !important;
-      cursor: pointer !important;
-      white-space: nowrap !important;
-      user-select: none !important;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04) !important;
-    }
-    .enquiry-pill-btn .pill-icon {
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      width: 20px !important;
-      height: 20px !important;
+    .card-intake-badge .live-dot {
+      width: 6px !important;
+      height: 6px !important;
       border-radius: 50% !important;
-      background: #f1f5f9 !important;
-      color: #2563eb !important;
-      font-size: 0.72rem !important;
-      transition: all 0.25s ease !important;
-      pointer-events: none !important;
+      background: #ffffff !important;
+      animation: pulseDot 1.5s infinite !important;
     }
-    .enquiry-pill-btn .pill-text {
-      pointer-events: none !important;
-    }
-    .enquiry-pill-btn:hover {
-      border-color: #2563eb !important;
-      color: #1d4ed8 !important;
-      transform: translateY(-1px) !important;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.16) !important;
-    }
-    .enquiry-pill-btn.active {
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
-      border-color: #1d4ed8 !important;
-      color: #ffffff !important;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
-    }
-    .enquiry-pill-btn.active .pill-icon {
-      background: rgba(255, 255, 255, 0.25) !important;
-      color: #ffffff !important;
-    }
+
+    /* Grid & Form Fields */
     .admission-form-grid {
       display: grid !important;
       grid-template-columns: 1fr 1fr !important;
-      gap: 1.1rem !important;
+      gap: 1.15rem !important;
     }
     .form-col-full {
       grid-column: span 2 !important;
@@ -418,13 +401,14 @@
       gap: 0.35rem !important;
     }
     .field-label {
-      font-size: 0.83rem !important;
-      font-weight: 700 !important;
-      color: #1e293b !important;
+      font-size: 0.8rem !important;
+      font-weight: 800 !important;
+      color: #334155 !important;
       display: flex !important;
       align-items: center !important;
       justify-content: space-between !important;
-      min-height: 18px !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.04em !important;
       line-height: 1.2 !important;
     }
     .field-label .required-star {
@@ -438,55 +422,67 @@
     }
     .input-icon {
       position: absolute !important;
-      left: 14px !important;
+      left: 15px !important;
       top: 50% !important;
       transform: translateY(-50%) !important;
-      color: #2563eb !important;
-      font-size: 0.95rem !important;
+      color: #3b82f6 !important;
+      font-size: 0.98rem !important;
       pointer-events: none !important;
       z-index: 2 !important;
+      transition: color 0.2s ease !important;
+    }
+    .input-with-icon:focus-within .input-icon {
+      color: #2563eb !important;
     }
     .form-input-control {
       width: 100% !important;
-      height: 48px !important;
-      min-height: 48px !important;
-      padding: 0 14px 0 42px !important;
-      border: 1.5px solid #cbd5e1 !important;
-      border-radius: 10px !important;
-      font-size: 0.9rem !important;
+      height: 50px !important;
+      min-height: 50px !important;
+      padding: 0 16px 0 44px !important;
+      border: 1.5px solid #e2e8f0 !important;
+      border-radius: 12px !important;
+      font-size: 0.92rem !important;
       color: #0f172a !important;
-      background-color: #f8fafc !important;
+      background-color: #ffffff !important;
       transition: all 0.2s ease !important;
       outline: none !important;
       box-sizing: border-box !important;
-      line-height: 48px !important;
+      line-height: 50px !important;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03) !important;
+    }
+    .form-input-control:hover {
+      border-color: #cbd5e1 !important;
     }
     .form-input-control:focus {
       background-color: #ffffff !important;
       border-color: #2563eb !important;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12), 0 2px 4px rgba(15, 23, 42, 0.04) !important;
     }
     .form-select-control {
       width: 100% !important;
-      height: 48px !important;
-      min-height: 48px !important;
-      padding: 0 36px 0 42px !important;
-      border: 1.5px solid #cbd5e1 !important;
-      border-radius: 10px !important;
-      font-size: 0.9rem !important;
+      height: 50px !important;
+      min-height: 50px !important;
+      padding: 0 38px 0 44px !important;
+      border: 1.5px solid #e2e8f0 !important;
+      border-radius: 12px !important;
+      font-size: 0.92rem !important;
       color: #0f172a !important;
-      background: #f8fafc url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%232563EB'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E") no-repeat right 14px center/16px !important;
+      background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%232563EB'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2.2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E") no-repeat right 14px center/16px !important;
       transition: all 0.2s ease !important;
       outline: none !important;
       cursor: pointer !important;
       appearance: none !important;
       -webkit-appearance: none !important;
       box-sizing: border-box !important;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03) !important;
+    }
+    .form-select-control:hover {
+      border-color: #cbd5e1 !important;
     }
     .form-select-control:focus {
       background-color: #ffffff !important;
       border-color: #2563eb !important;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12), 0 2px 4px rgba(15, 23, 42, 0.04) !important;
     }
     .conditional-other-field {
       display: none;
@@ -495,11 +491,13 @@
     .conditional-other-field.is-visible {
       display: block !important;
     }
+
+    /* Submit CTA Button */
     .btn-form-submit-download {
       grid-column: span 2 !important;
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+      background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%) !important;
       color: #ffffff !important;
-      font-size: 1.02rem !important;
+      font-size: 1.05rem !important;
       font-weight: 800 !important;
       height: 52px !important;
       border-radius: 12px !important;
@@ -509,16 +507,17 @@
       justify-content: center !important;
       gap: 10px !important;
       cursor: pointer !important;
-      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35) !important;
+      box-shadow: 0 8px 24px -4px rgba(234, 88, 12, 0.4) !important;
       transition: all 0.25s ease !important;
-      margin-top: 0.25rem !important;
+      margin-top: 0.35rem !important;
       width: 100% !important;
       box-sizing: border-box !important;
+      letter-spacing: 0.02em !important;
     }
     .btn-form-submit-download:hover {
-      background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%) !important;
+      background: linear-gradient(135deg, #fbbf24 0%, #f97316 100%) !important;
       transform: translateY(-2px) !important;
-      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.45) !important;
+      box-shadow: 0 14px 30px -4px rgba(234, 88, 12, 0.5) !important;
     }
     .form-guarantee-note {
       grid-column: span 2 !important;
@@ -526,15 +525,17 @@
       align-items: center !important;
       justify-content: center !important;
       gap: 8px !important;
-      font-size: 0.76rem !important;
+      font-size: 0.78rem !important;
       font-weight: 600 !important;
       color: #64748b !important;
-      margin-top: 0.35rem !important;
+      margin-top: 0.4rem !important;
       text-align: center !important;
     }
+
+    /* Seamless Integrated Helpline Footer */
     .form-card-footer {
-      margin: 1.5rem -2.25rem 0 -2.25rem !important;
-      padding: 1.15rem 2.25rem 1.35rem !important;
+      margin: 1.6rem -2.25rem 0 -2.25rem !important;
+      padding: 1.25rem 2.25rem 1.45rem !important;
       background: #f8fafc !important;
       border-top: 1px solid #e2e8f0 !important;
       box-sizing: border-box !important;
@@ -543,7 +544,7 @@
       display: flex !important;
       align-items: center !important;
       justify-content: space-between !important;
-      margin-bottom: 0.65rem !important;
+      margin-bottom: 0.75rem !important;
       flex-wrap: wrap !important;
       gap: 6px !important;
     }
@@ -558,7 +559,7 @@
       gap: 6px !important;
     }
     .form-card-footer .availability-tag {
-      font-size: 0.73rem !important;
+      font-size: 0.74rem !important;
       font-weight: 700 !important;
       color: #15803d !important;
       display: inline-flex !important;
@@ -575,8 +576,8 @@
     .counselor-chips-grid {
       display: grid !important;
       grid-template-columns: repeat(3, 1fr) !important;
-      gap: 8px !important;
-      margin-bottom: 0.75rem !important;
+      gap: 10px !important;
+      margin-bottom: 0.85rem !important;
     }
     .counselor-chip-btn {
       display: flex !important;
@@ -585,16 +586,18 @@
       justify-content: center !important;
       background: #ffffff !important;
       border: 1px solid #e2e8f0 !important;
-      border-radius: 8px !important;
-      padding: 7px 6px !important;
+      border-radius: 10px !important;
+      padding: 8px 6px !important;
       text-decoration: none !important;
       transition: all 0.2s ease !important;
       text-align: center !important;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03) !important;
     }
     .counselor-chip-btn:hover {
-      border-color: #2563eb !important;
-      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.12) !important;
-      transform: translateY(-1px) !important;
+      border-color: #3b82f6 !important;
+      background: #eff6ff !important;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12) !important;
+      transform: translateY(-2px) !important;
     }
     .counselor-chip-btn .chip-role {
       font-size: 0.67rem !important;
@@ -615,9 +618,9 @@
       align-items: center !important;
       justify-content: space-between !important;
       border-top: 1px solid #e2e8f0 !important;
-      padding-top: 0.65rem !important;
+      padding-top: 0.75rem !important;
       gap: 8px !important;
-      font-size: 0.74rem !important;
+      font-size: 0.75rem !important;
       color: #475569 !important;
       font-weight: 600 !important;
       flex-wrap: wrap !important;
@@ -631,28 +634,29 @@
       color: #16a34a !important;
       font-size: 0.8rem !important;
     }
+
     @media (max-width: 991px) {
       .fee-grid-layout {
         grid-template-columns: 1fr !important;
-        gap: 2.25rem !important;
+        gap: 2.5rem !important;
       }
       .fee-authority-box {
         padding-right: 0 !important;
       }
       .fee-main-title {
-        font-size: 2.15rem !important;
+        font-size: 2.25rem !important;
       }
       .fee-pillars-grid {
         grid-template-columns: 1fr 1fr !important;
       }
       .fee-form-card-wrap {
         padding: 1.75rem 1.25rem 0 1.25rem !important;
-        border-radius: 16px !important;
+        border-radius: 18px !important;
       }
       .form-card-footer {
         margin: 1.25rem -1.25rem 0 -1.25rem !important;
         padding: 1rem 1.25rem !important;
-        border-radius: 0 0 16px 16px !important;
+        border-radius: 0 0 18px 18px !important;
       }
       .counselor-chips-grid {
         grid-template-columns: 1fr !important;
@@ -661,7 +665,7 @@
       .counselor-chip-btn {
         flex-direction: row !important;
         justify-content: space-between !important;
-        padding: 8px 12px !important;
+        padding: 8px 14px !important;
       }
       .trust-checklist-row {
         flex-direction: column !important;
@@ -788,66 +792,52 @@
           <div class="fee-pillars-grid">
             <!-- 1. Process of Admission -->
             <div class="fee-pillar-card">
-              <div class="pillar-icon"><i class="fa-solid fa-route"></i></div>
-              <h5>Process of the Admission</h5>
+              <div class="pillar-icon c-blue"><i class="fa-solid fa-route"></i></div>
+              <h5>Process of Admission</h5>
               <p>Step-by-step roadmap from application submission to official registrar fee receipts and confirmed allotment.</p>
             </div>
 
             <!-- 2. Preparation -->
             <div class="fee-pillar-card">
-              <div class="pillar-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+              <div class="pillar-icon c-emerald"><i class="fa-solid fa-clipboard-check"></i></div>
               <h5>Preparation &amp; Cutoff Review</h5>
               <p>Diagnostic score analysis (KCET, COMEDK, JEE, NEET, MAT), academic profile evaluation, and personalized college shortlisting.</p>
             </div>
 
             <!-- 3. Programs -->
             <div class="fee-pillar-card">
-              <div class="pillar-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+              <div class="pillar-icon c-amber"><i class="fa-solid fa-graduation-cap"></i></div>
               <h5>Programs &amp; Branch Selection</h5>
               <p>In-depth comparison of CSE, AI &amp; Data Science, ECE, MBA, BBA, Law &amp; Medical specializations with career ROI metrics.</p>
             </div>
 
             <!-- 4. Fee Structure -->
             <div class="fee-pillar-card">
-              <div class="pillar-icon"><i class="fa-solid fa-receipt"></i></div>
+              <div class="pillar-icon c-purple"><i class="fa-solid fa-receipt"></i></div>
               <h5>Fee Structure &amp; Scholarships</h5>
               <p>Complete transparent breakdown of tuition, lab dues, hostel living expenses, and score-based merit fee concessions.</p>
             </div>
 
             <!-- 5. Available Seats & Quota Guidance -->
             <div class="fee-pillar-card">
-              <div class="pillar-icon"><i class="fa-solid fa-building-columns"></i></div>
+              <div class="pillar-icon c-sky"><i class="fa-solid fa-building-columns"></i></div>
               <h5>Available Seats &amp; Quota Guidance</h5>
               <p>Real-time vacancy tracking for direct autonomous seats, NRI categories, and legitimate institutional quota allocations.</p>
             </div>
 
             <!-- 6. Campus Placement Insights -->
             <div class="fee-pillar-card">
-              <div class="pillar-icon"><i class="fa-solid fa-chart-line"></i></div>
+              <div class="pillar-icon c-rose"><i class="fa-solid fa-chart-line"></i></div>
               <h5>Campus Placements &amp; Culture</h5>
               <p>Verified placement records, highest &amp; average CTCs, corporate recruiters, and campus facilities across Bengaluru.</p>
             </div>
           </div>
 
-          <!-- Subtle & Professional Management Quota Highlight -->
-          <div class="management-quota-highlight-card">
-            <div class="quota-highlight-header">
-              <span class="quota-pulse-badge">
-                <span class="pulse-dot"></span>
-                Official Institutional Quota Advisory
-              </span>
-              <span class="quota-legal-tag"><i class="fa-solid fa-shield-check"></i> 100% Registrar Verified</span>
-            </div>
-            <p class="quota-highlight-text">
-              Looking for direct category admissions? We assist eligible candidates with verified Institutional Management Quota and NRI seats across premier autonomous colleges, with official allotment letters issued directly by the college registrar.
-            </p>
-          </div>
-
           <!-- Verified Fee Schedule Range Snapshot Table -->
           <div class="fee-table-preview-card">
             <div class="fee-table-header">
-              <h6><i class="fa-solid fa-table-list text-primary"></i> 2027 Approved Fee Range Matrix (Sample)</h6>
-              <span class="fee-badge-verified"><i class="fa-solid fa-check-circle"></i> Official 2027 Audit</span>
+              <h6><i class="fa-solid fa-table-list" style="color: #2563eb;"></i> 2027 Approved Fee Range Matrix (Sample)</h6>
+              <span class="fee-badge-verified"><i class="fa-solid fa-shield-check"></i> Official 2027 Audit</span>
             </div>
             <table class="fee-mini-table">
               <thead>
@@ -887,31 +877,41 @@
             </table>
           </div>
 
-          <!-- Social Proof Rating Strip -->
-          <div class="hero-social-proof" style="margin-bottom: 1.5rem;">
-            <div class="avatar-stack">
-              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80" alt="Student" loading="lazy">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80" alt="Student" loading="lazy">
-              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&q=80" alt="Student" loading="lazy">
-              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&q=80" alt="Student" loading="lazy">
+          <!-- Executive Quota Verification & Support Concierge Banner -->
+          <div class="authority-concierge-card">
+            <div class="concierge-top-row">
+              <span class="concierge-pill-glow">
+                <span class="pulse-dot"></span>
+                Official Institutional Fee Desk
+              </span>
+              <span class="concierge-rating-tag">
+                <span class="stars">★★★★★</span> 4.9/5 Trust Rating
+              </span>
             </div>
-            <div class="proof-text">
-              <div class="proof-rating">★★★★★ 4.9/5 Trust Rating</div>
-              <div class="proof-count">1,280+ Students Assisted with Transparent Fee Allotment</div>
-            </div>
-          </div>
 
-          <!-- Counselor Hotline Card -->
-          <div class="fee-hotline-card">
-            <div class="hotline-info">
-              <h6>Direct Fee Desk Hotline (Admissions 2027)</h6>
-              <div class="hotline-number">+91 98453 71459</div>
-              <small style="color: #cbd5e1;">Available Mon–Sat: 9:00 AM – 7:30 PM IST</small>
+            <p class="concierge-desc">
+              100% transparent college fee receipts, tuition installment breakdown, and official university quotas with zero capitation fee guarantee.
+            </p>
+
+            <div class="concierge-bottom-row">
+              <div class="concierge-avatar-group">
+                <div class="avatar-stack">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80" alt="Student" loading="lazy">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80" alt="Student" loading="lazy">
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&q=80" alt="Student" loading="lazy">
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&q=80" alt="Student" loading="lazy">
+                </div>
+                <div class="avatar-meta">
+                  <strong>1,280+ Placed Scholars</strong>
+                  <span>Fee Verified &amp; Scholarship Grantees</span>
+                </div>
+              </div>
+
+              <a href="https://wa.me/919845371459?text=Hello%20The%20Edu%20Consultant,%20please%20send%20the%20verified%202027%20fee%20structure%20schedule" target="_blank" rel="noopener noreferrer" class="concierge-hotline-btn">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Direct Fee Desk WhatsApp</span>
+              </a>
             </div>
-            <a href="https://wa.me/919845371459?text=Hello%20The%20Edu%20Consultant,%20please%20send%20the%20verified%202027%20fee%20structure%20schedule" target="_blank" rel="noopener noreferrer" class="hotline-btn-whatsapp">
-              <i class="fa-brands fa-whatsapp"></i>
-              <span>Chat on WhatsApp</span>
-            </a>
           </div>
         </div>
 

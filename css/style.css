@@ -2815,6 +2815,13 @@ button, input, select, textarea {
   margin-bottom: 0.75rem;
 }
 
+.pillar-icon.c-blue { background: #eff6ff !important; color: #2563eb !important; }
+.pillar-icon.c-emerald { background: #ecfdf5 !important; color: #059669 !important; }
+.pillar-icon.c-amber { background: #fffbeb !important; color: #d97706 !important; }
+.pillar-icon.c-purple { background: #f5f3ff !important; color: #7c3aed !important; }
+.pillar-icon.c-sky { background: #f0f9ff !important; color: #0284c7 !important; }
+.pillar-icon.c-rose { background: #fff1f2 !important; color: #e11d48 !important; }
+
 .enquiry-pillar-card h5 {
   font-size: 0.96rem;
   font-weight: 800;
