@@ -341,14 +341,14 @@ button, input, select, textarea {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
-  height: 80px;
+  height: 94px;
   display: flex;
   align-items: center;
   transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .site-header.header-scrolled {
-  height: 68px;
+  height: 76px;
   background-color: rgba(255, 255, 255, 0.98);
   box-shadow: 0 6px 24px rgba(15, 23, 42, 0.09);
   border-bottom: 1px solid rgba(226, 232, 240, 0.95);
@@ -385,22 +385,22 @@ button, input, select, textarea {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* 1st Logo (Top of page / Initial): Prominent & "Little Big" */
+/* 1st Logo (Top of page / Initial): Prominent & Big - Crystal Clear & Highly Readable */
 .logo-default {
   display: block;
-  height: 52px;
+  height: 72px;
   width: auto;
-  max-width: 250px;
-  filter: drop-shadow(0 2px 8px rgba(180, 83, 9, 0.12));
+  max-width: 360px;
+  filter: drop-shadow(0 2px 10px rgba(180, 83, 9, 0.15));
 }
 
-/* 2nd Logo (Scrolled down state): Dynamic sticky navbar logo */
+/* 2nd Logo (Scrolled down state): Dynamic sticky navbar logo - Big & Sharp */
 .logo-scrolled {
   display: none;
-  height: 48px;
+  height: 62px;
   width: auto;
-  max-width: 70px;
-  filter: drop-shadow(0 2px 6px rgba(180, 83, 9, 0.15));
+  max-width: 120px;
+  filter: drop-shadow(0 2px 8px rgba(180, 83, 9, 0.18));
 }
 
 .site-header.header-scrolled .logo-default {
