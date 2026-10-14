@@ -899,18 +899,22 @@ function initMobileNavigation() {
   const navMenu = document.getElementById('desktopNav');
   if (!toggleBtn || !navMenu) return;
 
-  toggleBtn.addEventListener('click', () => {
-    const isShown = navMenu.style.display === 'flex';
-    navMenu.style.display = isShown ? 'none' : 'flex';
-    if (!isShown) {
-      navMenu.style.flexDirection = 'column';
-      navMenu.style.position = 'absolute';
-      navMenu.style.top = '100%';
-      navMenu.style.left = '0';
-      navMenu.style.width = '100%';
-      navMenu.style.background = '#060d17';
-      navMenu.style.padding = '1.5rem';
-      navMenu.style.boxShadow = '0 10px 25px rgba(0,0,0,0.5)';
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navMenu.classList.toggle('mobile-nav-active');
+  });
+
+  // Auto-close on clicking any nav link
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('mobile-nav-active');
+    });
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!navMenu.contains(e.target) && !toggleBtn.contains(e.target)) {
+      navMenu.classList.remove('mobile-nav-active');
     }
   });
 }

@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Official Theme Stylesheet with cache-busting -->
-  <link rel="stylesheet" href="css/style.css?v=202708">
+  <link rel="stylesheet" href="css/style.css?v=202709">
 
   <!-- Critical styles for Enquiry Pill Buttons (Guaranteed render regardless of browser cache) -->
   <style>
@@ -170,6 +170,11 @@
     .hero-banner-action {
       position: relative !important;
       z-index: 2 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 16px !important;
+      flex-wrap: wrap !important;
     }
     .hero-cta-btn {
       display: inline-flex !important;
@@ -214,6 +219,53 @@
     }
     .hero-cta-btn:hover .icon i {
       transform: translateX(2px) !important;
+    }
+    /* Hero Secondary Button: Download Fee Structure */
+    .hero-cta-btn-secondary {
+      display: inline-flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      gap: 12px !important;
+      padding: 12px 14px 12px 28px !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
+      border-radius: 50px !important;
+      background-color: rgba(18, 29, 53, 0.82) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      font-size: 16px !important;
+      font-weight: 700 !important;
+      line-height: 24px !important;
+      color: #ffffff !important;
+      text-decoration: none !important;
+      transition: all 0.3s ease !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+    }
+    .hero-cta-btn-secondary:hover {
+      background-color: #121d35 !important;
+      border-color: #f5dc3c !important;
+      color: #f5dc3c !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5) !important;
+    }
+    .hero-cta-btn-secondary .icon {
+      position: relative !important;
+      width: 32px !important;
+      height: 32px !important;
+      border-radius: 50% !important;
+      background-color: #f5dc3c !important;
+      display: inline-flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      overflow: hidden !important;
+      transition: all 0.3s ease !important;
+    }
+    .hero-cta-btn-secondary .icon i {
+      color: #121d35 !important;
+      font-size: 11px !important;
+      transition: transform 0.3s ease !important;
+    }
+    .hero-cta-btn-secondary:hover .icon i {
+      transform: translateY(2px) !important;
     }
     @media screen and (max-width: 991px) {
       .hero-banner-content {
@@ -321,8 +373,8 @@
     }
     .search-fields-grid {
       display: grid !important;
-      grid-template-columns: 1.15fr 1.15fr auto !important;
-      gap: 20px !important;
+      grid-template-columns: 1fr 1.25fr 1.25fr auto !important;
+      gap: 16px !important;
       align-items: flex-end !important;
     }
     .search-field-item {
@@ -331,7 +383,7 @@
       gap: 6px !important;
     }
     .search-label {
-      font-size: 14.5px !important;
+      font-size: 13.5px !important;
       font-weight: 700 !important;
       color: #121d35 !important;
       margin: 0 !important;
@@ -347,11 +399,12 @@
     }
     .search-select-control {
       width: 100% !important;
+      height: 48px !important;
       border: 1.5px solid #e2e8f0 !important;
       border-radius: 50px !important;
-      background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748B'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E") no-repeat right 18px center/16px !important;
-      padding: 13px 44px 13px 20px !important;
-      font-size: 14.5px !important;
+      background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748B'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E") no-repeat right 16px center/16px !important;
+      padding: 0 42px 0 18px !important;
+      font-size: 14px !important;
       font-weight: 600 !important;
       color: #1e293b !important;
       appearance: none !important;
@@ -365,12 +418,16 @@
       border-color: #6366f1 !important;
       box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15) !important;
     }
+    .search-action-item {
+      display: flex !important;
+      align-items: flex-end !important;
+    }
     .hero-search-btn {
       background: #0b0f3b !important;
       color: #ffffff !important;
       border: none !important;
       border-radius: 50px !important;
-      padding: 13px 38px !important;
+      padding: 0 34px !important;
       font-size: 15px !important;
       font-weight: 700 !important;
       cursor: pointer !important;
@@ -393,22 +450,54 @@
     @media (max-width: 991px) {
       .hero-search-wrapper {
         margin-top: -30px !important;
+        padding: 0 12px !important;
       }
       .search-fields-grid {
         grid-template-columns: 1fr !important;
-        gap: 16px !important;
+        gap: 14px !important;
+      }
+      .search-action-item {
+        width: 100% !important;
+        margin-top: 4px !important;
       }
       .hero-search-btn {
         width: 100% !important;
+        height: 48px !important;
       }
-      .hero-search-tabs {
-        max-width: 100% !important;
+      .hero-search-tabs-container {
         overflow-x: auto !important;
-        white-space: nowrap !important;
+        justify-content: flex-start !important;
+        padding: 0 4px !important;
+        scrollbar-width: none !important;
         -webkit-overflow-scrolling: touch !important;
       }
+      .hero-search-tabs-container::-webkit-scrollbar {
+        display: none !important;
+      }
+      .hero-search-tabs {
+        flex-shrink: 0 !important;
+        white-space: nowrap !important;
+      }
+      .search-tab-pill {
+        font-size: 12.5px !important;
+        padding: 7px 14px !important;
+      }
       .hero-search-card {
-        padding: 22px 20px !important;
+        padding: 22px 18px !important;
+        border-radius: 20px !important;
+      }
+    }
+    @media (max-width: 575px) {
+      .hero-cta-btn,
+      .hero-cta-btn-secondary {
+        width: 100% !important;
+        max-width: 290px !important;
+        font-size: 14px !important;
+        padding: 11px 16px !important;
+        justify-content: center !important;
+      }
+      .hero-banner-action {
+        gap: 12px !important;
       }
     }
   </style>
@@ -524,9 +613,29 @@
         <a href="#howWeWork" class="nav-link">How We Work</a>
         <a href="#directorySection" class="nav-link" onclick="if(window.switchDirectoryMode){window.switchDirectoryMode('programs');}">Programs</a>
         <a href="#faqSection" class="nav-link">FAQ</a>
+        <div class="mobile-nav-ctas">
+          <a href="enquiry.html" class="sf-btn-icon-primary" style="text-decoration: none; justify-content: center; width: 100%;" aria-label="Register for Admissions 2027">
+            Register Now
+            <span class="icon">
+              <i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i>
+            </span>
+          </a>
+          <a href="fee-structure.html" class="sf-btn-icon-secondary" style="text-decoration: none; justify-content: center; width: 100%;" aria-label="Download Official Brochure">
+            Download Brochure
+            <span class="icon">
+              <i class="fa-solid fa-file-arrow-down" style="font-size: 10px;"></i>
+            </span>
+          </a>
+        </div>
       </nav>
 
       <div class="header-action-group">
+        <a href="fee-structure.html" class="sf-btn-icon-secondary" style="text-decoration: none;" aria-label="Download Official Brochure">
+          Download Brochure
+          <span class="icon">
+            <i class="fa-solid fa-file-arrow-down" style="font-size: 10px;"></i>
+          </span>
+        </a>
         <a href="enquiry.html" class="sf-btn-icon-primary" style="text-decoration: none;" aria-label="Register for Admissions 2027">
           Register Now
           <span class="icon">
@@ -555,6 +664,12 @@
             <span>Register Now</span>
             <span class="icon">
               <i class="fa-solid fa-chevron-right"></i>
+            </span>
+          </a>
+          <a href="fee-structure.html" class="hero-cta-btn-secondary" aria-label="Download Official Fee Structure">
+            <span>Download Fee Structure</span>
+            <span class="icon">
+              <i class="fa-solid fa-file-arrow-down"></i>
             </span>
           </a>
         </div>

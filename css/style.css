@@ -69,6 +69,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
@@ -467,6 +468,10 @@ button, input, select, textarea {
   width: 100%;
 }
 
+.mobile-nav-ctas {
+  display: none;
+}
+
 .header-action-group {
   display: flex;
   align-items: center;
@@ -508,6 +513,50 @@ button, input, select, textarea {
 .sf-btn-icon-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(245, 158, 11, 0.55);
+}
+
+/* Secondary Header Pill Button (Download Brochure) */
+.sf-btn-icon-secondary {
+  background: #0b0f3b !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all var(--transition-fast);
+  border: 1.5px solid rgba(11, 15, 59, 0.2);
+  box-shadow: 0 4px 14px rgba(11, 15, 59, 0.18);
+  cursor: pointer;
+  white-space: nowrap !important;
+  flex-shrink: 0;
+  text-decoration: none !important;
+}
+
+.sf-btn-icon-secondary .icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #f59e0b;
+}
+
+.sf-btn-icon-secondary:hover {
+  background: #172554 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(11, 15, 59, 0.3);
+}
+
+.header-action-group {
+  gap: 10px;
 }
 
 .mobile-nav-toggle {
@@ -596,6 +645,11 @@ button, input, select, textarea {
 .hero-banner-action {
   position: relative;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 .hero-cta-btn {
@@ -645,6 +699,58 @@ button, input, select, textarea {
 
 .hero-cta-btn:hover .icon i {
   transform: translateX(2px);
+}
+
+/* Secondary Hero CTA Button (Download Fee Structure) */
+.hero-cta-btn-secondary {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px 12px 28px;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  border-radius: 50px;
+  background-color: rgba(18, 29, 53, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.hero-cta-btn-secondary:hover {
+  background-color: #121d35 !important;
+  border-color: #f5dc3c !important;
+  color: #f5dc3c !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
+.hero-cta-btn-secondary .icon {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #f5dc3c;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.hero-cta-btn-secondary .icon i {
+  color: #121d35;
+  font-size: 11px;
+  transition: transform 0.3s ease;
+}
+
+.hero-cta-btn-secondary:hover .icon i {
+  transform: translateY(2px);
 }
 
 /* Subtle background grid */
@@ -2361,17 +2467,138 @@ button, input, select, textarea {
   }
 }
 
+@media (max-width: 991px) {
+  .site-header {
+    height: 78px;
+  }
+  .header-container {
+    padding: 0 1.25rem;
+    gap: 1rem;
+  }
+  .logo-default {
+    height: 48px;
+    max-width: 220px;
+  }
+  .logo-scrolled {
+    height: 44px;
+    max-width: 80px;
+  }
+  .desktop-nav {
+    gap: 1.5rem;
+  }
+  .sf-btn-icon-primary,
+  .sf-btn-icon-secondary {
+    font-size: 0.82rem;
+    padding: 8px 14px;
+    gap: 6px;
+  }
+  .sf-btn-icon-primary .icon,
+  .sf-btn-icon-secondary .icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
 @media (max-width: 768px) {
+  .site-header {
+    height: 70px;
+  }
+
+  .header-container {
+    padding: 0 0.85rem;
+  }
+
+  .logo-default {
+    height: 40px;
+    max-width: 185px;
+  }
+
+  .logo-scrolled {
+    height: 38px;
+    max-width: 70px;
+  }
+
   .hero-main-title {
     font-size: 2.25rem;
   }
 
   .desktop-nav {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.16);
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 3px solid #f59e0b;
+    padding: 1.25rem 1.25rem 1.5rem;
+    flex-direction: column;
+    gap: 0.85rem;
+    z-index: 1000;
+  }
+
+  .desktop-nav.mobile-nav-active {
+    display: flex !important;
+    animation: slideDownMobileNav 0.25s ease-out;
+  }
+
+  .desktop-nav .nav-link {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #1e293b;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .desktop-nav .nav-link:hover,
+  .desktop-nav .nav-link.active {
+    background: #f8fafc;
+    color: #d97706;
+  }
+
+  .desktop-nav .mobile-nav-ctas {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-top: 0.5rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid #f1f5f9;
+  }
+
+  .desktop-nav .mobile-nav-ctas .sf-btn-icon-secondary {
+    display: inline-flex !important;
+  }
+
+  .header-action-group .sf-btn-icon-secondary {
+    display: none;
+  }
+
+  .header-action-group .sf-btn-icon-primary {
+    padding: 7px 12px;
+    font-size: 0.78rem;
+    gap: 5px;
+  }
+
+  .header-action-group .sf-btn-icon-primary .icon {
+    width: 18px;
+    height: 18px;
   }
 
   .mobile-nav-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: #f1f5f9;
+    color: #0f172a;
+    font-size: 1.15rem;
+    border: 1px solid #e2e8f0;
+    margin-left: 4px;
+    cursor: pointer;
   }
 
   .flipbox-cta-group {
@@ -2380,6 +2607,7 @@ button, input, select, textarea {
 
   .admission-form-grid {
     grid-template-columns: 1fr;
+    gap: 0.85rem;
   }
 
   .btn-form-submit,
@@ -2397,7 +2625,8 @@ button, input, select, textarea {
   }
 
   .modal-dialog-box {
-    padding: 1.75rem 1.25rem;
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
   }
 
   .ticker-cta-fixed {
@@ -2409,6 +2638,25 @@ button, input, select, textarea {
     margin-right: 0.5rem;
     padding: 4px 10px;
     font-size: 0.68rem;
+  }
+}
+
+@keyframes slideDownMobileNav {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+  .logo-default {
+    height: 36px;
+    max-width: 160px;
+  }
+  .header-action-group .sf-btn-icon-primary {
+    padding: 6px 10px;
+    font-size: 0.74rem;
+  }
+  .header-action-group .sf-btn-icon-primary .icon {
+    display: none;
   }
 }
 
