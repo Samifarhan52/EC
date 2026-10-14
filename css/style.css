@@ -535,7 +535,7 @@ button, input, select, textarea {
   padding: 275px 24px 60px;
   text-align: center;
   background-size: cover;
-  background-position: center top;
+  background-position: center 18%;
   background-repeat: no-repeat;
   box-shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
 }
@@ -2621,8 +2621,8 @@ button, input, select, textarea {
 
 .search-fields-grid {
   display: grid;
-  grid-template-columns: 1.15fr 1.15fr auto;
-  gap: 20px;
+  grid-template-columns: 0.95fr 1.25fr 1.25fr auto;
+  gap: 16px;
   align-items: flex-end;
 }
 

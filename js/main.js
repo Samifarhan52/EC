@@ -431,6 +431,66 @@ const DIRECTORY_PROGRAMS = [
     careerScope: "Genomic Data Analyst, Bioprocess Engineer, Vaccine Researcher",
     quotaAvailability: "Specialized Quota Allocation",
     description: "Modern biotechnology engineering with specialized tracks in CRISPR genomics, bioprocess engineering, and algorithmic bioinformatics."
+  },
+  {
+    id: 'p13',
+    name: "MCA - Master of Computer Applications",
+    category: "engineering",
+    categoryBadge: "IT & Applications (PG)",
+    duration: "2 Years",
+    colleges: "RVCE, BMSCE, DSCE, PES, Christ, SMVIT",
+    eligibility: "BCA / B.Sc / Any Degree with Maths (Min 50%)",
+    careerScope: "Full-Stack Tech Lead, Cloud Solutions Architect, AI Engineer",
+    quotaAvailability: "Direct PG Management Seats 2027",
+    description: "Industry-aligned master's program specializing in Cloud Computing, Artificial Intelligence, Mobile Architectures, and Enterprise Software Systems."
+  },
+  {
+    id: 'p14',
+    name: "M.Sc - Master of Science (Data Science & AI)",
+    category: "medical",
+    categoryBadge: "Advanced Science & Analytics",
+    duration: "2 Years",
+    colleges: "Christ University, St. Joseph's, Ramaiah",
+    eligibility: "B.Sc / BCA / B.E (Min 50%)",
+    careerScope: "Data Scientist, Predictive Modeler, Research Associate",
+    quotaAvailability: "Merit & Quota Seats Open",
+    description: "Specialized postgraduate program in Applied Statistics, Deep Learning algorithms, Natural Language Processing, and Big Data infrastructure."
+  },
+  {
+    id: 'p15',
+    name: "M.Com - Master of Commerce (Finance & Analytics)",
+    category: "commerce",
+    categoryBadge: "Commerce & Banking (PG)",
+    duration: "2 Years",
+    colleges: "Christ University, St. Joseph's, Mount Carmel",
+    eligibility: "B.Com / BBA / BBM (Min 50%)",
+    careerScope: "Financial Analyst, Risk Consultant, Equity Strategist",
+    quotaAvailability: "Priority Direct Allocation",
+    description: "Advanced commerce curriculum with international taxation, capital markets, corporate governance, and quantitative financial analysis."
+  },
+  {
+    id: 'p16',
+    name: "B.Sc - Bachelor of Science (Biotech & Comp Sci)",
+    category: "medical",
+    categoryBadge: "Science & Technology",
+    duration: "3 to 4 Years",
+    colleges: "St. Joseph's, Christ University, Oxford College",
+    eligibility: "10+2 with Science (Min 50%)",
+    careerScope: "Biotech Analyst, Scientific Officer, Software Developer",
+    quotaAvailability: "Direct Allotment Available",
+    description: "Interdisciplinary scientific foundation combining molecular genetics, biochemical analysis, algorithmic logic, and laboratory instrumentation."
+  },
+  {
+    id: 'p17',
+    name: "BA - Bachelor of Arts (Economics & Psychology)",
+    category: "commerce",
+    categoryBadge: "Humanities & Social Sciences",
+    duration: "3 to 4 Years",
+    colleges: "Christ University, St. Joseph's, Presidency",
+    eligibility: "10+2 Any Stream (Min 50%)",
+    careerScope: "Policy Researcher, Communications Lead, HR Consultant",
+    quotaAvailability: "Direct Interview Quota",
+    description: "Comprehensive liberal arts program integrating macroeconomics, cognitive psychology, public policy, and corporate communication."
   }
 ];
 
@@ -1000,39 +1060,91 @@ window.handleSearchTabClick = function(tab) {
   }
 };
 
+/* ==========================================================================
+   PROGRAM LEVEL & DYNAMIC STREAM SELECTOR DATA
+   ========================================================================== */
+const PROGRAM_STREAM_DATA = {
+  all: [
+    { value: 'all', label: 'All Disciplines & Streams' },
+    { value: 'engineering', label: 'Engineering & Technology (B.Tech / B.E / M.Tech)' },
+    { value: 'management', label: 'Management & MBA (BBA / MBA / PGDM)' },
+    { value: 'computer-applications', label: 'Computer Applications & IT (BCA / MCA)' },
+    { value: 'commerce', label: 'Commerce & Finance (B.Com / M.Com / ACCA)' },
+    { value: 'medical', label: 'Medical & Healthcare (MBBS / BDS / MD / MS)' },
+    { value: 'science', label: 'Science & Biotechnology (B.Sc / M.Sc)' },
+    { value: 'law', label: 'Law & Legal Studies (BA LLB / BBA LLB / LLM)' },
+    { value: 'pharmacy', label: 'Pharmacy & Nursing (B.Pharm / M.Pharm / Nursing)' },
+    { value: 'architecture', label: 'Architecture & Design (B.Arch / B.Des / M.Arch)' }
+  ],
+  ug: [
+    { value: 'all-ug', label: 'All UG Programs (Undergraduate)' },
+    { value: 'btech', label: 'B.Tech / B.E (CSE, AI/ML, ECE, Mech, Data Science)' },
+    { value: 'bca', label: 'BCA (Bachelor of Computer Applications - Cloud/Cyber)' },
+    { value: 'bba', label: 'BBA / BMS (Finance, Marketing, Business Analytics)' },
+    { value: 'bcom', label: 'B.Com / B.Com (Hons) (Accounting, Taxation & ACCA)' },
+    { value: 'bsc', label: 'B.Sc (Computer Science, Biotechnology, Nursing)' },
+    { value: 'ba', label: 'BA (Economics, Journalism, Psychology, English)' },
+    { value: 'mbbs', label: 'MBBS / BDS (Medical & Dental Surgery)' },
+    { value: 'bpharm', label: 'B.Pharm / Pharm.D / B.Sc Nursing' },
+    { value: 'ballb', label: 'BA LLB / BBA LLB (Integrated 5-Year Law)' },
+    { value: 'barch', label: 'B.Arch / B.Des (Architecture & Design)' }
+  ],
+  pg: [
+    { value: 'all-pg', label: 'All PG Programs (Postgraduate)' },
+    { value: 'mba', label: 'MBA / PGDM (Finance, Marketing, Business Analytics, HR)' },
+    { value: 'mca', label: 'MCA (Master of Computer Applications - AI & Full Stack)' },
+    { value: 'mtech', label: 'M.Tech / M.E (Computer Science, AI, VLSI, Robotics)' },
+    { value: 'mcom', label: 'M.Com (Accounting, Corporate Finance & Banking)' },
+    { value: 'msc', label: 'M.Sc (Data Science, Artificial Intelligence, Biotech)' },
+    { value: 'md-ms', label: 'MD / MS (Medical Post Graduation & Super-Specialty)' },
+    { value: 'llm', label: 'LLM (Corporate Law, Intellectual Property, Constitutional)' },
+    { value: 'mpharm', label: 'M.Pharm (Pharmaceutics, Pharmacology)' },
+    { value: 'march', label: 'M.Arch / M.Des (Master of Architecture & Design)' },
+    { value: 'ma', label: 'MA (Economics, Public Policy, Mass Communication)' }
+  ]
+};
+
+window.handleProgramLevelChange = function(level) {
+  const disciplineSelect = document.getElementById('searchDiscipline');
+  if (!disciplineSelect) return;
+
+  const data = PROGRAM_STREAM_DATA[level] || PROGRAM_STREAM_DATA.all;
+  disciplineSelect.innerHTML = '';
+  data.forEach(item => {
+    const opt = document.createElement('option');
+    opt.value = item.value;
+    opt.textContent = item.label;
+    disciplineSelect.appendChild(opt);
+  });
+};
+
 window.handleHeroQuickSearch = function(e) {
   if (e) e.preventDefault();
+  const progLevel = document.getElementById('searchProgramLevel')?.value || 'all';
   const disc = document.getElementById('searchDiscipline')?.value || 'all';
   const college = document.getElementById('searchCollege')?.value || 'all';
-  
-  // Update directory category filter pill
-  const filterPills = document.querySelectorAll('.filter-tag');
-  filterPills.forEach(p => {
-    if (p.dataset.filter === disc) {
-      p.classList.add('active');
-    } else {
-      p.classList.remove('active');
-    }
-  });
 
-  currentCategoryFilter = disc;
-  currentDirectoryMode = 'colleges';
-  const modeCollegesBtn = document.getElementById('modeCollegesBtn');
-  const modeProgramsBtn = document.getElementById('modeProgramsBtn');
-  if (modeCollegesBtn) modeCollegesBtn.classList.add('active');
-  if (modeProgramsBtn) modeProgramsBtn.classList.remove('active');
-  
-  if (typeof renderDirectoryGrid === 'function') {
-    renderDirectoryGrid();
-  }
-
-  const dirEl = document.getElementById('directorySection');
-  if (dirEl) {
-    dirEl.scrollIntoView({ behavior: 'smooth' });
-  }
-
-  // If a specific college was chosen, highlight its card
+  // If a specific college was chosen, switch to colleges mode and scroll down to highlight
   if (college !== 'all') {
+    currentDirectoryMode = 'colleges';
+    currentCategoryFilter = 'all';
+    const modeCollegesBtn = document.getElementById('modeCollegesBtn');
+    const modeProgramsBtn = document.getElementById('modeProgramsBtn');
+    if (modeCollegesBtn) modeCollegesBtn.classList.add('active');
+    if (modeProgramsBtn) modeProgramsBtn.classList.remove('active');
+
+    document.querySelectorAll('.filter-tag').forEach(p => {
+      if (p.dataset.filter === 'all') p.classList.add('active');
+      else p.classList.remove('active');
+    });
+
+    if (typeof renderDirectoryGrid === 'function') {
+      renderDirectoryGrid();
+    }
+
+    const dirEl = document.getElementById('directorySection');
+    if (dirEl) dirEl.scrollIntoView({ behavior: 'smooth' });
+
     setTimeout(() => {
       const cards = document.querySelectorAll('.directory-card');
       const searchTerms = college.toLowerCase().split(' ');
@@ -1040,6 +1152,57 @@ window.handleHeroQuickSearch = function(e) {
         const text = card.textContent.toLowerCase();
         const matches = searchTerms.some(term => term.length > 2 && text.includes(term));
         if (matches) {
+          card.style.outline = '3px solid #f59e0b';
+          card.style.boxShadow = '0 0 25px rgba(245, 158, 11, 0.45)';
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setTimeout(() => {
+            card.style.transition = 'all 1s ease';
+            card.style.outline = 'none';
+          }, 3500);
+        }
+      });
+    }, 400);
+    return;
+  }
+
+  // If a program level or stream was chosen, switch to Popular Programs mode!
+  currentDirectoryMode = 'programs';
+  const modeCollegesBtn = document.getElementById('modeCollegesBtn');
+  const modeProgramsBtn = document.getElementById('modeProgramsBtn');
+  if (modeProgramsBtn) modeProgramsBtn.classList.add('active');
+  if (modeCollegesBtn) modeCollegesBtn.classList.remove('active');
+
+  // Map stream/course to category filter
+  let targetFilter = 'all';
+  if (['engineering', 'btech', 'mtech', 'bca', 'mca', 'computer-applications', 'architecture', 'barch', 'march'].includes(disc)) {
+    targetFilter = 'engineering';
+  } else if (['commerce', 'bcom', 'mcom', 'management', 'bba', 'mba', 'law', 'ballb', 'llm', 'ba', 'ma'].includes(disc)) {
+    targetFilter = 'commerce';
+  } else if (['medical', 'mbbs', 'bds', 'md-ms', 'pharmacy', 'bpharm', 'mpharm', 'science', 'bsc', 'msc'].includes(disc)) {
+    targetFilter = 'medical';
+  }
+
+  currentCategoryFilter = targetFilter;
+  document.querySelectorAll('.filter-tag').forEach(p => {
+    if (p.dataset.filter === targetFilter) p.classList.add('active');
+    else p.classList.remove('active');
+  });
+
+  if (typeof renderDirectoryGrid === 'function') {
+    renderDirectoryGrid();
+  }
+
+  const dirEl = document.getElementById('directorySection');
+  if (dirEl) dirEl.scrollIntoView({ behavior: 'smooth' });
+
+  // If a specific course was selected (like BCA, MCA, MBA, B.Tech, etc.), highlight matching cards
+  if (disc !== 'all' && disc !== 'all-ug' && disc !== 'all-pg') {
+    setTimeout(() => {
+      const cards = document.querySelectorAll('.directory-card');
+      const searchTerm = disc.toLowerCase();
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (text.includes(searchTerm) || (searchTerm === 'btech' && text.includes('b.tech')) || (searchTerm === 'mtech' && text.includes('m.tech')) || (searchTerm === 'bcom' && text.includes('b.com')) || (searchTerm === 'mcom' && text.includes('m.com')) || (searchTerm === 'bsc' && text.includes('b.sc')) || (searchTerm === 'msc' && text.includes('m.sc'))) {
           card.style.outline = '3px solid #f59e0b';
           card.style.boxShadow = '0 0 25px rgba(245, 158, 11, 0.45)';
           card.scrollIntoView({ behavior: 'smooth', block: 'center' });

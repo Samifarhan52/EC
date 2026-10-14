@@ -545,7 +545,7 @@
        ============================================================================== -->
   <section class="hero-banner-section" id="heroSection">
     <div class="container">
-      <div class="hero-banner-content" style="background-image: url('images/hero-banner-students.jpg');">
+      <div class="hero-banner-content" style="background-image: url('images/hero-banner-bangalore.jpg?v=202704');">
         <h1 class="hero-banner-title">Get your admission in Top Colleges in Bangalore.</h1>
         <p class="hero-banner-info">
           The Edu Consultant connects ambitious students with verified direct seats under official Institutional Management Quota and NRI categories across premier autonomous colleges.
@@ -594,23 +594,42 @@
         <!-- Main Search Card Form -->
         <form class="hero-search-card" id="heroQuickSearchForm" onsubmit="handleHeroQuickSearch(event)">
           <div class="search-fields-grid">
-            <!-- Field 1: Stream / Discipline -->
+            <!-- Field 1: Program Level (UG / PG) -->
             <div class="search-field-item">
-              <label for="searchDiscipline" class="search-label">
-                Study Stream / Discipline <span class="required-star">*</span>
+              <label for="searchProgramLevel" class="search-label">
+                Program Level <span class="required-star">*</span>
               </label>
               <div class="search-select-wrap">
-                <select id="searchDiscipline" name="discipline" class="search-select-control">
-                  <option value="all">All Disciplines &amp; Streams</option>
-                  <option value="engineering">Engineering &amp; Technology (B.E. / B.Tech)</option>
-                  <option value="management">Management &amp; MBA (MBA / BBA / PGDM)</option>
-                  <option value="commerce">Commerce &amp; Finance (B.Com / M.Com)</option>
-                  <option value="medical">Medical &amp; Healthcare (MBBS / BDS / Allied)</option>
+                <select id="searchProgramLevel" name="programLevel" class="search-select-control" onchange="handleProgramLevelChange(this.value)">
+                  <option value="all">All Programs (UG &amp; PG)</option>
+                  <option value="ug">UG - Undergraduate</option>
+                  <option value="pg">PG - Postgraduate</option>
                 </select>
               </div>
             </div>
 
-            <!-- Field 2: Select College / University -->
+            <!-- Field 2: Stream / Course (Dynamic based on UG / PG) -->
+            <div class="search-field-item">
+              <label for="searchDiscipline" class="search-label">
+                Study Stream / Course <span class="required-star">*</span>
+              </label>
+              <div class="search-select-wrap">
+                <select id="searchDiscipline" name="discipline" class="search-select-control">
+                  <option value="all">All Disciplines &amp; Streams</option>
+                  <option value="engineering">Engineering &amp; Technology (B.Tech / B.E / M.Tech)</option>
+                  <option value="management">Management &amp; MBA (BBA / MBA / PGDM)</option>
+                  <option value="computer-applications">Computer Applications &amp; IT (BCA / MCA)</option>
+                  <option value="commerce">Commerce &amp; Finance (B.Com / M.Com / ACCA)</option>
+                  <option value="medical">Medical &amp; Healthcare (MBBS / BDS / MD / MS)</option>
+                  <option value="science">Science &amp; Biotechnology (B.Sc / M.Sc)</option>
+                  <option value="law">Law &amp; Legal Studies (BA LLB / BBA LLB / LLM)</option>
+                  <option value="pharmacy">Pharmacy &amp; Nursing (B.Pharm / M.Pharm / Nursing)</option>
+                  <option value="architecture">Architecture &amp; Design (B.Arch / B.Des)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Field 3: Select College / University -->
             <div class="search-field-item">
               <label for="searchCollege" class="search-label">
                 Select College / University
@@ -634,7 +653,7 @@
               </div>
             </div>
 
-            <!-- Field 3: Action Button -->
+            <!-- Field 4: Action Button -->
             <div class="search-action-item">
               <button type="submit" class="hero-search-btn">
                 <span>Search</span>
