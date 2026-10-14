@@ -1084,7 +1084,8 @@ function initScrollHeader() {
   if (!header) return;
 
   const onScroll = () => {
-    if (window.scrollY > 40) {
+    const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+    if (scrollY > 20) {
       header.classList.add('header-scrolled');
     } else {
       header.classList.remove('header-scrolled');
@@ -1092,6 +1093,7 @@ function initScrollHeader() {
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
   onScroll();
 }
 
