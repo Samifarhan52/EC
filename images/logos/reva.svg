@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="revaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c2410c" />
+      <stop offset="100%" stop-color="#ea580c" />
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="26" fill="url(#revaGrad)" />
+  <path d="M60 24 C45 42 40 55 40 68 C40 82 50 94 60 94 C70 94 80 82 80 68 C80 55 75 42 60 24 Z" fill="#ffffff" fill-opacity="0.15" />
+  <text x="60" y="62" font-family="system-ui, -apple-system, sans-serif" font-size="21" font-weight="900" fill="#ffffff" text-anchor="middle">REVA</text>
+  <text x="60" y="78" font-family="system-ui, -apple-system, sans-serif" font-size="8" font-weight="800" fill="#fed7aa" text-anchor="middle" letter-spacing="1">UNIVERSITY</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="rnsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="26" fill="url(#rnsGrad)" />
+  <polygon points="60,24 92,42 92,78 60,96 28,78 28,42" fill="#ffffff" fill-opacity="0.1" stroke="#94a3b8" stroke-width="2" />
+  <text x="60" y="62" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="900" fill="#ffffff" text-anchor="middle">RNSIT</text>
+  <text x="60" y="78" font-family="system-ui, -apple-system, sans-serif" font-size="8" font-weight="800" fill="#cbd5e1" text-anchor="middle" letter-spacing="1">RR NAGAR</text>
+</svg>

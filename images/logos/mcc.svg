@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="mccGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#831843" />
+      <stop offset="100%" stop-color="#be185d" />
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="26" fill="url(#mccGrad)" />
+  <circle cx="60" cy="60" r="46" fill="none" stroke="#fbcfe8" stroke-width="2.5" stroke-dasharray="4 2" />
+  <path d="M60 26 L86 42 L86 74 L60 92 L34 74 L34 42 Z" fill="#ffffff" fill-opacity="0.12" stroke="#fdf2f8" stroke-width="2" />
+  <text x="60" y="58" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="1">MCC</text>
+  <text x="60" y="76" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="800" fill="#fbcfe8" text-anchor="middle" letter-spacing="1.5">ESTD 1948</text>
+</svg>

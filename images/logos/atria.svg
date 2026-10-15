@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="atriaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="26" fill="url(#atriaGrad)" />
+  <path d="M60 25 L88 75 L32 75 Z" fill="#ffffff" fill-opacity="0.15" stroke="#a7f3d0" stroke-width="2" />
+  <text x="60" y="66" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="900" fill="#ffffff" text-anchor="middle">ATRIA</text>
+  <text x="60" y="82" font-family="system-ui, -apple-system, sans-serif" font-size="8" font-weight="800" fill="#d1fae5" text-anchor="middle" letter-spacing="1">HEBBAL</text>
+</svg>
