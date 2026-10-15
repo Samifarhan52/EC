@@ -1109,25 +1109,52 @@ function setupHeaders() {
 }
 
 function doPost(e) {
+  var lock = LockService.getScriptLock();
   try {
+    lock.waitLock(15000);
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     var data = {};
     if (e.postData && e.postData.contents) {
       try { data = JSON.parse(e.postData.contents); } catch(err) { data = e.parameter || {}; }
     } else { data = e.parameter || {}; }
 
-    var refId = data.refId || ('TEC-' + Math.floor(100000 + Math.random() * 900000));
+    var now = new Date();
+    var refId = data.refId ? String(data.refId).trim() : ('TEC-' + Math.floor(100000 + Math.random() * 900000));
     var name = data.fullName || data.name || 'Student';
     var phone = data.phone || '';
     var email = data.email || '';
-    var prog = data.programLevel || 'UG/PG';
+    var prog = data.programLevel || 'UG & PG';
     var course = data.course || '';
     var college = data.college || '';
     var dest = data.studyDestination || 'India';
     var src = data.source || 'Website Form';
     var status = data.status || 'New';
 
-    sheet.appendRow([new Date(), refId, name, phone, email, prog, course, college, dest, src, status]);
+    // Deduplication check: check if Ref ID already exists
+    var lastRow = sheet.getLastRow();
+    if (lastRow > 1) {
+      if (refId) {
+        var existingRefs = sheet.getRange(2, 2, lastRow - 1, 1).getValues();
+        for (var i = 0; i < existingRefs.length; i++) {
+          if (String(existingRefs[i][0]).trim() === refId) {
+            return ContentService.createTextOutput(JSON.stringify({ result: 'duplicate_skipped', refId: refId })).setMimeType(ContentService.MimeType.JSON);
+          }
+        }
+      }
+      if (phone) {
+        var cleanPhone = String(phone).replace(/[^0-9]/g, '');
+        var lastPhone = String(sheet.getRange(lastRow, 4).getValue()).replace(/[^0-9]/g, '');
+        var lastTimeVal = sheet.getRange(lastRow, 1).getValue();
+        if (cleanPhone && cleanPhone === lastPhone && lastTimeVal instanceof Date) {
+          var secondsDiff = (now.getTime() - lastTimeVal.getTime()) / 1000;
+          if (secondsDiff < 60) {
+            return ContentService.createTextOutput(JSON.stringify({ result: 'duplicate_skipped', refId: refId })).setMimeType(ContentService.MimeType.JSON);
+          }
+        }
+      }
+    }
+
+    sheet.appendRow([now, refId, name, phone, email, prog, course, college, dest, src, status]);
 
     // 1. Send Student Confirmation Email from enquiry@theeduconsultant.com
     if (email && email.indexOf('@') !== -1) {
@@ -1141,7 +1168,7 @@ function doPost(e) {
         '</div>' +
         '<p style="color: #1e3a8a; font-size: 13.5px;">Our Senior Academic Counselor will call you back shortly on <strong>+91 ' + phone + '</strong>.</p>' +
         '<hr style="border: none; border-top: 1px solid #e2e8f0; margin: 18px 0;">' +
-        '<p style="font-size: 13px; color: #64748b;"><strong>Helpline:</strong> +91 98453 71459 | +91 88840 58214 | +91 80508 54448<br><strong>Email:</strong> enquiry@theeduconsultant.com<br><strong>Office:</strong> Ashok Nagar, Bengaluru 560025</p>' +
+        '<p style="font-size: 13px; color: #64748b;"><strong>Helpline:</strong> +91 98453 71459 | +91 88840 58241 | +91 97319 98555<br><strong>Email:</strong> enquiry@theeduconsultant.com<br><strong>Office:</strong> Ashok Nagar, Bengaluru 560025</p>' +
         '</div>';
 
       GmailApp.sendEmail(email, subject, '', {
@@ -1169,6 +1196,8 @@ function doPost(e) {
     return ContentService.createTextOutput(JSON.stringify({ result: 'success', refId: refId })).setMimeType(ContentService.MimeType.JSON);
   } catch (err) {
     return ContentService.createTextOutput(JSON.stringify({ result: 'error', message: err.toString() })).setMimeType(ContentService.MimeType.JSON);
+  } finally {
+    try { lock.releaseLock(); } catch(lErr) {}
   }
 }
 

@@ -1287,6 +1287,29 @@ window.openEnhancedSuccessModal = function(data) {
  * 3. Formats message and triggers WhatsApp routing (919845371459, 918884058241 & 919731998555)
  */
 window.handleAdmissionFormSubmit = function(formElement, formType = 'registration') {
+  // Prevent duplicate submissions / rapid double taps
+  if (formElement.dataset.submitting === 'true') {
+    return;
+  }
+  formElement.dataset.submitting = 'true';
+
+  const submitBtn = formElement.querySelector('button[type="submit"]');
+  const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.classList.add('btn-submitting');
+  }
+
+  const unlockForm = () => {
+    delete formElement.dataset.submitting;
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('btn-submitting');
+      submitBtn.innerHTML = originalBtnHtml;
+    }
+  };
+  setTimeout(unlockForm, 4000);
+
   const fullName = formElement.querySelector('input[name="fullName"]')?.value?.trim() || 'Student';
   const phone = formElement.querySelector('input[name="phone"]')?.value?.trim() || '';
   const email = formElement.querySelector('input[name="email"]')?.value?.trim() || '';
@@ -1350,12 +1373,12 @@ window.handleAdmissionFormSubmit = function(formElement, formType = 'registratio
     } catch (e) {}
   }
 
-  // 2B. Also forward to /api/submit-enquiry
+  // 2B. Also forward to /api/submit-enquiry (Flagged with directScriptDispatched: true to prevent duplicate sheet logging)
   try {
     fetch('/api/submit-enquiry', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...leadRecord, googleScriptUrl })
+      body: JSON.stringify({ ...leadRecord, googleScriptUrl, directScriptDispatched: true })
     }).catch(e => console.warn('API background submit:', e));
   } catch (e) {}
 
@@ -1407,6 +1430,7 @@ _Please verify quota seats and call back the student promptly._`;
   });
 
   formElement.reset();
+  unlockForm();
 };
 
 /* ==========================================================================

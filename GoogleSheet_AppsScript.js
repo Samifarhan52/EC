@@ -68,7 +68,11 @@ function setupSheetHeaders() {
  * Handles incoming HTTP POST requests from the website
  */
 function doPost(e) {
+  var lock = LockService.getScriptLock();
   try {
+    // Acquire a lock with a 15-second timeout to handle concurrent requests safely
+    lock.waitLock(15000);
+
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     
     // Parse incoming data
@@ -84,7 +88,7 @@ function doPost(e) {
     }
 
     var now = new Date();
-    var refId = data.refId || ('TEC-' + Math.floor(100000 + Math.random() * 900000));
+    var refId = data.refId ? String(data.refId).trim() : ('TEC-' + Math.floor(100000 + Math.random() * 900000));
     var fullName = data.fullName || data.name || 'Student';
     var phone = data.phone || '';
     var email = data.email || '';
@@ -95,6 +99,45 @@ function doPost(e) {
     var source = data.source || 'Website Enquiry Form';
     var status = data.status || 'New';
     var notes = '';
+
+    // =========================================================================
+    // DEDUPLICATION GATE: Prevent duplicate entries in Google Sheets
+    // =========================================================================
+    var lastRow = sheet.getLastRow();
+    if (lastRow > 1) {
+      // 1. Check if this Ref ID is already recorded in Column B (rows 2 to lastRow)
+      if (refId) {
+        var existingRefs = sheet.getRange(2, 2, lastRow - 1, 1).getValues();
+        for (var i = 0; i < existingRefs.length; i++) {
+          var existingRef = String(existingRefs[i][0]).trim();
+          if (existingRef && existingRef === refId) {
+            // Already logged! Skip appending duplicate row and do not resend emails.
+            return ContentService.createTextOutput(JSON.stringify({
+              status: 'duplicate_skipped',
+              refId: refId,
+              message: 'Lead with Ref ID ' + refId + ' already exists in Google Sheets. Duplicate skipped.'
+            })).setMimeType(ContentService.MimeType.JSON);
+          }
+        }
+      }
+
+      // 2. Secondary check: Rapid duplicate submission by same phone within 60 seconds
+      if (phone) {
+        var cleanPhone = String(phone).replace(/[^0-9]/g, '');
+        var lastPhone = String(sheet.getRange(lastRow, 4).getValue()).replace(/[^0-9]/g, '');
+        var lastTimeVal = sheet.getRange(lastRow, 1).getValue();
+        if (cleanPhone && cleanPhone === lastPhone && lastTimeVal instanceof Date) {
+          var secondsDiff = (now.getTime() - lastTimeVal.getTime()) / 1000;
+          if (secondsDiff < 60) {
+            return ContentService.createTextOutput(JSON.stringify({
+              status: 'duplicate_skipped',
+              refId: refId,
+              message: 'Lead for phone ' + phone + ' was already recorded ' + Math.round(secondsDiff) + 's ago. Duplicate skipped.'
+            })).setMimeType(ContentService.MimeType.JSON);
+          }
+        }
+      }
+    }
 
     // 1. Append the row to Google Sheets
     sheet.appendRow([
@@ -134,6 +177,10 @@ function doPost(e) {
       status: 'error',
       message: error.toString()
     })).setMimeType(ContentService.MimeType.JSON);
+  } finally {
+    try {
+      lock.releaseLock();
+    } catch (lockErr) {}
   }
 }
 

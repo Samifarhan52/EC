@@ -182,11 +182,13 @@ module.exports = async (req, res) => {
     }
 
     // 3. Method C: Google Apps Script Web App Relay (Google Sheet sync & enquiry@theeduconsultant.com email)
+    const directScriptDispatched = req.body && req.body.directScriptDispatched === true;
     const DEFAULT_GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyXnFbX5MJTcTOv9bEhUy4xU1nnfCBHjBXMflmZJCC7m0aNzH3vV7WIkbt8kgRB57c/exec';
     const googleScriptUrl = process.env.GOOGLE_SCRIPT_URL || req.body.googleScriptUrl || DEFAULT_GOOGLE_SCRIPT_URL;
-    let googleSheetSynced = false;
+    let googleSheetSynced = directScriptDispatched;
 
-    if (googleScriptUrl) {
+    // Only relay to Google Apps Script if client has not already dispatched directly
+    if (!directScriptDispatched && googleScriptUrl) {
       try {
         emailProvider = 'google-apps-script';
         const gScriptRes = await fetch(googleScriptUrl, {
@@ -212,6 +214,8 @@ module.exports = async (req, res) => {
       } catch (gErr) {
         console.error('Google Apps Script relay error:', gErr);
       }
+    } else if (directScriptDispatched) {
+      console.log(`[Lead Ingestion] Lead ${refId} already dispatched directly to Google Apps Script webhook from client. Skipping duplicate relay.`);
     }
 
     return res.status(200).json({

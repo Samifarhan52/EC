@@ -2341,6 +2341,16 @@ button, input, select, textarea {
   box-shadow: 0 10px 25px rgba(245, 158, 11, 0.6);
 }
 
+.btn-form-submit:disabled,
+.btn-form-submit.btn-submitting,
+.btn-form-submit-download:disabled {
+  opacity: 0.65 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
 .form-guarantee-note {
   grid-column: span 2;
   text-align: center;
