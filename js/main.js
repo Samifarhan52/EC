@@ -1239,54 +1239,37 @@ window.openEnhancedSuccessModal = function(data) {
   const msgEl = document.getElementById('successApplicantMsg');
 
   if (titleEl) {
-    titleEl.textContent = `Thank You, ${data.fullName}! Enquiry Received.`;
+    titleEl.textContent = `Enquiry Received, ${data.fullName}!`;
   }
 
   if (msgEl) {
     msgEl.innerHTML = `
-      <div style="text-align: left; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.25rem; margin: 1.25rem 0;">
-        <div style="display: flex; align-items: center; gap: 8px; color: #15803d; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.5rem;">
-          <i class="fa-solid fa-circle-check" style="font-size: 1.1rem;"></i>
-          <span>Enquiry Successfully Registered (Ref: ${data.refId})</span>
+      <div class="success-summary-card">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+          <span class="success-ref-pill">
+            <i class="fa-solid fa-circle-check"></i> Ref: ${data.refId}
+          </span>
+          <span style="font-size: 0.72rem; color: #15803d; font-weight: 750;">Priority Locked</span>
         </div>
-        <p style="font-size: 0.88rem; color: #475569; margin-bottom: 0.75rem; line-height: 1.5;">
-          Your admission enquiry for <strong>${data.course || 'Admissions 2027'}</strong> at <strong>${data.college || 'Bangalore Premier Colleges'}</strong> has been locked in our priority counseling desk.
+        <p class="success-details-text">
+          Admission enquiry for <strong>${data.course || 'Admissions 2027'}</strong> at <strong>${data.college || 'Bangalore Premier Colleges'}</strong> has been registered with our senior academic counselors.
         </p>
 
-        <!-- Email & Call Status -->
-        <div style="background: #ffffff; border-left: 3px solid #2563eb; padding: 10px 12px; border-radius: 6px; font-size: 0.82rem; color: #334155; margin-bottom: 1rem;">
-          <i class="fa-solid fa-envelope" style="color: #2563eb; margin-right: 5px;"></i>
-          <strong>Email Confirmation &amp; Alert:</strong> Notification dispatched to student and senior counselors. You will receive a callback shortly.
-        </div>
-
         <!-- Official Counselor Routing Box -->
-        <div style="border-top: 1px dashed #cbd5e1; padding-top: 0.85rem;">
-          <div style="font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; margin-bottom: 0.5rem;">
-            Official Counselor Contact Desks:
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 8px;">
-            <a href="${data.waUrl1 || 'https://wa.me/919845371459'}" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: space-between; background: #22c55e; color: #ffffff; padding: 9px 14px; border-radius: 8px; font-weight: 700; font-size: 0.84rem; text-decoration: none; box-shadow: 0 2px 6px rgba(34, 197, 94, 0.25);">
-              <span style="display: inline-flex; align-items: center; gap: 8px;">
-                <i class="fa-brands fa-whatsapp" style="font-size: 1.15rem;"></i>
-                <span>Bangalore &amp; Abroad Counsellor: +91 98453 71459</span>
-              </span>
-              <span style="font-size: 0.72rem; background: rgba(0,0,0,0.15); padding: 3px 8px; border-radius: 4px;">Sent / Open</span>
+        <div class="success-counselor-section">
+          <div class="success-counselor-label">Official Counselor Desks:</div>
+          <div class="success-counselor-grid">
+            <a href="${data.waUrl1 || 'https://wa.me/919845371459'}" target="_blank" rel="noopener noreferrer" class="success-wa-pill wa-pill-primary">
+              <span class="wa-pill-left"><i class="fa-brands fa-whatsapp"></i> Bangalore &amp; Abroad Desk</span>
+              <span class="wa-pill-action">Open &rarr;</span>
             </a>
-
-            <a href="${data.waUrl2 || 'https://wa.me/918884058241'}" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: space-between; background: #15803d; color: #ffffff; padding: 9px 14px; border-radius: 8px; font-weight: 700; font-size: 0.84rem; text-decoration: none; box-shadow: 0 2px 6px rgba(21, 128, 61, 0.25);">
-              <span style="display: inline-flex; align-items: center; gap: 8px;">
-                <i class="fa-brands fa-whatsapp" style="font-size: 1.15rem;"></i>
-                <span>Bangalore - Counsellor: +91 88840 58241</span>
-              </span>
-              <span style="font-size: 0.72rem; background: #fbbf24; color: #0f172a; font-weight: 800; padding: 3px 8px; border-radius: 4px;">Send Also &rarr;</span>
+            <a href="${data.waUrl2 || 'https://wa.me/918884058241'}" target="_blank" rel="noopener noreferrer" class="success-wa-pill wa-pill-secondary">
+              <span class="wa-pill-left"><i class="fa-brands fa-whatsapp"></i> Bangalore Quota Desk</span>
+              <span class="wa-pill-action">Send &rarr;</span>
             </a>
-
-            <a href="${data.waUrl3 || 'https://wa.me/919731998555'}" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: space-between; background: #0284c7; color: #ffffff; padding: 9px 14px; border-radius: 8px; font-weight: 700; font-size: 0.84rem; text-decoration: none; box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);">
-              <span style="display: inline-flex; align-items: center; gap: 8px;">
-                <i class="fa-brands fa-whatsapp" style="font-size: 1.15rem;"></i>
-                <span>Entrance prep: +91 97319 98555</span>
-              </span>
-              <span style="font-size: 0.72rem; background: rgba(0,0,0,0.15); padding: 3px 8px; border-radius: 4px;">Prep Desk &rarr;</span>
+            <a href="${data.waUrl3 || 'https://wa.me/919731998555'}" target="_blank" rel="noopener noreferrer" class="success-wa-pill wa-pill-tertiary">
+              <span class="wa-pill-left"><i class="fa-brands fa-whatsapp"></i> Entrance Prep Desk</span>
+              <span class="wa-pill-action">Desk &rarr;</span>
             </a>
           </div>
         </div>
