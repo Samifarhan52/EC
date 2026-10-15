@@ -1179,7 +1179,7 @@ function startPopupCollegeFlip() {
       logoEl.alt = col.alt;
       nameEl.textContent = col.name;
       taglineEl.textContent = col.tagline;
-      metaEl.innerHTML = `<span class="badge-pill ${col.pillClass}">${col.meta.split('•')[0].trim()}</span> • ${col.meta.split('•')[1] ? col.meta.split('•')[1].trim() : 'Admissions 2026'}`;
+      metaEl.innerHTML = `<span class="badge-pill ${col.pillClass}">${col.meta.split('•')[0].trim()}</span> • ${col.meta.split('•')[1] ? col.meta.split('•')[1].trim() : 'Admissions 2027'}`;
 
       container.classList.remove('is-flipping');
     }, 280);
