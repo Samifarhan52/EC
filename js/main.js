@@ -500,49 +500,85 @@ let currentCategoryFilter = 'all';
 
 function initCollegesAndProgramsDirectory() {
   const modeCollegesBtn = document.getElementById('modeCollegesBtn');
+  const modeSchoolsBtn = document.getElementById('modeSchoolsBtn');
   const modeProgramsBtn = document.getElementById('modeProgramsBtn');
-  const filterPills = document.querySelectorAll('.filter-tag');
 
-  if (modeCollegesBtn && modeProgramsBtn) {
-    modeCollegesBtn.addEventListener('click', () => {
-      currentDirectoryMode = 'colleges';
-      modeCollegesBtn.classList.add('active');
-      modeProgramsBtn.classList.remove('active');
-      renderDirectoryGrid();
-    });
-
-    modeProgramsBtn.addEventListener('click', () => {
-      currentDirectoryMode = 'programs';
-      modeProgramsBtn.classList.add('active');
-      modeCollegesBtn.classList.remove('active');
-      renderDirectoryGrid();
-    });
+  if (modeCollegesBtn) {
+    modeCollegesBtn.addEventListener('click', () => window.switchDirectoryMode('colleges'));
+  }
+  if (modeSchoolsBtn) {
+    modeSchoolsBtn.addEventListener('click', () => window.switchDirectoryMode('schools'));
+  }
+  if (modeProgramsBtn) {
+    modeProgramsBtn.addEventListener('click', () => window.switchDirectoryMode('programs'));
   }
 
+  bindDirectoryFilterPillEvents();
+  renderDirectoryGrid();
+}
+
+function bindDirectoryFilterPillEvents() {
+  const filterPills = document.querySelectorAll('.filter-tag');
   filterPills.forEach(pill => {
     pill.addEventListener('click', () => {
-      filterPills.forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.filter-tag').forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
       currentCategoryFilter = pill.dataset.filter || 'all';
       renderDirectoryGrid();
     });
   });
-
-  renderDirectoryGrid();
 }
 
 window.switchDirectoryMode = function(mode) {
   const modeCollegesBtn = document.getElementById('modeCollegesBtn');
+  const modeSchoolsBtn = document.getElementById('modeSchoolsBtn');
   const modeProgramsBtn = document.getElementById('modeProgramsBtn');
+  const filterPillsBar = document.getElementById('directoryFilterPillsBar');
+
+  [modeCollegesBtn, modeSchoolsBtn, modeProgramsBtn].forEach(b => b && b.classList.remove('active'));
+
   if (mode === 'programs') {
     currentDirectoryMode = 'programs';
     if (modeProgramsBtn) modeProgramsBtn.classList.add('active');
-    if (modeCollegesBtn) modeCollegesBtn.classList.remove('active');
+    if (filterPillsBar) {
+      filterPillsBar.innerHTML = `
+        <button type="button" class="filter-tag active" data-filter="all">All Disciplines</button>
+        <button type="button" class="filter-tag" data-filter="engineering">Engineering &amp; Tech</button>
+        <button type="button" class="filter-tag" data-filter="commerce">Commerce &amp; Finance</button>
+        <button type="button" class="filter-tag" data-filter="medical">Medical &amp; Healthcare</button>
+        <button type="button" class="filter-tag" data-filter="management">Management &amp; MBA</button>
+      `;
+      bindDirectoryFilterPillEvents();
+    }
+  } else if (mode === 'schools') {
+    currentDirectoryMode = 'schools';
+    if (modeSchoolsBtn) modeSchoolsBtn.classList.add('active');
+    if (filterPillsBar) {
+      filterPillsBar.innerHTML = `
+        <button type="button" class="filter-tag active" data-filter="all">All Boards (144)</button>
+        <button type="button" class="filter-tag" data-filter="cbse">CBSE</button>
+        <button type="button" class="filter-tag" data-filter="icse">ICSE &amp; ISC</button>
+        <button type="button" class="filter-tag" data-filter="igcse">IGCSE (Cambridge)</button>
+        <button type="button" class="filter-tag" data-filter="ib">IB World</button>
+        <button type="button" class="filter-tag" data-filter="state">Karnataka State Board</button>
+      `;
+      bindDirectoryFilterPillEvents();
+    }
   } else {
     currentDirectoryMode = 'colleges';
     if (modeCollegesBtn) modeCollegesBtn.classList.add('active');
-    if (modeProgramsBtn) modeProgramsBtn.classList.remove('active');
+    if (filterPillsBar) {
+      filterPillsBar.innerHTML = `
+        <button type="button" class="filter-tag active" data-filter="all">All Disciplines</button>
+        <button type="button" class="filter-tag" data-filter="engineering">Engineering &amp; Tech</button>
+        <button type="button" class="filter-tag" data-filter="commerce">Commerce &amp; Finance</button>
+        <button type="button" class="filter-tag" data-filter="medical">Medical &amp; Healthcare</button>
+        <button type="button" class="filter-tag" data-filter="management">Management &amp; MBA</button>
+      `;
+      bindDirectoryFilterPillEvents();
+    }
   }
+  currentCategoryFilter = 'all';
   renderDirectoryGrid();
 };
 
@@ -593,6 +629,74 @@ function renderDirectoryGrid() {
       `;
       gridContainer.appendChild(card);
     });
+  } else if (currentDirectoryMode === 'schools') {
+    const allSchools = window.DIRECTORY_SCHOOLS || [];
+    const filtered = allSchools.filter(sch => {
+      if (currentCategoryFilter === 'all') return true;
+      const bStr = (sch.boards || []).join(' ').toLowerCase();
+      if (currentCategoryFilter === 'cbse') return bStr.includes('cbse');
+      if (currentCategoryFilter === 'icse') return bStr.includes('icse') || bStr.includes('isc');
+      if (currentCategoryFilter === 'igcse') return bStr.includes('igcse') || bStr.includes('cambridge') || bStr.includes('a level');
+      if (currentCategoryFilter === 'ib') return bStr.includes('ib');
+      if (currentCategoryFilter === 'state') return bStr.includes('state') || bStr.includes('karnataka');
+      return true;
+    });
+
+    const displaySchools = filtered.slice(0, 24);
+
+    displaySchools.forEach(sch => {
+      const card = document.createElement('div');
+      card.className = 'directory-card school-card';
+      const bgImg = sch.image || 'https://hbwkaokcdepfokpxroud.supabase.co/storage/v1/object/public/campus-photographs/schools/1e5ee6d2-03e2-47ba-b426-3ceef0a78171-thumb-a2414012f27e.webp';
+      card.innerHTML = `
+        <div class="card-top-banner" style="background-image: url('${bgImg}');">
+          <span class="badge-stream">${(sch.boards || []).slice(0, 2).join(' · ') || 'K-12 Board'}</span>
+          <span class="badge-quota"><i class="fa-solid fa-circle-check"></i> Admissions 2027</span>
+        </div>
+        <div class="card-body">
+          <div class="college-card-header">
+            <div class="college-crest-mini" style="background: rgba(37, 99, 235, 0.12); color: #2563eb;">
+              <i class="fa-solid fa-school"></i>
+            </div>
+            <div class="college-title-block">
+              <h4>${sch.name}</h4>
+              <span class="college-location"><i class="fa-solid fa-location-dot"></i> ${sch.location_type || 'Bengaluru · Day'}</span>
+            </div>
+          </div>
+          <p class="card-description">Authorized admissions support, curriculum guidance, and interaction assistance across ${sch.classes || 'Nursery to 12th'}.</p>
+          <div class="card-meta-pills">
+            <span class="meta-pill"><i class="fa-solid fa-graduation-cap text-primary"></i> ${sch.classes || 'All Grades'}</span>
+            <span class="meta-pill"><i class="fa-solid fa-award text-warning"></i> ${(sch.boards || []).join(', ')}</span>
+          </div>
+          <div class="card-actions-row">
+            <a href="enquiry.html?college=${encodeURIComponent(sch.name)}&course=School%20Admission" class="btn-card-apply" title="Free Counselling for ${sch.name}">
+              <i class="fa-solid fa-comments"></i> Free Counselling
+            </a>
+            ${sch.website ? `
+            <a href="${sch.website}" target="_blank" rel="noopener noreferrer" class="btn-card-fee" title="Visit Official Website">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Official Website
+            </a>` : `
+            <a href="fee-structure.html?college=${encodeURIComponent(sch.name)}&course=School%20Admission" class="btn-card-fee" title="Download Brochure">
+              <i class="fa-solid fa-file-arrow-down"></i> Fee Details
+            </a>`}
+          </div>
+        </div>
+      `;
+      gridContainer.appendChild(card);
+    });
+
+    const footerLink = document.createElement('div');
+    footerLink.style.cssText = 'grid-column: 1 / -1; text-align: center; margin-top: 1.5rem; padding: 1.5rem 1rem; background: #ffffff; border-radius: 20px; border: 1.5px dashed #cbd5e1; box-shadow: 0 4px 15px rgba(0,0,0,0.03);';
+    footerLink.innerHTML = `
+      <p style="font-size: 1.1rem; font-weight: 700; color: #0b0f3b; margin-bottom: 0.85rem;">
+        Looking for all 144 verified schools in Bengaluru with instant curriculum search and fee insights?
+      </p>
+      <a href="schools.html" class="sf-btn-icon-primary" style="display: inline-flex; text-decoration: none; padding: 12px 28px; font-size: 15px; margin: 0 auto;">
+        <span>Explore All 144 Bangalore Schools</span>
+        <span class="icon"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+    `;
+    gridContainer.appendChild(footerLink);
   } else {
     // Programs Mode
     const filtered = DIRECTORY_PROGRAMS.filter(item => {
@@ -1225,6 +1329,14 @@ window.handleSearchTabClick = function(tab) {
     }
     const dirEl = document.getElementById('directorySection');
     if (dirEl) dirEl.scrollIntoView({ behavior: 'smooth' });
+  } else if (tab === 'schools') {
+    const tabEl = document.getElementById('searchTabSchools');
+    if (tabEl) tabEl.classList.add('active');
+    if (typeof window.switchDirectoryMode === 'function') {
+      window.switchDirectoryMode('schools');
+    }
+    const dirEl = document.getElementById('directorySection');
+    if (dirEl) dirEl.scrollIntoView({ behavior: 'smooth' });
   } else if (tab === 'programs') {
     const tabEl = document.getElementById('searchTabPrograms');
     if (tabEl) tabEl.classList.add('active');
@@ -1288,30 +1400,91 @@ const PROGRAM_STREAM_DATA = {
     { value: 'march', label: 'M.Arch / M.Des (Master of Architecture & Design)' },
     { value: 'ma', label: 'MA (Economics, Public Policy, Mass Communication)' },
     { value: 'Others', label: 'Others (Specify Preferred Course)' }
+  ],
+  schools: [
+    { value: 'all-schools', label: 'All School Curriculums & Boards (144 Schools)' },
+    { value: 'cbse', label: 'CBSE - Central Board of Secondary Education' },
+    { value: 'icse-isc', label: 'ICSE & ISC - CISCE Board' },
+    { value: 'igcse', label: 'IGCSE & Cambridge Assessment International' },
+    { value: 'ib', label: 'IB - International Baccalaureate (PYP / MYP / DP)' },
+    { value: 'state-board', label: 'Karnataka State Board & Pre-University (PUC)' },
+    { value: 'pre-primary', label: 'Pre-Primary, Montessori & Nursery Admissions' },
+    { value: 'Others', label: 'Others (Specify Preferred Board / Class)' }
   ]
 };
 
 window.handleProgramLevelChange = function(level) {
   const disciplineSelect = document.getElementById('searchDiscipline');
-  if (!disciplineSelect) return;
+  const collegeSelect = document.getElementById('searchCollege');
 
-  const data = PROGRAM_STREAM_DATA[level] || PROGRAM_STREAM_DATA.all;
-  disciplineSelect.innerHTML = '';
-  data.forEach(item => {
-    const opt = document.createElement('option');
-    opt.value = item.value;
-    opt.textContent = item.label;
-    disciplineSelect.appendChild(opt);
-  });
+  if (disciplineSelect) {
+    const data = PROGRAM_STREAM_DATA[level] || PROGRAM_STREAM_DATA.all;
+    disciplineSelect.innerHTML = '';
+    data.forEach(item => {
+      const opt = document.createElement('option');
+      opt.value = item.value;
+      opt.textContent = item.label;
+      disciplineSelect.appendChild(opt);
+    });
 
-  // Reset conditional course input if stream is reset away from Others
-  const discWrap = document.getElementById('heroConditionalDisciplineOther');
-  if (discWrap && disciplineSelect.value !== 'Others') {
-    discWrap.classList.remove('is-visible');
-    const input = discWrap.querySelector('input');
-    if (input) {
-      input.required = false;
-      input.value = '';
+    // Reset conditional course input if stream is reset away from Others
+    const discWrap = document.getElementById('heroConditionalDisciplineOther');
+    if (discWrap && disciplineSelect.value !== 'Others') {
+      discWrap.classList.remove('is-visible');
+      const input = discWrap.querySelector('input');
+      if (input) {
+        input.required = false;
+        input.value = '';
+      }
+    }
+  }
+
+  if (collegeSelect) {
+    if (level === 'schools') {
+      collegeSelect.innerHTML = `
+        <option value="all">All Premier Bangalore Schools (144 Schools)</option>
+        <option value="Bishop Cotton Boys' School">Bishop Cotton Boys' School (MG Road)</option>
+        <option value="Bishop Cotton Girls' School">Bishop Cotton Girls' School (St. Mark's Road)</option>
+        <option value="Delhi Public School">Delhi Public School (DPS Bangalore South / North / East)</option>
+        <option value="Canadian International School">Canadian International School (CIS Yelahanka)</option>
+        <option value="Bangalore International School">Bangalore International School (BIS Hennur)</option>
+        <option value="Bethany High School">Bethany High School (Koramangala)</option>
+        <option value="BGS National Public School">BGS National Public School (Hulimavu)</option>
+        <option value="Christ Academy">Christ Academy ICSE School / Junior College</option>
+        <option value="Greenwood High">Greenwood High International School (Sarjapur / Whitefield)</option>
+        <option value="Indus International School">Indus International School (Sarjapur)</option>
+        <option value="Inventure Academy">Inventure Academy (Whitefield - Sarjapur)</option>
+        <option value="Mallya Aditi International School">Mallya Aditi International School (Yelahanka)</option>
+        <option value="National Public School">National Public School (NPS Indiranagar / Koramangala / Rajajinagar)</option>
+        <option value="The International School Bangalore">The International School Bangalore (TISB)</option>
+        <option value="Stonehill International School">Stonehill International School (Jalahalli)</option>
+        <option value="Vidyashilp Academy">Vidyashilp Academy (Jakkur)</option>
+        <option value="Chrysalis High">Chrysalis High (Varthur / Bannerghatta)</option>
+        <option value="Clarence High School">Clarence High School (Richards Town)</option>
+        <option value="St. Joseph's Boys' High School">St. Joseph's Boys' High School (Museum Road)</option>
+        <option value="Baldwin Boys' High School">Baldwin Boys' High School (Richmond Town)</option>
+        <option value="Baldwin Girls' High School">Baldwin Girls' High School (Richmond Town)</option>
+        <option value="Army Public School">Army Public School (Kamaraj Road)</option>
+        <option value="Sri Kumaran Children's Home">Sri Kumaran Children's Home</option>
+        <option value="Others">Others (Specify Preferred School)</option>
+      `;
+    } else {
+      collegeSelect.innerHTML = `
+        <option value="all">All Premier Colleges (Bangalore &amp; India)</option>
+        <option value="Christ University">Christ University (Central &amp; BGR)</option>
+        <option value="RV College of Engineering">RV College of Engineering (RVCE)</option>
+        <option value="BMS College of Engineering">BMS College of Engineering (BMSCE)</option>
+        <option value="Ramaiah Institute">Ramaiah Institute of Technology (MSRIT)</option>
+        <option value="Dayananda Sagar">Dayananda Sagar College (DSCE)</option>
+        <option value="PES University">PES University (Ring Road / EC)</option>
+        <option value="Vellore Institute of Technology">Vellore Institute of Technology (VIT)</option>
+        <option value="Jain University">Jain University Bangalore</option>
+        <option value="St. Joseph's University">St. Joseph's University (SJU)</option>
+        <option value="Vydehi Institute">Vydehi Institute of Medical Sciences</option>
+        <option value="Presidency University">Presidency University</option>
+        <option value="Sir M. Visvesvaraya">Sir M. Visvesvaraya Institute (SMVIT)</option>
+        <option value="Others">Others (Specify Preferred College)</option>
+      `;
     }
   }
 };
@@ -1338,14 +1511,41 @@ window.handleHeroQuickSearch = function(e) {
   const effectiveDisc = customDisc || (disc !== 'Others' && disc !== 'all' && disc !== 'all-ug' && disc !== 'all-pg' ? disc : '');
   const effectiveProg = customProg || (progLevel !== 'Others' && progLevel !== 'all' ? progLevel : '');
 
+  // If schools was chosen or a school was selected/typed
+  const isSchoolSearch = progLevel === 'schools' || (effectiveCollege && (window.DIRECTORY_SCHOOLS || []).some(s => s.name.toLowerCase().includes(effectiveCollege.toLowerCase())));
+  if (isSchoolSearch) {
+    window.switchDirectoryMode('schools');
+    const dirEl = document.getElementById('directorySection');
+    if (dirEl) dirEl.scrollIntoView({ behavior: 'smooth' });
+
+    setTimeout(() => {
+      const cards = document.querySelectorAll('.directory-card');
+      const searchTerms = (effectiveCollege || effectiveDisc).toLowerCase().split(' ').filter(t => t.length > 2);
+      let matchedCount = 0;
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        const matches = searchTerms.some(term => text.includes(term));
+        if (matches) {
+          matchedCount++;
+          card.style.outline = '3px solid #f59e0b';
+          card.style.boxShadow = '0 0 25px rgba(245, 158, 11, 0.45)';
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setTimeout(() => {
+            card.style.transition = 'all 1s ease';
+            card.style.outline = 'none';
+          }, 3500);
+        }
+      });
+      if (matchedCount === 0 && (customCollege || customDisc)) {
+        window.openRegisterModal(customCollege || effectiveCollege, customDisc || 'School Admission');
+      }
+    }, 400);
+    return;
+  }
+
   // If a specific college was chosen or custom typed in Others
   if (effectiveCollege) {
-    currentDirectoryMode = 'colleges';
-    currentCategoryFilter = 'all';
-    const modeCollegesBtn = document.getElementById('modeCollegesBtn');
-    const modeProgramsBtn = document.getElementById('modeProgramsBtn');
-    if (modeCollegesBtn) modeCollegesBtn.classList.add('active');
-    if (modeProgramsBtn) modeProgramsBtn.classList.remove('active');
+    window.switchDirectoryMode('colleges');
 
     document.querySelectorAll('.filter-tag').forEach(p => {
       if (p.dataset.filter === 'all') p.classList.add('active');

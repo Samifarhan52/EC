@@ -614,6 +614,7 @@
 
       <nav class="desktop-nav" id="desktopNav">
         <a href="#heroSection" class="nav-link active">Home</a>
+        <a href="schools.html" class="nav-link">Schools</a>
         <a href="#servicesSection" class="nav-link">Services</a>
         <a href="#howWeWork" class="nav-link">How We Work</a>
         <a href="#directorySection" class="nav-link" onclick="if(window.switchDirectoryMode){window.switchDirectoryMode('programs');}">Programs</a>
@@ -703,6 +704,10 @@
               <i class="fa-solid fa-building-columns"></i>
               <span>Top Colleges</span>
             </button>
+            <button type="button" class="search-tab-pill" id="searchTabSchools" onclick="handleSearchTabClick('schools')">
+              <i class="fa-solid fa-school"></i>
+              <span>Top Schools</span>
+            </button>
             <button type="button" class="search-tab-pill" id="searchTabPrograms" onclick="handleSearchTabClick('programs')">
               <i class="fa-solid fa-graduation-cap"></i>
               <span>Popular Programs</span>
@@ -722,7 +727,7 @@
         <!-- Main Search Card Form -->
         <form class="hero-search-card" id="heroQuickSearchForm" onsubmit="handleHeroQuickSearch(event)">
           <div class="search-fields-grid">
-            <!-- Field 1: Program Level (UG / PG) -->
+            <!-- Field 1: Program Level (UG / PG / Schools) -->
             <div class="search-field-item">
               <label for="searchProgramLevel" class="search-label">
                 Program Level <span class="required-star">*</span>
@@ -732,6 +737,7 @@
                   <option value="all">All Programs (UG &amp; PG)</option>
                   <option value="ug">UG - Undergraduate</option>
                   <option value="pg">PG - Postgraduate</option>
+                  <option value="schools">Schools (Nursery to Class 12 &amp; PUC)</option>
                   <option value="Others">Others (Specify Program Level)</option>
                 </select>
               </div>
@@ -1352,12 +1358,16 @@
         </p>
       </div>
 
-      <!-- Segmented Master Pill Switcher: Colleges vs Programs -->
+      <!-- Segmented Master Pill Switcher: Colleges vs Schools vs Programs -->
       <div class="directory-mode-switcher">
         <div class="mode-switcher-pill">
           <button type="button" class="mode-btn active" id="modeCollegesBtn">
             <i class="fa-solid fa-building-columns"></i>
             <span>Top Colleges</span>
+          </button>
+          <button type="button" class="mode-btn" id="modeSchoolsBtn">
+            <i class="fa-solid fa-school"></i>
+            <span>Top Schools (144)</span>
           </button>
           <button type="button" class="mode-btn" id="modeProgramsBtn">
             <i class="fa-solid fa-book-open-reader"></i>
@@ -1367,7 +1377,7 @@
       </div>
 
       <!-- Filter Tag Pills -->
-      <div class="filter-pills-bar">
+      <div class="filter-pills-bar" id="directoryFilterPillsBar">
         <button type="button" class="filter-tag active" data-filter="all">All Disciplines</button>
         <button type="button" class="filter-tag" data-filter="engineering">Engineering &amp; Tech</button>
         <button type="button" class="filter-tag" data-filter="commerce">Commerce &amp; Finance</button>
@@ -2130,6 +2140,7 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="js/schools-data.js?v=202736"></script>
   <script src="js/main.js?v=202736"></script>
 </body>
 </html>

@@ -929,6 +929,7 @@
       <!-- Clean standard nav bar without fee structure link -->
       <nav class="desktop-nav" id="desktopNav">
         <a href="index.html" class="nav-link"><i class="fa-solid fa-house me-1"></i> Home</a>
+        <a href="schools.html" class="nav-link"><i class="fa-solid fa-school me-1"></i> Schools</a>
         <a href="index.html#directorySection" class="nav-link">Colleges &amp; Programs</a>
         <a href="index.html#servicesSection" class="nav-link">Services</a>
         <a href="enquiry.html" class="nav-link">Submit Enquiry</a>
@@ -1219,22 +1220,38 @@
                 <div class="input-with-icon">
                   <i class="fa-solid fa-building-columns input-icon"></i>
                   <select name="college" id="feePageCollegeSelect" class="form-select-control" required>
-                    <option value="" disabled selected>Select Preferred College / University</option>
-                    <option value="Christ University">Christ University (Bangalore Central / Yeshwanthpur)</option>
-                    <option value="St. Joseph's University">St. Joseph's University (Langford Road, Bengaluru)</option>
-                    <option value="Vellore Institute of Technology (VIT)">Vellore Institute of Technology (VIT Vellore / Chennai)</option>
-                    <option value="RV College of Engineering (RVCE)">RV College of Engineering (RVCE, Mysore Road)</option>
-                    <option value="RV Institute of Technology (RVITM)">RV Institute of Technology &amp; Management (RVITM)</option>
-                    <option value="BMS College of Engineering (BMSCE)">BMS College of Engineering (BMSCE, Basavanagudi)</option>
-                    <option value="BMS Institute of Technology (BMSIT)">BMS Institute of Technology (BMSIT, Yelahanka)</option>
-                    <option value="Dayananda Sagar College (DSCE)">Dayananda Sagar College of Engineering (DSCE)</option>
-                    <option value="Ramaiah Institute of Technology (MSRIT)">Ramaiah Institute of Technology (MSRIT)</option>
-                    <option value="PES University">PES University (Ring Road / Electronic City)</option>
-                    <option value="Presidency University">Presidency University (Yelahanka)</option>
-                    <option value="Sir M. Visvesvaraya Institute (SMVIT)">Sir M. Visvesvaraya Institute of Technology (SMVIT)</option>
-                    <option value="Bangalore Medical College (BMCRI)">Bangalore Medical College &amp; Research Institute</option>
-                    <option value="Vydehi Institute of Medical Sciences">Vydehi Institute of Medical Sciences (Whitefield)</option>
-                    <option value="Others">Others (Specify Your Preferred College)</option>
+                    <option value="" disabled selected>Select Preferred College / School</option>
+                    <optgroup label="Top Bangalore Colleges">
+                      <option value="Christ University">Christ University (Bangalore Central / Yeshwanthpur)</option>
+                      <option value="St. Joseph's University">St. Joseph's University (Langford Road, Bengaluru)</option>
+                      <option value="Vellore Institute of Technology (VIT)">Vellore Institute of Technology (VIT Vellore / Chennai)</option>
+                      <option value="RV College of Engineering (RVCE)">RV College of Engineering (RVCE, Mysore Road)</option>
+                      <option value="RV Institute of Technology (RVITM)">RV Institute of Technology &amp; Management (RVITM)</option>
+                      <option value="BMS College of Engineering (BMSCE)">BMS College of Engineering (BMSCE, Basavanagudi)</option>
+                      <option value="BMS Institute of Technology (BMSIT)">BMS Institute of Technology (BMSIT, Yelahanka)</option>
+                      <option value="Dayananda Sagar College (DSCE)">Dayananda Sagar College of Engineering (DSCE)</option>
+                      <option value="Ramaiah Institute of Technology (MSRIT)">Ramaiah Institute of Technology (MSRIT)</option>
+                      <option value="PES University">PES University (Ring Road / Electronic City)</option>
+                      <option value="Presidency University">Presidency University (Yelahanka)</option>
+                      <option value="Sir M. Visvesvaraya Institute (SMVIT)">Sir M. Visvesvaraya Institute of Technology (SMVIT)</option>
+                      <option value="Bangalore Medical College (BMCRI)">Bangalore Medical College &amp; Research Institute</option>
+                      <option value="Vydehi Institute of Medical Sciences">Vydehi Institute of Medical Sciences (Whitefield)</option>
+                    </optgroup>
+                    <optgroup label="Top Bangalore Schools (CBSE / ICSE / IB)">
+                      <option value="Bishop Cotton Boys' School">Bishop Cotton Boys' School (MG Road)</option>
+                      <option value="Bishop Cotton Girls' School">Bishop Cotton Girls' School (St. Mark's Road)</option>
+                      <option value="Delhi Public School (DPS)">Delhi Public School (DPS Bangalore South / North / East)</option>
+                      <option value="Canadian International School (CIS)">Canadian International School (CIS Yelahanka)</option>
+                      <option value="Bangalore International School (BIS)">Bangalore International School (BIS Hennur)</option>
+                      <option value="Greenwood High International School">Greenwood High International School (Sarjapur / Whitefield)</option>
+                      <option value="National Public School (NPS)">National Public School (NPS Indiranagar / Koramangala)</option>
+                      <option value="The International School Bangalore (TISB)">The International School Bangalore (TISB)</option>
+                      <option value="Indus International School">Indus International School (Sarjapur)</option>
+                      <option value="Inventure Academy">Inventure Academy (Whitefield - Sarjapur)</option>
+                      <option value="Mallya Aditi International School">Mallya Aditi International School (Yelahanka)</option>
+                      <option value="Bethany High School">Bethany High School (Koramangala)</option>
+                    </optgroup>
+                    <option value="Others">Others (Specify Your Preferred College / School)</option>
                   </select>
                 </div>
 
@@ -1257,6 +1274,7 @@
                   <i class="fa-solid fa-graduation-cap input-icon"></i>
                   <select name="course" id="feePageCourseSelect" class="form-select-control" required>
                     <option value="" disabled selected>Select Course / Academic Program</option>
+                    <option value="School Admission (Nursery to Class 12)">School Admission (Nursery to Class 12 - CBSE / ICSE / IGCSE / IB / PUC)</option>
                     <option value="Engineering & Technology (B.Tech / B.E)">Engineering &amp; Technology (B.Tech / B.E - CSE, AI, ECE, Mech)</option>
                     <option value="Commerce & Accounting (B.Com / M.Com / ACCA)">Commerce &amp; Accounting (B.Com / M.Com / ACCA / CMA)</option>
                     <option value="Management & Business (BBA / MBA / PGDM)">Management &amp; Business (BBA / MBA / PGDM)</option>
