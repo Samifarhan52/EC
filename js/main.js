@@ -14,6 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollHeader();
   initEnquiryPillButtons();
   initHeroWordFlip();
+
+  const heroDiscipline = document.getElementById('searchDiscipline');
+  if (heroDiscipline) {
+    heroDiscipline.addEventListener('change', function() {
+      if (typeof window.updateHeroCollegeOptions === 'function') {
+        window.updateHeroCollegeOptions(this.value, document.getElementById('searchProgramLevel')?.value);
+      }
+    });
+  }
 });
 
 /* ==========================================================================
@@ -409,7 +418,7 @@ const DIRECTORY_COLLEGES = [
   {
     id: 'c19',
     name: "Nitte Meenakshi Institute of Technology (NMIT)",
-    logo: "images/logos/nmit.png",
+    logo: "images/logos/nmit.svg",
     stream: "engineering",
     streamBadge: "Engineering & AI",
     location: "Govindapura, Gollahalli, Yelahanka, Bengaluru",
@@ -423,7 +432,7 @@ const DIRECTORY_COLLEGES = [
   {
     id: 'c20',
     name: "New Horizon College of Engineering (NHCE)",
-    logo: "images/logos/nhce.png",
+    logo: "images/logos/nhce.svg",
     stream: "engineering",
     streamBadge: "Engineering & Tech",
     location: "Outer Ring Road, Marathahalli, Bengaluru",
@@ -437,7 +446,7 @@ const DIRECTORY_COLLEGES = [
   {
     id: 'c21',
     name: "Global Academy of Technology (GAT)",
-    logo: "images/logos/gat.png",
+    logo: "images/logos/gat.svg",
     stream: "engineering",
     streamBadge: "Engineering & Tech",
     location: "Ideal Homes, Rajarajeshwarinagar, Bengaluru",
@@ -451,7 +460,7 @@ const DIRECTORY_COLLEGES = [
   {
     id: 'c22',
     name: "REVA University",
-    logo: "images/logos/reva.png",
+    logo: "images/logos/reva.svg",
     stream: "engineering",
     streamBadge: "University & Tech",
     location: "Rukmini Knowledge Park, Kattigenahalli, Yelahanka",
@@ -1792,11 +1801,198 @@ PROGRAM_STREAM_DATA.PG = PROGRAM_STREAM_DATA.pg;
 PROGRAM_STREAM_DATA.OTHERS = PROGRAM_STREAM_DATA.all;
 PROGRAM_STREAM_DATA.others = PROGRAM_STREAM_DATA.all;
 
+window.updateHeroCollegeOptions = function(stream, level) {
+  const collegeSelect = document.getElementById('searchCollege');
+  if (!collegeSelect) return;
+
+  const currentLevel = (level || document.getElementById('searchProgramLevel')?.value || '').toLowerCase();
+  const currentStream = (stream || document.getElementById('searchDiscipline')?.value || '').toLowerCase();
+
+  const isSchool = currentLevel === 'school' || currentLevel === 'schools' ||
+                   currentStream.includes('school') || currentStream === 'cbse' ||
+                   currentStream === 'icse-isc' || currentStream === 'ib' ||
+                   currentStream === 'igcse' || currentStream === 'state-board' ||
+                   currentStream === 'pre-primary';
+
+  const isCommerce = currentStream === 'commerce' || currentStream === 'bcom' || currentStream === 'mcom' ||
+                     currentStream === 'management' || currentStream === 'bba' || currentStream === 'mba' ||
+                     currentStream === 'ba' || currentStream === 'ma' || currentStream === 'law' ||
+                     currentStream === 'ballb' || currentStream === 'llm';
+
+  const isEngineering = currentStream === 'engineering' || currentStream === 'btech' || currentStream === 'mtech' ||
+                        currentStream === 'computer-applications' || currentStream === 'bca' || currentStream === 'mca' ||
+                        currentStream === 'architecture' || currentStream === 'barch' || currentStream === 'march';
+
+  const isMedical = currentStream === 'medical' || currentStream === 'mbbs' || currentStream === 'bds' ||
+                    currentStream === 'md-ms' || currentStream === 'pharmacy' || currentStream === 'bpharm' ||
+                    currentStream === 'mpharm' || currentStream === 'science' || currentStream === 'bsc' ||
+                    currentStream === 'msc';
+
+  if (isSchool) {
+    collegeSelect.innerHTML = `
+      <option value="all">All Premier Bangalore Schools (144+ Schools)</option>
+      <option value="St. Joseph's Boys' High School">St. Joseph's Boys' High School (Museum Road)</option>
+      <option value="Bishop Cotton Boys' School">Bishop Cotton Boys' School (St. Mark's Road)</option>
+      <option value="Bishop Cotton Girls' School">Bishop Cotton Girls' School (St. Mark's Road)</option>
+      <option value="Canadian International School">Canadian International School (CIS Yelahanka)</option>
+      <option value="Bangalore International School">Bangalore International School (BIS Hennur)</option>
+      <option value="Greenwood High">Greenwood High International School (Sarjapur / Whitefield)</option>
+      <option value="Indus International School">Indus International School (Sarjapur)</option>
+      <option value="Inventure Academy">Inventure Academy (Whitefield - Sarjapur)</option>
+      <option value="Mallya Aditi International School">Mallya Aditi International School (Yelahanka)</option>
+      <option value="National Public School">National Public School (NPS Indiranagar / Koramangala / Rajajinagar / HSR)</option>
+      <option value="The International School Bangalore">The International School Bangalore (TISB)</option>
+      <option value="Stonehill International School">Stonehill International School (Jalahalli)</option>
+      <option value="Vidyashilp Academy">Vidyashilp Academy (Jakkur)</option>
+      <option value="Bethany High School">Bethany High School (Koramangala)</option>
+      <option value="BGS National Public School">BGS National Public School (Hulimavu)</option>
+      <option value="Christ Academy">Christ Academy ICSE School / Junior College</option>
+      <option value="Chrysalis High">Chrysalis High (Varthur / Bannerghatta)</option>
+      <option value="Clarence High School">Clarence High School (Richards Town)</option>
+      <option value="Baldwin Boys' High School">Baldwin Boys' High School (Richmond Town)</option>
+      <option value="Baldwin Girls' High School">Baldwin Girls' High School (Richmond Town)</option>
+      <option value="Army Public School">Army Public School (Kamaraj Road)</option>
+      <option value="Sri Kumaran Children's Home">Sri Kumaran Children's Home</option>
+      <option value="Delhi Public School">Delhi Public School (DPS Bangalore South / North / East)</option>
+      <option value="Others">Others (Specify Preferred School)</option>
+    `;
+    return;
+  }
+
+  if (isCommerce) {
+    collegeSelect.innerHTML = `
+      <option value="all">All Top Commerce &amp; Management Colleges</option>
+      <option value="St. Joseph's College of Commerce (SJCC)">St. Joseph's College of Commerce (SJCC - Brigade Road)</option>
+      <option value="St. Joseph's University">St. Joseph's University (SJU - Langford Road)</option>
+      <option value="Christ University">Christ University (Central, BGR &amp; Yeshwanthpur)</option>
+      <option value="Mount Carmel College">Mount Carmel College (MCC - Palace Road)</option>
+      <option value="NMIMS Mumbai">NMIMS Deemed University (Mumbai &amp; Bengaluru Campus)</option>
+      <option value="Symbiosis International">Symbiosis International University (SIU Bengaluru &amp; Pune)</option>
+      <option value="Jain University">Jain University (CMS - Center for Management Studies)</option>
+      <option value="Kristu Jayanti College">Kristu Jayanti College (KJC Autonomous)</option>
+      <option value="Presidency College">Presidency College &amp; University</option>
+      <option value="REVA University">REVA University (School of Commerce &amp; Management)</option>
+      <option value="Dayananda Sagar">Dayananda Sagar College of Arts, Science &amp; Commerce</option>
+      <option value="BMS College of Commerce">BMS College of Commerce &amp; Management (BMSCCM)</option>
+      <option value="MES College">MES College of Arts, Commerce &amp; Science (Malleswaram)</option>
+      <option value="Bishop Cotton Women's">Bishop Cotton Women's Christian College</option>
+      <option value="Ramaiah College">Ramaiah College of Arts, Science &amp; Commerce (RCASC)</option>
+      <option value="Acharya Institute">Acharya Institute of Graduate Studies (AIGS)</option>
+      <option value="New Horizon College">New Horizon College (Kasturinagar / Marathahalli)</option>
+      <option value="Others">Others (Specify Preferred Commerce College)</option>
+    `;
+    return;
+  }
+
+  if (isEngineering) {
+    collegeSelect.innerHTML = `
+      <option value="all">All Tier-1 Engineering &amp; Technology Colleges</option>
+      <option value="RV College of Engineering">RV College of Engineering (RVCE - Mysore Road)</option>
+      <option value="RV Institute of Technology">RV Institute of Technology &amp; Management (RVITM)</option>
+      <option value="RV University">RV University (RVU)</option>
+      <option value="BMS College of Engineering">BMS College of Engineering (BMSCE - Basavanagudi)</option>
+      <option value="BMS Institute of Technology">BMS Institute of Technology &amp; Management (BMSIT)</option>
+      <option value="PES University">PES University (Ring Road Campus &amp; Electronic City)</option>
+      <option value="Ramaiah Institute">Ramaiah Institute of Technology (MSRIT - Mathikere)</option>
+      <option value="Ramaiah University (RUAS)">Ramaiah University of Applied Sciences (RUAS Peenya)</option>
+      <option value="Vellore Institute of Technology">Vellore Institute of Technology (VIT)</option>
+      <option value="Dayananda Sagar">Dayananda Sagar College of Engineering (DSCE)</option>
+      <option value="Dayananda Sagar Academy">Dayananda Sagar Academy of Technology (DSATM)</option>
+      <option value="New Horizon College">New Horizon College of Engineering (NHCE)</option>
+      <option value="Nitte Meenakshi">Nitte Meenakshi Institute of Technology (NMIT)</option>
+      <option value="Sir M. Visvesvaraya">Sir M. Visvesvaraya Institute of Technology (SMVIT)</option>
+      <option value="Presidency University">Presidency University (School of Engineering)</option>
+      <option value="REVA University">REVA University (Faculty of Engineering)</option>
+      <option value="Acharya Institute">Acharya Institute of Technology (AIT)</option>
+      <option value="CMR Institute of Technology">CMR Institute of Technology (CMRIT)</option>
+      <option value="Cambridge Institute">Cambridge Institute of Technology (CIT)</option>
+      <option value="Global Academy">Global Academy of Technology (GAT)</option>
+      <option value="RNS Institute of Technology">RNS Institute of Technology (RNSIT)</option>
+      <option value="SJB Institute">SJB Institute of Technology (SJBIT)</option>
+      <option value="East Point College">East Point College of Engineering &amp; Technology</option>
+      <option value="HKBK College">HKBK College of Engineering (Nagawara)</option>
+      <option value="Atria Institute">Atria Institute of Technology (Hebbal)</option>
+      <option value="Christ University Engineering">Christ University Faculty of Engineering (Kengeri)</option>
+      <option value="Jain University Engineering">Jain University Faculty of Engineering (FET)</option>
+      <option value="Others">Others (Specify Preferred Engineering College)</option>
+    `;
+    return;
+  }
+
+  if (isMedical) {
+    collegeSelect.innerHTML = `
+      <option value="all">All Top Medical &amp; Healthcare Colleges</option>
+      <option value="Bangalore Medical College">Bangalore Medical College and Research Institute (BMCRI)</option>
+      <option value="Vydehi Institute">Vydehi Institute of Medical Sciences &amp; Research Centre</option>
+      <option value="St. John's Medical College">St. John's Medical College (Koramangala)</option>
+      <option value="Ramaiah Medical College">M.S. Ramaiah Medical College (MSRMC)</option>
+      <option value="Kempegowda Institute">Kempegowda Institute of Medical Sciences (KIMS)</option>
+      <option value="Dr. B.R. Ambedkar Medical">Dr. B.R. Ambedkar Medical College</option>
+      <option value="RajaRajeswari Medical">RajaRajeswari Medical College &amp; Hospital (RRMCH)</option>
+      <option value="East Point Medical">East Point College of Medical Sciences</option>
+      <option value="Dayananda Sagar Medical">Dayananda Sagar College of Dental Sciences / Medical</option>
+      <option value="Oxford Medical College">The Oxford Medical College, Hospital &amp; Research Centre</option>
+      <option value="BGS Global Institute">BGS Global Institute of Medical Sciences</option>
+      <option value="Sri Siddhartha Medical">Sri Siddhartha Medical College</option>
+      <option value="The Oxford College of Pharmacy">The Oxford College of Pharmacy &amp; Nursing</option>
+      <option value="Krupanidhi College">Krupanidhi College of Pharmacy &amp; Nursing</option>
+      <option value="Others">Others (Specify Preferred Medical College)</option>
+    `;
+    return;
+  }
+
+  // Default: Comprehensive list with organized optgroups including St. Joseph's College of Commerce!
+  collegeSelect.innerHTML = `
+    <option value="all">All Premier Colleges (Bangalore &amp; India)</option>
+    <optgroup label="Top Commerce &amp; Management Colleges">
+      <option value="St. Joseph's College of Commerce (SJCC)">St. Joseph's College of Commerce (SJCC - Brigade Road)</option>
+      <option value="St. Joseph's University">St. Joseph's University (SJU - Langford Road)</option>
+      <option value="Christ University">Christ University (Central &amp; BGR Campus)</option>
+      <option value="Mount Carmel College">Mount Carmel College (MCC - Palace Road)</option>
+      <option value="NMIMS Mumbai">NMIMS Deemed University (Mumbai &amp; Bengaluru)</option>
+      <option value="Symbiosis International">Symbiosis International (SIU Bengaluru &amp; Pune)</option>
+      <option value="Jain University">Jain University (CMS / FET)</option>
+      <option value="Kristu Jayanti College">Kristu Jayanti College (KJC Autonomous)</option>
+      <option value="Presidency College">Presidency College &amp; University</option>
+      <option value="Dayananda Sagar">Dayananda Sagar College of Commerce</option>
+    </optgroup>
+    <optgroup label="Tier-1 Autonomous Engineering">
+      <option value="RV College of Engineering">RV College of Engineering (RVCE)</option>
+      <option value="RV Institute of Technology">RV Institute of Technology &amp; Management (RVITM)</option>
+      <option value="RV University">RV University (RVU)</option>
+      <option value="BMS College of Engineering">BMS College of Engineering (BMSCE)</option>
+      <option value="BMS Institute of Technology">BMS Institute of Technology (BMSIT)</option>
+      <option value="PES University">PES University (Ring Road / EC)</option>
+      <option value="Ramaiah Institute">Ramaiah Institute of Technology (MSRIT)</option>
+      <option value="Ramaiah University (RUAS)">Ramaiah University (RUAS Peenya)</option>
+      <option value="Vellore Institute of Technology">Vellore Institute of Technology (VIT)</option>
+      <option value="Dayananda Sagar">Dayananda Sagar College (DSCE / DSATM)</option>
+      <option value="New Horizon College">New Horizon College of Engg (NHCE)</option>
+      <option value="Nitte Meenakshi">Nitte Meenakshi Institute (NMIT)</option>
+      <option value="Sir M. Visvesvaraya">Sir M. Visvesvaraya Institute (SMVIT)</option>
+    </optgroup>
+    <optgroup label="Medical &amp; Allied Health Sciences">
+      <option value="Bangalore Medical College">Bangalore Medical College (BMCRI)</option>
+      <option value="Vydehi Institute">Vydehi Institute of Medical Sciences</option>
+      <option value="St. John's Medical College">St. John's Medical College</option>
+      <option value="Ramaiah Medical College">Ramaiah Medical College (MSRMC)</option>
+      <option value="Kempegowda Institute">Kempegowda Institute (KIMS)</option>
+    </optgroup>
+    <optgroup label="Top Schools (Bangalore &amp; International)">
+      <option value="St. Joseph's Boys' High School">St. Joseph's Boys' High School (Museum Road)</option>
+      <option value="Bishop Cotton Boys' School">Bishop Cotton Boys' School</option>
+      <option value="Canadian International School">Canadian International School (CIS)</option>
+      <option value="Greenwood High">Greenwood High International School</option>
+      <option value="Indus International School">Indus International School</option>
+      <option value="National Public School">National Public School (NPS)</option>
+    </optgroup>
+    <option value="Others">Others (Specify Preferred College / School)</option>
+  `;
+};
+
 window.handleProgramLevelChange = function(level) {
   const disciplineSelect = document.getElementById('searchDiscipline');
-  const collegeSelect = document.getElementById('searchCollege');
   const normLevel = (level || '').toLowerCase();
-  const isSchool = normLevel === 'school' || normLevel === 'schools';
 
   if (disciplineSelect) {
     const data = PROGRAM_STREAM_DATA[level] || PROGRAM_STREAM_DATA[normLevel] || PROGRAM_STREAM_DATA.all;
@@ -1820,54 +2016,8 @@ window.handleProgramLevelChange = function(level) {
     }
   }
 
-  if (collegeSelect) {
-    if (isSchool) {
-      collegeSelect.innerHTML = `
-        <option value="all">All Premier Bangalore Schools (144 Schools)</option>
-        <option value="Bishop Cotton Boys' School">Bishop Cotton Boys' School (MG Road)</option>
-        <option value="Bishop Cotton Girls' School">Bishop Cotton Girls' School (St. Mark's Road)</option>
-        <option value="Delhi Public School">Delhi Public School (DPS Bangalore South / North / East)</option>
-        <option value="Canadian International School">Canadian International School (CIS Yelahanka)</option>
-        <option value="Bangalore International School">Bangalore International School (BIS Hennur)</option>
-        <option value="Bethany High School">Bethany High School (Koramangala)</option>
-        <option value="BGS National Public School">BGS National Public School (Hulimavu)</option>
-        <option value="Christ Academy">Christ Academy ICSE School / Junior College</option>
-        <option value="Greenwood High">Greenwood High International School (Sarjapur / Whitefield)</option>
-        <option value="Indus International School">Indus International School (Sarjapur)</option>
-        <option value="Inventure Academy">Inventure Academy (Whitefield - Sarjapur)</option>
-        <option value="Mallya Aditi International School">Mallya Aditi International School (Yelahanka)</option>
-        <option value="National Public School">National Public School (NPS Indiranagar / Koramangala / Rajajinagar)</option>
-        <option value="The International School Bangalore">The International School Bangalore (TISB)</option>
-        <option value="Stonehill International School">Stonehill International School (Jalahalli)</option>
-        <option value="Vidyashilp Academy">Vidyashilp Academy (Jakkur)</option>
-        <option value="Chrysalis High">Chrysalis High (Varthur / Bannerghatta)</option>
-        <option value="Clarence High School">Clarence High School (Richards Town)</option>
-        <option value="St. Joseph's Boys' High School">St. Joseph's Boys' High School (Museum Road)</option>
-        <option value="Baldwin Boys' High School">Baldwin Boys' High School (Richmond Town)</option>
-        <option value="Baldwin Girls' High School">Baldwin Girls' High School (Richmond Town)</option>
-        <option value="Army Public School">Army Public School (Kamaraj Road)</option>
-        <option value="Sri Kumaran Children's Home">Sri Kumaran Children's Home</option>
-        <option value="Others">Others (Specify Preferred School)</option>
-      `;
-    } else {
-      collegeSelect.innerHTML = `
-        <option value="all">All Premier Colleges (Bangalore &amp; India)</option>
-        <option value="Christ University">Christ University (Central &amp; BGR)</option>
-        <option value="RV College of Engineering">RV College of Engineering (RVCE)</option>
-        <option value="BMS College of Engineering">BMS College of Engineering (BMSCE)</option>
-        <option value="Ramaiah Institute">Ramaiah Institute of Technology (MSRIT)</option>
-        <option value="Dayananda Sagar">Dayananda Sagar College (DSCE)</option>
-        <option value="PES University">PES University (Ring Road / EC)</option>
-        <option value="Vellore Institute of Technology">Vellore Institute of Technology (VIT)</option>
-        <option value="Jain University">Jain University Bangalore</option>
-        <option value="St. Joseph's University">St. Joseph's University (SJU)</option>
-        <option value="Vydehi Institute">Vydehi Institute of Medical Sciences</option>
-        <option value="Presidency University">Presidency University</option>
-        <option value="Sir M. Visvesvaraya">Sir M. Visvesvaraya Institute (SMVIT)</option>
-        <option value="Others">Others (Specify Preferred College)</option>
-      `;
-    }
-  }
+  // Update colleges based on the new program level and current stream
+  window.updateHeroCollegeOptions(disciplineSelect ? disciplineSelect.value : '', level);
 };
 
 window.handleHeroQuickSearch = function(e) {
@@ -1972,12 +2122,6 @@ window.handleHeroQuickSearch = function(e) {
   }
 
   // If a program level or stream was chosen or custom typed
-  currentDirectoryMode = 'programs';
-  const modeCollegesBtn = document.getElementById('modeCollegesBtn');
-  const modeProgramsBtn = document.getElementById('modeProgramsBtn');
-  if (modeProgramsBtn) modeProgramsBtn.classList.add('active');
-  if (modeCollegesBtn) modeCollegesBtn.classList.remove('active');
-
   // Map stream/course to category filter
   let targetFilter = 'all';
   const streamLower = (effectiveDisc || '').toLowerCase();
@@ -1988,6 +2132,15 @@ window.handleHeroQuickSearch = function(e) {
   } else if (['medical', 'mbbs', 'bds', 'md-ms', 'pharmacy', 'bpharm', 'mpharm', 'science', 'bsc', 'msc'].some(k => streamLower.includes(k))) {
     targetFilter = 'medical';
   }
+
+  // Display matching colleges list for the chosen stream
+  currentDirectoryMode = 'colleges';
+  const modeCollegesBtn = document.getElementById('modeCollegesBtn');
+  const modeProgramsBtn = document.getElementById('modeProgramsBtn');
+  const modeSchoolsBtn = document.getElementById('modeSchoolsBtn');
+  if (modeCollegesBtn) modeCollegesBtn.classList.add('active');
+  if (modeProgramsBtn) modeProgramsBtn.classList.remove('active');
+  if (modeSchoolsBtn) modeSchoolsBtn.classList.remove('active');
 
   currentCategoryFilter = targetFilter;
   document.querySelectorAll('.filter-tag').forEach(p => {

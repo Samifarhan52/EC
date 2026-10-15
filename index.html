@@ -617,7 +617,7 @@
         <a href="schools.html" class="nav-link">Schools</a>
         <a href="#servicesSection" class="nav-link">Services</a>
         <a href="#howWeWork" class="nav-link">How We Work</a>
-        <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="nav-link nav-link-entrance-prep" style="color: #2563eb; font-weight: 750;"><i class="fa-solid fa-bolt" style="color: #f59e0b;"></i> Entrance Prep</a>
+        <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="nav-link nav-link-entrance-prep" style="color: #2563eb; font-weight: 750;"><i class="fa-solid fa-bolt" style="color: #f59e0b;"></i> Prepare on StudentEntrance</a>
         <a href="#directorySection" class="nav-link" onclick="if(window.switchDirectoryMode){window.switchDirectoryMode('programs');}">Programs</a>
         <a href="#faqSection" class="nav-link">FAQ</a>
         <div class="mobile-nav-ctas">
@@ -757,7 +757,7 @@
                 Study Stream / Course <span class="required-star">*</span>
               </label>
               <div class="search-select-wrap">
-                <select id="searchDiscipline" name="discipline" class="search-select-control">
+                <select id="searchDiscipline" name="discipline" class="search-select-control" onchange="if(typeof window.updateHeroCollegeOptions === 'function') window.updateHeroCollegeOptions(this.value)">
                   <option value="all">All Disciplines &amp; Streams</option>
                   <option value="engineering">Engineering &amp; Technology (B.Tech / B.E / M.Tech)</option>
                   <option value="management">Management &amp; MBA (BBA / MBA / PGDM)</option>
@@ -800,10 +800,10 @@
                     <option value="Dayananda Sagar">Dayananda Sagar College (DSCE / DSATM)</option>
                   </optgroup>
                   <optgroup label="Top Commerce &amp; Management">
-                    <option value="Christ University">Christ University (Central &amp; BGR)</option>
-                    <option value="NMIMS Mumbai">NMIMS (Mumbai &amp; Bengaluru)</option>
                     <option value="St. Joseph's College of Commerce">St. Joseph's College of Commerce (SJCC)</option>
                     <option value="St. Joseph's University">St. Joseph's University (SJU)</option>
+                    <option value="Christ University">Christ University (Central &amp; BGR)</option>
+                    <option value="NMIMS Mumbai">NMIMS (Mumbai &amp; Bengaluru)</option>
                     <option value="Mount Carmel College">Mount Carmel College (MCC)</option>
                     <option value="Jain University">Jain University (CMS / FET)</option>
                     <option value="Kristu Jayanti College">Kristu Jayanti College</option>
@@ -1586,36 +1586,39 @@
         </div>
       </div>
 
-      <!-- Admissions & Student Entrance Preparation Poster Banner -->
+      <!-- Admissions & Student Entrance Preparation Poster Banner (Fast WebP with Fallback) -->
       <div class="howWork-videoWrap" onclick="openRegisterModal()" style="cursor: pointer;" title="Click to enquire for Direct Admissions &amp; Entrance Exam Preparation">
-        <img src="images/admissions-entrance-poster.png" alt="Direct College Admissions &amp; Student Entrance Exam Preparation - Bangalore &amp; Premier Universities" loading="lazy">
+        <picture>
+          <source srcset="images/admissions-entrance-poster.webp" type="image/webp">
+          <img src="images/admissions-entrance-poster.png" alt="Direct College Admissions &amp; Student Entrance Exam Preparation - Bangalore &amp; Premier Universities" loading="lazy" width="1376" height="768" decoding="async">
+        </picture>
       </div>
 
       <!-- ==============================================================================
-           FEATURE HIGHLIGHT: STUDENTENTRANCE.COM FREE ENTRANCE PREPARATION PORTAL
+           FEATURE HIGHLIGHT: PREPARE ON STUDENTENTRANCE.COM PORTAL
            ============================================================================== -->
       <div class="student-entrance-highlight-banner" id="studentEntranceHighlight">
         <div class="seh-badge">
           <i class="fa-solid fa-bolt-lightning"></i>
-          <span>Official Entrance Exam Preparation Partner • Free Portal</span>
+          <span>Official Entrance Preparation Partner • StudentEntrance.com</span>
         </div>
         <div class="seh-content-grid">
           <div class="seh-info-side">
             <h3 class="seh-title">
-              Prepare for KCET, COMEDK, JEE &amp; NEET on <span class="seh-highlight">StudentEntrance.com</span>
+              Prepare on <span class="seh-highlight">StudentEntrance.com</span> for KCET, COMEDK, JEE &amp; NEET
             </h3>
             <p class="seh-desc">
-              Ace your upcoming competitive entrance exams with India's dedicated preparation portal. Practice with timed full-length mock tests, chapter-wise question banks, previous years' solved papers, and real-time rank predictors — <strong>100% Free</strong> for all aspirants.
+              Ace your upcoming competitive entrance exams with India's dedicated preparation portal. Practice with timed full-length mock tests, chapter-wise question banks, previous years' solved papers, and real-time rank predictors on StudentEntrance.com.
             </p>
             <div class="seh-tags-row">
-              <span class="seh-tag"><i class="fa-solid fa-circle-check"></i> Free Full-Length Mock Tests</span>
+              <span class="seh-tag"><i class="fa-solid fa-circle-check"></i> Full-Length Mock Tests</span>
               <span class="seh-tag"><i class="fa-solid fa-circle-check"></i> Real-Time Rank Predictor</span>
               <span class="seh-tag"><i class="fa-solid fa-circle-check"></i> Chapter-Wise Question Banks</span>
               <span class="seh-tag"><i class="fa-solid fa-circle-check"></i> Instant Score Analytics</span>
             </div>
             <div class="seh-actions-row">
-              <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="seh-btn-primary" aria-label="Visit StudentEntrance.com for Free Mock Tests">
-                <span>Start Free Preparation on StudentEntrance.com</span>
+              <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="seh-btn-primary" aria-label="Visit StudentEntrance.com">
+                <span>Prepare on StudentEntrance.com</span>
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
               </a>
               <a href="tel:9731998555" class="seh-btn-phone" aria-label="Call Entrance Prep Counsellor">
@@ -1626,7 +1629,7 @@
           </div>
           <div class="seh-cards-side">
             <div class="seh-exam-mini-grid">
-              <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="seh-exam-card card-kcet" title="Practice Free KCET 2027 Mock Tests">
+              <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="seh-exam-card card-kcet" title="Practice KCET 2027 Mock Tests">
                 <div class="seh-exam-icon"><i class="fa-solid fa-graduation-cap"></i></div>
                 <div class="seh-exam-info">
                   <div class="seh-exam-name">KCET 2027</div>
@@ -1634,7 +1637,7 @@
                 </div>
                 <span class="seh-exam-arrow"><i class="fa-solid fa-chevron-right"></i></span>
               </a>
-              <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="seh-exam-card card-comedk" title="Practice Free COMEDK UGET 2027 Mock Tests">
+              <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="seh-exam-card card-comedk" title="Practice COMEDK UGET 2027 Mock Tests">
                 <div class="seh-exam-icon"><i class="fa-solid fa-laptop-code"></i></div>
                 <div class="seh-exam-info">
                   <div class="seh-exam-name">COMEDK UGET 2027</div>
@@ -1642,7 +1645,7 @@
                 </div>
                 <span class="seh-exam-arrow"><i class="fa-solid fa-chevron-right"></i></span>
               </a>
-              <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="seh-exam-card card-jee" title="Practice Free JEE Main &amp; Advanced Mock Tests">
+              <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="seh-exam-card card-jee" title="Practice JEE Main &amp; Advanced Mock Tests">
                 <div class="seh-exam-icon"><i class="fa-solid fa-atom"></i></div>
                 <div class="seh-exam-info">
                   <div class="seh-exam-name">JEE Main &amp; Advanced</div>
@@ -1650,7 +1653,7 @@
                 </div>
                 <span class="seh-exam-arrow"><i class="fa-solid fa-chevron-right"></i></span>
               </a>
-              <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="seh-exam-card card-neet" title="Practice Free NEET UG Medical Mock Tests">
+              <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="seh-exam-card card-neet" title="Practice NEET UG Medical Mock Tests">
                 <div class="seh-exam-icon"><i class="fa-solid fa-stethoscope"></i></div>
                 <div class="seh-exam-info">
                   <div class="seh-exam-name">NEET UG Medical</div>
@@ -2150,14 +2153,14 @@
             <span class="live-pulse-dot"></span> 2027 Admissions Live
           </span>
           <span class="live-pill-tag live-tag-entrance">
-            <i class="fa-solid fa-bolt-lightning"></i> Free Entrance Prep
+            <i class="fa-solid fa-bolt-lightning"></i> Prepare on StudentEntrance
           </span>
         </div>
 
         <!-- Headline & Short Intro -->
         <h3 class="admission-alert-title" id="admissionAlertHeadline">2027 Admissions Live</h3>
         <p class="admission-alert-subtext">
-          Verified Institutional Quota Seats &amp; Free Entrance Exam Guidance.
+          Verified Institutional Quota Seats &amp; Entrance Exam Guidance.
         </p>
 
         <!-- Feature List with Blue Circular Checkmarks (Short & Focused) -->
@@ -2172,7 +2175,7 @@
           </li>
           <li class="checklist-item">
             <i class="fa-solid fa-circle-check"></i>
-            <span><strong>Entrance Preparations</strong> – Free mock tests on StudentEntrance.com</span>
+            <span><strong>Entrance Preparations</strong> – Practice on StudentEntrance.com</span>
           </li>
           <li class="checklist-item">
             <i class="fa-solid fa-circle-check"></i>
@@ -2193,7 +2196,7 @@
             </a>
             <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="btn-popup-secondary">
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              <span>Free Entrance Prep</span>
+              <span>Prepare on StudentEntrance</span>
             </a>
           </div>
         </div>
@@ -2679,7 +2682,7 @@
           <span>Upcoming Entrance Exam Preparation</span>
         </div>
         <p class="prep-desc">
-          If you want to prepare for your upcoming entrance tests (KCET, COMEDK, JEE Main, NEET, MAT, CLAT & Foundation), you can practice free mock tests, rank predictors, and study modules on:
+          If you want to prepare for your upcoming entrance tests (KCET, COMEDK, JEE Main, NEET, MAT, CLAT &amp; Foundation), practice mock tests, rank predictors, and study modules on:
         </p>
         <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="btn-entrance-portal">
           <i class="fa-solid fa-arrow-up-right-from-square"></i>
