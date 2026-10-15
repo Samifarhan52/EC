@@ -2046,6 +2046,105 @@
   </section>
 
   <!-- ==============================================================================
+       6. ENTRANCE POPUP MODAL: LIVE ADMISSIONS & ENTRANCE ALERT (HELLOBOTZ-STYLE)
+       ============================================================================== -->
+  <div class="modal-overlay admission-alert-overlay" id="admissionAlertModal" role="dialog" aria-modal="true" aria-labelledby="admissionAlertHeadline">
+    <div class="admission-alert-card">
+      <!-- Circular Close Button (Matches Hellobotz Screenshot) -->
+      <button type="button" class="modal-close-btn admission-alert-close-btn" id="closeAdmissionAlertBtn" aria-label="Close alert popup">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Flipping College Header Box (Flips every 2s: Christ, Josephs, NMIMS, Symbiosis, BMS, PES, RVCE, MSRIT, VIT) -->
+      <div class="admission-alert-header">
+        <div class="popup-flip-box">
+          <div class="popup-flip-inner" id="popupFlipBrand">
+            <div class="popup-flip-crest-wrap">
+              <img src="images/logos/christ.png" alt="Christ University Official Logo" id="popupFlipLogo" class="popup-flip-crest-img">
+            </div>
+            <div class="popup-flip-info-wrap">
+              <div class="popup-flip-name" id="popupFlipCollegeName">Christ University</div>
+              <div class="popup-flip-sub" id="popupFlipCollegeTagline">Central, BGR &amp; Kengeri Campus</div>
+              <div class="popup-flip-meta" id="popupFlipCollegeMeta">
+                <span class="badge-pill pill-indigo">NAAC A+</span> • Bangalore
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alert Body Content -->
+      <div class="admission-alert-body">
+        <!-- Live Badges -->
+        <div class="admission-live-badge-row">
+          <span class="live-pill-tag live-tag-application">
+            <span class="live-pulse-dot"></span> Application Live 2026
+          </span>
+          <span class="live-pill-tag live-tag-entrance">
+            <i class="fa-solid fa-bolt-lightning"></i> Entrance Exam Live
+          </span>
+        </div>
+
+        <!-- Headline & Short Intro -->
+        <h3 class="admission-alert-title" id="admissionAlertHeadline">Direct Admissions &amp; Entrance Live</h3>
+        <p class="admission-alert-subtext">
+          Management quota seats are filling rapidly across premier institutions. Secure your guaranteed admission &amp; mock test preparation today.
+        </p>
+
+        <!-- Feature List with Blue Circular Checkmarks (Like Hellobotz) -->
+        <ul class="admission-checklist" role="list">
+          <li class="checklist-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span><strong>Application Forms Live</strong> – Christ, RVCE, BMS, PES, NMIMS, Symbiosis</span>
+          </li>
+          <li class="checklist-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span><strong>Entrance Exam Live</strong> – Free Mock Tests &amp; Prep on StudentEntrance</span>
+          </li>
+          <li class="checklist-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span><strong>Guaranteed Quota Allotment</strong> – Fast-track direct registrar seats</span>
+          </li>
+          <li class="checklist-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span><strong>Merit Scholarships</strong> – Up to 30% fee waivers &amp; trust concessions</span>
+          </li>
+          <li class="checklist-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span><strong>1-on-1 Profile Counselling</strong> – Bangalore &amp; Abroad Expert Advisors</span>
+          </li>
+        </ul>
+
+        <!-- Action Buttons -->
+        <div class="admission-alert-actions">
+          <button type="button" class="btn-popup-primary" id="btnPopupApplyNow">
+            <span>Apply Now / Book Quota Seat</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <div class="popup-secondary-links-grid">
+            <a href="fee-structure.html" class="btn-popup-secondary">
+              <i class="fa-solid fa-file-invoice-dollar"></i>
+              <span>View Fee Structure</span>
+            </a>
+            <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="btn-popup-secondary">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span>Free Entrance Prep</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Helpline Contact Note -->
+        <div class="admission-alert-footer-note">
+          <span>Direct Helpline: </span>
+          <a href="tel:9845371459" class="phone-link">9845371459</a> •
+          <a href="tel:8884058241" class="phone-link">8884058241</a> •
+          <a href="tel:9731998555" class="phone-link">9731998555</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==============================================================================
        7. MODAL: QUICK REGISTER MODAL
        ============================================================================== -->
   <div class="modal-overlay" id="registerModal" role="dialog" aria-modal="true" aria-labelledby="registerModalTitle">

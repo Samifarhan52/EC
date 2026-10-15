@@ -2508,6 +2508,345 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
+   HELLOBOTZ-STYLE ADMISSION & ENTRANCE ALERT POPUP MODAL
+   ========================================================================== */
+.admission-alert-overlay {
+  z-index: 2500;
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.admission-alert-card {
+  background: #ffffff;
+  border-radius: 22px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 25px 60px -10px rgba(15, 23, 42, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.35);
+  position: relative;
+  overflow: hidden;
+  transform: scale(0.9) translateY(24px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+}
+
+.modal-overlay.is-active .admission-alert-card {
+  transform: scale(1) translateY(0);
+}
+
+.admission-alert-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  border: none;
+  color: #64748b;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.admission-alert-close-btn:hover {
+  background: #cbd5e1;
+  color: #0f172a;
+  transform: scale(1.08);
+}
+
+/* Header with 3D Flip */
+.admission-alert-header {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+  position: relative;
+}
+
+.popup-flip-box {
+  perspective: 800px;
+}
+
+.popup-flip-inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transform-style: preserve-3d;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+.popup-flip-inner.is-flipping {
+  transform: rotateX(85deg) scale(0.92);
+  opacity: 0;
+}
+
+.popup-flip-crest-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 3px 8px rgba(15, 23, 42, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  flex-shrink: 0;
+}
+
+.popup-flip-crest-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.popup-flip-info-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+  min-width: 0;
+  flex: 1;
+}
+
+.popup-flip-name {
+  font-size: 1.05rem;
+  font-weight: 850;
+  color: #0f172a;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.popup-flip-sub {
+  font-size: 0.76rem;
+  color: #64748b;
+  font-weight: 550;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.popup-flip-meta {
+  font-size: 0.72rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* Alert Body */
+.admission-alert-body {
+  padding: 1.25rem 1.5rem 1.45rem;
+}
+
+.admission-live-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.live-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.live-tag-application {
+  background: rgba(239, 68, 68, 0.08);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.22);
+}
+
+.live-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #dc2626;
+  box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+  animation: pulseRedDot 2s infinite;
+}
+
+@keyframes pulseRedDot {
+  0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+  70% { box-shadow: 0 0 0 6px rgba(220, 38, 38, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+}
+
+.live-tag-entrance {
+  background: rgba(37, 99, 235, 0.08);
+  color: #1d4ed8;
+  border: 1px solid rgba(37, 99, 235, 0.22);
+}
+
+.admission-alert-title {
+  font-size: 1.28rem;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0 0 0.35rem;
+}
+
+.admission-alert-subtext {
+  font-size: 0.84rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 1.1rem;
+}
+
+/* Checklist Items */
+.admission-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.83rem;
+  color: #334155;
+  line-height: 1.35;
+}
+
+.checklist-item i {
+  color: #2563eb;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.checklist-item strong {
+  color: #0f172a;
+  font-weight: 750;
+}
+
+/* Actions */
+.admission-alert-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btn-popup-primary {
+  width: 100%;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 0.85rem 1.25rem;
+  font-size: 0.94rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 10px 22px -4px rgba(37, 99, 235, 0.42);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.btn-popup-primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px -4px rgba(37, 99, 235, 0.52);
+  color: #ffffff;
+}
+
+.popup-secondary-links-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.btn-popup-secondary {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  color: #334155;
+  font-size: 0.78rem;
+  font-weight: 750;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-popup-secondary:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+.admission-alert-footer-note {
+  margin-top: 0.85rem;
+  font-size: 0.72rem;
+  color: #94a3b8;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.admission-alert-footer-note .phone-link {
+  color: #475569;
+  font-weight: 750;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.admission-alert-footer-note .phone-link:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .admission-alert-card {
+    border-radius: 18px;
+    max-width: 94%;
+  }
+  .admission-alert-header {
+    padding: 1.1rem 1.25rem;
+  }
+  .admission-alert-body {
+    padding: 1.1rem 1.25rem 1.35rem;
+  }
+  .admission-alert-title {
+    font-size: 1.15rem;
+  }
+  .popup-secondary-links-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
    10. FOOTER
    ========================================================================== */
 .site-footer {

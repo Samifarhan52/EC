@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCollegesAndProgramsDirectory();
   initConditionalFormFields();
   initModalControllers();
+  initAdmissionAlertPopup();
   initFormSubmissions();
   initMobileNavigation();
   initScrollHeader();
@@ -1028,6 +1029,165 @@ function closeAllModals() {
     m.classList.remove('is-active');
   });
 }
+
+/* ==========================================================================
+   HELLOBOTZ-STYLE ADMISSION ALERT POPUP & 2-SECOND FLIPPING COLLEGE BRAND
+   Colleges: Christ / Jospehs / NMIMS / SYMBIOSIS / BMS / PES / RVCE / MSRIT / VIT
+   ========================================================================== */
+const POPUP_FLIP_COLLEGES = [
+  {
+    name: "Christ University",
+    tagline: "Central, BGR & Kengeri Campus",
+    meta: "NAAC A+ • Bangalore",
+    pillClass: "pill-indigo",
+    logo: "images/logos/christ.png",
+    alt: "Christ University Official Logo"
+  },
+  {
+    name: "St. Joseph's University",
+    tagline: "SJU & SJCC Bengaluru",
+    meta: "NAAC A++ • Autonomous",
+    pillClass: "pill-rose",
+    logo: "images/logos/stjosephs.png",
+    alt: "St. Joseph's University Official Logo"
+  },
+  {
+    name: "NMIMS Deemed University",
+    tagline: "Bengaluru & Mumbai Campus",
+    meta: "Top B-School • NIRF Ranked",
+    pillClass: "pill-rose",
+    logo: "images/logos/nmims.svg",
+    alt: "NMIMS Official Logo"
+  },
+  {
+    name: "Symbiosis International",
+    tagline: "Bengaluru & Pune Campus",
+    meta: "SIU • Category-1 Deemed",
+    pillClass: "pill-amber",
+    logo: "images/logos/symbiosis.svg",
+    alt: "Symbiosis International Official Logo"
+  },
+  {
+    name: "BMS College of Engineering",
+    tagline: "Basavanagudi Main Campus",
+    meta: "78 Yrs Legacy • Autonomous",
+    pillClass: "pill-emerald",
+    logo: "images/logos/bmsce.png",
+    alt: "BMSCE Official Logo"
+  },
+  {
+    name: "PES University",
+    tagline: "RR & Electronic City Campus",
+    meta: "Top CS & Tech • Tier-1",
+    pillClass: "pill-purple",
+    logo: "images/logos/pes.png",
+    alt: "PES University Official Logo"
+  },
+  {
+    name: "RV College of Engineering",
+    tagline: "Mysore Road Bangalore",
+    meta: "Top Engineering • Autonomous",
+    pillClass: "pill-blue",
+    logo: "images/logos/rvce.png",
+    alt: "RVCE Official Logo"
+  },
+  {
+    name: "Ramaiah (MSRIT)",
+    tagline: "Mathikere Bangalore",
+    meta: "NIRF Top 70 • Autonomous",
+    pillClass: "pill-blue",
+    logo: "images/logos/msrit.png",
+    alt: "Ramaiah MSRIT Official Logo"
+  },
+  {
+    name: "VIT University",
+    tagline: "Vellore, Chennai & AP",
+    meta: "NIRF #11 • Inst of Eminence",
+    pillClass: "pill-teal",
+    logo: "images/logos/vit.png",
+    alt: "VIT University Official Logo"
+  }
+];
+
+let popupFlipIndex = 0;
+let popupFlipInterval = null;
+
+function initAdmissionAlertPopup() {
+  const modal = document.getElementById('admissionAlertModal');
+  if (!modal) return;
+
+  // Start the 2-second college flipping interval
+  startPopupCollegeFlip();
+
+  // Primary Action Button: Apply Now / Book Quota Seat
+  const applyBtn = document.getElementById('btnPopupApplyNow');
+  if (applyBtn) {
+    applyBtn.addEventListener('click', () => {
+      closeAdmissionAlertPopup();
+      const activeCollege = POPUP_FLIP_COLLEGES[popupFlipIndex] ? POPUP_FLIP_COLLEGES[popupFlipIndex].name : '';
+      window.openRegisterModal(activeCollege);
+    });
+  }
+
+  // Close button inside the popup card
+  const closeBtn = document.getElementById('closeAdmissionAlertBtn');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeAdmissionAlertPopup();
+    });
+  }
+
+  // Automatic entrance popup as soon as users open the website (700ms smooth delay)
+  setTimeout(() => {
+    openAdmissionAlertPopup();
+  }, 700);
+}
+
+function openAdmissionAlertPopup() {
+  const modal = document.getElementById('admissionAlertModal');
+  if (!modal) return;
+  modal.classList.add('is-active');
+  startPopupCollegeFlip();
+}
+
+function closeAdmissionAlertPopup() {
+  const modal = document.getElementById('admissionAlertModal');
+  if (!modal) return;
+  modal.classList.remove('is-active');
+}
+
+function startPopupCollegeFlip() {
+  if (popupFlipInterval) clearInterval(popupFlipInterval);
+  popupFlipInterval = setInterval(() => {
+    const container = document.getElementById('popupFlipBrand');
+    const logoEl = document.getElementById('popupFlipLogo');
+    const nameEl = document.getElementById('popupFlipCollegeName');
+    const taglineEl = document.getElementById('popupFlipCollegeTagline');
+    const metaEl = document.getElementById('popupFlipCollegeMeta');
+
+    if (!container || !logoEl || !nameEl || !taglineEl || !metaEl) return;
+
+    // Trigger smooth 3D flip
+    container.classList.add('is-flipping');
+
+    setTimeout(() => {
+      popupFlipIndex = (popupFlipIndex + 1) % POPUP_FLIP_COLLEGES.length;
+      const col = POPUP_FLIP_COLLEGES[popupFlipIndex];
+
+      logoEl.src = col.logo;
+      logoEl.alt = col.alt;
+      nameEl.textContent = col.name;
+      taglineEl.textContent = col.tagline;
+      metaEl.innerHTML = `<span class="badge-pill ${col.pillClass}">${col.meta.split('•')[0].trim()}</span> • ${col.meta.split('•')[1] ? col.meta.split('•')[1].trim() : 'Admissions 2026'}`;
+
+      container.classList.remove('is-flipping');
+    }, 280);
+  }, 2000); // exactly 2 seconds as requested!
+}
+
+window.openAdmissionAlertPopup = openAdmissionAlertPopup;
+window.closeAdmissionAlertPopup = closeAdmissionAlertPopup;
 
 window.openRegisterModal = function(prefillCollege = '', prefillCourse = '') {
   let target = 'enquiry.html';
