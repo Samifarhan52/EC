@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="kcetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="56" fill="url(#kcetGrad)" />
+  <circle cx="60" cy="60" r="50" fill="none" stroke="#93c5fd" stroke-width="2" stroke-dasharray="3 2" />
+  <text x="60" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="1">KCET</text>
+  <rect x="25" y="62" width="70" height="16" rx="8" fill="#f59e0b" />
+  <text x="60" y="74" font-family="system-ui, -apple-system, sans-serif" font-size="8" font-weight="900" fill="#0f172a" text-anchor="middle" letter-spacing="1">KEA EXAM</text>
+  <text x="60" y="94" font-family="system-ui, -apple-system, sans-serif" font-size="7" font-weight="750" fill="#bfdbfe" text-anchor="middle" letter-spacing="0.5">KARNATAKA</text>
+</svg>

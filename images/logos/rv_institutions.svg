@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <circle cx="60" cy="60" r="56" fill="#ffffff" stroke="#1d4ed8" stroke-width="2.5" />
+  <!-- Arc Text: Rashtreeya Sikshana Samithi Trust -->
+  <text x="60" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="6.5" font-weight="800" fill="#1e3a8a" text-anchor="middle" letter-spacing="0.3">Rashtreeya Sikshana Samithi</text>
+  <!-- Shield in center -->
+  <path d="M42 34 L78 34 L78 62 C78 76 60 88 60 88 C60 88 42 76 42 62 Z" fill="#1d4ed8" />
+  <path d="M60 34 L78 34 L78 62 C78 76 60 88 60 88 Z" fill="#dc2626" />
+  <text x="60" y="66" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="1">RV</text>
+  <!-- Bottom Text: INSTITUTIONS -->
+  <text x="60" y="104" font-family="system-ui, -apple-system, sans-serif" font-size="8.5" font-weight="900" fill="#1e3a8a" text-anchor="middle" letter-spacing="1.2">INSTITUTIONS</text>
+</svg>
