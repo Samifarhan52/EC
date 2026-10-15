@@ -69,6 +69,9 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -78,7 +81,10 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: visible;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 
 a {
@@ -510,8 +516,17 @@ button, input, select, textarea {
   box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
   cursor: pointer;
   white-space: nowrap !important;
-  flex-shrink: 0;
   text-decoration: none !important;
+}
+
+.brochure-text-short,
+.hotline-text-short {
+  display: none;
+}
+
+.brochure-text-full,
+.hotline-text-full {
+  display: inline;
 }
 
 .header-btn-brochure .icon,
@@ -2337,17 +2352,19 @@ button, input, select, textarea {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(15, 23, 42, 0.82);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  z-index: 2000;
+  z-index: 999999 !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 1rem;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .modal-overlay.is-active {
@@ -2362,6 +2379,7 @@ button, input, select, textarea {
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
+  margin: auto;
   box-shadow: 0 25px 60px rgba(15, 23, 42, 0.35);
   position: relative;
   transform: scale(0.92) translateY(20px);
@@ -2532,20 +2550,24 @@ button, input, select, textarea {
    HELLOBOTZ-STYLE ADMISSION & ENTRANCE ALERT POPUP MODAL
    ========================================================================== */
 .admission-alert-overlay {
-  z-index: 2500;
-  background: rgba(15, 23, 42, 0.72);
+  z-index: 999999 !important;
+  background: rgba(15, 23, 42, 0.78);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  padding: 1rem !important;
 }
 
 .admission-alert-card {
   background: #ffffff;
   border-radius: 22px;
-  max-width: 420px;
+  max-width: 440px;
   width: 100%;
-  box-shadow: 0 25px 60px -10px rgba(15, 23, 42, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.35);
+  max-height: calc(100vh - 30px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  box-shadow: 0 25px 60px -10px rgba(15, 23, 42, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.35);
   position: relative;
-  overflow: hidden;
+  margin: auto;
   transform: scale(0.9) translateY(24px);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
 }
@@ -2556,22 +2578,22 @@ button, input, select, textarea {
 
 .admission-alert-close-btn {
   position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 32px;
-  height: 32px;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background: #e2e8f0;
-  border: none;
-  color: #64748b;
-  font-size: 0.85rem;
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  color: #334155;
+  font-size: 0.95rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 10;
+  z-index: 30;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .admission-alert-close-btn:hover {
@@ -2583,9 +2605,10 @@ button, input, select, textarea {
 /* Header with 3D Flip */
 .admission-alert-header {
   background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
-  padding: 1.25rem 1.5rem;
+  padding: 1.25rem 3.5rem 1.15rem 1.35rem;
   border-bottom: 1px solid rgba(226, 232, 240, 0.9);
   position: relative;
+  border-radius: 22px 22px 0 0;
 }
 
 .popup-flip-box {
@@ -2851,13 +2874,15 @@ button, input, select, textarea {
 @media (max-width: 480px) {
   .admission-alert-card {
     border-radius: 18px;
-    max-width: 94%;
+    max-width: 95%;
+    max-height: calc(100vh - 20px);
   }
   .admission-alert-header {
-    padding: 1.1rem 1.25rem;
+    padding: 1rem 3.25rem 1rem 1.1rem;
+    border-radius: 18px 18px 0 0;
   }
   .admission-alert-body {
-    padding: 1.1rem 1.25rem 1.35rem;
+    padding: 1.1rem 1.15rem 1.25rem;
   }
   .admission-alert-title {
     font-size: 1.15rem;
@@ -3449,41 +3474,77 @@ button, input, select, textarea {
 
 @media (max-width: 768px) {
   .site-header {
-    height: 68px;
+    height: 62px !important;
   }
 
   .header-container {
-    padding: 0 0.85rem;
-    gap: 0.5rem;
+    padding: 0 10px !important;
+    gap: 6px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .container {
-    padding: 0 1rem !important;
+    padding: 0 12px !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .header-logo {
-    height: 36px;
-    max-width: 175px;
+    height: 30px !important;
+    max-width: 130px !important;
+    width: auto !important;
   }
 
-  .hero-main-title {
-    font-size: 2.25rem;
+  .header-action-group {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    flex-shrink: 0 !important;
   }
 
   .header-action-group .header-btn-brochure,
   .header-action-group .sf-btn-icon-secondary {
     display: inline-flex !important;
-    padding: 7px 12px !important;
-    font-size: 0.78rem !important;
+    padding: 6px 12px !important;
+    font-size: 0.76rem !important;
     gap: 5px !important;
+    border-radius: 9999px !important;
   }
 
-  .header-action-group .header-desktop-cta {
-    display: none !important;
+  .header-action-group .header-btn-brochure .icon,
+  .header-action-group .sf-btn-icon-secondary .icon {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 9px !important;
   }
 
+  .header-action-group .header-desktop-cta,
   .header-action-group .sf-btn-icon-primary {
     display: none !important;
+  }
+
+  .mobile-nav-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    border-radius: 8px !important;
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+    font-size: 1.1rem !important;
+    border: 1px solid #e2e8f0 !important;
+    cursor: pointer !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .hero-main-title {
+    font-size: 25px !important;
+    line-height: 1.28 !important;
   }
 
   .hotline-btn-whatsapp {
@@ -3509,54 +3570,42 @@ button, input, select, textarea {
     text-align: center !important;
   }
 
-  .mobile-nav-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 8px;
-    background: #f1f5f9;
-    color: #0f172a;
-    font-size: 1.15rem;
-    border: 1px solid #e2e8f0;
-    margin-left: 4px;
-    cursor: pointer;
-  }
-
   .flipbox-cta-group {
     grid-template-columns: 1fr;
   }
 
   .admission-form-grid {
-    grid-template-columns: 1fr;
-    gap: 0.85rem;
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
   }
 
   .btn-form-submit,
   .form-col-full {
-    grid-column: span 1;
+    grid-column: span 1 !important;
   }
 
   .directory-cards-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 
   .footer-top-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
   }
 
   .modal-dialog-box {
-    padding: 1.5rem 1rem;
-    border-radius: 16px;
+    padding: 1.5rem 1rem !important;
+    border-radius: 16px !important;
   }
 
   /* Ticker Mobile Optimization - Clean full-width marquee, no text cut off */
-  .ticker-cta-fixed {
-    display: none !important;
+  .admissions-ticker-wrap {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow: hidden !important;
   }
 
+  .ticker-cta-fixed,
   .ticker-badge-fixed {
     display: none !important;
   }
@@ -3569,33 +3618,33 @@ button, input, select, textarea {
   }
 
   .ticker-item {
-    font-size: 0.82rem !important;
+    font-size: 0.8rem !important;
     gap: 8px !important;
   }
 
   /* Hero Banner Mobile Spacing & Padding */
   .hero-banner-content {
-    padding: 130px 16px 36px !important;
-    border-radius: 24px !important;
+    padding: 95px 14px 26px !important;
+    border-radius: 20px !important;
     background-position: center 15% !important;
   }
 
   .hero-banner-title {
-    font-size: 30px !important;
-    line-height: 1.25 !important;
-    padding-bottom: 12px !important;
+    font-size: 25px !important;
+    line-height: 1.28 !important;
+    padding-bottom: 8px !important;
   }
 
   .hero-flip-wrap {
-    min-width: 155px !important;
+    min-width: 125px !important;
     height: 1.25em !important;
     margin-left: 4px !important;
   }
 
   .hero-banner-info {
-    font-size: 14.5px !important;
+    font-size: 14px !important;
     line-height: 22px !important;
-    margin: 0 auto 20px !important;
+    margin: 0 auto 18px !important;
     max-width: 100% !important;
   }
 
@@ -3608,7 +3657,7 @@ button, input, select, textarea {
   .hero-cta-btn,
   .hero-cta-btn-secondary {
     width: 100% !important;
-    max-width: 310px !important;
+    max-width: 320px !important;
     padding: 11px 18px !important;
     font-size: 15px !important;
     justify-content: center !important;
@@ -3616,37 +3665,119 @@ button, input, select, textarea {
   }
 
   /* Hero Search Card on Mobile */
+  .hero-search-wrapper {
+    margin-top: -24px !important;
+  }
+
+  .hero-search-tabs-container {
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    padding-bottom: 6px !important;
+  }
+
+  .hero-search-tabs-container::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .hero-search-tabs {
+    display: inline-flex !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    width: max-content !important;
+  }
+
+  .search-tab-pill {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    font-size: 0.8rem !important;
+    padding: 7px 13px !important;
+  }
+
   .hero-search-card {
     padding: 18px 14px !important;
     border-radius: 18px !important;
-    margin-top: -15px !important;
   }
 
-  .search-select-control {
-    height: 46px !important;
-    font-size: 0.88rem !important;
+  .search-fields-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .search-select-control,
+  .search-input-control {
+    height: 48px !important;
+    font-size: 16px !important; /* 16px prevents iOS Safari auto-zoom */
   }
 
   /* Form & Concierge Panels on Mobile */
   .modern-form-card {
-    padding: 22px 16px 26px !important;
+    padding: 20px 14px 24px !important;
     border-radius: 18px !important;
   }
 
   .form-input-control,
-  .form-select-control {
+  .form-select-control,
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="search"],
+  select,
+  textarea {
     height: 48px !important;
-    font-size: 0.92rem !important;
+    font-size: 16px !important;
+  }
+
+  textarea {
+    height: auto !important;
+    min-height: 90px !important;
   }
 
   .concierge-panel {
-    padding: 22px 18px !important;
-    border-radius: 20px !important;
+    padding: 20px 16px !important;
+    border-radius: 18px !important;
   }
 
   .concierge-hotline-btn {
     width: 100% !important;
     justify-content: center !important;
+  }
+
+  /* Schools Page Mobile */
+  .schools-counter-bar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+  .schools-board-pills {
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    flex-wrap: nowrap !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    padding-bottom: 6px !important;
+  }
+
+  .school-board-pill {
+    flex-shrink: 0 !important;
+  }
+
+  .curriculum-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Tables horizontal scroll container */
+  .table-responsive,
+  .fee-table-responsive,
+  .fee-table-container,
+  .comparison-table-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
   }
 
   /* Footer Mobile Alignment */
@@ -3672,35 +3803,41 @@ button, input, select, textarea {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@media (max-width: 576px) {
+  .brochure-text-full,
+  .hotline-text-full {
+    display: none !important;
+  }
+  .brochure-text-short,
+  .hotline-text-short {
+    display: inline !important;
+  }
+}
+
 @media (max-width: 480px) {
-  .hero-banner-content {
-    padding: 100px 12px 28px !important;
-    border-radius: 18px !important;
+  .site-header {
+    height: 58px !important;
   }
 
-  .hero-banner-title {
-    font-size: 24px !important;
-    line-height: 1.25 !important;
-  }
-
-  .container {
-    padding: 0 10px !important;
-  }
-
-  .hero-flip-wrap {
-    min-width: 125px !important;
+  .header-container {
+    padding: 0 8px !important;
+    gap: 4px !important;
   }
 
   .header-logo {
-    height: 32px !important;
-    max-width: 145px !important;
+    height: 28px !important;
+    max-width: 118px !important;
+  }
+
+  .header-action-group {
+    gap: 4px !important;
   }
 
   .header-action-group .header-btn-brochure,
   .header-action-group .sf-btn-icon-secondary {
-    padding: 6px 11px !important;
-    font-size: 0.74rem !important;
-    gap: 5px !important;
+    padding: 5px 9px !important;
+    font-size: 0.72rem !important;
+    gap: 4px !important;
   }
 
   .header-action-group .header-btn-brochure .icon,
@@ -3708,6 +3845,31 @@ button, input, select, textarea {
     width: 18px !important;
     height: 18px !important;
     font-size: 8px !important;
+  }
+
+  .mobile-nav-toggle {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    font-size: 1rem !important;
+  }
+
+  .hero-banner-content {
+    padding: 85px 12px 24px !important;
+    border-radius: 16px !important;
+  }
+
+  .hero-banner-title {
+    font-size: 22px !important;
+    line-height: 1.3 !important;
+  }
+
+  .hero-flip-wrap {
+    min-width: 105px !important;
+  }
+
+  .container {
+    padding: 0 10px !important;
   }
 
   .hotline-btn-whatsapp {
@@ -3724,6 +3886,36 @@ button, input, select, textarea {
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 8px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .header-container {
+    padding: 0 6px !important;
+    gap: 3px !important;
+  }
+
+  .header-logo {
+    height: 25px !important;
+    max-width: 105px !important;
+  }
+
+  .header-action-group .header-btn-brochure,
+  .header-action-group .sf-btn-icon-secondary {
+    padding: 5px 8px !important;
+    font-size: 0.69rem !important;
+    gap: 3px !important;
+  }
+
+  .mobile-nav-toggle {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    font-size: 0.95rem !important;
+  }
+
+  .hero-banner-title {
+    font-size: 20px !important;
   }
 }
 
