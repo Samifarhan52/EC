@@ -355,14 +355,14 @@ button, input, select, textarea {
 }
 
 .header-container {
-  max-width: 1320px;
+  max-width: 1400px;
   width: 100%;
   margin: 0 auto;
   padding: 0 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
+  gap: clamp(1rem, 2vw, 2.25rem);
 }
 
 .brand-logo {
@@ -392,30 +392,31 @@ button, input, select, textarea {
   max-width: 220px;
 }
 
-/* Center Desktop Nav: Home, Programs, Services */
+/* Center Desktop Nav: Home, Schools, Services, How We Work, Prepare, Programs, FAQ */
 .desktop-nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2.75rem;
+  gap: clamp(0.75rem, 1.4vw, 1.6rem);
   flex: 1;
   white-space: nowrap;
 }
 
 .nav-link {
-  color: var(--slate-700);
-  font-weight: 700;
-  font-size: 0.98rem;
-  padding: 6px 0;
+  color: #334155;
+  font-weight: 650;
+  font-size: 0.93rem;
+  padding: 6px 2px;
   position: relative;
   transition: color var(--transition-fast);
   white-space: nowrap !important;
   display: inline-block;
+  text-decoration: none;
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--indigo-600);
+  color: #2563eb;
 }
 
 .nav-link::after {
@@ -435,6 +436,14 @@ button, input, select, textarea {
   width: 100%;
 }
 
+.nav-link-entrance-prep {
+  color: #2563eb !important;
+  font-weight: 750 !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .mobile-nav-ctas {
   display: none;
 }
@@ -442,6 +451,7 @@ button, input, select, textarea {
 .header-action-group {
   display: flex;
   align-items: center;
+  gap: 12px;
   flex-shrink: 0;
   white-space: nowrap;
 }
@@ -482,49 +492,60 @@ button, input, select, textarea {
   box-shadow: 0 8px 24px rgba(245, 158, 11, 0.55);
 }
 
-/* Secondary Header Pill Button (Download Brochure) */
+/* Premium Download Brochure Button (Luxury Vibrant Amber/Orange Gradient) */
+.header-btn-brochure,
 .sf-btn-icon-secondary {
-  background: #ffffff !important;
-  color: #1e293b !important;
-  font-weight: 700;
-  font-size: 0.9rem;
-  padding: 10px 20px;
-  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%) !important;
+  color: #ffffff !important;
+  font-weight: 750;
+  font-size: 0.915rem;
+  padding: 9px 20px;
+  border-radius: 9999px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 9px;
   transition: all var(--transition-fast);
-  border: 1.5px solid #cbd5e1 !important;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
   cursor: pointer;
   white-space: nowrap !important;
   flex-shrink: 0;
   text-decoration: none !important;
 }
 
+.header-btn-brochure .icon,
 .sf-btn-icon-secondary .icon {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  background: #fef3c7;
+  background: rgba(255, 255, 255, 0.24);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: #d97706;
+  color: #ffffff;
+  font-size: 11px;
+  transition: transform 0.2s ease;
 }
 
+.header-btn-brochure:hover,
 .sf-btn-icon-secondary:hover {
-  background: #f8fafc !important;
-  border-color: #f59e0b !important;
-  color: #b45309 !important;
+  background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%) !important;
+  color: #ffffff !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.25);
+  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.48);
 }
 
-.header-action-group {
-  gap: 10px;
+.header-btn-brochure:hover .icon,
+.sf-btn-icon-secondary:hover .icon {
+  transform: translateY(1px);
+}
+
+.header-btn-brochure:active,
+.sf-btn-icon-secondary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.35);
 }
 
 .mobile-nav-toggle {
@@ -3101,6 +3122,31 @@ button, input, select, textarea {
   }
 }
 
+@media (max-width: 480px) {
+  .student-entrance-highlight-banner {
+    padding: 1.35rem 1.15rem;
+    border-radius: 18px;
+    margin-top: 1.5rem;
+  }
+  .seh-title {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+  .seh-desc {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .seh-actions-row {
+    flex-direction: column;
+    width: 100%;
+  }
+  .seh-btn-primary,
+  .seh-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 /* ==========================================================================
    10. FOOTER
    ========================================================================== */
@@ -3311,54 +3357,16 @@ button, input, select, textarea {
 
 @media (max-width: 991px) {
   .site-header {
-    height: 78px;
+    height: 74px;
   }
   .header-container {
-    padding: 0 1.25rem;
-    gap: 1rem;
+    padding: 0 1rem;
+    gap: 0.75rem;
   }
   .header-logo {
-    height: 44px;
-    max-width: 220px;
+    height: 40px;
+    max-width: 200px;
   }
-  .desktop-nav {
-    gap: 1.5rem;
-  }
-  .sf-btn-icon-primary,
-  .sf-btn-icon-secondary {
-    font-size: 0.82rem;
-    padding: 8px 14px;
-    gap: 6px;
-  }
-  .sf-btn-icon-primary .icon,
-  .sf-btn-icon-secondary .icon {
-    width: 20px;
-    height: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .site-header {
-    height: 70px;
-  }
-
-  .header-container {
-    padding: 0 0.85rem;
-  }
-
-  .container {
-    padding: 0 1rem !important;
-  }
-
-  .header-logo {
-    height: 38px;
-    max-width: 185px;
-  }
-
-  .hero-main-title {
-    font-size: 2.25rem;
-  }
-
   .desktop-nav {
     display: none;
     position: absolute;
@@ -3371,30 +3379,27 @@ button, input, select, textarea {
     border-bottom: 3px solid #f59e0b;
     padding: 1.25rem 1.25rem 1.5rem;
     flex-direction: column;
-    gap: 0.85rem;
+    gap: 0.75rem;
     z-index: 1000;
+    border-radius: 0 0 20px 20px;
   }
-
   .desktop-nav.mobile-nav-active {
     display: flex !important;
     animation: slideDownMobileNav 0.25s ease-out;
   }
-
   .desktop-nav .nav-link {
     font-size: 0.98rem;
     font-weight: 700;
     color: #1e293b;
-    padding: 8px 12px;
-    border-radius: 8px;
+    padding: 10px 14px;
+    border-radius: 10px;
     transition: background 0.2s ease, color 0.2s ease;
   }
-
   .desktop-nav .nav-link:hover,
   .desktop-nav .nav-link.active {
-    background: #f8fafc;
+    background: #fffbeb;
     color: #d97706;
   }
-
   .desktop-nav .mobile-nav-ctas {
     display: flex;
     flex-direction: column;
@@ -3403,25 +3408,82 @@ button, input, select, textarea {
     padding-top: 0.85rem;
     border-top: 1px solid #f1f5f9;
   }
-
+  .desktop-nav .mobile-nav-ctas .header-btn-brochure,
   .desktop-nav .mobile-nav-ctas .sf-btn-icon-secondary {
     display: inline-flex !important;
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    border-radius: 9999px;
+  }
+  .header-action-group .header-btn-brochure,
+  .header-action-group .sf-btn-icon-secondary {
+    display: inline-flex !important;
+    padding: 7px 14px !important;
+    font-size: 0.8rem !important;
+    gap: 6px !important;
+    border-radius: 9999px !important;
+  }
+  .header-action-group .header-btn-brochure .icon,
+  .header-action-group .sf-btn-icon-secondary .icon {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 9px !important;
+  }
+  .mobile-nav-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: #f1f5f9;
+    color: #0f172a;
+    font-size: 1.15rem;
+    border: 1px solid #e2e8f0;
+    margin-left: 4px;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    height: 68px;
   }
 
-  .header-action-group .sf-btn-icon-secondary,
+  .header-container {
+    padding: 0 0.85rem;
+    gap: 0.5rem;
+  }
+
+  .container {
+    padding: 0 1rem !important;
+  }
+
+  .header-logo {
+    height: 36px;
+    max-width: 175px;
+  }
+
+  .hero-main-title {
+    font-size: 2.25rem;
+  }
+
+  .header-action-group .header-btn-brochure,
+  .header-action-group .sf-btn-icon-secondary {
+    display: inline-flex !important;
+    padding: 7px 12px !important;
+    font-size: 0.78rem !important;
+    gap: 5px !important;
+  }
+
   .header-action-group .header-desktop-cta {
     display: none !important;
   }
 
   .header-action-group .sf-btn-icon-primary {
-    padding: 7px 12px;
-    font-size: 0.78rem;
-    gap: 5px;
-  }
-
-  .header-action-group .sf-btn-icon-primary .icon {
-    width: 18px;
-    height: 18px;
+    display: none !important;
   }
 
   .hotline-btn-whatsapp {
@@ -3630,23 +3692,28 @@ button, input, select, textarea {
   }
 
   .header-logo {
-    height: 34px !important;
-    max-width: 155px !important;
+    height: 32px !important;
+    max-width: 145px !important;
   }
 
-  .header-action-group .sf-btn-icon-primary {
-    padding: 6px 10px !important;
+  .header-action-group .header-btn-brochure,
+  .header-action-group .sf-btn-icon-secondary {
+    padding: 6px 11px !important;
     font-size: 0.74rem !important;
+    gap: 5px !important;
+  }
+
+  .header-action-group .header-btn-brochure .icon,
+  .header-action-group .sf-btn-icon-secondary .icon {
+    width: 18px !important;
+    height: 18px !important;
+    font-size: 8px !important;
   }
 
   .hotline-btn-whatsapp {
     padding: 6px 9px !important;
     font-size: 0.72rem !important;
     gap: 4px !important;
-  }
-
-  .header-action-group .sf-btn-icon-primary .icon {
-    display: none !important;
   }
 
   .modern-form-card {
