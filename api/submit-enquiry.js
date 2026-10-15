@@ -104,7 +104,9 @@ module.exports = async (req, res) => {
                 
                 <div style="font-size: 0.82rem; color: #64748b; line-height: 1.6;">
                   <strong>Official Consultation Desk:</strong><br>
-                  Helpline: +91 98453 71459 | +91 88840 58214 | +91 80508 54448<br>
+                  • 9845371459 — Bangalore &amp; Abroad Counsellor<br>
+                  • 8884058241 — Bangalore - Counsellor<br>
+                  • 9731998555 — Entrance prep<br>
                   Email: enquiry@theeduconsultant.com | Website: https://ec-puce-two.vercel.app<br>
                   Ashok Nagar, Bengaluru, Karnataka 560025
                 </div>
@@ -164,7 +166,9 @@ module.exports = async (req, res) => {
                 <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 20px 0;">
                 <p style="font-size: 0.85rem; color: #64748b;">
                   <strong>Official Consultation Desk:</strong><br>
-                  Helpline: +91 98453 71459 | +91 88840 58214 | +91 80508 54448<br>
+                  • 9845371459 — Bangalore &amp; Abroad Counsellor<br>
+                  • 8884058241 — Bangalore - Counsellor<br>
+                  • 9731998555 — Entrance prep<br>
                   Website: <a href="https://ec-puce-two.vercel.app">The Edu Consultant</a>
                 </p>
               </div>

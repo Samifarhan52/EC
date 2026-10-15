@@ -750,20 +750,30 @@ function renderDirectoryGrid() {
    3. DYNAMIC CONDITIONAL INPUT FIELDS ("OTHERS" TRIGGER)
    ========================================================================== */
 function initConditionalFormFields() {
+  // Main admission form pairs (Homepage)
   setupConditionalPair('formCourseSelect', 'conditionalCourseOther');
   setupConditionalPair('formCollegeSelect', 'conditionalCollegeOther');
+  setupConditionalPair('mainProgramLevelSelect', 'mainConditionalProgramLevelOther');
 
   // Modal form pairs
   setupConditionalPair('modalCourseSelect', 'modalConditionalCourseOther');
   setupConditionalPair('modalCollegeSelect', 'modalConditionalCollegeOther');
+  setupConditionalPair('modalProgramLevelSelect', 'modalConditionalProgramLevelOther');
 
   // Fee modal pairs
   setupConditionalPair('feeModalCourseSelect', 'feeConditionalCourseOther');
   setupConditionalPair('feeModalCollegeSelect', 'feeConditionalCollegeOther');
+  setupConditionalPair('feeModalProgramLevelSelect', 'feeModalConditionalProgramLevelOther');
 
   // Standalone enquiry page pairs
   setupConditionalPair('enquiryCourseSelect', 'enquiryConditionalCourseOther');
   setupConditionalPair('enquiryCollegeSelect', 'enquiryConditionalCollegeOther');
+  setupConditionalPair('enquiryProgramLevelSelect', 'enquiryConditionalProgramLevelOther');
+
+  // Standalone fee-structure page pairs
+  setupConditionalPair('feePageCourseSelect', 'feePageConditionalCourseOther');
+  setupConditionalPair('feePageCollegeSelect', 'feePageConditionalCollegeOther');
+  setupConditionalPair('feeProgramLevelSelect', 'feeConditionalProgramLevelOther');
 
   // Hero search bar conditional pairs
   setupConditionalPair('searchProgramLevel', 'heroConditionalProgramLevelOther');
@@ -776,8 +786,10 @@ function setupConditionalPair(selectId, conditionalWrapId) {
   const wrapEl = document.getElementById(conditionalWrapId);
   if (!selectEl || !wrapEl) return;
 
-  selectEl.addEventListener('change', () => {
-    if (selectEl.value === 'Others') {
+  const checkValue = () => {
+    const val = (selectEl.value || '').trim().toLowerCase();
+    const isOther = val === 'others' || val === "other's" || val === 'other';
+    if (isOther) {
       wrapEl.classList.add('is-visible');
       const input = wrapEl.querySelector('input');
       if (input) {
@@ -792,7 +804,9 @@ function setupConditionalPair(selectId, conditionalWrapId) {
         input.value = '';
       }
     }
-  });
+  };
+
+  selectEl.addEventListener('change', checkValue);
 }
 
 /* ==========================================================================
@@ -867,7 +881,8 @@ window.openSuccessModal = function(applicantName = 'Student', actionType = 'regi
     college: 'Premier Institution',
     formType: actionType,
     waUrl1: 'https://wa.me/919845371459',
-    waUrl2: 'https://wa.me/918884058214'
+    waUrl2: 'https://wa.me/918884058241',
+    waUrl3: 'https://wa.me/919731998555'
   });
 };
 
@@ -900,26 +915,34 @@ window.openEnhancedSuccessModal = function(data) {
           <strong>Email Confirmation &amp; Alert:</strong> Notification dispatched to student and senior counselors. You will receive a callback shortly.
         </div>
 
-        <!-- Dual WhatsApp Routing Box -->
+        <!-- Official Counselor Routing Box -->
         <div style="border-top: 1px dashed #cbd5e1; padding-top: 0.85rem;">
           <div style="font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; margin-bottom: 0.5rem;">
-            Official Counselor WhatsApp Desks:
+            Official Counselor Contact Desks:
           </div>
           <div style="display: flex; flex-direction: column; gap: 8px;">
-            <a href="${data.waUrl1}" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: space-between; background: #22c55e; color: #ffffff; padding: 9px 14px; border-radius: 8px; font-weight: 700; font-size: 0.84rem; text-decoration: none; box-shadow: 0 2px 6px rgba(34, 197, 94, 0.25);">
+            <a href="${data.waUrl1 || 'https://wa.me/919845371459'}" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: space-between; background: #22c55e; color: #ffffff; padding: 9px 14px; border-radius: 8px; font-weight: 700; font-size: 0.84rem; text-decoration: none; box-shadow: 0 2px 6px rgba(34, 197, 94, 0.25);">
               <span style="display: inline-flex; align-items: center; gap: 8px;">
                 <i class="fa-brands fa-whatsapp" style="font-size: 1.15rem;"></i>
-                <span>Counselor 1 (Desk A): +91 98453 71459</span>
+                <span>Bangalore &amp; Abroad Counsellor: +91 98453 71459</span>
               </span>
               <span style="font-size: 0.72rem; background: rgba(0,0,0,0.15); padding: 3px 8px; border-radius: 4px;">Sent / Open</span>
             </a>
 
-            <a href="${data.waUrl2}" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: space-between; background: #15803d; color: #ffffff; padding: 9px 14px; border-radius: 8px; font-weight: 700; font-size: 0.84rem; text-decoration: none; box-shadow: 0 2px 6px rgba(21, 128, 61, 0.25);">
+            <a href="${data.waUrl2 || 'https://wa.me/918884058241'}" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: space-between; background: #15803d; color: #ffffff; padding: 9px 14px; border-radius: 8px; font-weight: 700; font-size: 0.84rem; text-decoration: none; box-shadow: 0 2px 6px rgba(21, 128, 61, 0.25);">
               <span style="display: inline-flex; align-items: center; gap: 8px;">
                 <i class="fa-brands fa-whatsapp" style="font-size: 1.15rem;"></i>
-                <span>Counselor 2 (Desk B): +91 88840 58214</span>
+                <span>Bangalore - Counsellor: +91 88840 58241</span>
               </span>
               <span style="font-size: 0.72rem; background: #fbbf24; color: #0f172a; font-weight: 800; padding: 3px 8px; border-radius: 4px;">Send Also &rarr;</span>
+            </a>
+
+            <a href="${data.waUrl3 || 'https://wa.me/919731998555'}" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; justify-content: space-between; background: #0284c7; color: #ffffff; padding: 9px 14px; border-radius: 8px; font-weight: 700; font-size: 0.84rem; text-decoration: none; box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);">
+              <span style="display: inline-flex; align-items: center; gap: 8px;">
+                <i class="fa-brands fa-whatsapp" style="font-size: 1.15rem;"></i>
+                <span>Entrance prep: +91 97319 98555</span>
+              </span>
+              <span style="font-size: 0.72rem; background: rgba(0,0,0,0.15); padding: 3px 8px; border-radius: 4px;">Prep Desk &rarr;</span>
             </a>
           </div>
         </div>
@@ -934,7 +957,7 @@ window.openEnhancedSuccessModal = function(data) {
  * Universal Form Lead Processor
  * 1. Saves lead to localStorage for Excel Export
  * 2. Calls /api/submit-enquiry for counselor alert & student confirmation email
- * 3. Formats message and triggers dual WhatsApp (919845371459 & 918884058214)
+ * 3. Formats message and triggers WhatsApp routing (919845371459, 918884058241 & 919731998555)
  */
 window.handleAdmissionFormSubmit = function(formElement, formType = 'registration') {
   const fullName = formElement.querySelector('input[name="fullName"]')?.value?.trim() || 'Student';
@@ -950,7 +973,14 @@ window.handleAdmissionFormSubmit = function(formElement, formType = 'registratio
     course = formElement.querySelector('input[name="otherCourseName"]')?.value?.trim() || 'Other Course';
   }
   const destination = formElement.querySelector('select[name="studyDestination"]')?.value || 'India';
-  const programLevel = (course && (course.includes('M.') || course.includes('MBA') || course.includes('MCA') || course.includes('MS'))) ? 'PG' : 'UG';
+
+  let programLevel = formElement.querySelector('select[name="programLevel"]')?.value || '';
+  if (programLevel.toLowerCase() === 'others' || programLevel.toLowerCase() === "other's") {
+    programLevel = formElement.querySelector('input[name="otherProgramLevel"]')?.value?.trim() || 'Others';
+  }
+  if (!programLevel) {
+    programLevel = (course && (course.includes('M.') || course.includes('MBA') || course.includes('MCA') || course.includes('MS'))) ? 'PG' : 'UG';
+  }
 
   const refId = 'TEC-' + Math.floor(100000 + Math.random() * 900000);
   const now = new Date();
@@ -1002,7 +1032,7 @@ window.handleAdmissionFormSubmit = function(formElement, formType = 'registratio
     }).catch(e => console.warn('API background submit:', e));
   } catch (e) {}
 
-  // 3. Formulate structured WhatsApp text for both Counselors
+  // 3. Formulate structured WhatsApp text for Counselors
   const waText = 
 `*🎓 NEW ADMISSION ENQUIRY - THE EDU CONSULTANT*
 ━━━━━━━━━━━━━━━━━━━━━
@@ -1020,7 +1050,8 @@ _Please verify quota seats and call back the student promptly._`;
 
   const waEncoded = encodeURIComponent(waText);
   const waUrl1 = `https://wa.me/919845371459?text=${waEncoded}`;
-  const waUrl2 = `https://wa.me/918884058214?text=${waEncoded}`;
+  const waUrl2 = `https://wa.me/918884058241?text=${waEncoded}`;
+  const waUrl3 = `https://wa.me/919731998555?text=${waEncoded}`;
 
   // Automatically open WhatsApp 1
   try {
@@ -1034,7 +1065,7 @@ _Please verify quota seats and call back the student promptly._`;
     triggerFeeDocumentDownload(fullName, college, course);
   }
 
-  // Open the enhanced success modal with dual-WhatsApp dispatch buttons & email confirmation note
+  // Open the enhanced success modal with WhatsApp dispatch buttons & email confirmation note
   window.openEnhancedSuccessModal({
     fullName,
     phone,
@@ -1044,7 +1075,8 @@ _Please verify quota seats and call back the student promptly._`;
     refId,
     formType,
     waUrl1,
-    waUrl2
+    waUrl2,
+    waUrl3
   });
 
   formElement.reset();
@@ -1142,7 +1174,11 @@ ENTRANCE TEST PREPARATION ADVISORY:
 Preparing for upcoming entrance tests (KCET, COMEDK, JEE, NEET, MAT, CLAT)?
 Prepare on India's premier testing engine: https://studententrance.com/
 
-Helpline: +91-9845371459 | Website: https://theeduconsultant.in/
+Helpline: 
+- 9845371459 — Bangalore & Abroad Counsellor
+- 8884058241 — Bangalore - Counsellor
+- 9731998555 — Entrance prep
+Official Website: https://theeduconsultant.in/
 ================================================================================
 `;
 
@@ -1413,12 +1449,22 @@ const PROGRAM_STREAM_DATA = {
   ]
 };
 
+// Aliases for user-specified uppercase formats: SCHOOL, UG, PG, OTHERS
+PROGRAM_STREAM_DATA.school = PROGRAM_STREAM_DATA.schools;
+PROGRAM_STREAM_DATA.SCHOOL = PROGRAM_STREAM_DATA.schools;
+PROGRAM_STREAM_DATA.UG = PROGRAM_STREAM_DATA.ug;
+PROGRAM_STREAM_DATA.PG = PROGRAM_STREAM_DATA.pg;
+PROGRAM_STREAM_DATA.OTHERS = PROGRAM_STREAM_DATA.all;
+PROGRAM_STREAM_DATA.others = PROGRAM_STREAM_DATA.all;
+
 window.handleProgramLevelChange = function(level) {
   const disciplineSelect = document.getElementById('searchDiscipline');
   const collegeSelect = document.getElementById('searchCollege');
+  const normLevel = (level || '').toLowerCase();
+  const isSchool = normLevel === 'school' || normLevel === 'schools';
 
   if (disciplineSelect) {
-    const data = PROGRAM_STREAM_DATA[level] || PROGRAM_STREAM_DATA.all;
+    const data = PROGRAM_STREAM_DATA[level] || PROGRAM_STREAM_DATA[normLevel] || PROGRAM_STREAM_DATA.all;
     disciplineSelect.innerHTML = '';
     data.forEach(item => {
       const opt = document.createElement('option');
@@ -1429,7 +1475,7 @@ window.handleProgramLevelChange = function(level) {
 
     // Reset conditional course input if stream is reset away from Others
     const discWrap = document.getElementById('heroConditionalDisciplineOther');
-    if (discWrap && disciplineSelect.value !== 'Others') {
+    if (discWrap && disciplineSelect.value !== 'Others' && disciplineSelect.value !== 'OTHERS') {
       discWrap.classList.remove('is-visible');
       const input = discWrap.querySelector('input');
       if (input) {
@@ -1440,7 +1486,7 @@ window.handleProgramLevelChange = function(level) {
   }
 
   if (collegeSelect) {
-    if (level === 'schools') {
+    if (isSchool) {
       collegeSelect.innerHTML = `
         <option value="all">All Premier Bangalore Schools (144 Schools)</option>
         <option value="Bishop Cotton Boys' School">Bishop Cotton Boys' School (MG Road)</option>
@@ -1503,16 +1549,20 @@ window.handleHeroQuickSearch = function(e) {
   const otherDiscInput = document.getElementById('heroOtherDiscipline');
   const otherCollegeInput = document.getElementById('heroOtherCollege');
 
-  const customProg = (progLevel === 'Others' && otherProgInput) ? otherProgInput.value.trim() : '';
-  const customDisc = (disc === 'Others' && otherDiscInput) ? otherDiscInput.value.trim() : '';
-  const customCollege = (college === 'Others' && otherCollegeInput) ? otherCollegeInput.value.trim() : '';
+  const isOtherProg = progLevel === 'Others' || progLevel === 'OTHERS' || progLevel.toLowerCase() === 'others';
+  const isOtherDisc = disc === 'Others' || disc === 'OTHERS' || disc.toLowerCase() === 'others';
+  const isOtherCollege = college === 'Others' || college === 'OTHERS' || college.toLowerCase() === 'others';
 
-  const effectiveCollege = customCollege || (college !== 'Others' && college !== 'all' ? college : '');
-  const effectiveDisc = customDisc || (disc !== 'Others' && disc !== 'all' && disc !== 'all-ug' && disc !== 'all-pg' ? disc : '');
-  const effectiveProg = customProg || (progLevel !== 'Others' && progLevel !== 'all' ? progLevel : '');
+  const customProg = (isOtherProg && otherProgInput) ? otherProgInput.value.trim() : '';
+  const customDisc = (isOtherDisc && otherDiscInput) ? otherDiscInput.value.trim() : '';
+  const customCollege = (isOtherCollege && otherCollegeInput) ? otherCollegeInput.value.trim() : '';
+
+  const effectiveCollege = customCollege || (!isOtherCollege && college !== 'all' ? college : '');
+  const effectiveDisc = customDisc || (!isOtherDisc && disc !== 'all' && disc !== 'all-ug' && disc !== 'all-pg' ? disc : '');
+  const effectiveProg = customProg || (!isOtherProg && progLevel !== 'all' ? progLevel : '');
 
   // If schools was chosen or a school was selected/typed
-  const isSchoolSearch = progLevel === 'schools' || (effectiveCollege && (window.DIRECTORY_SCHOOLS || []).some(s => s.name.toLowerCase().includes(effectiveCollege.toLowerCase())));
+  const isSchoolSearch = progLevel === 'schools' || progLevel === 'SCHOOL' || progLevel.toLowerCase() === 'school' || (effectiveCollege && (window.DIRECTORY_SCHOOLS || []).some(s => s.name.toLowerCase().includes(effectiveCollege.toLowerCase())));
   if (isSchoolSearch) {
     window.switchDirectoryMode('schools');
     const dirEl = document.getElementById('directorySection');

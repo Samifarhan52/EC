@@ -185,7 +185,9 @@ function sendStudentConfirmationEmail(toEmail, fullName, phone, course, college,
 
       '<div style="border-top: 1px solid #e2e8f0; padding-top: 18px; font-size: 12.5px; color: #64748b; line-height: 1.6;">' +
         '<strong>Official Consultation Desk:</strong><br>' +
-        'Helpline: +91 98453 71459 | +91 88840 58214 | +91 80508 54448<br>' +
+        '• 9845371459 — Bangalore & Abroad Counsellor<br>' +
+        '• 8884058241 — Bangalore - Counsellor<br>' +
+        '• 9731998555 — Entrance prep<br>' +
         'Official Email: <a href="mailto:enquiry@theeduconsultant.com" style="color: #2563eb; text-decoration: none; font-weight: bold;">enquiry@theeduconsultant.com</a><br>' +
         'Office: Shanthala Nagar, Ashok Nagar, Bengaluru, Karnataka 560025<br>' +
         'Website: <a href="https://ec-puce-two.vercel.app" style="color: #2563eb; text-decoration: none; font-weight: bold;">The Edu Consultant Official Portal</a>' +

@@ -734,11 +734,11 @@
               </label>
               <div class="search-select-wrap">
                 <select id="searchProgramLevel" name="programLevel" class="search-select-control" onchange="handleProgramLevelChange(this.value)">
-                  <option value="all">All Programs (UG &amp; PG)</option>
-                  <option value="ug">UG - Undergraduate</option>
-                  <option value="pg">PG - Postgraduate</option>
-                  <option value="schools">Schools (Nursery to Class 12 &amp; PUC)</option>
-                  <option value="Others">Others (Specify Program Level)</option>
+                  <option value="" disabled selected>Select Program Level</option>
+                  <option value="SCHOOL">SCHOOL</option>
+                  <option value="UG">UG</option>
+                  <option value="PG">PG</option>
+                  <option value="OTHERS">OTHERS</option>
                 </select>
               </div>
               <!-- Dynamic Conditional Field for Program Level "Others" -->
@@ -1487,6 +1487,32 @@
               </div>
             </div>
 
+            <!-- Program Level: SCHOOL, UG, PG, OTHERS -->
+            <div class="form-field-group">
+              <label class="field-label">
+                <span>Program Level</span>
+                <span class="required-star">*</span>
+              </label>
+              <div class="input-with-icon">
+                <i class="fa-solid fa-layer-group input-icon"></i>
+                <select name="programLevel" id="mainProgramLevelSelect" class="form-select-control" required>
+                  <option value="" disabled selected>Select Program Level</option>
+                  <option value="SCHOOL">SCHOOL</option>
+                  <option value="UG">UG</option>
+                  <option value="PG">PG</option>
+                  <option value="OTHERS">OTHERS</option>
+                </select>
+              </div>
+
+              <!-- Dynamic Conditional Field for Program Level "OTHERS" -->
+              <div class="conditional-other-field" id="mainConditionalProgramLevelOther">
+                <div class="input-with-icon" style="margin-top: 6px;">
+                  <i class="fa-solid fa-pen-nib input-icon"></i>
+                  <input type="text" name="otherProgramLevel" class="form-input-control" placeholder="Specify Program Level (e.g. Diploma, Ph.D)">
+                </div>
+              </div>
+            </div>
+
             <!-- Course Dropdown -->
             <div class="form-field-group form-col-full">
               <label class="field-label">
@@ -1497,6 +1523,7 @@
                 <i class="fa-solid fa-graduation-cap input-icon"></i>
                 <select name="course" id="formCourseSelect" class="form-select-control" required>
                   <option value="" disabled selected>Select Course / Academic Program</option>
+                  <option value="School Admission (Nursery to Class 12)">School Admission (Nursery to Class 12 - CBSE / ICSE / IGCSE / IB / PUC)</option>
                   <option value="Engineering & Technology (B.Tech / B.E)">Engineering &amp; Technology (B.Tech / B.E - CSE, AI, ECE, Mech)</option>
                   <option value="Commerce & Accounting (B.Com / M.Com / ACCA)">Commerce &amp; Accounting (B.Com / M.Com / ACCA / CMA)</option>
                   <option value="Management & Business (BBA / MBA / PGDM)">Management &amp; Business (BBA / MBA / PGDM)</option>
@@ -1567,6 +1594,45 @@
             </div>
           </div>
         </form>
+
+        <!-- Integrated Institutional Verification & Helpline Footer -->
+        <div class="form-card-footer">
+          <div class="footer-header">
+            <span class="helpline-tag">
+              <i class="fa-solid fa-headset" style="color: #2563eb;"></i> Admissions Helpline
+            </span>
+            <span class="availability-tag">
+              <span class="pulse-dot"></span> Senior Counselors Available
+            </span>
+          </div>
+
+          <div class="counselor-chips-grid">
+            <a href="tel:+919845371459" class="counselor-chip-btn" title="Call Bangalore & Abroad Counsellor">
+              <span class="chip-role">Bangalore &amp; Abroad Counsellor</span>
+              <span class="chip-number"><i class="fa-solid fa-phone me-1" style="font-size: 10px; color: #2563eb;"></i> +91 98453 71459</span>
+            </a>
+            <a href="tel:+918884058241" class="counselor-chip-btn" title="Call Bangalore - Counsellor">
+              <span class="chip-role">Bangalore - Counsellor</span>
+              <span class="chip-number"><i class="fa-solid fa-phone me-1" style="font-size: 10px; color: #2563eb;"></i> +91 88840 58241</span>
+            </a>
+            <a href="tel:+919731998555" class="counselor-chip-btn" title="Call Entrance prep">
+              <span class="chip-role">Entrance prep</span>
+              <span class="chip-number"><i class="fa-solid fa-phone me-1" style="font-size: 10px; color: #2563eb;"></i> +91 97319 98555</span>
+            </a>
+          </div>
+
+          <div class="trust-checklist-row">
+            <span class="trust-checklist-item">
+              <i class="fa-solid fa-shield-check"></i> Registrar Allotment Letters
+            </span>
+            <span class="trust-checklist-item">
+              <i class="fa-solid fa-file-invoice-dollar"></i> Official Fee Receipts
+            </span>
+            <span class="trust-checklist-item">
+              <i class="fa-solid fa-clock-rotate-left"></i> 15-Minute Priority Callback
+            </span>
+          </div>
+        </div>
         </div>
 
         <!-- Right Side: Clean open space showcasing background image & floating trust badge -->
@@ -1772,6 +1838,32 @@
             </div>
           </div>
 
+          <!-- Program Level: SCHOOL, UG, PG, OTHERS -->
+          <div class="form-field-group">
+            <label class="field-label">
+              <span>Program Level</span>
+              <span class="required-star">*</span>
+            </label>
+            <div class="input-with-icon">
+              <i class="fa-solid fa-layer-group input-icon"></i>
+              <select name="programLevel" id="modalProgramLevelSelect" class="form-select-control" required>
+                <option value="" disabled selected>Select Program Level</option>
+                <option value="SCHOOL">SCHOOL</option>
+                <option value="UG">UG</option>
+                <option value="PG">PG</option>
+                <option value="OTHERS">OTHERS</option>
+              </select>
+            </div>
+
+            <!-- Dynamic Conditional Field for Program Level "OTHERS" -->
+            <div class="conditional-other-field" id="modalConditionalProgramLevelOther">
+              <div class="input-with-icon" style="margin-top: 6px;">
+                <i class="fa-solid fa-pen-nib input-icon"></i>
+                <input type="text" name="otherProgramLevel" class="form-input-control" placeholder="Specify Program Level (e.g. Diploma, Ph.D)">
+              </div>
+            </div>
+          </div>
+
           <!-- Course Dropdown -->
           <div class="form-field-group form-col-full">
             <label class="field-label">
@@ -1782,6 +1874,7 @@
               <i class="fa-solid fa-graduation-cap input-icon"></i>
               <select name="course" id="modalCourseSelect" class="form-select-control" required>
                 <option value="" disabled selected>Select Course</option>
+                <option value="School Admission (Nursery to Class 12)">School Admission (Nursery to Class 12 - CBSE / ICSE / IB / PUC)</option>
                 <option value="Engineering & Technology (B.Tech / B.E)">Engineering & Technology (B.Tech / B.E)</option>
                 <option value="Commerce & Accounting (B.Com / M.Com)">Commerce & Accounting (B.Com / M.Com)</option>
                 <option value="Management & Business (BBA / MBA)">Management & Business (BBA / MBA)</option>
@@ -1841,6 +1934,27 @@
             <i class="fa-solid fa-paper-plane"></i>
             <span id="modalRegisterSubmitText">Submit your Enquiry & Lock Priority</span>
           </button>
+
+          <!-- Immediate Counselor Helplines in Modal -->
+          <div style="margin-top: 14px; padding-top: 12px; border-top: 1px dashed #cbd5e1; text-align: center;">
+            <div style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; margin-bottom: 8px;">
+              Immediate Counselor Helplines:
+            </div>
+            <div class="counselor-chips-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px;">
+              <a href="tel:+919845371459" class="counselor-chip-btn" title="Call Bangalore & Abroad Counsellor">
+                <span class="chip-role">Bangalore &amp; Abroad</span>
+                <span class="chip-number"><i class="fa-solid fa-phone me-1" style="font-size: 10px; color: #2563eb;"></i> 9845371459</span>
+              </a>
+              <a href="tel:+918884058241" class="counselor-chip-btn" title="Call Bangalore - Counsellor">
+                <span class="chip-role">Bangalore</span>
+                <span class="chip-number"><i class="fa-solid fa-phone me-1" style="font-size: 10px; color: #2563eb;"></i> 8884058241</span>
+              </a>
+              <a href="tel:+919731998555" class="counselor-chip-btn" title="Call Entrance prep">
+                <span class="chip-role">Entrance Prep</span>
+                <span class="chip-number"><i class="fa-solid fa-phone me-1" style="font-size: 10px; color: #2563eb;"></i> 9731998555</span>
+              </a>
+            </div>
+          </div>
         </div>
       </form>
     </div>
@@ -1895,6 +2009,32 @@
             <div class="input-with-icon">
               <i class="fa-solid fa-envelope input-icon"></i>
               <input type="email" name="email" class="form-input-control" placeholder="For PDF delivery" required>
+            </div>
+          </div>
+
+          <!-- Program Level: SCHOOL, UG, PG, OTHERS -->
+          <div class="form-field-group">
+            <label class="field-label">
+              <span>Program Level</span>
+              <span class="required-star">*</span>
+            </label>
+            <div class="input-with-icon">
+              <i class="fa-solid fa-layer-group input-icon"></i>
+              <select name="programLevel" id="feeModalProgramLevelSelect" class="form-select-control" required>
+                <option value="" disabled selected>Select Program Level</option>
+                <option value="SCHOOL">SCHOOL</option>
+                <option value="UG">UG</option>
+                <option value="PG">PG</option>
+                <option value="OTHERS">OTHERS</option>
+              </select>
+            </div>
+
+            <!-- Dynamic Conditional Field for Program Level "OTHERS" -->
+            <div class="conditional-other-field" id="feeModalConditionalProgramLevelOther">
+              <div class="input-with-icon" style="margin-top: 6px;">
+                <i class="fa-solid fa-pen-nib input-icon"></i>
+                <input type="text" name="otherProgramLevel" class="form-input-control" placeholder="Specify Program Level (e.g. Diploma, Ph.D)">
+              </div>
             </div>
           </div>
 
@@ -1959,6 +2099,7 @@
               <i class="fa-solid fa-graduation-cap input-icon"></i>
               <select name="course" id="feeModalCourseSelect" class="form-select-control" required>
                 <option value="" disabled selected>Select Course / Program</option>
+                <option value="School Admission (Nursery to Class 12)">School Admission (Nursery to Class 12 - CBSE / ICSE / IB / PUC)</option>
                 <option value="Engineering & Technology (B.Tech / B.E)">Engineering & Technology (B.Tech / B.E)</option>
                 <option value="Commerce & Accounting (B.Com / M.Com)">Commerce & Accounting (B.Com / M.Com)</option>
                 <option value="Management & Business (BBA / MBA)">Management & Business (BBA / MBA)</option>
@@ -1984,6 +2125,27 @@
             <i class="fa-solid fa-file-arrow-down"></i>
             <span>Download Fee Structure</span>
           </button>
+
+          <!-- Immediate Counselor Helplines in Fee Modal -->
+          <div style="margin-top: 14px; padding-top: 12px; border-top: 1px dashed #cbd5e1; text-align: center;">
+            <div style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; margin-bottom: 8px;">
+              Immediate Counselor Helplines:
+            </div>
+            <div class="counselor-chips-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px;">
+              <a href="tel:+919845371459" class="counselor-chip-btn" title="Call Bangalore & Abroad Counsellor">
+                <span class="chip-role">Bangalore &amp; Abroad</span>
+                <span class="chip-number"><i class="fa-solid fa-phone me-1" style="font-size: 10px; color: #2563eb;"></i> 9845371459</span>
+              </a>
+              <a href="tel:+918884058241" class="counselor-chip-btn" title="Call Bangalore - Counsellor">
+                <span class="chip-role">Bangalore</span>
+                <span class="chip-number"><i class="fa-solid fa-phone me-1" style="font-size: 10px; color: #2563eb;"></i> 8884058241</span>
+              </a>
+              <a href="tel:+919731998555" class="counselor-chip-btn" title="Call Entrance prep">
+                <span class="chip-role">Entrance Prep</span>
+                <span class="chip-number"><i class="fa-solid fa-phone me-1" style="font-size: 10px; color: #2563eb;"></i> 9731998555</span>
+              </a>
+            </div>
+          </div>
         </div>
       </form>
     </div>
@@ -2104,14 +2266,27 @@
                 </iframe>
               </div>
             </li>
-            <li style="display: flex; align-items: center; gap: 8px;">
-              <i class="fa-solid fa-phone" style="color: var(--button); flex-shrink: 0;"></i>
-              <div class="footer-phones-inline">
-                <a href="tel:+919845371459">9845371459</a>
-                <span class="phone-sep">|</span>
-                <a href="tel:+918884058214">8884058214</a>
-                <span class="phone-sep">|</span>
-                <a href="tel:+918050854448">8050854448</a>
+            <li style="display: flex; flex-direction: column; gap: 6px; padding: 4px 0;">
+              <div style="font-weight: 700; color: #ffffff; font-size: 13px; display: flex; align-items: center; gap: 6px;">
+                <i class="fa-solid fa-phone" style="color: var(--button);"></i>
+                <span>Official Counsellor Helpline:</span>
+              </div>
+              <div class="footer-counselor-links" style="display: flex; flex-direction: column; gap: 5px; margin-left: 18px; font-size: 13.5px;">
+                <div>
+                  <a href="tel:+919845371459" style="color: #cbd5e1; text-decoration: none;">
+                    <strong style="color: #ffffff;">9845371459</strong> <span style="color: #94a3b8;">- Bangalore &amp; Abroad Counsellor</span>
+                  </a>
+                </div>
+                <div>
+                  <a href="tel:+918884058241" style="color: #cbd5e1; text-decoration: none;">
+                    <strong style="color: #ffffff;">8884058241</strong> <span style="color: #94a3b8;">- Bangalore - Counsellor</span>
+                  </a>
+                </div>
+                <div>
+                  <a href="tel:+919731998555" style="color: #cbd5e1; text-decoration: none;">
+                    <strong style="color: #ffffff;">9731998555</strong> <span style="color: #94a3b8;">- Entrance prep</span>
+                  </a>
+                </div>
               </div>
             </li>
             <li>
