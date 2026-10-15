@@ -74,6 +74,41 @@ const FLIP_COLLEGES = [
     quota: "Mgmt Quota Priority",
     tag: "29-Acre Mega Campus",
     desc: "Top destination for Engineering, Architecture, Dental, MBA & MCA with modern research facilities."
+  },
+  {
+    name: "Ramaiah Institute of Technology (MSRIT)",
+    campus: "Mathikere, Bangalore",
+    quota: "Direct Quota Active",
+    tag: "NIRF Top 70 • Tier-1",
+    desc: "Autonomous powerhouse with top NIRF ranking and elite placements in CSE, AI/ML, Cyber Security & ECE."
+  },
+  {
+    name: "PES University",
+    campus: "Ring Road & Electronic City",
+    quota: "Management Quota Seats",
+    tag: "Highest Package 65 LPA",
+    desc: "Top-ranked private university famous for premier CS coding culture, high CTC packages, and global alumni."
+  },
+  {
+    name: "Mount Carmel College (MCC)",
+    campus: "Vasanth Nagar, Bangalore",
+    quota: "Applications Open",
+    tag: "NAAC A+ Autonomous",
+    desc: "Premier autonomous institution for women renowned for B.Com, BBA, Computer Applications, and MBA."
+  },
+  {
+    name: "Jain University",
+    campus: "CMS & JGI Global Campus",
+    quota: "Direct Quota 2027",
+    tag: "NAAC A++ Deemed Univ",
+    desc: "Next-gen business and technology programs with direct quota seats in Corporate BBA, AI, and Cloud tracks."
+  },
+  {
+    name: "Kristu Jayanti College",
+    campus: "K. Narayanapura, Hennur Road",
+    quota: "Seat Booking Open",
+    tag: "NAAC A++ (3.78 CGPA)",
+    desc: "Top-rated autonomous commerce and computer applications institution with premier corporate tie-ups."
   }
 ];
 
@@ -285,6 +320,146 @@ const DIRECTORY_COLLEGES = [
     description: "Established by the Sri Krishnadevaraya Educational Trust. Renowned for academic discipline, Mechanical, CSE, and Electronics engineering departments.",
     quotaBadge: "Direct Admissions Open",
     highlights: ["133-Acre Lush Campus", "Research Centers", "Hostel Facilities"]
+  },
+  {
+    id: 'c13',
+    name: "Mount Carmel College (MCC)",
+    logo: "images/logos/mcc.png",
+    stream: "commerce",
+    streamBadge: "Commerce & Mgmt",
+    location: "Vasanth Nagar, Bengaluru",
+    ranking: "NAAC A+ • Premier Autonomous Women's College",
+    highestPkg: "₹21.5 LPA",
+    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80",
+    description: "Iconic autonomous institution in central Bengaluru offering prestigious B.Com, BBA, BCA, and MBA programs with direct management quota seats.",
+    quotaBadge: "Quota Applications Open",
+    highlights: ["Central Bangalore Hub", "Fortune 500 Recruiters", "Elite Academic Legacy"]
+  },
+  {
+    id: 'c14',
+    name: "Jain University (CMS / FET)",
+    logo: "images/logos/jain.png",
+    stream: "commerce",
+    streamBadge: "Commerce, Law & Tech",
+    location: "Palace Road / Kanakapura Road, Bengaluru",
+    ranking: "NAAC A++ Deemed-to-be University",
+    highestPkg: "₹42.0 LPA",
+    image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&q=80",
+    description: "Industry-aligned multidisciplinary university known for Center for Management Studies (CMS Corporate BBA) and Faculty of Engineering (AI, Cloud with Google & IBM).",
+    quotaBadge: "Direct Quota 2027",
+    highlights: ["Top Business Incubation", "Google Cloud Programs", "Global Placement Record"]
+  },
+  {
+    id: 'c15',
+    name: "Kristu Jayanti College (Autonomous)",
+    logo: "images/logos/kristu.png",
+    stream: "commerce",
+    streamBadge: "Commerce & Computing",
+    location: "K. Narayanapura, Hennur Road, Bengaluru",
+    ranking: "NAAC A++ (CGPA 3.78) • NIRF Ranked",
+    highestPkg: "₹16.5 LPA",
+    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80",
+    description: "Autonomous college offering high-impact programs in Commerce (ACCA integrated), BBA, Computer Applications (BCA), and MBA with direct admission support.",
+    quotaBadge: "Direct Admission Active",
+    highlights: ["Highest NAAC Score", "Modern Digital Campus", "Top Analytics Labs"]
+  },
+  {
+    id: 'c16',
+    name: "St. Joseph's College of Commerce (SJCC)",
+    logo: "images/logos/sjcc.png",
+    stream: "commerce",
+    streamBadge: "Commerce & Finance",
+    location: "163, Brigade Road, Ashok Nagar, Bengaluru",
+    ranking: "NAAC A++ (3.57 CGPA) • Est. 1972",
+    highestPkg: "₹22.0 LPA",
+    image: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=600&q=80",
+    description: "Premier commerce institution located on Brigade Road. Direct management quota and institutional guidance for B.Com (Regular / Professional / Analytics) and BBA.",
+    quotaBadge: "Management Quota Open",
+    highlights: ["ACCA / CMA Global Tie-ups", "Big 4 Firm Recruiters", "Elite Jesuit Heritage"]
+  },
+  {
+    id: 'c17',
+    name: "NMIMS (Mumbai & Bengaluru)",
+    logo: "images/logos/nmims.png",
+    stream: "management",
+    streamBadge: "Management & BBA",
+    location: "Vile Parle West, Mumbai & Bannerghatta Rd, Bengaluru",
+    ranking: "Category-1 Deemed Univ • AACSB Accredited",
+    highestPkg: "₹67.8 LPA",
+    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80",
+    description: "Premier national B-School brand offering BBA, B.Com (Hons), B.Sc Finance, and MBA. Direct institutional quota seat allotment assistance in Mumbai and Bangalore.",
+    quotaBadge: "Direct Seat Allotment",
+    highlights: ["Top 10 Indian B-School", "Global Corporate Tie-ups", "Executive Placements"]
+  },
+  {
+    id: 'c18',
+    name: "BMS Institute of Technology & Management (BMSIT)",
+    logo: "images/logos/bmsit.png",
+    stream: "engineering",
+    streamBadge: "Engineering & Tech",
+    location: "Doddaballapur Road, Yelahanka, Bengaluru",
+    ranking: "Autonomous VTU • BMS Educational Trust",
+    highestPkg: "₹44.0 LPA",
+    image: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&q=80",
+    description: "BMS Educational Trust institution in North Bengaluru offering cutting-edge engineering programs in CSE, AIML, CSBS, ECE, and Architecture with verified packages.",
+    quotaBadge: "Institutional Quota",
+    highlights: ["BMS Trust Heritage", "Rapid Placement Growth", "Autonomous Curriculum"]
+  },
+  {
+    id: 'c19',
+    name: "Nitte Meenakshi Institute of Technology (NMIT)",
+    logo: "images/logos/nmit.png",
+    stream: "engineering",
+    streamBadge: "Engineering & AI",
+    location: "Govindapura, Gollahalli, Yelahanka, Bengaluru",
+    ranking: "Autonomous VTU • NAAC A+ Grade",
+    highestPkg: "₹40.0 LPA",
+    image: "https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?auto=format&fit=crop&w=600&q=80",
+    description: "Autonomous engineering powerhouse with premier industry centers of excellence. Direct management quota packages for CSE, Data Science, AIML, and ECE.",
+    quotaBadge: "Direct Quota Active",
+    highlights: ["Satellite Research Lab", "Center for Robotics", "High Average CTC"]
+  },
+  {
+    id: 'c20',
+    name: "New Horizon College of Engineering (NHCE)",
+    logo: "images/logos/nhce.png",
+    stream: "engineering",
+    streamBadge: "Engineering & Tech",
+    location: "Outer Ring Road, Marathahalli, Bengaluru",
+    ranking: "Autonomous VTU • NAAC A Grade",
+    highestPkg: "₹35.0 LPA",
+    image: "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=600&q=80",
+    description: "Prime IT Corridor campus near major tech parks. Direct admission seats for CSE, AI & ML, Data Science, and Information Science with guaranteed corporate linkage.",
+    quotaBadge: "Direct Quota 2027",
+    highlights: ["Prime IT Corridor", "Japan Exchange Program", "Fortune 500 On-Campus"]
+  },
+  {
+    id: 'c21',
+    name: "Global Academy of Technology (GAT)",
+    logo: "images/logos/gat.png",
+    stream: "engineering",
+    streamBadge: "Engineering & Tech",
+    location: "Ideal Homes, Rajarajeshwarinagar, Bengaluru",
+    ranking: "Autonomous VTU • AICTE Approved",
+    highestPkg: "₹32.0 LPA",
+    image: "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=600&q=80",
+    description: "Prominent autonomous institute in South Bengaluru offering CSE, AIML, AIDS, ISE, Aeronautical, and ECE with transparent fee structure packages.",
+    quotaBadge: "Seat Booking Open",
+    highlights: ["Autonomous Status", "Strong Industry Connect", "Modern Lab Complexes"]
+  },
+  {
+    id: 'c22',
+    name: "REVA University",
+    logo: "images/logos/reva.png",
+    stream: "engineering",
+    streamBadge: "University & Tech",
+    location: "Rukmini Knowledge Park, Kattigenahalli, Yelahanka",
+    ranking: "Leading State Private University • 45 Acres",
+    highestPkg: "₹50.0 LPA",
+    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80",
+    description: "State-of-the-art mega campus with future-focused engineering specializations in AI, Data Science, Blockchain, IoT, and Robotics. Direct quota seat allocation.",
+    quotaBadge: "Direct Quota Available",
+    highlights: ["45-Acre Lush Campus", "UI/UX & Robotics Hubs", "Multi-Disciplinary Options"]
   }
 ];
 
