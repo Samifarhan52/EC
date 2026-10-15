@@ -3397,13 +3397,69 @@ button, input, select, textarea {
   display: grid;
   grid-template-columns: 0.95fr 1.25fr 1.25fr auto;
   gap: 16px;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 
 .search-field-item {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  min-width: 0;
+}
+
+.search-action-item {
+  margin-top: 27px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-conditional-field {
+  width: 100%;
+  margin-top: 8px !important;
+  animation: fadeInDown 0.25s ease forwards;
+}
+
+.hero-other-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-other-input-wrap .hero-other-icon {
+  position: absolute;
+  left: 16px;
+  color: #4f46e5;
+  font-size: 13.5px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero-other-input-wrap .search-input-control {
+  width: 100%;
+  border: 1.5px solid #c7d2fe;
+  background: #f8faff;
+  border-radius: 50px;
+  padding: 10px 16px 10px 40px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1e293b;
+  outline: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.06);
+}
+
+.hero-other-input-wrap .search-input-control:focus {
+  border-color: #4f46e5;
+  background: #ffffff;
+  box-shadow: 0 0 0 3.5px rgba(99, 102, 241, 0.18), 0 4px 12px rgba(79, 70, 229, 0.1);
+}
+
+.hero-other-input-wrap .search-input-control::placeholder {
+  color: #94a3b8;
+  font-weight: 500;
+  font-size: 12.5px;
 }
 
 .search-label {
@@ -3552,6 +3608,9 @@ button, input, select, textarea {
   .search-fields-grid {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+  .search-action-item {
+    margin-top: 0 !important;
   }
   .hero-search-btn {
     width: 100%;

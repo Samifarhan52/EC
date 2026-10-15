@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Official Theme Stylesheet with cache-busting -->
-  <link rel="stylesheet" href="css/style.css?v=202735">
+  <link rel="stylesheet" href="css/style.css?v=202736">
 
   <!-- Critical styles for Enquiry Pill Buttons (Guaranteed render regardless of browser cache) -->
   <style>
@@ -732,7 +732,15 @@
                   <option value="all">All Programs (UG &amp; PG)</option>
                   <option value="ug">UG - Undergraduate</option>
                   <option value="pg">PG - Postgraduate</option>
+                  <option value="Others">Others (Specify Program Level)</option>
                 </select>
+              </div>
+              <!-- Dynamic Conditional Field for Program Level "Others" -->
+              <div class="conditional-other-field hero-conditional-field" id="heroConditionalProgramLevelOther">
+                <div class="hero-other-input-wrap">
+                  <i class="fa-solid fa-layer-group hero-other-icon"></i>
+                  <input type="text" id="heroOtherProgramLevel" name="otherProgramLevel" class="search-input-control" placeholder="Specify Program Level (e.g. Diploma, Ph.D)">
+                </div>
               </div>
             </div>
 
@@ -753,7 +761,15 @@
                   <option value="law">Law &amp; Legal Studies (BA LLB / BBA LLB / LLM)</option>
                   <option value="pharmacy">Pharmacy &amp; Nursing (B.Pharm / M.Pharm / Nursing)</option>
                   <option value="architecture">Architecture &amp; Design (B.Arch / B.Des)</option>
+                  <option value="Others">Others (Specify Preferred Course)</option>
                 </select>
+              </div>
+              <!-- Dynamic Conditional Field for Course "Others" -->
+              <div class="conditional-other-field hero-conditional-field" id="heroConditionalDisciplineOther">
+                <div class="hero-other-input-wrap">
+                  <i class="fa-solid fa-graduation-cap hero-other-icon"></i>
+                  <input type="text" id="heroOtherDiscipline" name="otherDiscipline" class="search-input-control" placeholder="Specify Preferred Course (e.g. B.Sc AI, Aviation)">
+                </div>
               </div>
             </div>
 
@@ -777,7 +793,15 @@
                   <option value="Vydehi Institute">Vydehi Institute of Medical Sciences</option>
                   <option value="Presidency University">Presidency University</option>
                   <option value="Sir M. Visvesvaraya">Sir M. Visvesvaraya Institute (SMVIT)</option>
+                  <option value="Others">Others (Specify Preferred College)</option>
                 </select>
+              </div>
+              <!-- Dynamic Conditional Field for College "Others" -->
+              <div class="conditional-other-field hero-conditional-field" id="heroConditionalCollegeOther">
+                <div class="hero-other-input-wrap">
+                  <i class="fa-solid fa-building-columns hero-other-icon"></i>
+                  <input type="text" id="heroOtherCollege" name="otherCollege" class="search-input-control" placeholder="Specify Preferred College Name">
+                </div>
               </div>
             </div>
 
@@ -2106,6 +2130,6 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/main.js?v=202735"></script>
+  <script src="js/main.js?v=202736"></script>
 </body>
 </html>

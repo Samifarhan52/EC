@@ -660,6 +660,11 @@ function initConditionalFormFields() {
   // Standalone enquiry page pairs
   setupConditionalPair('enquiryCourseSelect', 'enquiryConditionalCourseOther');
   setupConditionalPair('enquiryCollegeSelect', 'enquiryConditionalCollegeOther');
+
+  // Hero search bar conditional pairs
+  setupConditionalPair('searchProgramLevel', 'heroConditionalProgramLevelOther');
+  setupConditionalPair('searchDiscipline', 'heroConditionalDisciplineOther');
+  setupConditionalPair('searchCollege', 'heroConditionalCollegeOther');
 }
 
 function setupConditionalPair(selectId, conditionalWrapId) {
@@ -1171,16 +1176,32 @@ function initEnquiryPillButtons() {
         const match = Array.from(sel.options).find(o => o.value.toLowerCase().includes(collegeParam.toLowerCase()));
         if (match) {
           sel.value = match.value;
+        } else {
+          const otherOpt = Array.from(sel.options).find(o => o.value === 'Others');
+          if (otherOpt) {
+            sel.value = 'Others';
+            sel.dispatchEvent(new Event('change'));
+            const customInput = document.querySelector('input[name="otherCollegeName"], input[name="otherCollege"]');
+            if (customInput) customInput.value = collegeParam;
+          }
         }
       });
     }
 
     const courseParam = urlParams.get('course') || urlParams.get('stream');
     if (courseParam) {
-      document.querySelectorAll('select[name="course"]').forEach(sel => {
+      document.querySelectorAll('select[name="course"], select[name="discipline"]').forEach(sel => {
         const match = Array.from(sel.options).find(o => o.value.toLowerCase().includes(courseParam.toLowerCase()));
         if (match) {
           sel.value = match.value;
+        } else {
+          const otherOpt = Array.from(sel.options).find(o => o.value === 'Others');
+          if (otherOpt) {
+            sel.value = 'Others';
+            sel.dispatchEvent(new Event('change'));
+            const customInput = document.querySelector('input[name="otherCourseName"], input[name="otherDiscipline"]');
+            if (customInput) customInput.value = courseParam;
+          }
         }
       });
     }
@@ -1237,7 +1258,8 @@ const PROGRAM_STREAM_DATA = {
     { value: 'science', label: 'Science & Biotechnology (B.Sc / M.Sc)' },
     { value: 'law', label: 'Law & Legal Studies (BA LLB / BBA LLB / LLM)' },
     { value: 'pharmacy', label: 'Pharmacy & Nursing (B.Pharm / M.Pharm / Nursing)' },
-    { value: 'architecture', label: 'Architecture & Design (B.Arch / B.Des / M.Arch)' }
+    { value: 'architecture', label: 'Architecture & Design (B.Arch / B.Des / M.Arch)' },
+    { value: 'Others', label: 'Others (Specify Preferred Course)' }
   ],
   ug: [
     { value: 'all-ug', label: 'All UG Programs (Undergraduate)' },
@@ -1250,7 +1272,8 @@ const PROGRAM_STREAM_DATA = {
     { value: 'mbbs', label: 'MBBS / BDS (Medical & Dental Surgery)' },
     { value: 'bpharm', label: 'B.Pharm / Pharm.D / B.Sc Nursing' },
     { value: 'ballb', label: 'BA LLB / BBA LLB (Integrated 5-Year Law)' },
-    { value: 'barch', label: 'B.Arch / B.Des (Architecture & Design)' }
+    { value: 'barch', label: 'B.Arch / B.Des (Architecture & Design)' },
+    { value: 'Others', label: 'Others (Specify Preferred Course)' }
   ],
   pg: [
     { value: 'all-pg', label: 'All PG Programs (Postgraduate)' },
@@ -1263,7 +1286,8 @@ const PROGRAM_STREAM_DATA = {
     { value: 'llm', label: 'LLM (Corporate Law, Intellectual Property, Constitutional)' },
     { value: 'mpharm', label: 'M.Pharm (Pharmaceutics, Pharmacology)' },
     { value: 'march', label: 'M.Arch / M.Des (Master of Architecture & Design)' },
-    { value: 'ma', label: 'MA (Economics, Public Policy, Mass Communication)' }
+    { value: 'ma', label: 'MA (Economics, Public Policy, Mass Communication)' },
+    { value: 'Others', label: 'Others (Specify Preferred Course)' }
   ]
 };
 
@@ -1279,16 +1303,43 @@ window.handleProgramLevelChange = function(level) {
     opt.textContent = item.label;
     disciplineSelect.appendChild(opt);
   });
+
+  // Reset conditional course input if stream is reset away from Others
+  const discWrap = document.getElementById('heroConditionalDisciplineOther');
+  if (discWrap && disciplineSelect.value !== 'Others') {
+    discWrap.classList.remove('is-visible');
+    const input = discWrap.querySelector('input');
+    if (input) {
+      input.required = false;
+      input.value = '';
+    }
+  }
 };
 
 window.handleHeroQuickSearch = function(e) {
   if (e) e.preventDefault();
-  const progLevel = document.getElementById('searchProgramLevel')?.value || 'all';
-  const disc = document.getElementById('searchDiscipline')?.value || 'all';
-  const college = document.getElementById('searchCollege')?.value || 'all';
+  const progLevelSelect = document.getElementById('searchProgramLevel');
+  const discSelect = document.getElementById('searchDiscipline');
+  const collegeSelect = document.getElementById('searchCollege');
 
-  // If a specific college was chosen, switch to colleges mode and scroll down to highlight
-  if (college !== 'all') {
+  const progLevel = progLevelSelect?.value || 'all';
+  const disc = discSelect?.value || 'all';
+  const college = collegeSelect?.value || 'all';
+
+  const otherProgInput = document.getElementById('heroOtherProgramLevel');
+  const otherDiscInput = document.getElementById('heroOtherDiscipline');
+  const otherCollegeInput = document.getElementById('heroOtherCollege');
+
+  const customProg = (progLevel === 'Others' && otherProgInput) ? otherProgInput.value.trim() : '';
+  const customDisc = (disc === 'Others' && otherDiscInput) ? otherDiscInput.value.trim() : '';
+  const customCollege = (college === 'Others' && otherCollegeInput) ? otherCollegeInput.value.trim() : '';
+
+  const effectiveCollege = customCollege || (college !== 'Others' && college !== 'all' ? college : '');
+  const effectiveDisc = customDisc || (disc !== 'Others' && disc !== 'all' && disc !== 'all-ug' && disc !== 'all-pg' ? disc : '');
+  const effectiveProg = customProg || (progLevel !== 'Others' && progLevel !== 'all' ? progLevel : '');
+
+  // If a specific college was chosen or custom typed in Others
+  if (effectiveCollege) {
     currentDirectoryMode = 'colleges';
     currentCategoryFilter = 'all';
     const modeCollegesBtn = document.getElementById('modeCollegesBtn');
@@ -1310,11 +1361,13 @@ window.handleHeroQuickSearch = function(e) {
 
     setTimeout(() => {
       const cards = document.querySelectorAll('.directory-card');
-      const searchTerms = college.toLowerCase().split(' ');
+      const searchTerms = effectiveCollege.toLowerCase().split(' ').filter(t => t.length > 2);
+      let matchedCount = 0;
       cards.forEach(card => {
         const text = card.textContent.toLowerCase();
-        const matches = searchTerms.some(term => term.length > 2 && text.includes(term));
+        const matches = searchTerms.some(term => text.includes(term));
         if (matches) {
+          matchedCount++;
           card.style.outline = '3px solid #f59e0b';
           card.style.boxShadow = '0 0 25px rgba(245, 158, 11, 0.45)';
           card.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -1324,11 +1377,16 @@ window.handleHeroQuickSearch = function(e) {
           }, 3500);
         }
       });
+
+      // If user typed a custom "Others" college and no card matched, assist directly via enquiry modal
+      if (matchedCount === 0 && customCollege) {
+        window.openRegisterModal(customCollege, effectiveDisc || effectiveProg);
+      }
     }, 400);
     return;
   }
 
-  // If a program level or stream was chosen, switch to Popular Programs mode!
+  // If a program level or stream was chosen or custom typed
   currentDirectoryMode = 'programs';
   const modeCollegesBtn = document.getElementById('modeCollegesBtn');
   const modeProgramsBtn = document.getElementById('modeProgramsBtn');
@@ -1337,11 +1395,12 @@ window.handleHeroQuickSearch = function(e) {
 
   // Map stream/course to category filter
   let targetFilter = 'all';
-  if (['engineering', 'btech', 'mtech', 'bca', 'mca', 'computer-applications', 'architecture', 'barch', 'march'].includes(disc)) {
+  const streamLower = (effectiveDisc || '').toLowerCase();
+  if (['engineering', 'btech', 'mtech', 'bca', 'mca', 'computer-applications', 'architecture', 'barch', 'march'].some(k => streamLower.includes(k))) {
     targetFilter = 'engineering';
-  } else if (['commerce', 'bcom', 'mcom', 'management', 'bba', 'mba', 'law', 'ballb', 'llm', 'ba', 'ma'].includes(disc)) {
+  } else if (['commerce', 'bcom', 'mcom', 'management', 'bba', 'mba', 'law', 'ballb', 'llm', 'ba', 'ma'].some(k => streamLower.includes(k))) {
     targetFilter = 'commerce';
-  } else if (['medical', 'mbbs', 'bds', 'md-ms', 'pharmacy', 'bpharm', 'mpharm', 'science', 'bsc', 'msc'].includes(disc)) {
+  } else if (['medical', 'mbbs', 'bds', 'md-ms', 'pharmacy', 'bpharm', 'mpharm', 'science', 'bsc', 'msc'].some(k => streamLower.includes(k))) {
     targetFilter = 'medical';
   }
 
@@ -1358,14 +1417,16 @@ window.handleHeroQuickSearch = function(e) {
   const dirEl = document.getElementById('directorySection');
   if (dirEl) dirEl.scrollIntoView({ behavior: 'smooth' });
 
-  // If a specific course was selected (like BCA, MCA, MBA, B.Tech, etc.), highlight matching cards
-  if (disc !== 'all' && disc !== 'all-ug' && disc !== 'all-pg') {
+  // If a specific course was selected or typed, highlight matching cards
+  if (effectiveDisc) {
     setTimeout(() => {
       const cards = document.querySelectorAll('.directory-card');
-      const searchTerm = disc.toLowerCase();
+      const searchTerm = effectiveDisc.toLowerCase();
+      let matchedCount = 0;
       cards.forEach(card => {
         const text = card.textContent.toLowerCase();
         if (text.includes(searchTerm) || (searchTerm === 'btech' && text.includes('b.tech')) || (searchTerm === 'mtech' && text.includes('m.tech')) || (searchTerm === 'bcom' && text.includes('b.com')) || (searchTerm === 'mcom' && text.includes('m.com')) || (searchTerm === 'bsc' && text.includes('b.sc')) || (searchTerm === 'msc' && text.includes('m.sc'))) {
+          matchedCount++;
           card.style.outline = '3px solid #f59e0b';
           card.style.boxShadow = '0 0 25px rgba(245, 158, 11, 0.45)';
           card.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -1375,6 +1436,11 @@ window.handleHeroQuickSearch = function(e) {
           }, 3500);
         }
       });
+
+      // If user typed custom course and no card matched, assist directly via enquiry modal
+      if (matchedCount === 0 && customDisc) {
+        window.openRegisterModal('', customDisc);
+      }
     }, 400);
   }
 };
