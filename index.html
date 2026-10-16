@@ -1725,13 +1725,141 @@
         </div>
       </div>
 
-      <!-- Admissions & Student Entrance Preparation Poster Banner (Fast WebP with Fallback) -->
-      <div class="howWork-videoWrap" onclick="openRegisterModal()" style="cursor: pointer;" title="Click to enquire for Direct Admissions &amp; Entrance Exam Preparation">
-        <picture>
-          <source srcset="images/admissions-entrance-poster.webp?v=2027102" type="image/webp">
-          <img src="images/admissions-entrance-poster.png?v=2027102" alt="Direct College Admissions &amp; Student Entrance Exam Preparation - Bangalore &amp; Premier Universities" loading="lazy" width="1376" height="768" decoding="async" style="width: 100%; height: auto; display: block; image-rendering: -webkit-optimize-contrast;">
-        </picture>
+      <!-- Dual Promotional Poster Slider (1-on-1 Counselling & StudentEntrance) -->
+      <div class="howWork-poster-slider-container" id="howWorkPosterSlider" aria-label="Educational Guidance &amp; Entrance Preparation Posters">
+        <div class="poster-slider-track" id="posterSliderTrack">
+          <!-- Slide 1: 1-on-1 Counselling (Takes users to Registration Form Page) -->
+          <div class="poster-slide" data-slide="0">
+            <a href="enquiry.html" class="poster-slide-link" aria-label="Book 1-on-1 Counselling Appointment - Register Form" title="Click to open Registration Form">
+              <picture>
+                <source srcset="images/poster-counselling.webp?v=20271" type="image/webp">
+                <img src="images/poster-counselling.jpg?v=20271" alt="Education Tips &amp; Trick - Bangalore Top Colleges 1-On-1 Counselling - Book Appointment" width="1024" height="576" loading="lazy" decoding="async">
+              </picture>
+              <span class="poster-slide-pill-badge">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Book 1-On-1 Appointment • Register Now
+              </span>
+            </a>
+          </div>
+
+          <!-- Slide 2: StudentEntrance Exam Prep (Takes users to StudentEntrance.com) -->
+          <div class="poster-slide" data-slide="1">
+            <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="poster-slide-link" aria-label="StudentEntrance.com - Bangalore Entrance Exam Preparation" title="Click to visit StudentEntrance.com">
+              <picture>
+                <source srcset="images/poster-studententrance.webp?v=20271" type="image/webp">
+                <img src="images/poster-studententrance.jpg?v=20271" alt="Bangalore Entrance - Get prepare Online for your upcoming college Entrance Exam - StudentEntrance.com" width="1024" height="576" loading="lazy" decoding="async">
+              </picture>
+              <span class="poster-slide-pill-badge badge-entrance">
+                <i class="fa-solid fa-bolt-lightning"></i> Visit StudentEntrance.com ↗
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button type="button" class="poster-slider-btn btn-prev" id="posterSliderPrev" aria-label="Previous Poster">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button type="button" class="poster-slider-btn btn-next" id="posterSliderNext" aria-label="Next Poster">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <!-- Pagination Indicator Dots -->
+        <div class="poster-slider-dots" id="posterSliderDots">
+          <button type="button" class="poster-dot active" data-index="0" aria-label="Slide 1: 1-on-1 Counselling"></button>
+          <button type="button" class="poster-dot" data-index="1" aria-label="Slide 2: Student Entrance Exam Preparation"></button>
+        </div>
       </div>
+      <script>
+        (function() {
+          const container = document.getElementById('howWorkPosterSlider');
+          if (!container) return;
+          const track = document.getElementById('posterSliderTrack');
+          const prevBtn = document.getElementById('posterSliderPrev');
+          const nextBtn = document.getElementById('posterSliderNext');
+          const dots = container.querySelectorAll('.poster-dot');
+          let currentSlide = 0;
+          let autoTimer = null;
+          const totalSlides = 2;
+
+          function goToSlide(index) {
+            currentSlide = (index + totalSlides) % totalSlides;
+            track.style.transform = 'translateX(-' + (currentSlide * 50) + '%)';
+            dots.forEach(function(dot, i) {
+              dot.classList.toggle('active', i === currentSlide);
+            });
+          }
+
+          function startAutoSlide() {
+            stopAutoSlide();
+            autoTimer = setInterval(function() {
+              goToSlide(currentSlide + 1);
+            }, 5000);
+          }
+
+          function stopAutoSlide() {
+            if (autoTimer) {
+              clearInterval(autoTimer);
+              autoTimer = null;
+            }
+          }
+
+          if (prevBtn) {
+            prevBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              goToSlide(currentSlide - 1);
+              startAutoSlide();
+            });
+          }
+
+          if (nextBtn) {
+            nextBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              goToSlide(currentSlide + 1);
+              startAutoSlide();
+            });
+          }
+
+          dots.forEach(function(dot) {
+            dot.addEventListener('click', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              const idx = parseInt(dot.getAttribute('data-index') || 0, 10);
+              goToSlide(idx);
+              startAutoSlide();
+            });
+          });
+
+          container.addEventListener('mouseenter', stopAutoSlide);
+          container.addEventListener('mouseleave', startAutoSlide);
+
+          // Mobile touch swipe gesture support
+          let startX = 0;
+          container.addEventListener('touchstart', function(e) {
+            stopAutoSlide();
+            if (e.touches && e.touches[0]) {
+              startX = e.touches[0].clientX;
+            }
+          }, { passive: true });
+
+          container.addEventListener('touchend', function(e) {
+            if (e.changedTouches && e.changedTouches[0]) {
+              const diffX = startX - e.changedTouches[0].clientX;
+              if (Math.abs(diffX) > 40) {
+                if (diffX > 0) {
+                  goToSlide(currentSlide + 1);
+                } else {
+                  goToSlide(currentSlide - 1);
+                }
+              }
+            }
+            startAutoSlide();
+          }, { passive: true });
+
+          startAutoSlide();
+        })();
+      </script>
 
       <!-- ==============================================================================
            FEATURE HIGHLIGHT: PREPARE ON STUDENTENTRANCE.COM PORTAL
