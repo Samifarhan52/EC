@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Official Theme Stylesheet with cache-busting -->
-  <link rel="stylesheet" href="css/style.css?v=2027129">
+  <link rel="stylesheet" href="css/style.css?v=2027130">
 
   <!-- Critical styles for Enquiry Pill Buttons (Guaranteed render regardless of browser cache) -->
   <style>
@@ -2000,6 +2000,10 @@
           gap: 7px !important;
           z-index: 8 !important;
           pointer-events: none !important;
+          opacity: 0 !important;
+          visibility: hidden !important;
+          transform: translateY(-6px) !important;
+          transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s !important;
         }
         .ad-spotlight-tag .live-dot {
           width: 7px !important;
@@ -2027,12 +2031,25 @@
           gap: 7px !important;
           z-index: 8 !important;
           pointer-events: none !important;
-          transition: all 0.25s ease !important;
+          opacity: 0 !important;
+          visibility: hidden !important;
+          transform: translateY(6px) !important;
+          transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s, background 0.25s, color 0.25s, border-color 0.25s, box-shadow 0.25s !important;
         }
         .ad-action-pill.pill-purple {
           background: rgba(46, 16, 101, 0.92) !important;
           border-color: rgba(168, 85, 247, 0.4) !important;
           color: #e9d5ff !important;
+        }
+        .ad-poster-billboard-wrapper:hover .ad-spotlight-tag {
+          opacity: 1 !important;
+          visibility: visible !important;
+          transform: translateY(0) !important;
+        }
+        .ad-poster-billboard-wrapper:hover .ad-action-pill {
+          opacity: 1 !important;
+          visibility: visible !important;
+          transform: translateY(0) !important;
         }
         .ad-poster-link:hover .ad-action-pill {
           background: #2563eb !important;
@@ -2045,6 +2062,7 @@
           background: #7c3aed !important;
           color: #ffffff !important;
           border-color: #8b5cf6 !important;
+          transform: translateY(-2px) !important;
           box-shadow: 0 8px 24px rgba(124, 58, 237, 0.45) !important;
         }
         .ad-nav-btn {
@@ -2065,8 +2083,27 @@
           justify-content: center !important;
           cursor: pointer !important;
           z-index: 10 !important;
-          transition: all 0.22s ease !important;
-          opacity: 0.85 !important;
+          opacity: 0 !important;
+          visibility: hidden !important;
+          transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s, background 0.22s, border-color 0.22s !important;
+        }
+        .ad-nav-btn.btn-prev {
+          left: 16px !important;
+          transform: translateY(-50%) translateX(-6px) !important;
+        }
+        .ad-nav-btn.btn-next {
+          right: 16px !important;
+          transform: translateY(-50%) translateX(6px) !important;
+        }
+        .ad-poster-billboard-wrapper:hover .ad-nav-btn {
+          opacity: 0.88 !important;
+          visibility: visible !important;
+        }
+        .ad-poster-billboard-wrapper:hover .ad-nav-btn.btn-prev {
+          transform: translateY(-50%) translateX(0) !important;
+        }
+        .ad-poster-billboard-wrapper:hover .ad-nav-btn.btn-next {
+          transform: translateY(-50%) translateX(0) !important;
         }
         .ad-nav-btn:hover {
           opacity: 1 !important;
@@ -2074,14 +2111,12 @@
           border-color: #3b82f6 !important;
           transform: translateY(-50%) scale(1.1) !important;
         }
-        .ad-nav-btn.btn-prev { left: 16px !important; }
-        .ad-nav-btn.btn-next { right: 16px !important; }
 
         .ad-bottom-bar {
           position: absolute !important;
           bottom: 14px !important;
           left: 50% !important;
-          transform: translateX(-50%) !important;
+          transform: translateX(-50%) translateY(6px) !important;
           display: flex !important;
           align-items: center !important;
           gap: 10px !important;
@@ -2092,6 +2127,14 @@
           border-radius: 9999px !important;
           border: 1px solid rgba(255, 255, 255, 0.18) !important;
           z-index: 10 !important;
+          opacity: 0 !important;
+          visibility: hidden !important;
+          transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s !important;
+        }
+        .ad-poster-billboard-wrapper:hover .ad-bottom-bar {
+          opacity: 1 !important;
+          visibility: visible !important;
+          transform: translateX(-50%) translateY(0) !important;
         }
         .ad-dot-indicator {
           width: 24px !important;
