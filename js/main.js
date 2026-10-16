@@ -1403,11 +1403,12 @@ _Please verify quota seats and call back the student promptly._`;
   const waUrl2 = `https://wa.me/918884058241?text=${waEncoded}`;
   const waUrl3 = `https://wa.me/919731998555?text=${waEncoded}`;
 
-  // Automatically open WhatsApp 1
+  // Automatically open WhatsApp (Fee forms redirect to 9731998555)
+  const targetWaUrl = (formType === 'fee') ? waUrl3 : waUrl1;
   try {
-    window.open(waUrl1, '_blank');
+    window.open(targetWaUrl, '_blank');
   } catch (e) {
-    console.warn('Popup blocked for WhatsApp 1:', e);
+    console.warn('Popup blocked for WhatsApp:', e);
   }
 
   // If Fee download requested, trigger the document
