@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Official Theme Stylesheet with cache-busting -->
-  <link rel="stylesheet" href="css/style.css?v=2027120">
+  <link rel="stylesheet" href="css/style.css?v=2027121">
 
   <!-- Critical styles for Enquiry Pill Buttons (Guaranteed render regardless of browser cache) -->
   <style>
@@ -658,7 +658,43 @@
       }
     }
 
-    /* Popup Poster Banner */
+    /* Compact Entrance Popup Modal */
+    .admission-alert-card {
+      max-width: 375px !important;
+      border-radius: 20px !important;
+      overflow: hidden !important;
+    }
+
+    /* Close button on top-right of poster */
+    .admission-alert-close-btn {
+      position: absolute !important;
+      top: 10px !important;
+      right: 10px !important;
+      width: 32px !important;
+      height: 32px !important;
+      border-radius: 50% !important;
+      background: rgba(15, 23, 42, 0.72) !important;
+      backdrop-filter: blur(6px) !important;
+      -webkit-backdrop-filter: blur(6px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.35) !important;
+      color: #ffffff !important;
+      font-size: 0.9rem !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      cursor: pointer !important;
+      z-index: 40 !important;
+      transition: all 0.2s ease !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    }
+    .admission-alert-close-btn:hover {
+      background: #dc2626 !important;
+      border-color: #ef4444 !important;
+      color: #ffffff !important;
+      transform: scale(1.08) !important;
+    }
+
+    /* 1. Popup Poster Banner at Top */
     .popup-poster-banner-link {
       display: block !important;
       position: relative !important;
@@ -668,6 +704,7 @@
       background: #047857 !important;
       cursor: pointer !important;
       text-decoration: none !important;
+      border-radius: 20px 20px 0 0 !important;
       border-bottom: 1px solid rgba(226, 232, 240, 0.9) !important;
     }
     .popup-poster-banner-link picture,
@@ -681,88 +718,146 @@
     .popup-poster-banner-link:hover img {
       transform: scale(1.02) !important;
     }
-    .popup-poster-hover-tag {
-      position: absolute !important;
-      bottom: 10px !important;
-      right: 10px !important;
-      background: rgba(15, 23, 42, 0.88) !important;
-      backdrop-filter: blur(6px) !important;
-      -webkit-backdrop-filter: blur(6px) !important;
-      color: #ffffff !important;
-      padding: 5px 12px !important;
-      border-radius: 9999px !important;
-      font-size: 0.74rem !important;
-      font-weight: 750 !important;
-      display: flex !important;
-      align-items: center !important;
-      gap: 6px !important;
-      border: 1px solid rgba(255, 255, 255, 0.2) !important;
-      transition: all 0.2s ease !important;
-      pointer-events: none !important;
+
+    /* 2. Flipping College Header Below Poster */
+    .admission-alert-header {
+      background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%) !important;
+      padding: 0.5rem 0.85rem !important;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.9) !important;
+      position: relative !important;
+      border-radius: 0 !important;
     }
-    .popup-poster-banner-link:hover .popup-poster-hover-tag {
-      background: #2563eb !important;
-      border-color: #3b82f6 !important;
-      transform: translateY(-2px) !important;
+    .popup-flip-crest-wrap {
+      width: 36px !important;
+      height: 36px !important;
+      border-radius: 8px !important;
+      padding: 3px !important;
+    }
+    .popup-flip-name {
+      font-size: 0.92rem !important;
+    }
+    .popup-flip-sub {
+      font-size: 0.70rem !important;
+    }
+    .popup-flip-meta {
+      font-size: 0.68rem !important;
+    }
+
+    /* 3. Alert Body Content */
+    .admission-alert-body {
+      padding: 0.7rem 0.95rem 0.85rem !important;
+    }
+    .admission-alert-title {
+      font-size: 1.05rem !important;
+      font-weight: 850 !important;
+      margin: 0 0 0.15rem !important;
+      line-height: 1.25 !important;
+    }
+    .admission-alert-subtext {
+      font-size: 0.78rem !important;
+      margin-bottom: 0.55rem !important;
+      line-height: 1.35 !important;
+      color: #64748b !important;
+    }
+    .admission-checklist {
+      gap: 0.38rem !important;
+      margin: 0 0 0.65rem !important;
+    }
+    .checklist-item {
+      font-size: 0.76rem !important;
+      line-height: 1.3 !important;
+    }
+    .btn-popup-primary {
+      padding: 0.65rem 1rem !important;
+      font-size: 0.86rem !important;
+      border-radius: 10px !important;
+    }
+    .popup-secondary-links-grid {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 6px !important;
+    }
+    .btn-popup-secondary {
+      padding: 6px 8px !important;
+      font-size: 0.74rem !important;
+      border-radius: 8px !important;
+    }
+    .admission-alert-footer-note {
+      margin-top: 0.5rem !important;
+      font-size: 0.68rem !important;
+      line-height: 1.3 !important;
     }
 
     @media (max-width: 480px) {
       .admission-alert-card {
-        border-radius: 18px !important;
-        max-width: 94% !important;
-        max-height: 92vh !important;
+        border-radius: 16px !important;
+        max-width: 90% !important;
+        max-height: 88vh !important;
+      }
+      .popup-poster-banner-link {
+        border-radius: 16px 16px 0 0 !important;
+      }
+      .admission-alert-close-btn {
+        top: 8px !important;
+        right: 8px !important;
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 0.85rem !important;
       }
       .admission-alert-header {
-        padding: 0.75rem 2.8rem 0.75rem 1rem !important;
-        border-radius: 18px 18px 0 0 !important;
+        padding: 0.45rem 0.75rem !important;
       }
       .popup-flip-crest-wrap {
-        width: 40px !important;
-        height: 40px !important;
-        border-radius: 10px !important;
-        padding: 4px !important;
+        width: 32px !important;
+        height: 32px !important;
+        border-radius: 7px !important;
+        padding: 2px !important;
       }
       .popup-flip-name {
-        font-size: 0.95rem !important;
+        font-size: 0.86rem !important;
       }
       .popup-flip-sub {
-        font-size: 0.72rem !important;
+        font-size: 0.66rem !important;
+      }
+      .popup-flip-meta {
+        font-size: 0.63rem !important;
       }
       .admission-alert-body {
-        padding: 0.85rem 1rem 1rem !important;
-      }
-      .admission-live-badge-row {
-        margin-bottom: 0.45rem !important;
-        gap: 6px !important;
+        padding: 0.6rem 0.75rem 0.75rem !important;
       }
       .admission-alert-title {
-        font-size: 1.1rem !important;
-        margin: 0 0 0.2rem !important;
+        font-size: 0.96rem !important;
+        margin: 0 0 0.12rem !important;
       }
       .admission-alert-subtext {
-        font-size: 0.78rem !important;
-        margin-bottom: 0.65rem !important;
-        line-height: 1.35 !important;
-      }
-      .admission-checklist {
-        gap: 0.45rem !important;
-        margin: 0 0 0.75rem !important;
-      }
-      .checklist-item {
-        font-size: 0.78rem !important;
+        font-size: 0.72rem !important;
+        margin-bottom: 0.45rem !important;
         line-height: 1.3 !important;
       }
+      .admission-checklist {
+        gap: 0.3rem !important;
+        margin: 0 0 0.55rem !important;
+      }
+      .checklist-item {
+        font-size: 0.72rem !important;
+        line-height: 1.25 !important;
+      }
+      .checklist-item i {
+        font-size: 0.82rem !important;
+      }
       .btn-popup-primary {
-        padding: 0.7rem 1rem !important;
-        font-size: 0.88rem !important;
+        padding: 0.55rem 0.8rem !important;
+        font-size: 0.82rem !important;
+        border-radius: 8px !important;
       }
       .btn-popup-secondary {
-        padding: 6px 8px !important;
-        font-size: 0.74rem !important;
+        padding: 4px 6px !important;
+        font-size: 0.70rem !important;
+        border-radius: 6px !important;
       }
       .admission-alert-footer-note {
-        margin-top: 0.6rem !important;
-        font-size: 0.68rem !important;
+        margin-top: 0.4rem !important;
+        font-size: 0.65rem !important;
       }
     }
   </style>
@@ -2779,12 +2874,20 @@
        ============================================================================== -->
   <div class="modal-overlay admission-alert-overlay" id="admissionAlertModal" role="dialog" aria-modal="true" aria-labelledby="admissionAlertHeadline">
     <div class="admission-alert-card">
-      <!-- Circular Close Button (Matches Hellobotz Screenshot) -->
+      <!-- Circular Close Button (Positioned over top-right of poster) -->
       <button type="button" class="modal-close-btn admission-alert-close-btn" id="closeAdmissionAlertBtn" aria-label="Close alert popup">
         <i class="fa-solid fa-xmark"></i>
       </button>
 
-      <!-- Flipping College Header Box (Flips every 2s: Christ, Josephs, NMIMS, Symbiosis, BMS, PES, RVCE, MSRIT, VIT) -->
+      <!-- 1. POSTER BANNER FIRST AT THE TOP (Clicking anywhere redirects to bangalore.theeduconsultant.com) -->
+      <a href="https://bangalore.theeduconsultant.com/" target="_blank" rel="noopener noreferrer" class="popup-poster-banner-link" title="Bangalore UG Admissions 2027 - Explore 160+ Bangalore Colleges">
+        <picture>
+          <source srcset="images/popup-banner-bangalore2027.webp?v=20272" type="image/webp">
+          <img src="images/popup-banner-bangalore2027.jpg?v=20272" alt="Bangalore 2027-UG Applications OPEN - Top Autonomous &amp; Premier Colleges" width="1024" height="576" loading="eager" decoding="async">
+        </picture>
+      </a>
+
+      <!-- 2. FLIPPING COLLEGE LOGOS HEADER SECOND (Directly below poster) -->
       <div class="admission-alert-header">
         <div class="popup-flip-box">
           <div class="popup-flip-inner" id="popupFlipBrand">
@@ -2802,49 +2905,27 @@
         </div>
       </div>
 
-      <!-- Poster Image: Bangalore 2027 UG Applications OPEN (Click redirects to bangalore.theeduconsultant.com) -->
-      <a href="https://bangalore.theeduconsultant.com/" target="_blank" rel="noopener noreferrer" class="popup-poster-banner-link" title="Bangalore UG Admissions 2027 - Explore 160+ Bangalore Colleges">
-        <picture>
-          <source srcset="images/popup-banner-bangalore2027.webp?v=20271" type="image/webp">
-          <img src="images/popup-banner-bangalore2027.jpg?v=20271" alt="Bangalore 2027-UG Applications OPEN - Top Autonomous &amp; Premier Colleges" width="1024" height="576" loading="eager" decoding="async">
-        </picture>
-        <span class="popup-poster-hover-tag">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          <span>Bangalore Portal ↗</span>
-        </span>
-      </a>
-
-      <!-- Alert Body Content (Short, Simple & Mobile-Friendly) -->
+      <!-- 3. COMPACT CONTENT BODY -->
       <div class="admission-alert-body">
-        <!-- Live Badges -->
-        <div class="admission-live-badge-row">
-          <span class="live-pill-tag live-tag-application">
-            <span class="live-pulse-dot"></span> Applications Open 2027
-          </span>
-          <span class="live-pill-tag live-tag-entrance">
-            <i class="fa-solid fa-bolt-lightning"></i> Free Mock Tests
-          </span>
-        </div>
-
         <!-- Headline & Short Subtitle -->
-        <h3 class="admission-alert-title" id="admissionAlertHeadline">Direct Admission &amp; Counselling</h3>
+        <h3 class="admission-alert-title" id="admissionAlertHeadline">Direct Admission &amp; Counselling 2027</h3>
         <p class="admission-alert-subtext">
-          Verified seats &amp; 1-on-1 expert guidance across Bangalore's top colleges.
+          Verified seats &amp; 1-on-1 guidance across Bangalore's premier colleges.
         </p>
 
         <!-- Compact 3-Bullet Checklist -->
         <ul class="admission-checklist" role="list">
           <li class="checklist-item">
             <i class="fa-solid fa-circle-check"></i>
-            <span><strong>Free Profile Evaluation:</strong> Eligibility &amp; fee structure roadmap</span>
+            <span><strong>Free Profile Advice:</strong> Eligibility &amp; fee roadmap</span>
           </li>
           <li class="checklist-item">
             <i class="fa-solid fa-circle-check"></i>
-            <span><strong>Verified Seat Booking:</strong> Engineering, Commerce &amp; Management</span>
+            <span><strong>Verified Seat Booking:</strong> Engineering, Commerce, Mgmt</span>
           </li>
           <li class="checklist-item">
             <i class="fa-solid fa-circle-check"></i>
-            <span><strong>Entrance Test Prep:</strong> Free mock tests on StudentEntrance.com</span>
+            <span><strong>Entrance Test Prep:</strong> Free on StudentEntrance.com</span>
           </li>
         </ul>
 
@@ -2855,11 +2936,11 @@
             <span>Talk to Counsellor FREE</span>
           </button>
           <div class="popup-secondary-links-grid">
-            <a href="https://bangalore.theeduconsultant.com/" target="_blank" rel="noopener noreferrer" class="btn-popup-secondary" title="Visit Bangalore Directory">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              <span>Bangalore Portal</span>
+            <a href="fee-structure.html" class="btn-popup-secondary" title="View Fee Structure">
+              <i class="fa-solid fa-file-invoice-dollar"></i>
+              <span>Fee Structure</span>
             </a>
-            <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="btn-popup-secondary" title="Free Mock Tests">
+            <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="btn-popup-secondary" title="Free Entrance Mock Tests">
               <i class="fa-solid fa-book-open"></i>
               <span>Entrance Tests</span>
             </a>
