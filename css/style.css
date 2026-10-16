@@ -5066,6 +5066,36 @@ button, input, select, textarea {
   box-shadow: 0 6px 16px rgba(30, 27, 75, 0.3);
 }
 
+@media (min-width: 992px) {
+  .services-grid-studylifter .service-card-departure {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 24px 30px;
+  }
+  .services-grid-studylifter .service-card-departure .icon {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  .services-grid-studylifter .service-card-departure .departure-body {
+    flex: 1;
+  }
+  .services-grid-studylifter .service-card-departure .title {
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+  .services-grid-studylifter .service-card-departure .info {
+    margin-bottom: 0;
+  }
+  .services-grid-studylifter .service-card-departure .link {
+    margin-top: 0;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+}
+
 .service-item-one .title {
   font-size: 1.18rem;
   font-weight: 800;
