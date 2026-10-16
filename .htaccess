@@ -28,6 +28,11 @@ ServerSignature Off
 
   # 2.4 Internal leads route alias
   RewriteRule ^leads/?$ leads.html [L]
+
+  # 2.5 Direct Subdomain Aliases & Redirections to Bangalore Portal
+  RewriteRule ^bangalore/?$ https://bangalore.theeduconsultant.com/ [R=301,L]
+  RewriteRule ^bengaluru/?$ https://bangalore.theeduconsultant.com/ [R=301,L]
+  RewriteRule ^colleges/?$ https://bangalore.theeduconsultant.com/ [R=301,L]
 </IfModule>
 
 # 3. CUSTOM ERROR DOCUMENTS

@@ -21,3 +21,7 @@ yarn-error.log*
 *.log
 .vscode/
 .idea/
+.env*
+*.env
+last-source.zip
+scratch/
