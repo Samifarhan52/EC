@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Official Theme Stylesheet with cache-busting -->
-  <link rel="stylesheet" href="css/style.css?v=202799">
+  <link rel="stylesheet" href="css/style.css?v=2027120">
 
   <!-- Critical styles for Enquiry Pill Buttons (Guaranteed render regardless of browser cache) -->
   <style>
@@ -1725,30 +1725,272 @@
         </div>
       </div>
 
-      <!-- Dual Promotional Poster Slider (1-on-1 Counselling & StudentEntrance) -->
-      <div class="howWork-poster-slider-container" id="howWorkPosterSlider" aria-label="Educational Guidance &amp; Entrance Preparation Posters">
-        <div class="poster-slider-track" id="posterSliderTrack">
-          <!-- Slide 1: 1-on-1 Counselling (Takes users to Registration Form Page) -->
-          <div class="poster-slide" data-slide="0">
-            <a href="enquiry.html" class="poster-slide-link" aria-label="Book 1-on-1 Counselling Appointment - Register Form" title="Click to open Registration Form">
+      <!-- ==============================================================================
+           AUTO-SCROLLING PROMOTIONAL POSTER BILLBOARD (COUNSELLING & STUDENTENTRANCE)
+           Guaranteed Inline CSS to prevent any browser caching issues
+           ============================================================================== -->
+      <style>
+        .ad-poster-billboard-wrapper {
+          position: relative !important;
+          max-width: 1040px !important;
+          margin: 2.25rem auto 0 !important;
+          border-radius: 20px !important;
+          overflow: hidden !important;
+          box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16) !important;
+          border: 1px solid rgba(226, 232, 240, 0.95) !important;
+          background: #0f172a !important;
+          aspect-ratio: 16 / 9 !important;
+          user-select: none !important;
+          box-sizing: border-box !important;
+        }
+        .ad-poster-track {
+          display: flex !important;
+          width: 200% !important;
+          height: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          transition: transform 0.75s cubic-bezier(0.25, 1, 0.5, 1) !important;
+          will-change: transform !important;
+        }
+        .ad-poster-slide {
+          width: 50% !important;
+          height: 100% !important;
+          position: relative !important;
+          flex-shrink: 0 !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          overflow: hidden !important;
+          box-sizing: border-box !important;
+        }
+        .ad-poster-link {
+          display: block !important;
+          width: 100% !important;
+          height: 100% !important;
+          position: relative !important;
+          text-decoration: none !important;
+          cursor: pointer !important;
+          overflow: hidden !important;
+        }
+        .ad-poster-link picture,
+        .ad-poster-link img {
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover !important;
+          display: block !important;
+          border: none !important;
+          outline: none !important;
+          transition: transform 0.4s ease !important;
+        }
+        .ad-poster-link:hover img {
+          transform: scale(1.015) !important;
+        }
+        .ad-spotlight-tag {
+          position: absolute !important;
+          top: 16px !important;
+          left: 18px !important;
+          background: rgba(15, 23, 42, 0.88) !important;
+          backdrop-filter: blur(8px) !important;
+          -webkit-backdrop-filter: blur(8px) !important;
+          color: #ffffff !important;
+          padding: 6px 14px !important;
+          border-radius: 9999px !important;
+          font-size: 0.76rem !important;
+          font-weight: 800 !important;
+          letter-spacing: 0.6px !important;
+          text-transform: uppercase !important;
+          border: 1px solid rgba(255, 255, 255, 0.2) !important;
+          display: inline-flex !important;
+          align-items: center !important;
+          gap: 7px !important;
+          z-index: 8 !important;
+          pointer-events: none !important;
+        }
+        .ad-spotlight-tag .live-dot {
+          width: 7px !important;
+          height: 7px !important;
+          border-radius: 50% !important;
+          background: #10b981 !important;
+          box-shadow: 0 0 8px #10b981 !important;
+        }
+        .ad-action-pill {
+          position: absolute !important;
+          bottom: 20px !important;
+          right: 20px !important;
+          background: rgba(15, 23, 42, 0.92) !important;
+          backdrop-filter: blur(10px) !important;
+          -webkit-backdrop-filter: blur(10px) !important;
+          color: #ffffff !important;
+          padding: 8px 18px !important;
+          border-radius: 9999px !important;
+          font-size: 0.84rem !important;
+          font-weight: 750 !important;
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35) !important;
+          border: 1px solid rgba(255, 255, 255, 0.22) !important;
+          display: inline-flex !important;
+          align-items: center !important;
+          gap: 7px !important;
+          z-index: 8 !important;
+          pointer-events: none !important;
+          transition: all 0.25s ease !important;
+        }
+        .ad-action-pill.pill-purple {
+          background: rgba(46, 16, 101, 0.92) !important;
+          border-color: rgba(168, 85, 247, 0.4) !important;
+          color: #e9d5ff !important;
+        }
+        .ad-poster-link:hover .ad-action-pill {
+          background: #2563eb !important;
+          color: #ffffff !important;
+          border-color: #3b82f6 !important;
+          transform: translateY(-2px) !important;
+          box-shadow: 0 8px 24px rgba(37, 99, 235, 0.45) !important;
+        }
+        .ad-poster-link:hover .ad-action-pill.pill-purple {
+          background: #7c3aed !important;
+          color: #ffffff !important;
+          border-color: #8b5cf6 !important;
+          box-shadow: 0 8px 24px rgba(124, 58, 237, 0.45) !important;
+        }
+        .ad-nav-btn {
+          position: absolute !important;
+          top: 50% !important;
+          transform: translateY(-50%) !important;
+          width: 44px !important;
+          height: 44px !important;
+          border-radius: 50% !important;
+          background: rgba(15, 23, 42, 0.82) !important;
+          backdrop-filter: blur(8px) !important;
+          -webkit-backdrop-filter: blur(8px) !important;
+          border: 1px solid rgba(255, 255, 255, 0.25) !important;
+          color: #ffffff !important;
+          font-size: 1rem !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          cursor: pointer !important;
+          z-index: 10 !important;
+          transition: all 0.22s ease !important;
+          opacity: 0.85 !important;
+        }
+        .ad-nav-btn:hover {
+          opacity: 1 !important;
+          background: #2563eb !important;
+          border-color: #3b82f6 !important;
+          transform: translateY(-50%) scale(1.1) !important;
+        }
+        .ad-nav-btn.btn-prev { left: 16px !important; }
+        .ad-nav-btn.btn-next { right: 16px !important; }
+
+        .ad-bottom-bar {
+          position: absolute !important;
+          bottom: 14px !important;
+          left: 50% !important;
+          transform: translateX(-50%) !important;
+          display: flex !important;
+          align-items: center !important;
+          gap: 10px !important;
+          background: rgba(15, 23, 42, 0.85) !important;
+          backdrop-filter: blur(8px) !important;
+          -webkit-backdrop-filter: blur(8px) !important;
+          padding: 6px 14px !important;
+          border-radius: 9999px !important;
+          border: 1px solid rgba(255, 255, 255, 0.18) !important;
+          z-index: 10 !important;
+        }
+        .ad-dot-indicator {
+          width: 24px !important;
+          height: 7px !important;
+          border-radius: 9999px !important;
+          background: rgba(255, 255, 255, 0.4) !important;
+          border: none !important;
+          cursor: pointer !important;
+          transition: all 0.3s ease !important;
+          padding: 0 !important;
+        }
+        .ad-dot-indicator.active {
+          width: 44px !important;
+          background: #ffffff !important;
+          box-shadow: 0 0 10px rgba(255, 255, 255, 0.6) !important;
+        }
+        .ad-auto-progress {
+          position: absolute !important;
+          bottom: 0 !important;
+          left: 0 !important;
+          height: 4px !important;
+          background: linear-gradient(90deg, #2563eb, #7c3aed) !important;
+          width: 0% !important;
+          z-index: 12 !important;
+          transition: width 0.1s linear !important;
+        }
+        @media (max-width: 768px) {
+          .ad-poster-billboard-wrapper {
+            border-radius: 14px !important;
+            margin-top: 1.5rem !important;
+          }
+          .ad-nav-btn {
+            width: 34px !important;
+            height: 34px !important;
+            font-size: 0.82rem !important;
+          }
+          .ad-nav-btn.btn-prev { left: 8px !important; }
+          .ad-nav-btn.btn-next { right: 8px !important; }
+          .ad-spotlight-tag {
+            top: 10px !important;
+            left: 10px !important;
+            padding: 4px 10px !important;
+            font-size: 0.68rem !important;
+          }
+          .ad-action-pill {
+            bottom: 10px !important;
+            right: 10px !important;
+            padding: 5px 12px !important;
+            font-size: 0.72rem !important;
+          }
+          .ad-bottom-bar {
+            bottom: 8px !important;
+            padding: 4px 10px !important;
+            gap: 8px !important;
+          }
+          .ad-dot-indicator {
+            width: 18px !important;
+            height: 5px !important;
+          }
+          .ad-dot-indicator.active {
+            width: 30px !important;
+          }
+        }
+      </style>
+
+      <div class="ad-poster-billboard-wrapper" id="adPosterBillboard" aria-label="Featured Educational &amp; Entrance Programs">
+        <!-- Floating Spotlight Tag -->
+        <div class="ad-spotlight-tag">
+          <span class="live-dot"></span>
+          <span>Featured Partner Spotlight</span>
+        </div>
+
+        <!-- Scrolling Track containing the 2 Exact High-Quality Posters -->
+        <div class="ad-poster-track" id="adPosterTrack">
+          <!-- Poster 1: 1-on-1 Counselling (Clicks to Registration Form Page) -->
+          <div class="ad-poster-slide" data-slide="0">
+            <a href="enquiry.html" class="ad-poster-link" aria-label="Book 1-on-1 Counselling Appointment - Open Register Form" title="Click to open Registration Form">
               <picture>
-                <source srcset="images/poster-counselling.webp?v=20271" type="image/webp">
-                <img src="images/poster-counselling.jpg?v=20271" alt="Education Tips &amp; Trick - Bangalore Top Colleges 1-On-1 Counselling - Book Appointment" width="1024" height="576" loading="lazy" decoding="async">
+                <source srcset="images/poster-counselling.webp?v=20272" type="image/webp">
+                <img src="images/poster-counselling.jpg?v=20272" alt="Education Tips &amp; Tricks - Bangalore Top Colleges 1-On-1 Counselling - Book Appointment" width="1024" height="576" loading="lazy" decoding="async">
               </picture>
-              <span class="poster-slide-pill-badge">
+              <span class="ad-action-pill">
                 <i class="fa-solid fa-arrow-up-right-from-square"></i> Book 1-On-1 Appointment • Register Now
               </span>
             </a>
           </div>
 
-          <!-- Slide 2: StudentEntrance Exam Prep (Takes users to StudentEntrance.com) -->
-          <div class="poster-slide" data-slide="1">
-            <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="poster-slide-link" aria-label="StudentEntrance.com - Bangalore Entrance Exam Preparation" title="Click to visit StudentEntrance.com">
+          <!-- Poster 2: StudentEntrance Exam Prep (Clicks to StudentEntrance.com) -->
+          <div class="ad-poster-slide" data-slide="1">
+            <a href="https://studententrance.com/" target="_blank" rel="noopener noreferrer" class="ad-poster-link" aria-label="StudentEntrance.com - Bangalore Entrance Exam Preparation" title="Click to visit StudentEntrance.com">
               <picture>
-                <source srcset="images/poster-studententrance.webp?v=20271" type="image/webp">
-                <img src="images/poster-studententrance.jpg?v=20271" alt="Bangalore Entrance - Get prepare Online for your upcoming college Entrance Exam - StudentEntrance.com" width="1024" height="576" loading="lazy" decoding="async">
+                <source srcset="images/poster-studententrance.webp?v=20272" type="image/webp">
+                <img src="images/poster-studententrance.jpg?v=20272" alt="Bangalore Entrance - Online preparation for college entrance exams - StudentEntrance.com" width="1024" height="576" loading="lazy" decoding="async">
               </picture>
-              <span class="poster-slide-pill-badge badge-entrance">
+              <span class="ad-action-pill pill-purple">
                 <i class="fa-solid fa-bolt-lightning"></i> Visit StudentEntrance.com ↗
               </span>
             </a>
@@ -1756,59 +1998,70 @@
         </div>
 
         <!-- Navigation Arrows -->
-        <button type="button" class="poster-slider-btn btn-prev" id="posterSliderPrev" aria-label="Previous Poster">
+        <button type="button" class="ad-nav-btn btn-prev" id="adPosterPrev" aria-label="Previous Ad Poster">
           <i class="fa-solid fa-chevron-left"></i>
         </button>
-        <button type="button" class="poster-slider-btn btn-next" id="posterSliderNext" aria-label="Next Poster">
+        <button type="button" class="ad-nav-btn btn-next" id="adPosterNext" aria-label="Next Ad Poster">
           <i class="fa-solid fa-chevron-right"></i>
         </button>
 
-        <!-- Pagination Indicator Dots -->
-        <div class="poster-slider-dots" id="posterSliderDots">
-          <button type="button" class="poster-dot active" data-index="0" aria-label="Slide 1: 1-on-1 Counselling"></button>
-          <button type="button" class="poster-dot" data-index="1" aria-label="Slide 2: Student Entrance Exam Preparation"></button>
+        <!-- Bottom Dot Indicators -->
+        <div class="ad-bottom-bar" id="adBottomBar">
+          <button type="button" class="ad-dot-indicator active" data-index="0" aria-label="Show Poster 1"></button>
+          <button type="button" class="ad-dot-indicator" data-index="1" aria-label="Show Poster 2"></button>
         </div>
+
+        <!-- Animated Countdown Progress Bar -->
+        <div class="ad-auto-progress" id="adAutoProgress"></div>
       </div>
+
       <script>
         (function() {
-          const container = document.getElementById('howWorkPosterSlider');
-          if (!container) return;
-          const track = document.getElementById('posterSliderTrack');
-          const prevBtn = document.getElementById('posterSliderPrev');
-          const nextBtn = document.getElementById('posterSliderNext');
-          const dots = container.querySelectorAll('.poster-dot');
+          const wrapper = document.getElementById('adPosterBillboard');
+          if (!wrapper) return;
+          const track = document.getElementById('adPosterTrack');
+          const prevBtn = document.getElementById('adPosterPrev');
+          const nextBtn = document.getElementById('adPosterNext');
+          const dots = wrapper.querySelectorAll('.ad-dot-indicator');
+          const progress = document.getElementById('adAutoProgress');
+          
           let currentSlide = 0;
-          let autoTimer = null;
           const totalSlides = 2;
+          const intervalMs = 4000;
+          let progressStartTime = Date.now();
+          let animFrame = null;
+          let isPaused = false;
 
-          function goToSlide(index) {
-            currentSlide = (index + totalSlides) % totalSlides;
-            track.style.transform = 'translateX(-' + (currentSlide * 50) + '%)';
+          function setSlide(idx) {
+            currentSlide = (idx + totalSlides) % totalSlides;
+            if (track) {
+              track.style.transform = 'translateX(-' + (currentSlide * 50) + '%)';
+            }
             dots.forEach(function(dot, i) {
               dot.classList.toggle('active', i === currentSlide);
             });
+            progressStartTime = Date.now();
           }
 
-          function startAutoSlide() {
-            stopAutoSlide();
-            autoTimer = setInterval(function() {
-              goToSlide(currentSlide + 1);
-            }, 5000);
-          }
-
-          function stopAutoSlide() {
-            if (autoTimer) {
-              clearInterval(autoTimer);
-              autoTimer = null;
+          function loop() {
+            if (!isPaused) {
+              const elapsed = Date.now() - progressStartTime;
+              const pct = Math.min(100, (elapsed / intervalMs) * 100);
+              if (progress) {
+                progress.style.width = pct + '%';
+              }
+              if (elapsed >= intervalMs) {
+                setSlide(currentSlide + 1);
+              }
             }
+            animFrame = requestAnimationFrame(loop);
           }
 
           if (prevBtn) {
             prevBtn.addEventListener('click', function(e) {
               e.preventDefault();
               e.stopPropagation();
-              goToSlide(currentSlide - 1);
-              startAutoSlide();
+              setSlide(currentSlide - 1);
             });
           }
 
@@ -1816,8 +2069,7 @@
             nextBtn.addEventListener('click', function(e) {
               e.preventDefault();
               e.stopPropagation();
-              goToSlide(currentSlide + 1);
-              startAutoSlide();
+              setSlide(currentSlide + 1);
             });
           }
 
@@ -1826,38 +2078,42 @@
               e.preventDefault();
               e.stopPropagation();
               const idx = parseInt(dot.getAttribute('data-index') || 0, 10);
-              goToSlide(idx);
-              startAutoSlide();
+              setSlide(idx);
             });
           });
 
-          container.addEventListener('mouseenter', stopAutoSlide);
-          container.addEventListener('mouseleave', startAutoSlide);
+          wrapper.addEventListener('mouseenter', function() {
+            isPaused = true;
+          });
+          wrapper.addEventListener('mouseleave', function() {
+            isPaused = false;
+            progressStartTime = Date.now();
+          });
 
-          // Mobile touch swipe gesture support
-          let startX = 0;
-          container.addEventListener('touchstart', function(e) {
-            stopAutoSlide();
+          // Touch swipe support for mobile devices
+          let startTouchX = 0;
+          wrapper.addEventListener('touchstart', function(e) {
+            isPaused = true;
             if (e.touches && e.touches[0]) {
-              startX = e.touches[0].clientX;
+              startTouchX = e.touches[0].clientX;
             }
           }, { passive: true });
 
-          container.addEventListener('touchend', function(e) {
+          wrapper.addEventListener('touchend', function(e) {
             if (e.changedTouches && e.changedTouches[0]) {
-              const diffX = startX - e.changedTouches[0].clientX;
-              if (Math.abs(diffX) > 40) {
-                if (diffX > 0) {
-                  goToSlide(currentSlide + 1);
-                } else {
-                  goToSlide(currentSlide - 1);
-                }
+              const diff = startTouchX - e.changedTouches[0].clientX;
+              if (Math.abs(diff) > 40) {
+                if (diff > 0) setSlide(currentSlide + 1);
+                else setSlide(currentSlide - 1);
               }
             }
-            startAutoSlide();
+            isPaused = false;
+            progressStartTime = Date.now();
           }, { passive: true });
 
-          startAutoSlide();
+          // Start auto-scroll ticker
+          setSlide(0);
+          animFrame = requestAnimationFrame(loop);
         })();
       </script>
 
