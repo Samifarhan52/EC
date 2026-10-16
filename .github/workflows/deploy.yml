@@ -1,0 +1,41 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: 🚀 Auto Deploy to Hostinger
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Checkout latest code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: 📂 Sync files to Hostinger
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ./
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/*.env*
+            **/bangalore.env
+            **/last-source.zip
+            **/theeduconsultant_deploy.zip
+            **/scratch/**
+            **/node_modules/**
+            **/README.md
+            **/GOOGLE_SHEET_SETUP.md
+            **/HOSTINGER_DEPLOYMENT.md
+            **/vercel.json
+            **/package.json
+            **/package-lock.json
