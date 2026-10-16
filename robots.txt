@@ -3,4 +3,4 @@ Allow: /
 Disallow: /leads.html
 Disallow: /leads
 
-Sitemap: https://theeduconsultant.in/sitemap.xml
+Sitemap: https://theeduconsultant.com/sitemap.xml

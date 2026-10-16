@@ -1529,7 +1529,7 @@ Helpline:
 - 9845371459 — Bangalore & Abroad Counsellor
 - 8884058241 — Bangalore - Counsellor
 - 9731998555 — Entrance prep
-Official Website: https://theeduconsultant.in/
+Official Website: https://theeduconsultant.com/
 ================================================================================
 `;
 
