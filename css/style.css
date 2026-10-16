@@ -3251,6 +3251,10 @@ button, input, select, textarea {
   flex-shrink: 0;
 }
 
+.card-bba-law .seh-exam-icon {
+  background: rgba(168, 85, 247, 0.25);
+  color: #c084fc;
+}
 .card-kcet .seh-exam-icon {
   background: rgba(37, 99, 235, 0.25);
   color: #60a5fa;
