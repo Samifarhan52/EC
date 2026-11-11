@@ -1,0 +1,786 @@
+/* ==============================================================================
+   THE EDU CONSULTANT - BESPOKE RADICAL MODERN REDESIGN
+   Bento Grid Hero | Floating Capsule Header | College Spotlights | Brochure Vault
+   ============================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --navy-950: #060b19;
+  --navy-900: #0a1329;
+  --navy-850: #0f1c3f;
+  --navy-800: #142554;
+  --blue-600: #2563eb;
+  --blue-500: #3b82f6;
+  --blue-400: #60a5fa;
+  --cyan-400: #22d3ee;
+  
+  --amber-500: #f59e0b;
+  --amber-400: #fbbf24;
+  --amber-600: #d97706;
+
+  --emerald-500: #10b981;
+  --emerald-600: #059669;
+
+  --slate-900: #0f172a;
+  --slate-800: #1e293b;
+  --slate-700: #334155;
+  --slate-600: #475569;
+  --slate-500: #64748b;
+  --slate-400: #94a3b8;
+  --slate-200: #e2e8f0;
+  --slate-100: #f1f5f9;
+  --slate-50:  #f8fafc;
+  --white:     #ffffff;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.88);
+  --glass-blur: blur(20px);
+  --glass-border: 1.5px solid rgba(255, 255, 255, 0.75);
+  --shadow-bento: 0 20px 40px -15px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(226, 232, 240, 0.8);
+  --shadow-bento-hover: 0 30px 60px -15px rgba(37, 99, 235, 0.18), 0 0 0 1.5px rgba(59, 130, 246, 0.4);
+
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #f8fafc;
+  color: var(--slate-700);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--slate-900);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.bespoke-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ------------------------------------------------------------------------------
+   1. TOP JUMBO PORTAL SWITCHER BAR
+   ------------------------------------------------------------------------------ */
+.top-portal-switch-strip {
+  background: linear-gradient(90deg, #060b19 0%, #0d1a3a 50%, #060b19 100%);
+  padding: 9px 0;
+  color: #e2e8f0;
+  font-size: 0.82rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.switch-strip-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.strip-active-domain {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.badge-domain-india {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.btn-switch-abroad-domain {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 750;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-switch-abroad-domain:hover {
+  background: #f59e0b;
+  color: #ffffff;
+  border-color: #f59e0b;
+  transform: translateY(-1px);
+}
+
+/* ------------------------------------------------------------------------------
+   2. FLOATING CAPSULE HEADER NAVIGATION
+   ------------------------------------------------------------------------------ */
+.floating-capsule-nav-wrapper {
+  position: sticky;
+  top: 14px;
+  z-index: 1000;
+  padding: 0 24px;
+  margin-bottom: 2rem;
+}
+
+.capsule-navbar {
+  max-width: 1280px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(226, 232, 240, 0.85);
+  border-radius: 9999px;
+  padding: 10px 24px;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.capsule-brand-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.capsule-logo-img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+}
+
+.capsule-links-row {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.capsule-link-item {
+  color: #334155;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 650;
+  transition: color 0.2s ease;
+  position: relative;
+  padding: 4px 0;
+}
+
+.capsule-link-item:hover, .capsule-link-item.active {
+  color: #2563eb;
+}
+
+.capsule-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-capsule-brochure {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  font-size: 0.82rem;
+  font-weight: 750;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-capsule-brochure:hover {
+  background: #ffffff;
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.btn-capsule-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 800;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+  transition: all 0.25s ease;
+}
+
+.btn-capsule-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(245, 158, 11, 0.5);
+}
+
+/* ------------------------------------------------------------------------------
+   3. BENTO GRID HERO COMMAND CENTER (RADICAL NEW STRUCTURE!)
+   ------------------------------------------------------------------------------ */
+.bento-hero-section {
+  position: relative;
+  padding: 1rem 0 4rem;
+}
+
+/* Hero Typography Stage */
+.hero-stage-center {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 3rem;
+}
+
+.hero-pill-announcement {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1d4ed8;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.hero-jumbo-headline {
+  font-size: 3.35rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #060b19;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+.hero-jumbo-headline span.gradient-text {
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-flipper-bar {
+  font-size: 1.25rem;
+  font-weight: 750;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 1.25rem;
+}
+
+.rotating-flipper-chip {
+  color: #d97706;
+  background: #fffbeb;
+  border: 1.5px solid #fde68a;
+  padding: 2px 14px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* THE BENTO GRID MATRIX */
+.bento-grid-matrix {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1.75rem;
+}
+
+/* Bento Cell 1: Large Featured Spotlight Card */
+.bento-cell-spotlight {
+  grid-row: span 2;
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow-bento);
+  border: 2px solid #e2e8f0;
+  background: #060b19;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 520px;
+  padding: 3rem;
+  transition: all 0.35s ease;
+}
+
+.bento-cell-spotlight:hover {
+  box-shadow: var(--shadow-bento-hover);
+  transform: translateY(-4px);
+}
+
+.spotlight-bg-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+  transition: transform 0.8s ease;
+}
+
+.bento-cell-spotlight:hover .spotlight-bg-photo {
+  transform: scale(1.05);
+}
+
+.spotlight-overlay-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(6, 11, 25, 0.2) 0%, rgba(6, 11, 25, 0.85) 60%, rgba(6, 11, 25, 0.98) 100%);
+}
+
+.spotlight-content-wrap {
+  position: relative;
+  z-index: 5;
+}
+
+.spotlight-top-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245, 158, 11, 0.25);
+  backdrop-filter: blur(8px);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  padding: 5px 14px;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.spotlight-title {
+  color: #ffffff;
+  font-size: 2.15rem;
+  font-weight: 900;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.spotlight-desc {
+  color: #cbd5e1;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+  max-width: 580px;
+}
+
+.spotlight-action-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Bento Cell 2: Interactive Live Seat Calculator */
+.bento-cell-calculator {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 2.25rem;
+  border: 2px solid #e2e8f0;
+  box-shadow: var(--shadow-bento);
+  transition: all 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-cell-calculator:hover {
+  box-shadow: var(--shadow-bento-hover);
+  border-color: #3b82f6;
+  transform: translateY(-4px);
+}
+
+.calc-header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  width: fit-content;
+}
+
+.calc-card-headline {
+  font-size: 1.35rem;
+  font-weight: 850;
+  color: #060b19;
+  margin-bottom: 0.25rem;
+}
+
+.calc-card-sub {
+  font-size: 0.84rem;
+  color: #64748b;
+  margin-bottom: 1.25rem;
+}
+
+/* Bento Cell 3: Study Abroad Gateway Card */
+.bento-cell-abroad-gateway {
+  background: linear-gradient(135deg, #0f1c3f 0%, #1e3a8a 100%);
+  color: #ffffff;
+  border-radius: 28px;
+  padding: 2.25rem;
+  box-shadow: var(--shadow-bento);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bento-cell-abroad-gateway:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px -10px rgba(30, 58, 138, 0.4);
+}
+
+.gateway-flag-emblems {
+  display: flex;
+  gap: 8px;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.gateway-title {
+  color: #ffffff;
+  font-size: 1.35rem;
+  font-weight: 850;
+  margin-bottom: 0.4rem;
+}
+
+.gateway-desc {
+  color: #93c5fd;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.btn-gateway-visit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  color: #0f1c3f;
+  padding: 12px 20px;
+  border-radius: 14px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-gateway-visit:hover {
+  background: #f59e0b;
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* ------------------------------------------------------------------------------
+   4. FLAGSHIP SPOTLIGHT SECTION: RVCE & CHRIST UNIVERSITY
+   ------------------------------------------------------------------------------ */
+.flagship-spotlight-section {
+  padding: 5rem 0 3rem;
+}
+
+.spotlight-duo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.flagship-institution-card {
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-bento);
+  transition: all 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.flagship-institution-card:hover {
+  border-color: #2563eb;
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-bento-hover);
+}
+
+.institution-card-banner {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+.institution-card-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.flagship-institution-card:hover .institution-card-banner img {
+  transform: scale(1.06);
+}
+
+.institution-banner-overlay {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.institution-body-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.institution-name {
+  font-size: 1.55rem;
+  font-weight: 850;
+  color: #060b19;
+  margin-bottom: 0.35rem;
+}
+
+.institution-location {
+  font-size: 0.84rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 1.25rem;
+}
+
+.institution-metric-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.metric-val {
+  font-size: 1.05rem;
+  font-weight: 850;
+  color: #060b19;
+}
+
+.metric-lbl {
+  font-size: 0.72rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.institution-footer-action {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.25rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+/* ------------------------------------------------------------------------------
+   5. THE 2027 BROCHURE & FEE VAULT (HIGH CONTRAST GLASS VAULT)
+   ------------------------------------------------------------------------------ */
+.brochure-vault-section {
+  padding: 4.5rem 0;
+  background: linear-gradient(135deg, #060b19 0%, #0d1a3a 100%);
+  color: #ffffff;
+  border-radius: 36px;
+  margin: 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.brochure-vault-section::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+}
+
+.vault-inner-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+.vault-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.vault-title {
+  color: #ffffff;
+  font-size: 2.35rem;
+  font-weight: 900;
+  margin-bottom: 0.85rem;
+  line-height: 1.2;
+}
+
+.vault-desc {
+  color: #cbd5e1;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.vault-check-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 2rem;
+}
+
+.vault-check-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: #f1f5f9;
+}
+
+.vault-check-item i {
+  color: #10b981;
+  font-size: 1rem;
+}
+
+/* Vault Right Card Box */
+.vault-preview-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.vault-file-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+}
+
+.vault-file-title {
+  color: #ffffff;
+  font-size: 1.35rem;
+  font-weight: 850;
+  margin-bottom: 0.35rem;
+}
+
+.vault-file-meta {
+  color: #94a3b8;
+  font-size: 0.82rem;
+  margin-bottom: 1.75rem;
+}
+
+/* ------------------------------------------------------------------------------
+   RESPONSIVE OVERRIDES
+   ------------------------------------------------------------------------------ */
+@media (max-width: 1024px) {
+  .bento-grid-matrix {
+    grid-template-columns: 1fr;
+  }
+  .bento-cell-spotlight {
+    grid-row: span 1;
+    min-height: 420px;
+    padding: 2rem;
+  }
+  .spotlight-duo-grid {
+    grid-template-columns: 1fr;
+  }
+  .vault-inner-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-jumbo-headline {
+    font-size: 2.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .capsule-links-row, .btn-capsule-brochure {
+    display: none;
+  }
+  .hero-jumbo-headline {
+    font-size: 2rem;
+  }
+  .bento-cell-spotlight {
+    padding: 1.5rem;
+  }
+  .spotlight-title {
+    font-size: 1.6rem;
+  }
+}

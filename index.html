@@ -29,29 +29,29 @@
   <!-- FontAwesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Modern Maximalism & Glassmorphism Design System -->
-  <link rel="stylesheet" href="css/modern-portal.css?v=2027301">
-  <link rel="stylesheet" href="css/maximalism.css?v=2027301">
+  <!-- Bespoke Radical Portal Stylesheets -->
+  <link rel="stylesheet" href="css/modern-portal.css?v=2027401">
+  <link rel="stylesheet" href="css/maximalism.css?v=2027401">
+  <link rel="stylesheet" href="css/bespoke-portal.css?v=2027401">
 </head>
 <body>
 
-  <!-- Smooth Page Transition Curtain -->
+  <!-- Page Transition Curtain -->
   <div class="page-transition-curtain"></div>
 
   <!-- ==============================================================================
-       1. DUAL-WEBSITE SWITCHER JUMBO BAR (INDIA ADMISSIONS vs STUDY ABROAD)
+       1. TOP PORTAL SWITCHER STRIP (INDIA vs ABROAD)
        ============================================================================== -->
-  <div class="dual-website-jumbo-bar anim-up-to-down">
-    <div class="portal-container">
-      <div class="jumbo-bar-inner">
-        <div class="jumbo-current-domain">
-          <span class="jumbo-active-pill"><i class="fa-solid fa-building-columns"></i> theeduconsultant.com</span>
-          <span style="font-size: 0.84rem; color: #cbd5e1;">
-            India &amp; Bangalore Direct Admissions • Institutional Management Quota 2027
-          </span>
+  <div class="top-portal-switch-strip anim-up-to-down">
+    <div class="bespoke-container">
+      <div class="switch-strip-flex">
+        <div class="strip-active-domain">
+          <span class="badge-domain-india"><i class="fa-solid fa-building-columns"></i> theeduconsultant.com</span>
+          <span>Bangalore &amp; India Direct Admissions • Management Quota 2027 Active</span>
         </div>
-        <div>
-          <a href="theeduconsultant.in/index.html" class="jumbo-switch-button" title="Switch to Global Overseas Admissions on theeduconsultant.in">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <a href="tel:+919845371459" class="ticker-contact-link"><i class="fa-solid fa-phone"></i> +91 98453 71459</a>
+          <a href="theeduconsultant.in/index.html" class="btn-switch-abroad-domain">
             <span>Looking for Study Abroad? Switch to <strong>theeduconsultant.in</strong></span>
             <i class="fa-solid fa-arrow-right"></i>
           </a>
@@ -61,220 +61,171 @@
   </div>
 
   <!-- ==============================================================================
-       2. LIVE TICKER ANNOUNCEMENT RIBBON
+       2. FLOATING CAPSULE HEADER NAVIGATION
        ============================================================================== -->
-  <div class="modern-ticker-bar">
-    <div class="portal-container">
-      <div class="ticker-inner-flex">
-        <div style="display: flex; align-items: center; gap: 12px; overflow: hidden;">
-          <span class="ticker-left-tag">
-            <span class="ticker-pulse-dot"></span>
-            <span>Admissions 2027 Active</span>
-          </span>
-          <span class="ticker-headline-text">
-            <strong>Direct Quota Live:</strong> RVCE, BMSCE, Christ, Ramaiah, PES &amp; Dayananda Sagar Seats Open with Transparent Institutional Fee Structures.
-          </span>
-        </div>
-        <div class="ticker-right-actions">
-          <a href="tel:+919845371459" class="ticker-contact-link"><i class="fa-solid fa-phone"></i> +91 98453 71459</a>
-          <a href="https://wa.me/919845371459?text=Hi%20The%20Edu%20Consultant,%20I%20need%20direct%20admissions%20guidance." target="_blank" class="ticker-contact-link" style="color: #4ade80;"><i class="fa-brands fa-whatsapp"></i> WhatsApp Desk</a>
-          <button type="button" class="ticker-btn-quick" onclick="openConsultModal('Admissions 2027 Direct')">
-            <i class="fa-solid fa-bolt"></i> Register Now &rarr;
-          </button>
-        </div>
+  <div class="floating-capsule-nav-wrapper">
+    <header class="capsule-navbar">
+      
+      <!-- Brand Authentic Logo -->
+      <a href="index.html" class="capsule-brand-link" aria-label="The Edu Consultant Homepage">
+        <img src="brand/logo-on-light.png" alt="The Edu Consultant" class="capsule-logo-img">
+      </a>
+
+      <!-- Clean Navigation Links -->
+      <nav class="capsule-links-row" aria-label="Primary Navigation">
+        <a href="#flagshipSpotlight" class="capsule-link-item active">Featured Spotlights</a>
+        <a href="#portalViewIndia" class="capsule-link-item">Top Colleges</a>
+        <a href="#brochureVault" class="capsule-link-item" style="color: #d97706; font-weight: 800;"><i class="fa-solid fa-file-invoice-dollar"></i> 2027 Fee Vault</a>
+        <a href="#howWeWork" class="capsule-link-item">How We Work</a>
+        <a href="theeduconsultant.in/index.html" class="capsule-link-item" style="color: #2563eb; font-weight: 800;">
+          <i class="fa-solid fa-plane-departure" style="color: #f59e0b;"></i> Study Abroad
+        </a>
+        <a href="#faqSection" class="capsule-link-item">FAQ</a>
+      </nav>
+
+      <!-- Capsule Action CTAs -->
+      <div class="capsule-actions-row">
+        <a href="fee-structure.html" class="btn-capsule-brochure" title="Download Official Fee Structure Brochure">
+          <i class="fa-solid fa-file-arrow-down"></i>
+          <span>Brochure</span>
+        </a>
+        <button type="button" class="btn-capsule-cta" onclick="openConsultModal('Capsule Header CTA')">
+          <i class="fa-solid fa-bolt"></i>
+          <span>Check Seats</span>
+        </button>
       </div>
-    </div>
+
+    </header>
   </div>
 
   <!-- ==============================================================================
-       3. SITE HEADER (GLASSMORPHISM WITH AUTHENTIC LOGO)
+       3. BENTO GRID HERO COMMAND CENTER (RADICAL NEW STRUCTURE!)
        ============================================================================== -->
-  <header class="modern-site-header">
-    <div class="portal-container">
-      <div class="header-inner-row">
-        
-        <!-- Authentic Brand Logo from theeduconsultant.com -->
-        <a href="index.html" class="header-brand-wrap" aria-label="The Edu Consultant Homepage">
-          <img src="brand/logo-on-light.png" alt="The Edu Consultant" class="header-brand-logo">
-        </a>
-
-        <!-- Portal Navigation Links -->
-        <nav class="header-nav-links" aria-label="Primary Navigation">
-          <a href="#portalViewIndia" class="nav-item-link active">Top Colleges</a>
-          <a href="fee-structure.html" class="nav-item-link" style="color: #d97706; font-weight: 750;"><i class="fa-solid fa-file-invoice-dollar"></i> 2027 Fee Directory</a>
-          <a href="#howWeWork" class="nav-item-link">How We Work</a>
-          <a href="#trustPillars" class="nav-item-link">Why Choose Us</a>
-          <a href="theeduconsultant.in/index.html" class="nav-item-link" style="color: #2563eb; font-weight: 750;">
-            <i class="fa-solid fa-plane-departure" style="color: #f59e0b;"></i> Study Abroad (theeduconsultant.in)
-          </a>
-          <a href="#faqSection" class="nav-item-link">FAQ</a>
-        </nav>
-
-        <!-- Header Action CTAs -->
-        <div class="header-actions-group">
-          <a href="fee-structure.html" class="btn-header-brochure" title="Download Official Fee Structure &amp; Brochure">
-            <i class="fa-solid fa-file-arrow-down"></i>
-            <span>Download Brochure</span>
-          </a>
-          <button type="button" class="btn-header-consult" onclick="openConsultModal('Header Check Seats')">
-            <i class="fa-solid fa-bolt"></i>
-            <span>Check Seats</span>
-          </button>
-          <button type="button" class="mobile-menu-btn" onclick="openConsultModal('Mobile Header')" aria-label="Menu">
-            <i class="fa-solid fa-bars"></i>
-          </button>
+  <section class="bento-hero-section" id="heroSection">
+    <div class="bespoke-container">
+      
+      <!-- Center Typography Stage -->
+      <div class="hero-stage-center anim-down-to-up">
+        <div class="hero-pill-announcement">
+          <span class="ticker-pulse-dot" style="background: #2563eb; box-shadow: 0 0 10px #2563eb;"></span>
+          <span>Verified Institutional Management Quota &amp; NRI Allocations 2027</span>
         </div>
-
+        <h1 class="hero-jumbo-headline">
+          The Direct Route to India's Most Prestigious <span class="gradient-text">Autonomous Colleges</span>.
+        </h1>
+        <div class="hero-flipper-bar">
+          <span>Confirmed Seat Allocations in:</span>
+          <span class="rotating-flipper-chip" id="heroRotatingWord">RVCE Bangalore</span>
+        </div>
+        <p style="font-size: 1.05rem; color: #475569; max-width: 660px; margin: 0 auto; line-height: 1.6;">
+          Official registrar allotment letters, transparent institutional fee matrices, and score-based scholarships across Bangalore's elite engineering, management, and medical campuses.
+        </p>
       </div>
-    </div>
-  </header>
 
-  <!-- ==============================================================================
-       4. MAXIMALIST HERO BANNER WITH FLOATING MESH & 3D SEAT CALCULATOR
-       ============================================================================== -->
-  <section class="maximalist-hero-wrapper modern-hero-section" id="heroSection">
-    <!-- Glowing Background Mesh Orbs -->
-    <div class="floating-mesh-orb orb-1"></div>
-    <div class="floating-mesh-orb orb-2"></div>
-
-    <div class="portal-container" style="position: relative; z-index: 10;">
-      <div class="hero-grid-two-column">
+      <!-- THE BENTO GRID MATRIX -->
+      <div class="bento-grid-matrix">
         
-        <!-- Left Hero Column: Push Left Animation -->
-        <div class="hero-left-content anim-push-left">
+        <!-- Bento Cell 1: Large Featured Spotlight Card (2 Rows) -->
+        <div class="bento-cell-spotlight anim-push-left delay-1">
+          <img src="images/hero-banner-students.jpg" alt="Bangalore Premier Colleges" class="spotlight-bg-photo" loading="lazy">
+          <div class="spotlight-overlay-gradient"></div>
           
-          <div class="hero-live-badge">
-            <span class="ticker-pulse-dot" style="background: #2563eb; box-shadow: 0 0 10px #2563eb;"></span>
-            <span>Direct Management Quota &amp; NRI Admissions 2027 Open</span>
-          </div>
-
-          <h1 class="hero-main-title">
-            Secure Confirmed Seats in <span class="hero-gradient-text">Top Autonomous Colleges</span> of Bangalore &amp; India.
-          </h1>
-
-          <div style="font-size: 1.25rem; font-weight: 750; color: #1e293b; margin-bottom: 1.15rem; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-            <span>Direct Admissions in:</span>
-            <span class="hero-flip-text-holder" id="heroRotatingWord">RVCE Bangalore</span>
-          </div>
-
-          <p class="hero-description-lead">
-            The Edu Consultant provides verified direct seat allotments under official Institutional Management Quota and NRI categories across premier colleges in Bangalore. 100% registrar allotment letters, transparent institutional fee structures, and score-based scholarships without middlemen.
-          </p>
-
-          <div class="hero-ctas-row">
-            <button type="button" class="btn-hero-primary shimmer-glow-border" onclick="openConsultModal('Hero Primary Check Seats')">
-              <i class="fa-solid fa-bolt-lightning"></i>
-              <span>Check Seat Availability &amp; Fees</span>
-            </button>
-            <a href="fee-structure.html" class="btn-hero-secondary" title="View Full Fee Structure">
-              <i class="fa-solid fa-file-invoice-dollar"></i>
-              <span>2027 Fee Structure</span>
-            </a>
-          </div>
-
-          <!-- Quick Stream Selection Chips -->
-          <div style="font-size: 0.8rem; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">
-            Instant Stream Navigation:
-          </div>
-          <div class="hero-stream-chips-row">
-            <a href="#portalViewIndia" class="stream-chip active"><i class="fa-solid fa-laptop-code"></i> Engineering (B.Tech / AI / CSE)</a>
-            <a href="#portalViewIndia" class="stream-chip"><i class="fa-solid fa-briefcase"></i> MBA &amp; PGDM</a>
-            <a href="#portalViewIndia" class="stream-chip"><i class="fa-solid fa-stethoscope"></i> MBBS &amp; Medical</a>
-            <a href="#portalViewIndia" class="stream-chip"><i class="fa-solid fa-scale-balanced"></i> Law (BA LLB / BBA LLB)</a>
-            <a href="theeduconsultant.in/index.html" class="stream-chip" style="color: #2563eb; border-color: #93c5fd; background: #eff6ff;">
-              <i class="fa-solid fa-plane-departure"></i> Study Abroad (USA, UK, DE) &rarr;
-            </a>
-          </div>
-
-        </div>
-
-        <!-- Right Hero Column: Push Right Animation + 3D Interactive Card -->
-        <div class="hero-glass-card-wrapper anim-push-right">
-          
-          <!-- Floating Badge 1: RVCE -->
-          <div class="floating-card-pill float-top-right">
-            <div class="float-badge-icon icon-blue"><i class="fa-solid fa-award"></i></div>
-            <div class="float-badge-text">
-              <span class="float-badge-title">RVCE CSE &amp; AI</span>
-              <span class="float-badge-sub">Confirmed Quota Seats 2027</span>
-            </div>
-          </div>
-
-          <!-- Interactive Seat & Cutoff Predictor Card -->
-          <div class="hero-interactive-card glass-container-card">
-            <div class="hero-card-header">
-              <div class="hero-card-badge" id="calcLiveBadge">
-                <i class="fa-solid fa-circle-check"></i> 14 Management Quota Seats Active
-              </div>
-              <h3 class="hero-card-title">Instant Seat &amp; Fee Predictor</h3>
-              <p class="hero-card-subtitle">Get confirmed seat availability, cutoff matrix &amp; fees on WhatsApp in 2 minutes.</p>
-            </div>
-
-            <form id="heroSeatCalcForm" class="fast-inquiry-form">
-              <div class="form-group-field">
-                <input type="text" name="student_name" class="form-control-input" placeholder="Full Student Name" required>
-              </div>
-              <div class="form-group-field">
-                <input type="tel" name="student_phone" class="form-control-input" placeholder="WhatsApp Phone Number (e.g. 98453XXXXX)" required>
-              </div>
-              <div class="form-group-field">
-                <select name="target_stream" id="calcCourseSelect" class="form-control-select" required>
-                  <option value="" disabled selected>Select Target Stream (2027)</option>
-                  <option value="Engineering (B.Tech / AI / CSE)">Engineering &amp; Technology (B.Tech / CSE / AI)</option>
-                  <option value="Management (MBA / PGDM / BBA)">Management &amp; Business (MBA / PGDM / BBA)</option>
-                  <option value="Medical &amp; Healthcare (MBBS / BDS)">Medical &amp; Healthcare (MBBS / BDS / Allied)</option>
-                  <option value="Computer Applications (BCA / MCA)">Computer Applications (BCA / MCA)</option>
-                  <option value="Commerce &amp; Finance (B.Com / M.Com)">Commerce &amp; Finance (B.Com / M.Com)</option>
-                  <option value="Law (BA LLB / BBA LLB)">Law &amp; Legal Studies (BA LLB / BBA LLB)</option>
-                </select>
-              </div>
-              <div class="form-group-field">
-                <select name="target_college" class="form-control-select">
-                  <option value="" disabled selected>Select Preferred College</option>
-                  <option value="RV College of Engineering (RVCE)">RV College of Engineering (RVCE)</option>
-                  <option value="Christ University Bangalore">Christ University Bangalore</option>
-                  <option value="BMS College of Engineering (BMSCE)">BMS College of Engineering (BMSCE)</option>
-                  <option value="Ramaiah Institute of Technology (MSRIT)">Ramaiah Institute of Technology (MSRIT)</option>
-                  <option value="PES University">PES University</option>
-                  <option value="Dayananda Sagar College (DSCE)">Dayananda Sagar College (DSCE)</option>
-                  <option value="Vellore Institute of Technology (VIT)">Vellore Institute of Technology (VIT)</option>
-                  <option value="St. Joseph's University">St. Joseph's University</option>
-                  <option value="Jain University (CMS)">Jain University (CMS)</option>
-                </select>
-              </div>
-              <button type="submit" class="btn-fast-calculate shimmer-glow-border">
-                <i class="fa-solid fa-bolt"></i>
+          <div class="spotlight-content-wrap">
+            <span class="spotlight-top-pill">
+              <i class="fa-solid fa-shield-halved"></i> 100% Registrar Verified Allocations
+            </span>
+            <h2 class="spotlight-title">
+              Confirmed Admissions in RVCE, BMSCE, Christ &amp; Ramaiah
+            </h2>
+            <p class="spotlight-desc">
+              Bypass middlemen and unofficial promises. Receive direct university registrar allotment letters registered under state AICTE/UGC approved institutional quotas with approved fee receipts.
+            </p>
+            <div class="spotlight-action-row">
+              <button type="button" class="btn-hero-primary" onclick="openConsultModal('Bento Spotlight Check Seats')">
+                <i class="fa-solid fa-bolt-lightning"></i>
                 <span>Check Seat Availability &amp; Fees</span>
               </button>
-            </form>
-
-            <div style="margin-top: 1rem; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.74rem; color: #64748b;">
-              <i class="fa-solid fa-lock" style="color: #10b981;"></i>
-              <span>100% Confidential • Official Institutional Advisory</span>
+              <a href="fee-structure.html" class="btn-hero-secondary" style="background: rgba(255,255,255,0.15); color: #ffffff; border-color: rgba(255,255,255,0.3); backdrop-filter: blur(10px);">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+                <span>2027 Fee Directory</span>
+              </a>
             </div>
           </div>
+        </div>
 
-          <!-- Floating Badge 2: Christ University -->
-          <div class="floating-card-pill float-bottom-left">
-            <div class="float-badge-icon icon-gold"><i class="fa-solid fa-graduation-cap"></i></div>
-            <div class="float-badge-text">
-              <span class="float-badge-title">Christ University</span>
-              <span class="float-badge-sub">B.Com, BBA &amp; Law Quota Active</span>
-            </div>
+        <!-- Bento Cell 2: Interactive Live Seat & Fee Predictor -->
+        <div class="bento-cell-calculator anim-push-right delay-2">
+          <div class="calc-header-badge" id="bentoLiveBadge">
+            <i class="fa-solid fa-circle-check"></i> 14 Quota Seats Active in RVCE &amp; BMSCE
           </div>
+          <h3 class="calc-card-headline">Seat &amp; Fee Predictor</h3>
+          <p class="calc-card-sub">Instant cutoff matrix and confirmed seat status dispatched to your WhatsApp.</p>
 
+          <form id="bentoCalcForm" style="display: flex; flex-direction: column; gap: 12px;">
+            <div class="form-group-field">
+              <input type="text" name="name" class="form-control-input" placeholder="Full Student Name" required>
+            </div>
+            <div class="form-group-field">
+              <input type="tel" name="phone" class="form-control-input" placeholder="WhatsApp Number (e.g. 98453XXXXX)" required>
+            </div>
+            <div class="form-group-field">
+              <select name="stream" id="bentoStreamSelect" class="form-control-select" required>
+                <option value="" disabled selected>Target Stream / Program</option>
+                <option value="Engineering (B.Tech / AI / CSE)">Engineering B.Tech (CSE / AI / ECE)</option>
+                <option value="Management (MBA / PGDM / BBA)">Management &amp; MBA / BBA</option>
+                <option value="Medical &amp; Healthcare (MBBS / BDS)">Medical MBBS &amp; BDS</option>
+                <option value="Computer Applications (BCA / MCA)">Computer Applications (BCA / MCA)</option>
+                <option value="Commerce &amp; Finance (B.Com)">Commerce &amp; Finance (B.Com)</option>
+                <option value="Law (BA LLB / BBA LLB)">Law &amp; Legal Studies (BA LLB)</option>
+              </select>
+            </div>
+            <div class="form-group-field">
+              <select name="college" class="form-control-select">
+                <option value="" disabled selected>Preferred College</option>
+                <option value="RV College of Engineering (RVCE)">RV College of Engineering (RVCE)</option>
+                <option value="Christ University Bangalore">Christ University Bangalore</option>
+                <option value="BMS College of Engineering (BMSCE)">BMS College of Engineering (BMSCE)</option>
+                <option value="Ramaiah Institute of Technology (MSRIT)">Ramaiah Institute of Technology (MSRIT)</option>
+                <option value="PES University">PES University</option>
+                <option value="Dayananda Sagar College (DSCE)">Dayananda Sagar College (DSCE)</option>
+                <option value="Vellore Institute of Technology (VIT)">Vellore Institute of Technology (VIT)</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-fast-calculate" style="padding: 13px;">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>Get Cutoff &amp; Fee Matrix</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Bento Cell 3: Study Abroad Gateway Card -->
+        <div class="bento-cell-abroad-gateway anim-push-right delay-3">
+          <div>
+            <div class="gateway-flag-emblems">
+              <span>🇺🇸</span> <span>🇬🇧</span> <span>🇨🇦</span> <span>🇩🇪</span> <span>🇦🇺</span>
+            </div>
+            <h3 class="gateway-title">Planning for Study Abroad?</h3>
+            <p class="gateway-desc">
+              Discover top universities in USA (3-Yr STEM OPT), UK (1-Yr Masters), and Germany (€0 Tuition) on our dedicated global portal.
+            </p>
+          </div>
+          <a href="theeduconsultant.in/index.html" class="btn-gateway-visit">
+            <span>Explore theeduconsultant.in</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
         </div>
 
       </div>
+
     </div>
   </section>
 
   <!-- ==============================================================================
-       5. AUTHORITY STATS COUNTER STRIP (POP-IN ANIMATION)
+       4. AUTHORITY STATS COUNTER STRIP (POP-IN)
        ============================================================================== -->
   <section class="modern-stats-strip">
-    <div class="portal-container">
-      <div class="stats-card-container glass-container-card anim-pop-in">
+    <div class="bespoke-container">
+      <div class="stats-card-container anim-pop-in">
         
         <div class="stats-item-box">
           <div class="stats-item-icon" style="background: #eff6ff; color: #2563eb;">
@@ -321,7 +272,7 @@
   </section>
 
   <!-- ==============================================================================
-       6. PARTNER DUAL MARQUEE (DOWN-TO-UP ANIMATION)
+       5. PARTNER COLLEGE MARQUEE (60FPS CREST SCROLLER)
        ============================================================================== -->
   <section class="modern-marquee-section anim-down-to-up">
     <div class="marquee-heading-center">
@@ -381,15 +332,7 @@
           </div>
         </div>
 
-        <div class="college-crest-badge" onclick="openConsultModal('Vellore Institute of Technology')">
-          <img src="images/logos/vit.png" alt="VIT" class="crest-img-thumbnail">
-          <div>
-            <div class="crest-college-name">VIT Vellore / Chennai</div>
-            <span class="crest-meta-tag">NIRF Top 10 • Category 1-5</span>
-          </div>
-        </div>
-
-        <!-- Duplicated for continuous loop -->
+        <!-- Duplicated for seamless loop -->
         <div class="college-crest-badge" onclick="openConsultModal('RV College of Engineering (RVCE)')">
           <img src="images/logos/rvce.png" alt="RVCE" class="crest-img-thumbnail">
           <div>
@@ -458,7 +401,7 @@
           </div>
         </div>
 
-        <!-- Duplicated for continuous loop -->
+        <!-- Duplicated for seamless loop -->
         <div class="college-crest-badge" onclick="openConsultModal('St. Joseph\'s University')">
           <img src="images/logos/stjosephs.png" alt="St. Joseph's" class="crest-img-thumbnail">
           <div>
@@ -479,14 +422,123 @@
   </section>
 
   <!-- ==============================================================================
-       7. BANGALORE COLLEGES DIRECTORY (POP-IN & PUSH ANIMATIONS)
+       6. FLAGSHIP INSTITUTION SPOTLIGHT: RVCE & CHRIST UNIVERSITY (NEW STRUCTURE!)
        ============================================================================== -->
-  <section class="modern-directory-section" id="portalViewIndia">
-    <div class="portal-container">
+  <section class="flagship-spotlight-section" id="flagshipSpotlight">
+    <div class="bespoke-container">
       
       <div class="section-headline-block anim-down-to-up">
-        <span class="section-pill-tag"><i class="fa-solid fa-building-columns"></i> Institutional Management Quota 2027</span>
-        <h2 class="section-title-large">Top Autonomous Colleges in Bangalore</h2>
+        <span class="section-pill-tag"><i class="fa-solid fa-crown"></i> Premier Institutional Spotlights</span>
+        <h2 class="section-title-large">Bangalore's Most Sought-After Institutions</h2>
+        <p class="section-subtitle-muted">
+          Confirmed quota matrix, NIRF rankings, and placement statistics for Karnataka's top two benchmark institutions.
+        </p>
+      </div>
+
+      <div class="spotlight-duo-grid">
+        
+        <!-- Spotlight 1: RVCE Bangalore -->
+        <div class="flagship-institution-card anim-push-left delay-1">
+          <div class="institution-card-banner">
+            <img src="images/hero-banner-students.jpg" alt="RVCE Bangalore Campus" loading="lazy">
+            <div class="institution-banner-overlay">
+              <span class="college-badge-floating">#1 Private Engg Karnataka</span>
+              <span class="college-quota-status">⚡ 2027 Quota Active</span>
+            </div>
+          </div>
+          <div class="institution-body-content">
+            <h3 class="institution-name">RV College of Engineering (RVCE)</h3>
+            <div class="institution-location"><i class="fa-solid fa-location-dot"></i> Mysore Road, Bengaluru • Autonomous</div>
+            
+            <div class="institution-metric-bar">
+              <div>
+                <div class="metric-val" style="color: #2563eb;">62 LPA</div>
+                <div class="metric-lbl">Highest Package</div>
+              </div>
+              <div>
+                <div class="metric-val" style="color: #059669;">18.5 LPA</div>
+                <div class="metric-lbl">Avg. Tech Pkg</div>
+              </div>
+              <div>
+                <div class="metric-val" style="color: #d97706;">96%+</div>
+                <div class="metric-lbl">Placement Rate</div>
+              </div>
+            </div>
+
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.5; margin-bottom: 1.25rem;">
+              Direct management quota allocations open for B.Tech Computer Science, Artificial Intelligence &amp; Data Science, Electronics &amp; Communication (ECE), and Information Science.
+            </p>
+
+            <div class="institution-footer-action">
+              <div>
+                <div style="font-size: 0.76rem; color: #64748b;">Direct Seat Status:</div>
+                <div style="font-weight: 800; color: #0f172a; font-size: 0.94rem;">Verified Matrix Open</div>
+              </div>
+              <button type="button" class="btn-card-inquire" style="padding: 10px 20px;" onclick="openConsultModal('RVCE Bangalore Direct Quota Allocation')">
+                <span>Reserve RVCE Seat</span> <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spotlight 2: Christ University -->
+        <div class="flagship-institution-card anim-push-right delay-2">
+          <div class="institution-card-banner">
+            <img src="images/campus-tour.jpg" alt="Christ University Campus" loading="lazy">
+            <div class="institution-banner-overlay">
+              <span class="college-badge-floating">NAAC A+ Deemed Univ</span>
+              <span class="college-quota-status">⚡ 2027 Applications Live</span>
+            </div>
+          </div>
+          <div class="institution-body-content">
+            <h3 class="institution-name">Christ University Bangalore</h3>
+            <div class="institution-location"><i class="fa-solid fa-location-dot"></i> Central &amp; BGR Campus, Bengaluru</div>
+            
+            <div class="institution-metric-bar">
+              <div>
+                <div class="metric-val" style="color: #2563eb;">22 LPA</div>
+                <div class="metric-lbl">Highest Package</div>
+              </div>
+              <div>
+                <div class="metric-val" style="color: #059669;">140+</div>
+                <div class="metric-lbl">Global Tie-Ups</div>
+              </div>
+              <div>
+                <div class="metric-val" style="color: #d97706;">25,000+</div>
+                <div class="metric-lbl">Global Alumni</div>
+              </div>
+            </div>
+
+            <p style="font-size: 0.88rem; color: #475569; line-height: 1.5; margin-bottom: 1.25rem;">
+              Direct admission counseling active for B.Com (Hons / Professional), BBA (Finance / International Business), MBA, and 5-Year Integrated BA LLB / BBA LLB programs.
+            </p>
+
+            <div class="institution-footer-action">
+              <div>
+                <div style="font-size: 0.76rem; color: #64748b;">Direct Seat Status:</div>
+                <div style="font-weight: 800; color: #0f172a; font-size: 0.94rem;">Priority Counseling Live</div>
+              </div>
+              <button type="button" class="btn-card-inquire" style="padding: 10px 20px;" onclick="openConsultModal('Christ University Direct Quota Allocation')">
+                <span>Reserve Christ Seat</span> <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==============================================================================
+       7. 160+ BANGALORE COLLEGES CATALOG (GRID WITH FILTER PILLS)
+       ============================================================================== -->
+  <section class="modern-directory-section" id="portalViewIndia" style="background: #ffffff; padding: 5rem 0;">
+    <div class="bespoke-container">
+      
+      <div class="section-headline-block anim-down-to-up">
+        <span class="section-pill-tag"><i class="fa-solid fa-building-columns"></i> Institutional Catalog 2027</span>
+        <h2 class="section-title-large">Explore 160+ Autonomous Colleges in Bangalore</h2>
         <p class="section-subtitle-muted">
           Compare verified autonomous colleges, official institutional fee structures, NAAC accreditations, and confirmed management quota allotments.
         </p>
@@ -501,71 +553,15 @@
         <button type="button" class="filter-tab-pill" data-filter="law">Law &amp; Others</button>
       </div>
 
-      <!-- 6 Modern College Cards with Staggered Scroll Animations -->
+      <!-- 4 Additional Modern College Cards -->
       <div class="modern-college-grid">
         
-        <!-- Card 1: RVCE: Push Left -->
+        <!-- Card 1: BMSCE -->
         <div class="modern-college-card anim-push-left delay-1" data-category="engineering">
-          <div class="college-card-media">
-            <img src="images/hero-banner-students.jpg" alt="RV College of Engineering" class="college-card-img" loading="lazy">
-            <span class="college-badge-floating">NAAC A++ • Autonomous</span>
-            <span class="college-quota-status">⚡ Quota Seats Open</span>
-          </div>
-          <div class="college-card-info">
-            <h3 class="college-card-title">RV College of Engineering (RVCE)</h3>
-            <div class="college-card-location"><i class="fa-solid fa-location-dot"></i> Mysore Road, Bengaluru</div>
-            <div class="college-tags-row">
-              <span class="tag-spec-pill">B.Tech CSE</span>
-              <span class="tag-spec-pill">AI &amp; Data Science</span>
-              <span class="tag-spec-pill">ECE</span>
-              <span class="tag-spec-pill">Highest Pkg 62 LPA</span>
-            </div>
-            <div class="college-card-bottom-cta">
-              <div>
-                <div class="college-fees-label">Institutional Quota:</div>
-                <div class="college-fees-val">Available 2027</div>
-              </div>
-              <button type="button" class="btn-card-inquire" onclick="openConsultModal('RVCE Bangalore Direct Quota')">
-                <span>Check Seat</span> <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2: Christ: Pop In -->
-        <div class="modern-college-card anim-pop-in delay-2" data-category="management">
-          <div class="college-card-media">
-            <img src="images/campus-tour.jpg" alt="Christ University" class="college-card-img" loading="lazy">
-            <span class="college-badge-floating">NAAC A+ • Deemed Univ</span>
-            <span class="college-quota-status">⚡ Applications Open</span>
-          </div>
-          <div class="college-card-info">
-            <h3 class="college-card-title">Christ University Bangalore</h3>
-            <div class="college-card-location"><i class="fa-solid fa-location-dot"></i> Central &amp; BGR Campus, Bengaluru</div>
-            <div class="college-tags-row">
-              <span class="tag-spec-pill">B.Com (Hons)</span>
-              <span class="tag-spec-pill">BBA Finance</span>
-              <span class="tag-spec-pill">MBA</span>
-              <span class="tag-spec-pill">BA LLB</span>
-            </div>
-            <div class="college-card-bottom-cta">
-              <div>
-                <div class="college-fees-label">Institutional Quota:</div>
-                <div class="college-fees-val">Open 2027 Intake</div>
-              </div>
-              <button type="button" class="btn-card-inquire" onclick="openConsultModal('Christ University Direct Quota')">
-                <span>Check Seat</span> <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3: BMSCE: Push Right -->
-        <div class="modern-college-card anim-push-right delay-3" data-category="engineering">
           <div class="college-card-media">
             <img src="images/hero-banner-bangalore.jpg" alt="BMSCE" class="college-card-img" loading="lazy">
             <span class="college-badge-floating">Autonomous • 78 Yrs</span>
-            <span class="college-quota-status">⚡ Quota Seats Open</span>
+            <span class="college-quota-status">⚡ Quota Open</span>
           </div>
           <div class="college-card-info">
             <h3 class="college-card-title">BMS College of Engineering (BMSCE)</h3>
@@ -573,11 +569,11 @@
             <div class="college-tags-row">
               <span class="tag-spec-pill">Computer Science</span>
               <span class="tag-spec-pill">Information Science</span>
-              <span class="tag-spec-pill">Mechanical</span>
+              <span class="tag-spec-pill">AI &amp; ML</span>
             </div>
             <div class="college-card-bottom-cta">
               <div>
-                <div class="college-fees-label">Institutional Quota:</div>
+                <div class="college-fees-label">Quota Matrix:</div>
                 <div class="college-fees-val">Available 2027</div>
               </div>
               <button type="button" class="btn-card-inquire" onclick="openConsultModal('BMSCE Basavanagudi Direct Quota')">
@@ -587,12 +583,12 @@
           </div>
         </div>
 
-        <!-- Card 4: Ramaiah: Push Left -->
-        <div class="modern-college-card anim-push-left delay-2" data-category="engineering medical">
+        <!-- Card 2: Ramaiah -->
+        <div class="modern-college-card anim-pop-in delay-2" data-category="engineering medical">
           <div class="college-card-media">
             <img src="images/hero-students.jpg" alt="Ramaiah Institute" class="college-card-img" loading="lazy">
             <span class="college-badge-floating">Tier-1 Autonomous</span>
-            <span class="college-quota-status">⚡ Quota Seats Open</span>
+            <span class="college-quota-status">⚡ Quota Open</span>
           </div>
           <div class="college-card-info">
             <h3 class="college-card-title">Ramaiah Institute of Technology</h3>
@@ -601,11 +597,10 @@
               <span class="tag-spec-pill">B.Tech Tech</span>
               <span class="tag-spec-pill">Biotech</span>
               <span class="tag-spec-pill">Architecture</span>
-              <span class="tag-spec-pill">Medical / Allied</span>
             </div>
             <div class="college-card-bottom-cta">
               <div>
-                <div class="college-fees-label">Institutional Quota:</div>
+                <div class="college-fees-label">Quota Matrix:</div>
                 <div class="college-fees-val">Active 2027</div>
               </div>
               <button type="button" class="btn-card-inquire" onclick="openConsultModal('Ramaiah Institute Direct Quota')">
@@ -615,12 +610,12 @@
           </div>
         </div>
 
-        <!-- Card 5: PES University: Pop In -->
+        <!-- Card 3: PES University -->
         <div class="modern-college-card anim-pop-in delay-3" data-category="engineering management">
           <div class="college-card-media">
             <img src="images/scholar-acceptance.jpg" alt="PES University" class="college-card-img" loading="lazy">
             <span class="college-badge-floating">Deemed University</span>
-            <span class="college-quota-status">⚡ Quota Seats Open</span>
+            <span class="college-quota-status">⚡ Quota Open</span>
           </div>
           <div class="college-card-info">
             <h3 class="college-card-title">PES University (RR &amp; EC)</h3>
@@ -628,12 +623,11 @@
             <div class="college-tags-row">
               <span class="tag-spec-pill">CSE / AIML</span>
               <span class="tag-spec-pill">BBA / MBA</span>
-              <span class="tag-spec-pill">BCA</span>
-              <span class="tag-spec-pill">Top Placements</span>
+              <span class="tag-spec-pill">Top Tech</span>
             </div>
             <div class="college-card-bottom-cta">
               <div>
-                <div class="college-fees-label">Institutional Quota:</div>
+                <div class="college-fees-label">Quota Matrix:</div>
                 <div class="college-fees-val">PESSAT / Quota</div>
               </div>
               <button type="button" class="btn-card-inquire" onclick="openConsultModal('PES University Direct Quota')">
@@ -643,12 +637,12 @@
           </div>
         </div>
 
-        <!-- Card 6: Dayananda Sagar: Push Right -->
+        <!-- Card 4: Dayananda Sagar -->
         <div class="modern-college-card anim-push-right delay-4" data-category="engineering management law">
           <div class="college-card-media">
             <img src="images/service-bangalore-student.jpg" alt="Dayananda Sagar" class="college-card-img" loading="lazy">
             <span class="college-badge-floating">Autonomous • DSI</span>
-            <span class="college-quota-status">⚡ Quota Seats Open</span>
+            <span class="college-quota-status">⚡ Quota Open</span>
           </div>
           <div class="college-card-info">
             <h3 class="college-card-title">Dayananda Sagar College (DSCE)</h3>
@@ -656,12 +650,11 @@
             <div class="college-tags-row">
               <span class="tag-spec-pill">B.Tech CSE</span>
               <span class="tag-spec-pill">MBA</span>
-              <span class="tag-spec-pill">Pharmacy</span>
-              <span class="tag-spec-pill">Law</span>
+              <span class="tag-spec-pill">Pharmacy &amp; Law</span>
             </div>
             <div class="college-card-bottom-cta">
               <div>
-                <div class="college-fees-label">Institutional Quota:</div>
+                <div class="college-fees-label">Quota Matrix:</div>
                 <div class="college-fees-val">Open 2027</div>
               </div>
               <button type="button" class="btn-card-inquire" onclick="openConsultModal('Dayananda Sagar Direct Quota')">
@@ -673,37 +666,80 @@
 
       </div>
 
-      <!-- ==============================================================================
-           MAXIMALIST 2027 BROCHURE & FEE DIRECTORY GLASS BANNER (POP-IN)
-           ============================================================================== -->
-      <div class="glass-container-card anim-pop-in" style="margin-top: 3.5rem; padding: 2.75rem 3rem; background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(241,245,249,0.9)); border: 2px solid #cbd5e1; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
-        <div style="max-width: 680px;">
-          <div style="display: inline-flex; align-items: center; gap: 8px; background: #fffbeb; color: #b45309; padding: 4px 12px; border-radius: 9999px; font-size: 0.76rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.75rem; border: 1px solid #fde68a;">
-            <i class="fa-solid fa-file-pdf"></i> Official Institutional Brochure &amp; Fee Schedules
-          </div>
-          <h3 style="font-size: 1.85rem; font-weight: 900; color: #0f172a; margin-bottom: 0.5rem;">
-            Download Complete 2027 Fee Directory (160+ Bangalore Colleges)
-          </h3>
-          <p style="font-size: 0.95rem; color: #64748b; line-height: 1.6; margin: 0;">
-            Includes verified tuition fee structures, development charges, NRI/management quota cutoff matrices, and scholarship criteria across Engineering, Medical, MBA, and Law.
-          </p>
-        </div>
-        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-          <a href="fee-structure.html" class="btn-hero-primary" style="text-decoration: none; padding: 14px 28px;">
-            <i class="fa-solid fa-download"></i>
-            <span>View &amp; Download Brochure &rarr;</span>
-          </a>
-        </div>
-      </div>
-
     </div>
   </section>
 
   <!-- ==============================================================================
-       8. THE 4 PILLARS OF TRUST (PUSH-LEFT, DOWN-TO-UP, PUSH-RIGHT)
+       8. THE 2027 BROCHURE & FEE VAULT (HIGH CONTRAST GLASS VAULT)
        ============================================================================== -->
-  <section class="trust-pillars-section" id="trustPillars">
-    <div class="portal-container">
+  <section class="brochure-vault-section anim-pop-in" id="brochureVault">
+    <div class="bespoke-container">
+      <div class="vault-inner-grid">
+        
+        <div>
+          <span class="vault-eyebrow">
+            <i class="fa-solid fa-file-pdf"></i> Official Institutional Vault
+          </span>
+          <h2 class="vault-title">
+            The 2027 Institutional Fee Structure &amp; Official Brochure
+          </h2>
+          <p class="vault-desc">
+            Download verified fee schedules, tuition matrices, institutional development dues, and scholarship criteria for 160+ Bangalore autonomous colleges. Zero hidden fees or unverified charges.
+          </p>
+
+          <ul class="vault-check-list">
+            <li class="vault-check-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Official Institutional Tuition Matrices for RVCE, BMSCE, Christ &amp; Ramaiah</span>
+            </li>
+            <li class="vault-check-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Complete Breakdown of State Quota vs. Institutional Management / NRI Fees</span>
+            </li>
+            <li class="vault-check-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Score-Based Merit Scholarships Criteria &amp; Trust Waiver Matrices</span>
+            </li>
+            <li class="vault-check-item">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Official University Registrar Allotment Procedure &amp; Fee Receipts</span>
+            </li>
+          </ul>
+
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <a href="fee-structure.html" class="btn-hero-primary" style="text-decoration: none;">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span>Open 2027 Fee Directory (fee-structure.html) &rarr;</span>
+            </a>
+            <button type="button" class="btn-hero-secondary" style="background: rgba(255,255,255,0.15); color: #ffffff; border-color: rgba(255,255,255,0.3); backdrop-filter: blur(8px);" onclick="openConsultModal('Download Full Fee Brochure')">
+              <i class="fa-solid fa-download"></i>
+              <span>Download PDF Brochure</span>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <div class="vault-preview-card">
+            <div class="vault-file-icon">
+              <i class="fa-solid fa-file-shield"></i>
+            </div>
+            <h3 class="vault-file-title">Official 2027 Admissions Dossier</h3>
+            <p class="vault-file-meta">PDF Format • 160+ Colleges • Verified Schedules</p>
+            <a href="fee-structure.html" class="btn-fast-calculate" style="text-decoration: none; justify-content: center; width: 100%;">
+              <i class="fa-solid fa-eye"></i> View Full 2027 Fee Matrix
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================================================
+       9. THE 4 PILLARS OF TRUST (WHY CLIENTS CHOOSE US)
+       ============================================================================== -->
+  <section class="trust-pillars-section" style="padding: 4rem 0;">
+    <div class="bespoke-container">
       
       <div class="section-headline-block anim-down-to-up">
         <span class="section-pill-tag"><i class="fa-solid fa-shield-halved"></i> Unmatched Advisory Standard</span>
@@ -753,10 +789,10 @@
   </section>
 
   <!-- ==============================================================================
-       9. 5-STAGE ROADMAP (HOW WE WORK) WITH POP-IN ANIMATIONS
+       10. 5-STAGE ROADMAP (HOW WE WORK)
        ============================================================================== -->
   <section class="modern-roadmap-section" id="howWeWork">
-    <div class="portal-container">
+    <div class="bespoke-container">
       
       <div class="section-headline-block anim-down-to-up">
         <span class="section-pill-tag"><i class="fa-solid fa-route"></i> Streamlined Journey</span>
@@ -800,7 +836,7 @@
 
       </div>
 
-      <!-- StudentEntrance.com Highlight Banner: Push Left and Push Right -->
+      <!-- StudentEntrance.com Highlight Banner -->
       <div class="modern-entrance-banner anim-pop-in" style="margin-top: 4rem;">
         <div class="banner-left-info anim-push-left delay-1">
           <span style="font-size: 0.76rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #fbbf24; display: block; margin-bottom: 6px;">
@@ -829,10 +865,10 @@
   </section>
 
   <!-- ==============================================================================
-       10. FAQ ACCORDION (DOWN-TO-UP ANIMATION)
+       11. FAQ ACCORDION
        ============================================================================== -->
   <section class="modern-faq-section" id="faqSection">
-    <div class="portal-container">
+    <div class="bespoke-container">
       
       <div class="section-headline-block anim-down-to-up">
         <span class="section-pill-tag"><i class="fa-solid fa-circle-question"></i> Clear Answers</span>
@@ -890,10 +926,10 @@
   </section>
 
   <!-- ==============================================================================
-       11. LUXURY DARK FOOTER WITH GENUINE LOGO
+       12. LUXURY DARK FOOTER
        ============================================================================== -->
   <footer class="modern-site-footer">
-    <div class="portal-container">
+    <div class="bespoke-container">
       
       <div class="footer-top-grid">
         
@@ -912,8 +948,8 @@
         <div>
           <h4 class="footer-col-title">Bangalore Colleges</h4>
           <ul class="footer-links-list">
-            <li><a href="#portalViewIndia">RVCE Bangalore</a></li>
-            <li><a href="#portalViewIndia">Christ University</a></li>
+            <li><a href="#flagshipSpotlight">RVCE Bangalore</a></li>
+            <li><a href="#flagshipSpotlight">Christ University</a></li>
             <li><a href="#portalViewIndia">BMSCE Basavanagudi</a></li>
             <li><a href="#portalViewIndia">Ramaiah Institute (MSRIT)</a></li>
             <li><a href="#portalViewIndia">PES University</a></li>
@@ -979,7 +1015,7 @@
   </footer>
 
   <!-- ==============================================================================
-       12. FLOATING WHATSAPP CONCIERGE DESK
+       13. FLOATING WHATSAPP ADMISSIONS CONCIERGE
        ============================================================================== -->
   <a href="https://wa.me/919845371459?text=Hi%20The%20Edu%20Consultant,%20I%20would%20like%20to%20inquire%20about%20Admissions%202027" target="_blank" rel="noopener noreferrer" class="floating-whatsapp-desk" aria-label="WhatsApp Counselor">
     <span class="wa-pulse-dot"></span>
@@ -988,7 +1024,7 @@
   </a>
 
   <!-- ==============================================================================
-       13. INTERACTIVE CONSULTATION LEAD MODAL
+       14. INTERACTIVE CONSULTATION LEAD MODAL
        ============================================================================== -->
   <div class="modal-backdrop-overlay" id="leadModalOverlay" role="dialog" aria-modal="true">
     <div class="modal-dialog-card">
@@ -1024,10 +1060,10 @@
         <div>
           <label style="display: block; font-size: 0.8rem; font-weight: 750; color: #334155; margin-bottom: 4px;">Target College / Stream *</label>
           <select name="course" class="form-control-select" required>
-            <option value="RVCE Bangalore (B.Tech / CSE / AI)">RVCE Bangalore (B.Tech / CSE / AI)</option>
+            <option value="RVCE Bangalore (B.Tech / CSE / AI)">RV College of Engineering (RVCE)</option>
             <option value="Christ University (B.Com / BBA / Law)">Christ University (B.Com / BBA / Law)</option>
-            <option value="BMSCE Basavanagudi (Engineering)">BMSCE Basavanagudi (Engineering)</option>
-            <option value="Ramaiah Institute (MSRIT)">Ramaiah Institute (MSRIT)</option>
+            <option value="BMSCE Basavanagudi (Engineering)">BMS College of Engineering (BMSCE)</option>
+            <option value="Ramaiah Institute (MSRIT)">Ramaiah Institute of Technology (MSRIT)</option>
             <option value="PES University (RR &amp; EC)">PES University (RR &amp; EC)</option>
             <option value="Dayananda Sagar College (DSCE)">Dayananda Sagar College (DSCE)</option>
             <option value="MBA / PGDM (Autonomous Colleges)">MBA / PGDM (Autonomous Colleges)</option>
@@ -1048,7 +1084,6 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/modern-portal.js?v=2027301"></script>
-  <script src="js/maximalism.js?v=2027301"></script>
+  <script src="js/bespoke-portal.js?v=2027401"></script>
 </body>
 </html>
