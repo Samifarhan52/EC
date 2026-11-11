@@ -11,14 +11,14 @@
   
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Edu Consultant | Direct Admissions & Study Abroad 2027</title>
+  <title>The Edu Consultant | Direct Admissions & Management Quota 2027</title>
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="brand/logo-on-light.png">
   <link rel="apple-touch-icon" href="brand/logo-on-light.png">
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-  <meta name="description" content="The Edu Consultant - Premier Educational Consultancy for Direct Management Quota Admissions 2027 in RVCE, BMSCE, Christ, Ramaiah, VIT, Dayananda Sagar & Top Global Universities in USA, UK, Canada, Germany.">
+  <meta name="description" content="The Edu Consultant - Premier Educational Consultancy for Direct Management Quota Admissions 2027 in RVCE, BMSCE, Christ, Ramaiah, VIT, Dayananda Sagar & Bangalore's 160+ top autonomous colleges.">
   <link rel="canonical" href="https://theeduconsultant.com/">
 
   <!-- Google Fonts: Plus Jakarta Sans & Inter -->
@@ -29,13 +29,39 @@
   <!-- FontAwesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Modern Portal Design System -->
-  <link rel="stylesheet" href="css/modern-portal.css?v=2027201">
+  <!-- Modern Maximalism & Glassmorphism Design System -->
+  <link rel="stylesheet" href="css/modern-portal.css?v=2027301">
+  <link rel="stylesheet" href="css/maximalism.css?v=2027301">
 </head>
 <body>
 
+  <!-- Smooth Page Transition Curtain -->
+  <div class="page-transition-curtain"></div>
+
   <!-- ==============================================================================
-       1. LIVE TOP ANNOUNCEMENT TICKER
+       1. DUAL-WEBSITE SWITCHER JUMBO BAR (INDIA ADMISSIONS vs STUDY ABROAD)
+       ============================================================================== -->
+  <div class="dual-website-jumbo-bar anim-up-to-down">
+    <div class="portal-container">
+      <div class="jumbo-bar-inner">
+        <div class="jumbo-current-domain">
+          <span class="jumbo-active-pill"><i class="fa-solid fa-building-columns"></i> theeduconsultant.com</span>
+          <span style="font-size: 0.84rem; color: #cbd5e1;">
+            India &amp; Bangalore Direct Admissions • Institutional Management Quota 2027
+          </span>
+        </div>
+        <div>
+          <a href="theeduconsultant.in/index.html" class="jumbo-switch-button" title="Switch to Global Overseas Admissions on theeduconsultant.in">
+            <span>Looking for Study Abroad? Switch to <strong>theeduconsultant.in</strong></span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==============================================================================
+       2. LIVE TICKER ANNOUNCEMENT RIBBON
        ============================================================================== -->
   <div class="modern-ticker-bar">
     <div class="portal-container">
@@ -43,16 +69,16 @@
         <div style="display: flex; align-items: center; gap: 12px; overflow: hidden;">
           <span class="ticker-left-tag">
             <span class="ticker-pulse-dot"></span>
-            <span>Live 2027 Intakes</span>
+            <span>Admissions 2027 Active</span>
           </span>
           <span class="ticker-headline-text">
-            <strong>Admissions 2027 Open:</strong> Confirmed Direct Seats in Bangalore's Top Autonomous Colleges &amp; Fall 2027 Global Universities.
+            <strong>Direct Quota Live:</strong> RVCE, BMSCE, Christ, Ramaiah, PES &amp; Dayananda Sagar Seats Open with Transparent Institutional Fee Structures.
           </span>
         </div>
         <div class="ticker-right-actions">
           <a href="tel:+919845371459" class="ticker-contact-link"><i class="fa-solid fa-phone"></i> +91 98453 71459</a>
           <a href="https://wa.me/919845371459?text=Hi%20The%20Edu%20Consultant,%20I%20need%20direct%20admissions%20guidance." target="_blank" class="ticker-contact-link" style="color: #4ade80;"><i class="fa-brands fa-whatsapp"></i> WhatsApp Desk</a>
-          <button type="button" class="ticker-btn-quick" onclick="openConsultModal('Direct Admissions 2027')">
+          <button type="button" class="ticker-btn-quick" onclick="openConsultModal('Admissions 2027 Direct')">
             <i class="fa-solid fa-bolt"></i> Register Now &rarr;
           </button>
         </div>
@@ -61,51 +87,40 @@
   </div>
 
   <!-- ==============================================================================
-       2. SITE HEADER & DUAL-PORTAL SWITCHER
+       3. SITE HEADER (GLASSMORPHISM WITH AUTHENTIC LOGO)
        ============================================================================== -->
   <header class="modern-site-header">
     <div class="portal-container">
       <div class="header-inner-row">
         
-        <!-- Brand Logo -->
+        <!-- Authentic Brand Logo from theeduconsultant.com -->
         <a href="index.html" class="header-brand-wrap" aria-label="The Edu Consultant Homepage">
           <img src="brand/logo-on-light.png" alt="The Edu Consultant" class="header-brand-logo">
         </a>
 
-        <!-- Dual Portal Mode Switcher Pill -->
-        <div class="header-portal-switcher" role="tablist">
-          <button type="button" class="portal-switch-pill active" data-portal-btn="india" onclick="switchPortalMode('india')">
-            <span>🇮🇳</span>
-            <span>Bangalore &amp; India</span>
-          </button>
-          <button type="button" class="portal-switch-pill" data-portal-btn="abroad" onclick="switchPortalMode('abroad')">
-            <span>🌍</span>
-            <span>Study Abroad</span>
-            <span class="badge-fire">Fall '27</span>
-          </button>
-        </div>
-
-        <!-- Clean Navigation Links (Zero Duplicates) -->
+        <!-- Portal Navigation Links -->
         <nav class="header-nav-links" aria-label="Primary Navigation">
           <a href="#portalViewIndia" class="nav-item-link active">Top Colleges</a>
-          <a href="#portalViewAbroad" class="nav-item-link" style="color: #2563eb; font-weight: 750;"><i class="fa-solid fa-plane-departure" style="color: #f59e0b; margin-right: 4px;"></i> Global Hub</a>
-          <a href="#testPrepSection" class="nav-item-link">Test Prep</a>
-          <a href="fee-structure.html" class="nav-item-link">Fee Structure 2027</a>
+          <a href="fee-structure.html" class="nav-item-link" style="color: #d97706; font-weight: 750;"><i class="fa-solid fa-file-invoice-dollar"></i> 2027 Fee Directory</a>
           <a href="#howWeWork" class="nav-item-link">How We Work</a>
+          <a href="#trustPillars" class="nav-item-link">Why Choose Us</a>
+          <a href="theeduconsultant.in/index.html" class="nav-item-link" style="color: #2563eb; font-weight: 750;">
+            <i class="fa-solid fa-plane-departure" style="color: #f59e0b;"></i> Study Abroad (theeduconsultant.in)
+          </a>
           <a href="#faqSection" class="nav-item-link">FAQ</a>
         </nav>
 
-        <!-- Header Action Buttons -->
+        <!-- Header Action CTAs -->
         <div class="header-actions-group">
-          <a href="fee-structure.html" class="btn-header-brochure">
+          <a href="fee-structure.html" class="btn-header-brochure" title="Download Official Fee Structure &amp; Brochure">
             <i class="fa-solid fa-file-arrow-down"></i>
-            <span>Brochure</span>
+            <span>Download Brochure</span>
           </a>
-          <button type="button" class="btn-header-consult" onclick="openConsultModal('Fast Track Allotment')">
-            <i class="fa-solid fa-calendar-check"></i>
+          <button type="button" class="btn-header-consult" onclick="openConsultModal('Header Check Seats')">
+            <i class="fa-solid fa-bolt"></i>
             <span>Check Seats</span>
           </button>
-          <button type="button" class="mobile-menu-btn" onclick="openConsultModal('Mobile Inquiry')" aria-label="Menu">
+          <button type="button" class="mobile-menu-btn" onclick="openConsultModal('Mobile Header')" aria-label="Menu">
             <i class="fa-solid fa-bars"></i>
           </button>
         </div>
@@ -115,62 +130,68 @@
   </header>
 
   <!-- ==============================================================================
-       3. HERO SECTION - CINEMATIC, HIGH-CONVERTING, JAW-DROPPING
+       4. MAXIMALIST HERO BANNER WITH FLOATING MESH & 3D SEAT CALCULATOR
        ============================================================================== -->
-  <section class="modern-hero-section" id="heroSection">
-    <div class="portal-container">
+  <section class="maximalist-hero-wrapper modern-hero-section" id="heroSection">
+    <!-- Glowing Background Mesh Orbs -->
+    <div class="floating-mesh-orb orb-1"></div>
+    <div class="floating-mesh-orb orb-2"></div>
+
+    <div class="portal-container" style="position: relative; z-index: 10;">
       <div class="hero-grid-two-column">
         
-        <!-- Left Hero Content -->
-        <div class="hero-left-content">
+        <!-- Left Hero Column: Push Left Animation -->
+        <div class="hero-left-content anim-push-left">
           
           <div class="hero-live-badge">
             <span class="ticker-pulse-dot" style="background: #2563eb; box-shadow: 0 0 10px #2563eb;"></span>
-            <span>Direct Management Quota &amp; Fall 2027 Admissions Live</span>
+            <span>Direct Management Quota &amp; NRI Admissions 2027 Open</span>
           </div>
 
           <h1 class="hero-main-title">
-            Secure Confirmed Seats in <span class="hero-gradient-text">Top Autonomous Colleges</span> &amp; Global Universities.
+            Secure Confirmed Seats in <span class="hero-gradient-text">Top Autonomous Colleges</span> of Bangalore &amp; India.
           </h1>
 
-          <div style="font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+          <div style="font-size: 1.25rem; font-weight: 750; color: #1e293b; margin-bottom: 1.15rem; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
             <span>Direct Admissions in:</span>
             <span class="hero-flip-text-holder" id="heroRotatingWord">RVCE Bangalore</span>
           </div>
 
           <p class="hero-description-lead">
-            The Edu Consultant provides verified direct seat allotments under official Institutional Management Quota and NRI categories across premier colleges in Bangalore and leading universities in USA, UK, Canada &amp; Germany. 100% registrar allotment letters, transparent fees, and score-based scholarships.
+            The Edu Consultant provides verified direct seat allotments under official Institutional Management Quota and NRI categories across premier colleges in Bangalore. 100% registrar allotment letters, transparent institutional fee structures, and score-based scholarships without middlemen.
           </p>
 
           <div class="hero-ctas-row">
-            <button type="button" class="btn-hero-primary" onclick="openConsultModal('Hero Primary Check Seat')">
+            <button type="button" class="btn-hero-primary shimmer-glow-border" onclick="openConsultModal('Hero Primary Check Seats')">
               <i class="fa-solid fa-bolt-lightning"></i>
               <span>Check Seat Availability &amp; Fees</span>
             </button>
-            <a href="#portalViewIndia" class="btn-hero-secondary">
-              <i class="fa-solid fa-building-columns"></i>
-              <span>Explore 160+ Colleges</span>
+            <a href="fee-structure.html" class="btn-hero-secondary" title="View Full Fee Structure">
+              <i class="fa-solid fa-file-invoice-dollar"></i>
+              <span>2027 Fee Structure</span>
             </a>
           </div>
 
-          <!-- Quick Stream Pills -->
-          <div style="font-size: 0.8rem; font-weight: 750; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">
-            Popular Streams &amp; Programs:
+          <!-- Quick Stream Selection Chips -->
+          <div style="font-size: 0.8rem; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">
+            Instant Stream Navigation:
           </div>
           <div class="hero-stream-chips-row">
-            <a href="#portalViewIndia" class="stream-chip active"><i class="fa-solid fa-laptop-code"></i> Engineering (B.Tech / CSE / AI)</a>
+            <a href="#portalViewIndia" class="stream-chip active"><i class="fa-solid fa-laptop-code"></i> Engineering (B.Tech / AI / CSE)</a>
             <a href="#portalViewIndia" class="stream-chip"><i class="fa-solid fa-briefcase"></i> MBA &amp; PGDM</a>
             <a href="#portalViewIndia" class="stream-chip"><i class="fa-solid fa-stethoscope"></i> MBBS &amp; Medical</a>
-            <a href="#portalViewAbroad" class="stream-chip"><i class="fa-solid fa-plane-departure"></i> Study in USA / UK</a>
-            <a href="#portalViewAbroad" class="stream-chip"><i class="fa-solid fa-graduation-cap"></i> Germany Free Tuition</a>
+            <a href="#portalViewIndia" class="stream-chip"><i class="fa-solid fa-scale-balanced"></i> Law (BA LLB / BBA LLB)</a>
+            <a href="theeduconsultant.in/index.html" class="stream-chip" style="color: #2563eb; border-color: #93c5fd; background: #eff6ff;">
+              <i class="fa-solid fa-plane-departure"></i> Study Abroad (USA, UK, DE) &rarr;
+            </a>
           </div>
 
         </div>
 
-        <!-- Right Hero: 3D Interactive Seat & Fee Predictor Card -->
-        <div class="hero-glass-card-wrapper">
+        <!-- Right Hero Column: Push Right Animation + 3D Interactive Card -->
+        <div class="hero-glass-card-wrapper anim-push-right">
           
-          <!-- Floating Badge Top Right -->
+          <!-- Floating Badge 1: RVCE -->
           <div class="floating-card-pill float-top-right">
             <div class="float-badge-icon icon-blue"><i class="fa-solid fa-award"></i></div>
             <div class="float-badge-text">
@@ -179,14 +200,14 @@
             </div>
           </div>
 
-          <!-- Main Interactive Card -->
-          <div class="hero-interactive-card">
+          <!-- Interactive Seat & Cutoff Predictor Card -->
+          <div class="hero-interactive-card glass-container-card">
             <div class="hero-card-header">
               <div class="hero-card-badge" id="calcLiveBadge">
                 <i class="fa-solid fa-circle-check"></i> 14 Management Quota Seats Active
               </div>
               <h3 class="hero-card-title">Instant Seat &amp; Fee Predictor</h3>
-              <p class="hero-card-subtitle">Get confirmed seat cutoff, eligibility, and institutional fees in 2 minutes.</p>
+              <p class="hero-card-subtitle">Get confirmed seat availability, cutoff matrix &amp; fees on WhatsApp in 2 minutes.</p>
             </div>
 
             <form id="heroSeatCalcForm" class="fast-inquiry-form">
@@ -199,29 +220,29 @@
               <div class="form-group-field">
                 <select name="target_stream" id="calcCourseSelect" class="form-control-select" required>
                   <option value="" disabled selected>Select Target Stream (2027)</option>
-                  <option value="Engineering (B.Tech / B.E)">Engineering &amp; Technology (B.Tech / AI / CSE)</option>
-                  <option value="MBA / PGDM / BBA">Management &amp; Business (MBA / PGDM / BBA)</option>
-                  <option value="MBBS / Medical / BDS">Medical &amp; Healthcare (MBBS / BDS / Allied)</option>
-                  <option value="Computer Applications (BCA/MCA)">Computer Applications (BCA / MCA)</option>
+                  <option value="Engineering (B.Tech / AI / CSE)">Engineering &amp; Technology (B.Tech / CSE / AI)</option>
+                  <option value="Management (MBA / PGDM / BBA)">Management &amp; Business (MBA / PGDM / BBA)</option>
+                  <option value="Medical &amp; Healthcare (MBBS / BDS)">Medical &amp; Healthcare (MBBS / BDS / Allied)</option>
+                  <option value="Computer Applications (BCA / MCA)">Computer Applications (BCA / MCA)</option>
+                  <option value="Commerce &amp; Finance (B.Com / M.Com)">Commerce &amp; Finance (B.Com / M.Com)</option>
                   <option value="Law (BA LLB / BBA LLB)">Law &amp; Legal Studies (BA LLB / BBA LLB)</option>
-                  <option value="Study Abroad (USA / UK / Canada)">Study Abroad (USA / UK / Canada / Germany)</option>
                 </select>
               </div>
               <div class="form-group-field">
                 <select name="target_college" class="form-control-select">
-                  <option value="" disabled selected>Preferred College / Country</option>
+                  <option value="" disabled selected>Select Preferred College</option>
                   <option value="RV College of Engineering (RVCE)">RV College of Engineering (RVCE)</option>
                   <option value="Christ University Bangalore">Christ University Bangalore</option>
                   <option value="BMS College of Engineering (BMSCE)">BMS College of Engineering (BMSCE)</option>
                   <option value="Ramaiah Institute of Technology (MSRIT)">Ramaiah Institute of Technology (MSRIT)</option>
                   <option value="PES University">PES University</option>
-                  <option value="Dayananda Sagar (DSCE)">Dayananda Sagar College (DSCE)</option>
-                  <option value="United States (USA)">United States (USA)</option>
-                  <option value="United Kingdom (UK)">United Kingdom (UK)</option>
-                  <option value="Germany Public Univ">Germany Public Universities</option>
+                  <option value="Dayananda Sagar College (DSCE)">Dayananda Sagar College (DSCE)</option>
+                  <option value="Vellore Institute of Technology (VIT)">Vellore Institute of Technology (VIT)</option>
+                  <option value="St. Joseph's University">St. Joseph's University</option>
+                  <option value="Jain University (CMS)">Jain University (CMS)</option>
                 </select>
               </div>
-              <button type="submit" class="btn-fast-calculate">
+              <button type="submit" class="btn-fast-calculate shimmer-glow-border">
                 <i class="fa-solid fa-bolt"></i>
                 <span>Check Seat Availability &amp; Fees</span>
               </button>
@@ -233,12 +254,12 @@
             </div>
           </div>
 
-          <!-- Floating Badge Bottom Left -->
+          <!-- Floating Badge 2: Christ University -->
           <div class="floating-card-pill float-bottom-left">
-            <div class="float-badge-icon icon-gold"><i class="fa-solid fa-passport"></i></div>
+            <div class="float-badge-icon icon-gold"><i class="fa-solid fa-graduation-cap"></i></div>
             <div class="float-badge-text">
-              <span class="float-badge-title">Fall '27 Global Visa</span>
-              <span class="float-badge-sub">98.4% First-Attempt Success</span>
+              <span class="float-badge-title">Christ University</span>
+              <span class="float-badge-sub">B.Com, BBA &amp; Law Quota Active</span>
             </div>
           </div>
 
@@ -249,11 +270,11 @@
   </section>
 
   <!-- ==============================================================================
-       4. AUTHORITY STATS COUNTER STRIP
+       5. AUTHORITY STATS COUNTER STRIP (POP-IN ANIMATION)
        ============================================================================== -->
   <section class="modern-stats-strip">
     <div class="portal-container">
-      <div class="stats-card-container">
+      <div class="stats-card-container glass-container-card anim-pop-in">
         
         <div class="stats-item-box">
           <div class="stats-item-icon" style="background: #eff6ff; color: #2563eb;">
@@ -287,11 +308,11 @@
 
         <div class="stats-item-box">
           <div class="stats-item-icon" style="background: #faf5ff; color: #7c3aed;">
-            <i class="fa-solid fa-globe"></i>
+            <i class="fa-solid fa-certificate"></i>
           </div>
           <div>
-            <div class="stats-number-val" data-target="98.4" data-suffix="%">98.4%</div>
-            <div class="stats-label-txt">Global Visa &amp; Seat Success</div>
+            <div class="stats-number-val" data-target="100" data-suffix="%">100%</div>
+            <div class="stats-label-txt">Official Registrar Letters</div>
           </div>
         </div>
 
@@ -300,9 +321,9 @@
   </section>
 
   <!-- ==============================================================================
-       5. PARTNER DUAL MARQUEE - 60FPS INFINITE CREST SLIDER
+       6. PARTNER DUAL MARQUEE (DOWN-TO-UP ANIMATION)
        ============================================================================== -->
-  <section class="modern-marquee-section">
+  <section class="modern-marquee-section anim-down-to-up">
     <div class="marquee-heading-center">
       <span class="marquee-eyebrow"><i class="fa-solid fa-handshake"></i> Institutional Consortium</span>
       <h2 class="marquee-main-heading">Get Direct Admissions in Bengaluru's Premier Colleges</h2>
@@ -368,7 +389,7 @@
           </div>
         </div>
 
-        <!-- Duplicated for seamless loop -->
+        <!-- Duplicated for continuous loop -->
         <div class="college-crest-badge" onclick="openConsultModal('RV College of Engineering (RVCE)')">
           <img src="images/logos/rvce.png" alt="RVCE" class="crest-img-thumbnail">
           <div>
@@ -437,7 +458,7 @@
           </div>
         </div>
 
-        <!-- Duplicated for seamless loop -->
+        <!-- Duplicated for continuous loop -->
         <div class="college-crest-badge" onclick="openConsultModal('St. Joseph\'s University')">
           <img src="images/logos/stjosephs.png" alt="St. Joseph's" class="crest-img-thumbnail">
           <div>
@@ -458,12 +479,12 @@
   </section>
 
   <!-- ==============================================================================
-       6. PORTAL VIEW 1: BANGALORE & INDIA DIRECT ADMISSIONS (COLLEGES DIRECTORY)
+       7. BANGALORE COLLEGES DIRECTORY (POP-IN & PUSH ANIMATIONS)
        ============================================================================== -->
   <section class="modern-directory-section" id="portalViewIndia">
     <div class="portal-container">
       
-      <div class="section-headline-block">
+      <div class="section-headline-block anim-down-to-up">
         <span class="section-pill-tag"><i class="fa-solid fa-building-columns"></i> Institutional Management Quota 2027</span>
         <h2 class="section-title-large">Top Autonomous Colleges in Bangalore</h2>
         <p class="section-subtitle-muted">
@@ -472,7 +493,7 @@
       </div>
 
       <!-- Filter Tabs -->
-      <div class="directory-filter-bar">
+      <div class="directory-filter-bar anim-down-to-up delay-1">
         <button type="button" class="filter-tab-pill active" data-filter="all">All Disciplines</button>
         <button type="button" class="filter-tab-pill" data-filter="engineering">Engineering &amp; B.Tech</button>
         <button type="button" class="filter-tab-pill" data-filter="management">Commerce &amp; MBA</button>
@@ -480,13 +501,13 @@
         <button type="button" class="filter-tab-pill" data-filter="law">Law &amp; Others</button>
       </div>
 
-      <!-- 6 Modern College Cards -->
+      <!-- 6 Modern College Cards with Staggered Scroll Animations -->
       <div class="modern-college-grid">
         
-        <!-- Card 1: RVCE -->
-        <div class="modern-college-card" data-category="engineering">
+        <!-- Card 1: RVCE: Push Left -->
+        <div class="modern-college-card anim-push-left delay-1" data-category="engineering">
           <div class="college-card-media">
-            <img src="images/hero-banner-students.jpg" alt="RV College of Engineering" class="college-card-img">
+            <img src="images/hero-banner-students.jpg" alt="RV College of Engineering" class="college-card-img" loading="lazy">
             <span class="college-badge-floating">NAAC A++ • Autonomous</span>
             <span class="college-quota-status">⚡ Quota Seats Open</span>
           </div>
@@ -501,7 +522,7 @@
             </div>
             <div class="college-card-bottom-cta">
               <div>
-                <div class="college-fees-label">Institutional Quota Matrix:</div>
+                <div class="college-fees-label">Institutional Quota:</div>
                 <div class="college-fees-val">Available 2027</div>
               </div>
               <button type="button" class="btn-card-inquire" onclick="openConsultModal('RVCE Bangalore Direct Quota')">
@@ -511,10 +532,10 @@
           </div>
         </div>
 
-        <!-- Card 2: Christ -->
-        <div class="modern-college-card" data-category="management">
+        <!-- Card 2: Christ: Pop In -->
+        <div class="modern-college-card anim-pop-in delay-2" data-category="management">
           <div class="college-card-media">
-            <img src="images/campus-tour.jpg" alt="Christ University" class="college-card-img">
+            <img src="images/campus-tour.jpg" alt="Christ University" class="college-card-img" loading="lazy">
             <span class="college-badge-floating">NAAC A+ • Deemed Univ</span>
             <span class="college-quota-status">⚡ Applications Open</span>
           </div>
@@ -529,7 +550,7 @@
             </div>
             <div class="college-card-bottom-cta">
               <div>
-                <div class="college-fees-label">Institutional Quota Matrix:</div>
+                <div class="college-fees-label">Institutional Quota:</div>
                 <div class="college-fees-val">Open 2027 Intake</div>
               </div>
               <button type="button" class="btn-card-inquire" onclick="openConsultModal('Christ University Direct Quota')">
@@ -539,10 +560,10 @@
           </div>
         </div>
 
-        <!-- Card 3: BMSCE -->
-        <div class="modern-college-card" data-category="engineering">
+        <!-- Card 3: BMSCE: Push Right -->
+        <div class="modern-college-card anim-push-right delay-3" data-category="engineering">
           <div class="college-card-media">
-            <img src="images/hero-banner-bangalore.jpg" alt="BMSCE" class="college-card-img">
+            <img src="images/hero-banner-bangalore.jpg" alt="BMSCE" class="college-card-img" loading="lazy">
             <span class="college-badge-floating">Autonomous • 78 Yrs</span>
             <span class="college-quota-status">⚡ Quota Seats Open</span>
           </div>
@@ -556,7 +577,7 @@
             </div>
             <div class="college-card-bottom-cta">
               <div>
-                <div class="college-fees-label">Institutional Quota Matrix:</div>
+                <div class="college-fees-label">Institutional Quota:</div>
                 <div class="college-fees-val">Available 2027</div>
               </div>
               <button type="button" class="btn-card-inquire" onclick="openConsultModal('BMSCE Basavanagudi Direct Quota')">
@@ -566,10 +587,10 @@
           </div>
         </div>
 
-        <!-- Card 4: Ramaiah -->
-        <div class="modern-college-card" data-category="engineering medical">
+        <!-- Card 4: Ramaiah: Push Left -->
+        <div class="modern-college-card anim-push-left delay-2" data-category="engineering medical">
           <div class="college-card-media">
-            <img src="images/hero-students.jpg" alt="Ramaiah Institute" class="college-card-img">
+            <img src="images/hero-students.jpg" alt="Ramaiah Institute" class="college-card-img" loading="lazy">
             <span class="college-badge-floating">Tier-1 Autonomous</span>
             <span class="college-quota-status">⚡ Quota Seats Open</span>
           </div>
@@ -584,7 +605,7 @@
             </div>
             <div class="college-card-bottom-cta">
               <div>
-                <div class="college-fees-label">Institutional Quota Matrix:</div>
+                <div class="college-fees-label">Institutional Quota:</div>
                 <div class="college-fees-val">Active 2027</div>
               </div>
               <button type="button" class="btn-card-inquire" onclick="openConsultModal('Ramaiah Institute Direct Quota')">
@@ -594,10 +615,10 @@
           </div>
         </div>
 
-        <!-- Card 5: PES University -->
-        <div class="modern-college-card" data-category="engineering management">
+        <!-- Card 5: PES University: Pop In -->
+        <div class="modern-college-card anim-pop-in delay-3" data-category="engineering management">
           <div class="college-card-media">
-            <img src="images/scholar-acceptance.jpg" alt="PES University" class="college-card-img">
+            <img src="images/scholar-acceptance.jpg" alt="PES University" class="college-card-img" loading="lazy">
             <span class="college-badge-floating">Deemed University</span>
             <span class="college-quota-status">⚡ Quota Seats Open</span>
           </div>
@@ -612,7 +633,7 @@
             </div>
             <div class="college-card-bottom-cta">
               <div>
-                <div class="college-fees-label">Institutional Quota Matrix:</div>
+                <div class="college-fees-label">Institutional Quota:</div>
                 <div class="college-fees-val">PESSAT / Quota</div>
               </div>
               <button type="button" class="btn-card-inquire" onclick="openConsultModal('PES University Direct Quota')">
@@ -622,10 +643,10 @@
           </div>
         </div>
 
-        <!-- Card 6: Dayananda Sagar -->
-        <div class="modern-college-card" data-category="engineering management law">
+        <!-- Card 6: Dayananda Sagar: Push Right -->
+        <div class="modern-college-card anim-push-right delay-4" data-category="engineering management law">
           <div class="college-card-media">
-            <img src="images/service-bangalore-student.jpg" alt="Dayananda Sagar" class="college-card-img">
+            <img src="images/service-bangalore-student.jpg" alt="Dayananda Sagar" class="college-card-img" loading="lazy">
             <span class="college-badge-floating">Autonomous • DSI</span>
             <span class="college-quota-status">⚡ Quota Seats Open</span>
           </div>
@@ -640,7 +661,7 @@
             </div>
             <div class="college-card-bottom-cta">
               <div>
-                <div class="college-fees-label">Institutional Quota Matrix:</div>
+                <div class="college-fees-label">Institutional Quota:</div>
                 <div class="college-fees-val">Open 2027</div>
               </div>
               <button type="button" class="btn-card-inquire" onclick="openConsultModal('Dayananda Sagar Direct Quota')">
@@ -652,218 +673,26 @@
 
       </div>
 
-      <!-- Action Banner: Download Full 2027 Fee Directory -->
-      <div style="text-align: center; margin-top: 3.5rem;">
-        <a href="fee-structure.html" class="btn-hero-primary" style="display: inline-flex; text-decoration: none;">
-          <i class="fa-solid fa-file-invoice-dollar"></i>
-          <span>View Complete 2027 Fee Structure Directory (160+ Colleges) &rarr;</span>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==============================================================================
-       7. PORTAL VIEW 2: GLOBAL STUDY ABROAD PAVILION (ADMISSIONGYAN DIMENSION)
-       ============================================================================== -->
-  <section class="modern-abroad-section" id="portalViewAbroad">
-    <div class="portal-container">
-      
-      <div class="section-headline-block">
-        <span class="section-pill-tag" style="background: #fffbeb; color: #b45309; border-color: #fde68a;">
-          <i class="fa-solid fa-plane-departure"></i> Global University Gateway • Fall 2027
-        </span>
-        <h2 class="section-title-large">Study Abroad in World-Class Universities</h2>
-        <p class="section-subtitle-muted">
-          Direct admissions, statement of purpose (SOP) crafting, merit scholarship evaluation, and student visa guidance across premier destinations.
-        </p>
-      </div>
-
-      <!-- 6 Elevated Destination Cards -->
-      <div class="abroad-dest-grid">
-        
-        <!-- USA -->
-        <div class="dest-feature-card">
-          <div class="dest-card-head">
-            <span class="dest-flag-icon">🇺🇸</span>
-            <span class="dest-visa-chip">3-Yr STEM OPT</span>
+      <!-- ==============================================================================
+           MAXIMALIST 2027 BROCHURE & FEE DIRECTORY GLASS BANNER (POP-IN)
+           ============================================================================== -->
+      <div class="glass-container-card anim-pop-in" style="margin-top: 3.5rem; padding: 2.75rem 3rem; background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(241,245,249,0.9)); border: 2px solid #cbd5e1; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
+        <div style="max-width: 680px;">
+          <div style="display: inline-flex; align-items: center; gap: 8px; background: #fffbeb; color: #b45309; padding: 4px 12px; border-radius: 9999px; font-size: 0.76rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.75rem; border: 1px solid #fde68a;">
+            <i class="fa-solid fa-file-pdf"></i> Official Institutional Brochure &amp; Fee Schedules
           </div>
-          <h3 class="dest-country-heading">United States</h3>
-          <p class="dest-tagline-sub">Ivy League, Tier-1 Research &amp; Top 100 Universities</p>
-          <ul class="dest-highlights-list">
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Top Majors:</strong> MS in CS, AI, Data Science, MBA</span></li>
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Intakes:</strong> Fall (August) &amp; Spring (January)</span></li>
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Work Rights:</strong> 20 hrs/week On-Campus + 3-Yr OPT</span></li>
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Scholarships:</strong> Up to $30,000 Merit Waivers</span></li>
-          </ul>
-          <div class="dest-action-footer">
-            <span class="dest-tuition-text">Avg: $25k-$45k/yr</span>
-            <button type="button" class="btn-dest-explore" onclick="openConsultModal('USA University Admissions')">
-              <span>Enquire USA</span> <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </div>
+          <h3 style="font-size: 1.85rem; font-weight: 900; color: #0f172a; margin-bottom: 0.5rem;">
+            Download Complete 2027 Fee Directory (160+ Bangalore Colleges)
+          </h3>
+          <p style="font-size: 0.95rem; color: #64748b; line-height: 1.6; margin: 0;">
+            Includes verified tuition fee structures, development charges, NRI/management quota cutoff matrices, and scholarship criteria across Engineering, Medical, MBA, and Law.
+          </p>
         </div>
-
-        <!-- UK -->
-        <div class="dest-feature-card">
-          <div class="dest-card-head">
-            <span class="dest-flag-icon">🇬🇧</span>
-            <span class="dest-visa-chip">2-Yr Graduate Route</span>
-          </div>
-          <h3 class="dest-country-heading">United Kingdom</h3>
-          <p class="dest-tagline-sub">Russell Group &amp; 1-Year Fast-Track Masters</p>
-          <ul class="dest-highlights-list">
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Special Feature:</strong> 1-Year Masters Saves Time &amp; Cost</span></li>
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Intakes:</strong> September &amp; January</span></li>
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>IELTS Waiver:</strong> Available with 70%+ in 12th English</span></li>
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Post-Study:</strong> 2-Year Unrestricted Work Visa</span></li>
-          </ul>
-          <div class="dest-action-footer">
-            <span class="dest-tuition-text">Avg: £13k-£26k/yr</span>
-            <button type="button" class="btn-dest-explore" onclick="openConsultModal('UK University Admissions')">
-              <span>Enquire UK</span> <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Canada -->
-        <div class="dest-feature-card">
-          <div class="dest-card-head">
-            <span class="dest-flag-icon">🇨🇦</span>
-            <span class="dest-visa-chip">Up to 3-Yr PGWP</span>
-          </div>
-          <h3 class="dest-country-heading">Canada</h3>
-          <p class="dest-tagline-sub">Designated Learning Institutions (DLI) &amp; PR Pathways</p>
-          <ul class="dest-highlights-list">
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Top Majors:</strong> Computing, Engineering, Business Mgmt</span></li>
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Intakes:</strong> Fall (Sept), Winter (Jan) &amp; Summer</span></li>
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>PR Pathways:</strong> High Express Entry &amp; PNP Points</span></li>
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Co-op:</strong> Integrated Paid Internship Programs</span></li>
-          </ul>
-          <div class="dest-action-footer">
-            <span class="dest-tuition-text">Avg: CAD $20k-$35k/yr</span>
-            <button type="button" class="btn-dest-explore" onclick="openConsultModal('Canada University Admissions')">
-              <span>Enquire Canada</span> <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Australia -->
-        <div class="dest-feature-card">
-          <div class="dest-card-head">
-            <span class="dest-flag-icon">🇦🇺</span>
-            <span class="dest-visa-chip">2 to 4-Yr PSW Visa</span>
-          </div>
-          <h3 class="dest-country-heading">Australia</h3>
-          <p class="dest-tagline-sub">Group of Eight (Go8) &amp; High-Wage Work Opportunities</p>
-          <ul class="dest-highlights-list">
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Top Majors:</strong> Data Science, Cyber Security, Healthcare</span></li>
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Intakes:</strong> February &amp; July Intakes</span></li>
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Min Wage:</strong> Highest in World (AUD $23.23/hr)</span></li>
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Regional Bonus:</strong> Extra 1-2 Year Post-Study Stay</span></li>
-          </ul>
-          <div class="dest-action-footer">
-            <span class="dest-tuition-text">Avg: AUD $24k-$42k/yr</span>
-            <button type="button" class="btn-dest-explore" onclick="openConsultModal('Australia University Admissions')">
-              <span>Enquire Australia</span> <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Germany -->
-        <div class="dest-feature-card">
-          <div class="dest-card-head">
-            <span class="dest-flag-icon">🇩🇪</span>
-            <span class="dest-visa-chip" style="background: #fef3c7; color: #b45309; border-color: #fde68a;">Zero Tuition Public Univ</span>
-          </div>
-          <h3 class="dest-country-heading">Germany</h3>
-          <p class="dest-tagline-sub">TU9 Technical Universities &amp; Automotive Engineering</p>
-          <ul class="dest-highlights-list">
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Tuition:</strong> €0 Tuition Fees in Public Universities</span></li>
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Language:</strong> 1,500+ Fully English-Taught Programs</span></li>
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Job Search:</strong> 18-Month Post-Study Job Seeker Visa</span></li>
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>EU Blue Card:</strong> Fast-Track Permanent Residence in 21 Mo</span></li>
-          </ul>
-          <div class="dest-action-footer">
-            <span class="dest-tuition-text" style="background: #fef3c7; color: #92400e;">FREE / €0 Tuition</span>
-            <button type="button" class="btn-dest-explore" onclick="openConsultModal('Germany University Admissions')">
-              <span>Enquire Germany</span> <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Ireland -->
-        <div class="dest-feature-card">
-          <div class="dest-card-head">
-            <span class="dest-flag-icon">🇮🇪</span>
-            <span class="dest-visa-chip">2-Yr European PSW</span>
-          </div>
-          <h3 class="dest-country-heading">Ireland</h3>
-          <p class="dest-tagline-sub">European Silicon Valley &amp; Global Tech Headquarters</p>
-          <ul class="dest-highlights-list">
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Tech Hub:</strong> HQ of Google, Meta, Apple &amp; Pfizer</span></li>
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Language:</strong> Sole Native English Eurozone Country</span></li>
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Post-Study:</strong> 2-Year Third Level Graduate Scheme</span></li>
-            <li class="dest-highlight-item"><i class="fa-solid fa-circle-check"></i> <span><strong>Duration:</strong> 1-Year Fast-Track Taught Masters</span></li>
-          </ul>
-          <div class="dest-action-footer">
-            <span class="dest-tuition-text">Avg: €11k-€22k/yr</span>
-            <button type="button" class="btn-dest-explore" onclick="openConsultModal('Ireland University Admissions')">
-              <span>Enquire Ireland</span> <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Test Prep Academy Box -->
-      <div class="test-prep-academy-box" id="testPrepSection">
-        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 1.25rem;">
-          <div>
-            <span style="font-size: 0.78rem; font-weight: 800; color: #f59e0b; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 4px;">
-              <i class="fa-solid fa-bolt"></i> In-House Global Coaching
-            </span>
-            <h3 style="font-size: 1.5rem; font-weight: 800; color: #0f172a; margin: 0;">
-              The Edu Consultant Test Prep Academy
-            </h3>
-          </div>
-          <div>
-            <button type="button" class="btn-hero-primary" style="padding: 10px 20px; font-size: 0.85rem;" onclick="openConsultModal('Free Diagnostic Test Prep')">
-              <i class="fa-solid fa-laptop-code"></i> Book Free Diagnostic Mock Test
-            </button>
-          </div>
-        </div>
-
-        <div class="test-prep-grid">
-          
-          <div class="test-card-box">
-            <div class="test-card-title">IELTS Academic</div>
-            <span class="test-target-chip">Target: 7.5 - 8.5 Band</span>
-            <p style="font-size: 0.8rem; color: #64748b; line-height: 1.4; margin-bottom: 1rem;">Complete Speaking, Listening, Reading &amp; Writing training with official Cambridge mock simulations.</p>
-            <button type="button" class="btn-header-brochure" style="width: 100%; justify-content: center;" onclick="openConsultModal('IELTS Coaching')">Enquire Coaching</button>
-          </div>
-
-          <div class="test-card-box">
-            <div class="test-card-title">GRE General</div>
-            <span class="test-target-chip">Target: 320+ Score</span>
-            <p style="font-size: 0.8rem; color: #64748b; line-height: 1.4; margin-bottom: 1rem;">Advanced Quant shortcuts, high-frequency vocabulary drills, and adaptive full-length computer mocks.</p>
-            <button type="button" class="btn-header-brochure" style="width: 100%; justify-content: center;" onclick="openConsultModal('GRE Coaching')">Enquire Coaching</button>
-          </div>
-
-          <div class="test-card-box">
-            <div class="test-card-title">GMAT Focus</div>
-            <span class="test-target-chip">Target: 705+ Score</span>
-            <p style="font-size: 0.8rem; color: #64748b; line-height: 1.4; margin-bottom: 1rem;">Data Insights mastery, Quantitative reasoning and Verbal critical reasoning for premier global B-Schools.</p>
-            <button type="button" class="btn-header-brochure" style="width: 100%; justify-content: center;" onclick="openConsultModal('GMAT Coaching')">Enquire Coaching</button>
-          </div>
-
-          <div class="test-card-box">
-            <div class="test-card-title">PTE Academic</div>
-            <span class="test-target-chip">Target: 79+ Score</span>
-            <p style="font-size: 0.8rem; color: #64748b; line-height: 1.4; margin-bottom: 1rem;">AI-scored mock test feedback, automated pronunciation grading, and fast-track 2-week crash modules.</p>
-            <button type="button" class="btn-header-brochure" style="width: 100%; justify-content: center;" onclick="openConsultModal('PTE Coaching')">Enquire Coaching</button>
-          </div>
-
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="fee-structure.html" class="btn-hero-primary" style="text-decoration: none; padding: 14px 28px;">
+            <i class="fa-solid fa-download"></i>
+            <span>View &amp; Download Brochure &rarr;</span>
+          </a>
         </div>
       </div>
 
@@ -871,12 +700,12 @@
   </section>
 
   <!-- ==============================================================================
-       8. THE 4 PILLARS OF TRUST (WHY CLIENTS CHOOSE US)
+       8. THE 4 PILLARS OF TRUST (PUSH-LEFT, DOWN-TO-UP, PUSH-RIGHT)
        ============================================================================== -->
-  <section class="trust-pillars-section">
+  <section class="trust-pillars-section" id="trustPillars">
     <div class="portal-container">
       
-      <div class="section-headline-block">
+      <div class="section-headline-block anim-down-to-up">
         <span class="section-pill-tag"><i class="fa-solid fa-shield-halved"></i> Unmatched Advisory Standard</span>
         <h2 class="section-title-large">Why Parents &amp; Students Trust Us</h2>
         <p class="section-subtitle-muted">
@@ -886,7 +715,7 @@
 
       <div class="pillars-grid-four">
         
-        <div class="pillar-item-card">
+        <div class="pillar-item-card glass-container-card anim-push-left delay-1">
           <div class="pillar-icon-box" style="background: #eff6ff; color: #2563eb;">
             <i class="fa-solid fa-stamp"></i>
           </div>
@@ -894,7 +723,7 @@
           <p class="pillar-desc">Direct allotment letters issued straight by the university registrar's office. Zero middlemen risk, 100% legal compliance.</p>
         </div>
 
-        <div class="pillar-item-card">
+        <div class="pillar-item-card glass-container-card anim-down-to-up delay-2">
           <div class="pillar-icon-box" style="background: #ecfdf5; color: #059669;">
             <i class="fa-solid fa-receipt"></i>
           </div>
@@ -902,7 +731,7 @@
           <p class="pillar-desc">Complete financial clarity with official trust receipts, approved fee structures, and installment payment support.</p>
         </div>
 
-        <div class="pillar-item-card">
+        <div class="pillar-item-card glass-container-card anim-down-to-up delay-3">
           <div class="pillar-icon-box" style="background: #fffbeb; color: #d97706;">
             <i class="fa-solid fa-hand-holding-dollar"></i>
           </div>
@@ -910,7 +739,7 @@
           <p class="pillar-desc">We unlock institutional fee concessions up to ₹2,50,000 for high-achieving academic and sports profiles.</p>
         </div>
 
-        <div class="pillar-item-card">
+        <div class="pillar-item-card glass-container-card anim-push-right delay-4">
           <div class="pillar-icon-box" style="background: #faf5ff; color: #7c3aed;">
             <i class="fa-solid fa-user-shield"></i>
           </div>
@@ -924,12 +753,12 @@
   </section>
 
   <!-- ==============================================================================
-       9. 5-STAGE HOW WE WORK ROADMAP
+       9. 5-STAGE ROADMAP (HOW WE WORK) WITH POP-IN ANIMATIONS
        ============================================================================== -->
   <section class="modern-roadmap-section" id="howWeWork">
     <div class="portal-container">
       
-      <div class="section-headline-block">
+      <div class="section-headline-block anim-down-to-up">
         <span class="section-pill-tag"><i class="fa-solid fa-route"></i> Streamlined Journey</span>
         <h2 class="section-title-large">How We Work: 5 Simple Steps</h2>
         <p class="section-subtitle-muted">
@@ -939,31 +768,31 @@
 
       <div class="roadmap-steps-track">
         
-        <div class="roadmap-step-card">
+        <div class="roadmap-step-card glass-container-card anim-pop-in delay-1">
           <div class="step-num-bubble">01</div>
           <h4 class="step-title-text">Profile Evaluation</h4>
           <p class="step-info-text">1-on-1 diagnostic review analyzing your marks, budget, stream, and target institutions.</p>
         </div>
 
-        <div class="roadmap-step-card">
+        <div class="roadmap-step-card glass-container-card anim-pop-in delay-2">
           <div class="step-num-bubble">02</div>
           <h4 class="step-title-text">College Shortlisting</h4>
-          <p class="step-info-text">Curating a priority list of premier autonomous colleges and global universities matching your goals.</p>
+          <p class="step-info-text">Curating a priority list of premier autonomous colleges matching your career objectives.</p>
         </div>
 
-        <div class="roadmap-step-card">
+        <div class="roadmap-step-card glass-container-card anim-pop-in delay-3">
           <div class="step-num-bubble">03</div>
           <h4 class="step-title-text">Quota &amp; Fee Matrix</h4>
-          <p class="step-info-text">Transparent breakdown of official institutional fee schedules, available quota seats, and trust grants.</p>
+          <p class="step-info-text">Transparent breakdown of official institutional fee schedules, available quota seats, and grants.</p>
         </div>
 
-        <div class="roadmap-step-card">
+        <div class="roadmap-step-card glass-container-card anim-pop-in delay-4">
           <div class="step-num-bubble">04</div>
           <h4 class="step-title-text">Dossier Filing</h4>
-          <p class="step-info-text">Flawless documentation verification and expedited filing directly with the academic admissions board.</p>
+          <p class="step-info-text">Flawless documentation verification and expedited filing directly with the admissions board.</p>
         </div>
 
-        <div class="roadmap-step-card">
+        <div class="roadmap-step-card glass-container-card anim-pop-in delay-5">
           <div class="step-num-bubble">05</div>
           <h4 class="step-title-text">Confirmed Allotment</h4>
           <p class="step-info-text">Receipt of your official admission offer letter, campus reporting instructions, and hostel allotment.</p>
@@ -971,9 +800,9 @@
 
       </div>
 
-      <!-- StudentEntrance.com Highlight Banner -->
-      <div class="modern-entrance-banner">
-        <div class="banner-left-info">
+      <!-- StudentEntrance.com Highlight Banner: Push Left and Push Right -->
+      <div class="modern-entrance-banner anim-pop-in" style="margin-top: 4rem;">
+        <div class="banner-left-info anim-push-left delay-1">
           <span style="font-size: 0.76rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #fbbf24; display: block; margin-bottom: 6px;">
             <i class="fa-solid fa-bolt"></i> Official Entrance Preparation Partner
           </span>
@@ -991,7 +820,7 @@
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
         </div>
-        <div style="text-align: center;">
+        <div style="text-align: center;" class="anim-push-right delay-2">
           <img src="images/admissions-entrance-poster.webp" alt="Entrance Prep" style="width: 100%; max-width: 380px; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);" loading="lazy">
         </div>
       </div>
@@ -1000,20 +829,20 @@
   </section>
 
   <!-- ==============================================================================
-       10. FAQ ACCORDION SECTION
+       10. FAQ ACCORDION (DOWN-TO-UP ANIMATION)
        ============================================================================== -->
   <section class="modern-faq-section" id="faqSection">
     <div class="portal-container">
       
-      <div class="section-headline-block">
+      <div class="section-headline-block anim-down-to-up">
         <span class="section-pill-tag"><i class="fa-solid fa-circle-question"></i> Clear Answers</span>
         <h2 class="section-title-large">Frequently Asked Questions</h2>
         <p class="section-subtitle-muted">
-          Everything you need to know about direct management quota admissions and study abroad processing.
+          Everything you need to know about direct management quota admissions in Bangalore.
         </p>
       </div>
 
-      <div class="faq-items-list">
+      <div class="faq-items-list anim-down-to-up delay-1">
         
         <div class="faq-single-item open">
           <button type="button" class="faq-question-btn">
@@ -1032,16 +861,6 @@
           </button>
           <div class="faq-answer-pane">
             Institutional management quota seat reservations and provisional registrations for academic year 2027 are officially active now. Premier institutions like RVCE, BMSCE, Christ, and Ramaiah allocate quota seats on a first-come, first-served basis prior to state counseling.
-          </div>
-        </div>
-
-        <div class="faq-single-item">
-          <button type="button" class="faq-question-btn">
-            <span>Can I apply for Study Abroad if I haven't written IELTS or GRE yet?</span>
-            <i class="fa-solid fa-chevron-down faq-icon-arrow"></i>
-          </button>
-          <div class="faq-answer-pane">
-            Yes! Many universities in the UK, USA, Australia, and Germany offer Conditional Offer Letters while you prepare for your language tests. Furthermore, several UK and European institutions waive IELTS if you scored 70%+ in your 12th standard English medium schooling.
           </div>
         </div>
 
@@ -1071,7 +890,7 @@
   </section>
 
   <!-- ==============================================================================
-       11. LUXURY DARK FOOTER
+       11. LUXURY DARK FOOTER WITH GENUINE LOGO
        ============================================================================== -->
   <footer class="modern-site-footer">
     <div class="portal-container">
@@ -1081,7 +900,7 @@
         <div>
           <img src="brand/logo-on-dark.png" alt="The Edu Consultant" class="footer-brand-logo-img">
           <p class="footer-company-desc">
-            Premier educational consultancy facilitating direct management quota admissions across Bangalore's autonomous institutions and verified global university placements. 15+ years of academic integrity and student success.
+            Premier educational consultancy facilitating direct management quota admissions across Bangalore's autonomous institutions. 15+ years of academic integrity, official registrar allotments, and student success.
           </p>
           <div style="display: flex; gap: 10px;">
             <a href="https://wa.me/919845371459" target="_blank" class="ticker-contact-link" style="color: #25d366; font-size: 1.1rem;"><i class="fa-brands fa-whatsapp"></i></a>
@@ -1091,7 +910,7 @@
         </div>
 
         <div>
-          <h4 class="footer-col-title">Bangalore Admissions</h4>
+          <h4 class="footer-col-title">Bangalore Colleges</h4>
           <ul class="footer-links-list">
             <li><a href="#portalViewIndia">RVCE Bangalore</a></li>
             <li><a href="#portalViewIndia">Christ University</a></li>
@@ -1103,14 +922,14 @@
         </div>
 
         <div>
-          <h4 class="footer-col-title">Study Abroad</h4>
+          <h4 class="footer-col-title">Study Abroad Portal</h4>
           <ul class="footer-links-list">
-            <li><a href="#portalViewAbroad">Study in USA (STEM OPT)</a></li>
-            <li><a href="#portalViewAbroad">Study in UK (1-Yr Masters)</a></li>
-            <li><a href="#portalViewAbroad">Study in Canada (PGWP)</a></li>
-            <li><a href="#portalViewAbroad">Study in Germany (Free Tuition)</a></li>
-            <li><a href="#portalViewAbroad">Study in Australia (Go8)</a></li>
-            <li><a href="#testPrepSection">IELTS &amp; GRE Coaching</a></li>
+            <li><a href="theeduconsultant.in/index.html">theeduconsultant.in Flagship &rarr;</a></li>
+            <li><a href="theeduconsultant.in/index.html#usa">Study in USA (STEM OPT)</a></li>
+            <li><a href="theeduconsultant.in/index.html#uk">Study in UK (1-Yr Masters)</a></li>
+            <li><a href="theeduconsultant.in/index.html#germany">Study in Germany (Free Tuition)</a></li>
+            <li><a href="theeduconsultant.in/index.html#canada">Study in Canada (PGWP)</a></li>
+            <li><a href="theeduconsultant.in/courses-programs-IELTS.html">IELTS / GRE Coaching</a></li>
           </ul>
         </div>
 
@@ -1203,16 +1022,16 @@
         </div>
 
         <div>
-          <label style="display: block; font-size: 0.8rem; font-weight: 750; color: #334155; margin-bottom: 4px;">Target Stream / Country *</label>
+          <label style="display: block; font-size: 0.8rem; font-weight: 750; color: #334155; margin-bottom: 4px;">Target College / Stream *</label>
           <select name="course" class="form-control-select" required>
-            <option value="Engineering B.Tech (RVCE/BMSCE/Ramaiah)">Engineering B.Tech (RVCE / BMSCE / Ramaiah)</option>
+            <option value="RVCE Bangalore (B.Tech / CSE / AI)">RVCE Bangalore (B.Tech / CSE / AI)</option>
             <option value="Christ University (B.Com / BBA / Law)">Christ University (B.Com / BBA / Law)</option>
-            <option value="MBA / PGDM (Bangalore Autonomous)">MBA / PGDM (Bangalore Autonomous)</option>
-            <option value="MBBS / Medical & Allied Health">MBBS / Medical &amp; Allied Health</option>
-            <option value="Study in USA (Fall 2027)">Study in USA (Fall 2027)</option>
-            <option value="Study in UK (1-Year Masters)">Study in UK (1-Year Masters)</option>
-            <option value="Study in Germany (Zero Tuition)">Study in Germany (Zero Tuition)</option>
-            <option value="Test Prep (IELTS / GRE / GMAT)">Test Prep (IELTS / GRE / GMAT)</option>
+            <option value="BMSCE Basavanagudi (Engineering)">BMSCE Basavanagudi (Engineering)</option>
+            <option value="Ramaiah Institute (MSRIT)">Ramaiah Institute (MSRIT)</option>
+            <option value="PES University (RR &amp; EC)">PES University (RR &amp; EC)</option>
+            <option value="Dayananda Sagar College (DSCE)">Dayananda Sagar College (DSCE)</option>
+            <option value="MBA / PGDM (Autonomous Colleges)">MBA / PGDM (Autonomous Colleges)</option>
+            <option value="MBBS / Medical &amp; Allied Health">MBBS / Medical &amp; Allied Health</option>
           </select>
         </div>
 
@@ -1229,6 +1048,7 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/modern-portal.js?v=2027201"></script>
+  <script src="js/modern-portal.js?v=2027301"></script>
+  <script src="js/maximalism.js?v=2027301"></script>
 </body>
 </html>
