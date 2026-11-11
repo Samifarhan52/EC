@@ -25,3 +25,10 @@ yarn-error.log*
 *.env
 last-source.zip
 scratch/
+
+# Large backups and archives
+*.tar.gz
+edu-main.zip
+archive_legacy/
+theeduconsultant_unified.zip
+theeduconsultant_deploy.zip
